@@ -10,19 +10,38 @@
       </ul>
     </div>
   <% end %>
+
   <%= content_tag(:div, class: "row") do %>
     
     <%= content_tag(:div, class: "col-md-5") do %>
       <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :email, class: "bmd-label-floating" %>
-        <%= form.text_field :email, class: "form-control" %>
+        <%= form.label :name, class: "bmd-label-floating" %>
+        <%= form.text_field :name, class: "form-control" %>
       <% end %>
     <% end %>
 
     <%= content_tag(:div, class: "col-md-5") do %>
       <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :password, class: "bmd-label-floating" %>
-        <%= form.password_field :password, class: "form-control" %>
+        <%= form.label :surname, class: "bmd-label-floating" %>
+        <%= form.text_field :surname, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= content_tag(:div, class: "row") do %>
+    
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :birth_date, class: "bmd-label-floating" %>
+        <%= form.date_field :birth_date, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :phone, class: "bmd-label-floating" %>
+        <%= form.phone_field :phone, class: "form-control" %>
       <% end %>
     <% end %>
 

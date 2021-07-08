@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% @status = "info" %>
-<% @title = @user.email %>
+<% @title = @user.full_name %>
 <% @category = "Descripcion de la tareas en general." %>
 
 <%= content_tag(:div, class: "row") do %>
@@ -11,7 +11,9 @@
         <%= content_tag(:h4, @title, class: "card-title")%>
       <% end %>
       <%= content_tag(:div, class: "card-body") do %>
-        <%= @user %>
+        <%= content_tag(:p, "Email: #{@user.email}") %>
+        <%= content_tag(:p, "Phone: #{@user.phone}") %>
+        <%= content_tag(:p, "Birhdate: #{@user.birth_date}") %>
       <% end %>
     <% end %>
     <%= link_to 'Editar', edit_user_path(@user), class: "btn btn-#{@status} pull-right" %>

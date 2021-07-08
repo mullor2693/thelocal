@@ -14,7 +14,7 @@
           <%= content_tag(:body) do %>
             <% @users.each do |user| %>
               <%= content_tag(:tr) do %>
-                <%= content_tag(:td, user.email) %>
+                <%= content_tag(:td, user.full_name) %>
                 <%#= content_tag(:td, user.description) %>
                 <%= content_tag(:td, class: "td-actions text-right") do %>
                   <%= link_to user_path(user) do %>
