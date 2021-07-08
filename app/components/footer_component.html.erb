@@ -1,0 +1,16 @@
+<%= content_tag(:footer, class: "footer") do %>
+  <%= content_tag(:div, class: "container-fluid") do %>
+    <%= content_tag(:nav, class: "float-left") do %>
+      <%= content_tag(:ul) do %>
+        <%= content_tag(:li) do %>
+          <%= link_to(@link) do %>
+            <%= @link_text %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= content_tag(:div, class: "copyright float-right") do %>
+      <%= @copyright_text %>
+    <% end %>
+  <% end %>
+<% end %>

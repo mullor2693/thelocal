@@ -1,0 +1,40 @@
+<% @status = "primary" %>
+<% @title = "Homeworks" %>
+<% @category = "Descripcion de la tareas en general." %>
+
+<%= content_tag(:div, class: "row") do %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card") do %>
+      <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
+        <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
+        <%= content_tag(:p, @category, class: "card-category") if @category.present? %>
+      <% end %>
+      <%= content_tag(:div, class: "card-body") do %>
+        <%= content_tag(:table, class: "table") do %>
+          <%= content_tag(:body) do %>
+            <% @homeworks.each do |homework| %>
+              <%= content_tag(:tr) do %>
+                <%= content_tag(:td, homework.title) %>
+                <%#= content_tag(:td, homework.description) %>
+                <%= content_tag(:td, class: "td-actions text-right") do %>
+                  <%= link_to homework_path(homework) do %>
+                    <button type="button" title="Show Homework" class="btn btn-primary btn-link btn-sm">
+                      <i class="material-icons">open_in_new</i>
+                    </button>
+                  <% end %>
+                  <%= link_to homework_path(homework), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+                    <button type="button" title="Remove" class="btn btn-danger btn-link btn-sm">
+                      <i class="material-icons">close</i>
+                    </button>
+                  <%end%>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Nueva tarea', new_homework_path, class: "btn btn-primary pull-right" %>
+    <%#= link_to 'Volver', dashboard_path, class: "btn" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,40 @@
+<div class="sidebar" data-color="purple" data-background-color="white">
+  <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+    Tip 2: you can also add an image using data-image tag
+  -->
+
+  <%= content_tag(:div, class: "logo") do %>
+    <%= link_to "MH", root_path, class: "simple-text logo-mini" %>
+    <%= link_to "My Home", root_path, class: "simple-text logo-normal" %>
+  <% end %>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item <%= "active" if is_active_link?(dashboard_path, :inclusive) %>">
+         <%= link_to(dashboard_path, class: "nav-link") do %>
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+          <% end %>
+      </li>
+      <li class="nav-item <%= "active" if is_active_link?(users_path, :inclusive) %>">
+         <%= link_to(users_path, class: "nav-link") do %>
+            <i class="material-icons">people</i>
+            <p>Usuarios</p>
+          <% end %>
+      </li>
+      <li class="nav-item <%= "active" if is_active_link?(homeworks_path, :inclusive) %>">
+         <%= link_to(homeworks_path, class: "nav-link") do %>
+            <i class="material-icons">maps_home_work</i>
+            <p>Tareas</p>
+          <% end %>
+      </li>
+      <li class="nav-item <%= "active" if is_active_link?(rooms_path, :inclusive) %>">
+         <%= link_to(rooms_path, class: "nav-link") do %>
+            <i class="material-icons">room_preferences</i>
+            <p>Habitaciones</p>
+          <% end %>
+      </li>
+      <!-- your sidebar here -->
+    </ul>
+  </div>
+</div>

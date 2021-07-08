@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
   <head>
     <title>Thelocal</title>
@@ -14,4 +14,42 @@
   <body class="text-center">
     <%= yield %>
   </body>
-</html>
+</html>-->
+
+<!doctype html>
+<%= content_tag(:html) do %>
+  <%= content_tag(:head) do %>
+    <%= content_tag(:title, Rails.application.class.name) %>
+    <!-- Required meta tags -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- Material Kit CSS -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  <% end %>
+  <%= content_tag(:body) do %>
+    <%= content_tag(:div, class: "wrapper") do %>
+      <%= render "layouts/sidebar" %>
+      <%= content_tag(:div, class: "main-panel") do %>
+        <%= render "layouts/navbar" %>
+        <%= content_tag(:div, class: "content") do %>
+          <%= content_tag(:div, yield, class: "container-fluid") %>
+        <% end %>
+        <%#= render(FooterComponent.new(link: dashboard_path, link_text: "Adri Mullor", copyright_text: '&copy;2021, made with <i class="material-icons">favorite</i>'.html_safe) ) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<%end%>
+
+<% unless flash.empty? %>
+   <script type="text/javascript">
+      <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+        toastr['<%= type %>']('<%= f[1] %>');
+      <% end %>
+   </script>
+<% end %>

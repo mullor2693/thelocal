@@ -1,0 +1,34 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= content_tag(:div, class: "row") do %>
+    
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :email, class: "bmd-label-floating" %>
+        <%= form.text_field :email, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :password, class: "bmd-label-floating" %>
+        <%= form.password_field :password, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+  
+  <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
+  <%= link_to 'Cancelar', users_path, class: "btn" %>
+
+<% end %>

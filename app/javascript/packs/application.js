@@ -14,3 +14,5 @@ const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()
+
+global.toastr = require("toastr")

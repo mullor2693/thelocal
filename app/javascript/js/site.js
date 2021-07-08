@@ -1,1 +1,2 @@
-import 'bootstrap'
+import 'bootstrap';
+import 'js/material-dashboard';
