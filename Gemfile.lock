@@ -108,6 +108,8 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.0)
     minitest (5.14.4)
+    montrose (0.12.0)
+      activesupport (>= 5.2, <= 7.0)
     msgpack (1.4.2)
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-linux)
@@ -223,6 +225,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  montrose
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -240,4 +243,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.6
+   2.2.22

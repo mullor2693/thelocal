@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   devise_for :users, path: 'account'
   resources :users
   resources :rooms

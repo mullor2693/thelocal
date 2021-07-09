@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_205937) do
+ActiveRecord::Schema.define(version: 2021_07_09_151437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean "is_full_event", default: false
+    t.boolean "is_recurring", default: false
+    t.json "recurrence", default: {}
+    t.integer "creator_id"
+    t.integer "parent_event_id"
+    t.string "eventable_type"
+    t.bigint "eventable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable"
+  end
 
   create_table "homeworks", force: :cascade do |t|
     t.string "title"

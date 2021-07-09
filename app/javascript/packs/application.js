@@ -9,8 +9,8 @@ import "channels"
 import 'scss/site'
 import 'js/site'
 
-const images = require.context('../images', true)
-const imagePath = (name) => images(name, true)
+// const images = require.context('../images', true)
+// const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()

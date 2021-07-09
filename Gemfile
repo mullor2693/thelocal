@@ -58,3 +58,5 @@ gem "view_component", require: "view_component/engine"
 gem 'devise'
 
 gem 'active_link_to'
+
+gem 'montrose'
