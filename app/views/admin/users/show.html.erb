@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<% @status = "primary" %>
-<% @title = @homework.title %>
+<% @status = "info" %>
+<% @title = @user.full_name %>
 <% @category = "Descripcion de la tareas en general." %>
 
 <%= content_tag(:div, class: "row") do %>
@@ -11,11 +11,12 @@
         <%= content_tag(:h4, @title, class: "card-title")%>
       <% end %>
       <%= content_tag(:div, class: "card-body") do %>
-        <%= @homework.description %>
+        <%= content_tag(:p, "Email: #{@user.email}") %>
+        <%= content_tag(:p, "Phone: #{@user.phone}") %>
+        <%= content_tag(:p, "Birhdate: #{@user.birth_date}") %>
       <% end %>
     <% end %>
-    <%= link_to 'Editar', edit_homework_path(@homework), class: "btn btn-primary pull-right" %>
-    <%= link_to 'Eventos', events_path, class: "btn btn-secondary pull-right" %>
-    <%= link_to 'Volver', homeworks_path, class: "btn" %>
+    <%= link_to 'Editar', edit_user_path(@user), class: "btn btn-#{@status} pull-right" %>
+    <%= link_to 'Volver', users_path, class: "btn" %>
   <% end %>
 <% end %>

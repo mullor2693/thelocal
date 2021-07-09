@@ -1,40 +1,18 @@
-<div class="sidebar" data-color="primary" data-background-color="white">
-  <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-    Tip 2: you can also add an image using data-image tag
-  -->
-
+<%= content_tag(:div, class: "sidebar", data: {color: "primary", background_color:"white"} ) do %>
   <%= content_tag(:div, class: "logo") do %>
     <%= link_to "MH", root_path, class: "simple-text logo-mini" %>
     <%= link_to "My Home", root_path, class: "simple-text logo-normal" %>
   <% end %>
-  <div class="sidebar-wrapper">
-    <ul class="nav">
-      <li class="nav-item <%= "active" if is_active_link?(dashboard_path, :inclusive) %>">
-         <%= link_to(dashboard_path, class: "nav-link") do %>
-            <i class="material-icons">dashboard</i>
-            <p>Dashboard</p>
-          <% end %>
-      </li>
-      <li class="nav-item <%= "active" if is_active_link?(users_path, :inclusive) %>">
-         <%= link_to(users_path, class: "nav-link") do %>
-            <i class="material-icons">people</i>
-            <p>Usuarios</p>
-          <% end %>
-      </li>
-      <li class="nav-item <%= "active" if is_active_link?(homeworks_path, :inclusive) %>">
-         <%= link_to(homeworks_path, class: "nav-link") do %>
-            <i class="material-icons">maps_home_work</i>
-            <p>Tareas</p>
-          <% end %>
-      </li>
-      <li class="nav-item <%= "active" if is_active_link?(rooms_path, :inclusive) %>">
-         <%= link_to(rooms_path, class: "nav-link") do %>
-            <i class="material-icons">room_preferences</i>
-            <p>Habitaciones</p>
-          <% end %>
-      </li>
-      <!-- your sidebar here -->
-    </ul>
-  </div>
-</div>
+  <%= content_tag(:div, class: "sidebar-wrapper") do %>
+    <%= content_tag(:ul, class: "nav") do %>
+      <%= render(NavItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
+      <%= render(NavItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
+      <%= render(NavItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Tareas', active: is_active_link?(homeworks_path, :inclusive) )) %>
+      <%= content_tag(:hr) %>
+      <%= render(NavItemComponent.new(link: admin_dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(admin_dashboard_path, :inclusive) )) %>
+      <%= render(NavItemComponent.new(link: admin_users_path, icon: 'people', title: 'Gestion de Usuarios', active: is_active_link?(admin_users_path, :inclusive) )) %>
+      <%= render(NavItemComponent.new(link: admin_homeworks_path, icon: 'maps_home_work', title: 'Gestión de Tareas', active: is_active_link?(admin_homeworks_path, :inclusive) )) %>
+      <%= render(NavItemComponent.new(link: admin_rooms_path, icon: 'room_preferences', title: 'Habitaciones', active: is_active_link?(admin_rooms_path, :inclusive) )) %>
+    <% end %>
+  <% end %>
+<%end%>
