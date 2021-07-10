@@ -5,7 +5,7 @@
   <% end %>
   <%= content_tag(:div, class: "sidebar-wrapper") do %>
     <%= content_tag(:ul, class: "nav") do %>
-      <%= render(NavItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
+      <%= render(Nav::NavItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
       <%= render(NavItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
       <%= render(NavItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Tareas', active: is_active_link?(homeworks_path, :inclusive) )) %>
       <%= content_tag(:hr) %>

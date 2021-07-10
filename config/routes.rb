@@ -14,8 +14,13 @@ Rails.application.routes.draw do
       resources :events
       resources :users
       resources :rooms
-      resources :homeworks
+      resources :homeworks do
+        scope module: 'homeworks' do
+          resources :events
+        end
+      end
     end
+
     root 'dashboard#index', as: :authenticated_root
   end
 

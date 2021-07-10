@@ -1,0 +1,6 @@
+<%= content_tag(:li, class: @li_class) do %>
+  <%= link_to(@link, class: "nav-link") do %>
+    <%= content_tag(:i, @icon, class: "material-icons") %>
+    <%= content_tag(:p, @title) %>
+  <% end %>
+<% end %>

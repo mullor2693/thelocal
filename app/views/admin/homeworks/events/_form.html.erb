@@ -1,0 +1,56 @@
+<%= form_with(model: [:admin, @homework, event]) do |form| %>
+
+  <%= content_tag(:div, class: "row") do %>
+    
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :name, class: "bmd-label-floating" %>
+        <%= form.text_field :name, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :description, class: "bmd-label-floating" %>
+        <%= form.text_field :description, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= content_tag(:div, class: "row") do %>
+    
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :start_date, class: "bmd-label-floating" %>
+        <%= form.datetime_select :start_date, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :end_date, class: "bmd-label-floating" %>
+        <%= form.datetime_select :end_date, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= content_tag(:div, class: "row") do %>
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :is_full_event, class: "bmd-label-floating" %>
+        <%= form.check_box :is_full_event, class: "form-control" %>
+      <% end %>
+    <% end %>
+    <%= content_tag(:div, class: "col-md-5") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :is_recurring, class: "bmd-label-floating" %>
+        <%= form.check_box :is_recurring, class: "form-control" %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
+  <%= link_to 'Cancelar', admin_homework_events_path(@homework), class: "btn" %>
+<% end %>
