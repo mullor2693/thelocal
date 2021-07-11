@@ -5,18 +5,18 @@
       <%= link_to('Home', root_path, class: "navbar-brand") %>
     <% end %>
     
-    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-    </button>
+    <%= content_tag(:button, class: "navbar-toggler", data: {toggle:"collapse"}, aria: {controls: "navigation-index" , expanded:"false", label:"Toggle navigation"}) do %>
+      <%= content_tag(:span, 'Toggle navigation', class: "sr-only") %>
+      <%= content_tag(:span, '', class: "navbar-toggler-icon icon-bar") %>
+      <%= content_tag(:span, '', class: "navbar-toggler-icon icon-bar") %>
+      <%= content_tag(:span, '', class: "navbar-toggler-icon icon-bar") %>
+    <% end %>
 
-    <div class="collapse navbar-collapse justify-content-end">
+    <%= content_tag(:div, class: "collapse navbar-collapse justify-content-end") do %>
       <!-- TODO: Remove form -->
       <form class="navbar-form">
       </form>
-      <ul class="navbar-nav">
+      <%= content_tag(:ul, class: "navbar-nav") do %>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">notifications</i>
@@ -52,8 +52,8 @@
             <% end %>
           </div>
         </li>
-      </ul>
-    </div>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 <!-- End Navbar -->
