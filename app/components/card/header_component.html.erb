@@ -1,0 +1,4 @@
+<%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
+  <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
+  <%= content_tag(:p, @subtitle, class: "card-subtitle") if @subtitle.present? %>
+<% end %>

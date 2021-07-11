@@ -1,14 +1,7 @@
-<% @status = "primary" %>
-<% @title = "Eventos de #{@homework.title}" %>
-<% @category = "Descripcion de la tareas en general." %>
-
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
-        <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
-        <%= content_tag(:p, @category, class: "card-category") if @category.present? %>
-      <% end %>
+      <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Eventos relacionados a la tarea.", color: 'primary')) %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= content_tag(:table, class: "table") do %>
           <%= content_tag(:body) do %>
@@ -16,18 +9,7 @@
               <%= content_tag(:tr) do %>
                 <%= content_tag(:td, format_date(event.start_date)) %>
                 <%= content_tag(:td, format_date(event.end_date)) %>
-                <%= content_tag(:td, class: "td-actions text-right") do %>
-                  <%= link_to admin_homework_event_path(@homework, event) do %>
-                    <button type="button" title="Show event" class="btn btn-primary btn-link btn-sm">
-                      <i class="material-icons">open_in_new</i>
-                    </button>
-                  <% end %>
-                  <%= link_to admin_homework_event_path(@homework, event), method: :delete, data: { confirm: 'Are you sure?' }  do %>
-                    <button type="button" title="Remove" class="btn btn-danger btn-link btn-sm">
-                      <i class="material-icons">close</i>
-                    </button>
-                  <%end%>
-                <% end %>
+                <%= render(Table::TdActionsComponent.new(link: admin_homework_event_path(@homework, event))) %>
               <% end %>
             <% end %>
           <% end %>
