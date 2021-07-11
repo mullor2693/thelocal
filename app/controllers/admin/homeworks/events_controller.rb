@@ -22,6 +22,7 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
   # POST /events or /events.json
   def create
     @event = @events.new(event_params)
+    @event.creator = @current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to [:admin, @homework, @event], notice: "Event was successfully created." }
@@ -67,6 +68,6 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :creator_id, :parent_event_id)
+      params.require(:event).permit(:name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :parent_event_id)
     end
 end

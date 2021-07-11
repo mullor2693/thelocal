@@ -1,16 +1,18 @@
-<%= form_with(model: user) do |form| %>
-  <!-- <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %> -->
-
+<%= form_with(model: [:admin, user]) do |form| %>
+  <%= content_tag(:div, class: "row") do %>    
+    <%= content_tag(:div, class: "col-sm-6") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-control" %>
+      <% end %>
+    <% end %>
+    <%= content_tag(:div, class: "col-sm-6") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :password, class: "bmd-label-floating" %>
+        <%= form.text_field :password, value: (user&.password || SecureRandom.hex(8)), class: "form-control" %>
+      <% end %>
+    <% end %>
+  <% end %>
   <%= content_tag(:div, class: "row") do %>
     
     <%= content_tag(:div, class: "col-md-5") do %>
@@ -28,17 +30,16 @@
     <% end %>
 
   <% end %>
-
   <%= content_tag(:div, class: "row") do %>
     
-    <%= content_tag(:div, class: "col-md-5") do %>
+    <%= content_tag(:div, class: "col-sm-6") do %>
       <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :birth_date, class: "bmd-label-floating" %>
+        <%= form.label :birth_date, class: "form-label" %>
         <%= form.date_field :birth_date, class: "form-control" %>
       <% end %>
     <% end %>
 
-    <%= content_tag(:div, class: "col-md-5") do %>
+    <%= content_tag(:div, class: "col-sm-6") do %>
       <%= content_tag(:div, class: "form-group") do %>
         <%= form.label :phone, class: "bmd-label-floating" %>
         <%= form.phone_field :phone, class: "form-control" %>
@@ -46,8 +47,6 @@
     <% end %>
 
   <% end %>
-  
   <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
-  <%= link_to 'Cancelar', users_path, class: "btn" %>
-
+  <%= link_to 'Cancelar', admin_users_path, class: "btn" %>
 <% end %>

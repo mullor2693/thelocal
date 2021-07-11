@@ -1,9 +1,9 @@
 class HomeworksController < ApplicationController
+  before_action :set_homeworks
   before_action :set_homework, only: %i[ show edit update destroy ]
 
   # GET /homeworks or /homeworks.json
   def index
-    @homeworks = Homework.all
   end
 
   # GET /homeworks/1 or /homeworks/1.json
@@ -58,6 +58,11 @@ class HomeworksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def set_homeworks
+      @homeworks = Homework.all # current_user.assigned_events
+    end
+
     def set_homework
       @homework = Homework.find(params[:id])
     end

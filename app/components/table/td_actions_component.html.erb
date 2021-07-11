@@ -1,4 +1,6 @@
 <%= content_tag(:td, class: "td-actions text-right") do %>
   <%= render(Button::SmallComponent.new(link: @link, title: "Ver", icon: "open_in_new", color: @color )) %>
-  <%= render(Button::SmallComponent.new(link: @link, title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } )) %>
+  <% if @destroy %>
+    <%= render(Button::SmallComponent.new(link: @link, title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } )) %>
+  <% end %>
 <% end %>

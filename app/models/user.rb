@@ -3,6 +3,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Associations
+  has_many :event_managers
+  has_many :managed_events, through: :event_managers, source: :event
+  has_many :event_assignees
+  has_many :assigned_events, through: :event_assignees, source: :event
+
 
   # Callbacks
 

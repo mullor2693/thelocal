@@ -1,4 +1,9 @@
 <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
   <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
   <%= content_tag(:p, @subtitle, class: "card-subtitle") if @subtitle.present? %>
+  <% if @edit_link.present? %>
+    <%= content_tag(:div, class: "text-right") do %>
+      <%= render(Button::SmallComponent.new(link: @edit_link, title: "Editar", icon: "edit", color: "white" )) %>
+    <% end %>
+  <% end %>
 <% end %>

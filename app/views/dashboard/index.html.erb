@@ -1,17 +1,7 @@
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to users_path do %>
-      <%= render(CardStatsComponent.new(color: "info", card_icon: "people", category: "Descripcion de los ususarios en general.", title: "Usuarios", footer_text: "#{User.all.count} usuarios creados" )) %>
-    <% end %>
-  <% end %>
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
     <%= link_to homeworks_path do %>
       <%= render(CardStatsComponent.new(color: "primary", card_icon: "maps_home_work", category: "Descripcion de la tareas en general.", title: "Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
-    <% end %>
-  <% end %>
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to rooms_path do %>
-      <%= render(CardStatsComponent.new(color: "success", card_icon: "room_preferences", category: "Descripcion de la habitaciones en general.", title: "Habitaciones", footer_text: "#{Room.all.count} habitaciones creadas" )) %>
     <% end %>
   <% end %>
   <!-- 

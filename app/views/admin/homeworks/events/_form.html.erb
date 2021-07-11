@@ -1,14 +1,14 @@
 <%= form_with(model: [:admin, @homework, event]) do |form| %>
   <%= content_tag(:div, class: "row") do %>
     
-    <%= content_tag(:div, class: "col-md-5") do %>
+    <%= content_tag(:div, class: "col-md-6") do %>
       <%= content_tag(:div, class: "form-group") do %>
         <%= form.label :start_date, class: "bmd-label-floating" %>
         <%= form.datetime_select :start_date, class: "form-control" %>
       <% end %>
     <% end %>
 
-    <%= content_tag(:div, class: "col-md-5") do %>
+    <%= content_tag(:div, class: "col-md-6") do %>
       <%= content_tag(:div, class: "form-group") do %>
         <%= form.label :end_date, class: "bmd-label-floating" %>
         <%= form.datetime_select :end_date, class: "form-control" %>
@@ -17,18 +17,37 @@
 
   <% end %>
   <%= content_tag(:div, class: "row") do %>
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :is_full_event, class: "bmd-label-floating" %>
-        <%= form.check_box :is_full_event, class: "form-control" %>
+    <%= content_tag(:div, class: "col-6") do %>
+      <%= content_tag(:div, class: "form-check") do %>
+        <%= form.check_box :is_full_event, class: "" %>
+        <%= form.label :is_full_event, class: "form-check-label" %>
       <% end %>
     <% end %>
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :is_recurring, class: "bmd-label-floating" %>
-        <%= form.check_box :is_recurring, class: "form-control" %>
+    <%= content_tag(:div, class: "col-6") do %>
+      <%= content_tag(:div, class: "form-check") do %>
+        <%= form.check_box :is_recurring, class: "" %>
+        <%= form.label :is_recurring, class: "form-check-label" %>
       <% end %>
     <% end %>
+  <% end %>
+  <%= content_tag(:div, class: "row") do %>
+    <% users = User.all %>
+    <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
+    <% counter_show = (users&.count || 0) + 1 %>
+    <%= content_tag(:div, class: "col-md-6") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :assignees, class: "bmd-label-floating" %>
+        <%= form.select(:assignees, users_list, { :prompt => "Selecciona uno o varios"}, { :multiple => true, :size => counter_show }) %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag(:div, class: "col-md-6") do %>
+      <%= content_tag(:div, class: "form-group") do %>
+        <%= form.label :managers, class: "bmd-label-floating" %>
+        <%= form.select(:managers, users_list, { :prompt => "Selecciona uno o varios"}, { :multiple => true, :size => counter_show }) %>
+      <% end %>
+    <% end %>
+
   <% end %>
   <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
   <%= link_to 'Cancelar', admin_homework_events_path(@homework), class: "btn" %>
