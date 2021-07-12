@@ -1,0 +1,12 @@
+
+<%= content_tag(:div, class: "sidebar", data: {color: @color, background_color: @background} ) do %>
+  <%= content_tag(:div, class: "logo") do %>
+    <%= link_to @logo, @root_path, class: "simple-text logo-mini" %>
+    <%= link_to @name, @root_path, class: "simple-text logo-normal" %>
+  <% end %>
+  <%= content_tag(:div, class: "sidebar-wrapper") do %>
+    <%= content_tag(:ul, class: "nav") do %>
+      <%= content %>
+    <% end %>
+  <% end %>
+<%end%>

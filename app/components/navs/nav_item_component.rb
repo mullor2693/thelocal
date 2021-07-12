@@ -1,4 +1,4 @@
-class Nav::NavItemComponent < ViewComponent::Base
+class Navs::NavItemComponent < ViewComponent::Base
   def initialize(link:, title:, icon:nil, active:false)
     @link = link || root_path
     @title = title
