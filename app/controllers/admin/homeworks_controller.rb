@@ -1,45 +1,42 @@
 class Admin::HomeworksController < Admin::ApplicationController
   before_action :set_homework, only: %i[ show edit update destroy ]
 
-  # GET /homeworks or /homeworks.json
+  # GET admin/homeworks
   def index
     @homeworks = Homework.all
   end
 
-  # GET /homeworks/1 or /homeworks/1.json
+  # GET admin/homeworks/1
   def show
   end
 
-  # GET /homeworks/new
+  # GET admin/homeworks/new
   def new
     @homework = Homework.new
   end
 
-  # GET /homeworks/1/edit
+  # GET admin/homeworks/1/edit
   def edit
   end
 
-  # POST /homeworks or /homeworks.json
+  # POST admin/homeworks
   def create
     @homework = Homework.new(homework_params)
-
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to @homework, notice: "Homework was successfully created." }
-        format.json { render :show, status: :created, location: @homework }
+        format.html { redirect_to [:admin, @homework], notice: "Homework was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @homework.errors, status: :unprocessable_entity }
+        format.html { render new_admin_homework_path(@homework), status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /homeworks/1 or /homeworks/1.json
+  # PATCH/PUT admin/homeworks/1
   def update
     respond_to do |format|
       if @homework.update(homework_params)
-        format.html { redirect_to @homework, notice: "Homework was successfully updated." }
-        format.json { render :show, status: :ok, location: @homework }
+        format.html { redirect_to [:admin, @homework], notice: "Homework was successfully updated." }
+        format.json { render :show, status: :ok, location: [:admin, @homework] }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @homework.errors, status: :unprocessable_entity }
@@ -47,11 +44,11 @@ class Admin::HomeworksController < Admin::ApplicationController
     end
   end
 
-  # DELETE /homeworks/1 or /homeworks/1.json
+  # DELETE admin/homeworks/1
   def destroy
     @homework.destroy
     respond_to do |format|
-      format.html { redirect_to homeworks_url, notice: "Homework was successfully destroyed." }
+      format.html { redirect_to admin_homeworks_url, notice: "Homework was successfully destroyed." }
       format.json { head :no_content }
     end
   end
