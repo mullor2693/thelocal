@@ -1,14 +1,7 @@
-<% @status = "primary" %>
-<% @title = "Gestión de Tareas" %>
-<% @category = "Aqui puedes ver tus tareas añadidas y gestionar eventos." %>
-
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
-        <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
-        <%= content_tag(:p, @category, class: "card-category") if @category.present? %>
-      <% end %>
+      <%= render(Card::HeaderComponent.new(title: "Tareas", subtitle: "Listado de tareas de la app.", color: 'primary')) %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= content_tag(:table, class: "table") do %>
           <%= content_tag(:body) do %>
@@ -16,7 +9,7 @@
               <%= content_tag(:tr) do %>
                 <%= content_tag(:td, homework.title) %>
                 <%#= content_tag(:td, homework.description) %>
-                <%= render(Table::TdActionsComponent.new(link: homework_path(homework), color: @status)) %>
+                <%= render(Table::TdActionsComponent.new(link: homework_path(homework), color: 'primary')) %>
               <% end %>
             <% end %>
           <% end %>
