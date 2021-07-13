@@ -1,4 +1,4 @@
-<%= render(Navs::NavbarComponent.new(name: "My Homeworks")) do %>
+<%= render(Navs::NavbarComponent.new(name: "My Homeworks", hide_toggler: !user_signed_in?)) do %>
   <!-- TODO: Remove form -->
   <form class="navbar-form">
   </form>
