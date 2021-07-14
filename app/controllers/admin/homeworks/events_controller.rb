@@ -2,24 +2,24 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
   before_action :set_events
   before_action :set_event, only: %i[ show edit update destroy ]
 
-  # GET /events or /events.json
+  # GET admin/homeworks/1/events
   def index
   end
 
-  # GET /events/1 or /events/1.json
+  # GET admin/homeworks/1/events/1
   def show
   end
 
-  # GET /events/new
+  # GET admin/homeworks/1/events/new
   def new
     @event = @events.new
   end
 
-  # GET /events/1/edit
+  # GET admin/homeworks/1/events/1/edit
   def edit
   end
 
-  # POST /events or /events.json
+  # POST admin/homeworks/1/events
   def create
     @event = @events.new(event_params)
     @event.creator = @current_user
@@ -34,7 +34,7 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
     end
   end
 
-  # PATCH/PUT /events/1 or /events/1.json
+  # PATCH/PUT admin/homeworks/1/events/1
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -47,7 +47,7 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
     end
   end
 
-  # DELETE /events/1 or /events/1.json
+  # DELETE admin/homeworks/1/events/1 or admin/homeworks/1/events/1.json
   def destroy
     @event.destroy
     respond_to do |format|
@@ -68,6 +68,6 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :parent_event_id)
+      params.require(:event).permit(:name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :parent_event_id, :assignee_ids => [], :manager_ids => [])
     end
 end

@@ -9,6 +9,8 @@
               <%= content_tag(:tr) do %>
                 <%= content_tag(:td, format_date(event.start_date)) %>
                 <%= content_tag(:td, format_date(event.end_date)) %>
+                <%= content_tag(:td, event.assignees.count) %>
+                <%= content_tag(:td, event.managers.count) %>
                 <%= render(Table::TdActionsComponent.new(link: admin_homework_event_path(@homework, event), color: @status)) %>
               <% end %>
             <% end %>

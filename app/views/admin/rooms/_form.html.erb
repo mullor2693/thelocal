@@ -13,15 +13,15 @@
   <%= content_tag(:div, class: "row") do %>
     
     <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :name, class: "bmd-label-floating" %>
+      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+        <%= form.label :name, class: "bmd-label-static" %>
         <%= form.text_field :name, class: "form-control" %>
       <% end %>
     <% end %>
 
     <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :description, class: "bmd-label-floating" %>
+      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+        <%= form.label :description, class: "bmd-label-static" %>
         <%= form.text_area :description, class: "form-control" %>
       <% end %>
     <% end %>

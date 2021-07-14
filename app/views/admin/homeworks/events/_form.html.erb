@@ -2,35 +2,35 @@
   <%= content_tag(:div, class: "row") do %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"start_date", field_type: "datetime_select")), class: "col-md-6") %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"end_date", field_type: "datetime_select")), class: "col-md-6") %>
+   <% end %>
+   <%= content_tag(:div, class: "row") do %>          
+    <% users = User.all %>
+    <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
+    <% counter_show = (users&.count || 0) %>
+    <%= content_tag(:div, class: "col-6") do %>
+      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+        <%= form.label 'Asignados', class: "bmd-label-static" %>
+        <%= form.select(:assignee_ids, users_list, {}, { multiple: true, size: counter_show, class: "form-control" }) %>
+      <% end %>
+    <% end %>
+    <%= content_tag(:div, class: "col-6") do %>
+      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+        <%= form.label 'Managers', class: "bmd-label-static" %>
+        <%= form.select(:manager_ids, users_list, {}, { multiple: true, size: counter_show, class: "form-control" }) %>
+      <% end %>
+    <% end %>
   <% end %>
   <%= content_tag(:div, class: "row") do %>
     <%= content_tag(:div, class: "col-6") do %>
       <%= content_tag(:div, class: "form-check") do %>
         <%= form.check_box :is_full_event, class: "" %>
-        <%= form.label :is_full_event, class: "form-check-label" %>
+        <%= form.label 'Full day', class: "form-check-label" %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: "col-6") do %>
       <%= content_tag(:div, class: "form-check") do %>
         <%= form.check_box :is_recurring, class: "" %>
         <%= form.label :is_recurring, class: "form-check-label" %>
-      <% end %>
-    <% end %>
-  <% end %>
-  <%= content_tag(:div, class: "row") do %>
-    <% users = User.all %>
-    <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
-    <% counter_show = (users&.count || 0) + 1 %>
-    <%= content_tag(:div, class: "col-md-6") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :assignees, class: "bmd-label-floating" %>
-        <%= form.select(:assignees, users_list, { :prompt => "Selecciona uno o varios"}, { :multiple => true, :size => counter_show }) %>
-      <% end %>
-    <% end %>
-    <%= content_tag(:div, class: "col-md-6") do %>
-      <%= content_tag(:div, class: "form-group") do %>
-        <%= form.label :managers, class: "bmd-label-floating" %>
-        <%= form.select(:managers, users_list, { :prompt => "Selecciona uno o varios"}, { :multiple => true, :size => counter_show }) %>
       <% end %>
     <% end %>
   <% end %>

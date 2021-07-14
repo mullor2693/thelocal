@@ -3,8 +3,6 @@
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"title", field_type: "text_field")), class: "col-12") %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", field_type: "text_area")), class: "col-12") %>
   <% end %>
-  
   <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
   <%= link_to 'Cancelar', homeworks_path, class: "btn" %>
-
 <% end %>

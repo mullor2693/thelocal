@@ -26,6 +26,7 @@ form {
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 .form-control {
+  box-shadow: none;
   background: $bmd-form-control-bg-repeat-y $bmd-form-control-bg-position;
   background-size: $bmd-form-control-bg-size;
   border: 0;
