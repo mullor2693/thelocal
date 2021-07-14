@@ -1,13 +1,40 @@
 <%= content_tag(:div, class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: @homework.title, color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= @homework.description %>
-      <% end %>
-    <% end %>
+  <%= content_tag(:div, class: "col-12") do %>
     <%= link_to 'Editar', edit_admin_homework_path(@homework), class: "btn btn-primary pull-right" %>
     <%= link_to 'Eventos', admin_homework_events_path(@homework), class: "btn btn-secondary pull-right" %>
     <%= link_to 'Volver', admin_homeworks_path, class: "btn" %>
+  <% end %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card") do %>
+      <%= render(Card::HeaderComponent.new(title: @homework.title, color: "primary")) %>
+      <%= content_tag(:div, class: "card-body sroll-body") do %>
+        <%= @homework.description %>
+      <% end %>
+      <%= content_tag(:div, class: "card-footer") do %>
+        <%= content_tag(:div, class: "stats") do %>
+          <%= content_tag(:i, "list", class: "material-icons") %>
+          <%= "#{@homework.events.count} eventos creados."%>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card card-chart") do %>
+      <%= content_tag(:div, class: "card-header card-header-primary") do %>
+        <%= content_tag(:div, {class: "ct-chart", id: @chart_id}) do %>
+          <%= column_chart Event.report_week(@homework.events), id:"column_chart report-week-events", colors: ["#eeeeeea9"], download: "weekly_events_report", refresh: 60, :library => {:colors => ["#eeeeeea9"]} %>   
+        <% end %>
+      <% end %>
+      <%= content_tag(:div, class: "card-body") do %>
+        <%= content_tag(:h4, "Eventos Semanales Totales", class: "card-title") %>
+        <%= content_tag(:p, "Recuento totales de los eventos semanales asociados a toas las tareas.", class: "card-category") %>
+      <% end %>
+      <%= content_tag(:div, class: "card-footer") do %>
+        <%= content_tag(:div, class: "stats") do %>
+          <%= content_tag(:i, "list", class: "material-icons") %>
+          <%= "#{Event.count} eventos creados."%>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

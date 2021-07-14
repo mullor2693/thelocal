@@ -1,6 +1,7 @@
 module ApplicationHelper
     GLOBAL_STATUSES = ["primary", "info", "warning", "danger", "success", "none"]
     STATUSES = ["info", "warning", "danger", "success", "none"]
+    WEEK_DAYS = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 
     def toastr_flash
         flash.each_with_object([]) do |(type, message), flash_messages|
