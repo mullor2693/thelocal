@@ -1,20 +1,21 @@
-<p id="notice"><%= notice %></p>
-
 <% @status = "primary" %>
-<% @title = @homework.title %>
-<% @category = "Descripcion de la tareas en general." %>
 
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
-        <%= content_tag(:h4, @title, class: "card-title")%>
-      <% end %>
+      <%= render(Card::HeaderComponent.new(title: @homework.title, color: @status)) %>
       <%= content_tag(:div, class: "card-body") do %>
-        <%= @homework.description %>
+        <%= content_tag(:div, class: "row") do %>
+          <%= content_tag(:div, class: "col-10") do %>
+            <%= @homework.description %>
+          <% end %>
+          <%= content_tag(:div, class: "col-2 text-center") do %>
+            <%= render(Button::SmallComponent.new(link: edit_admin_homework_path(@homework), title: "Editar", icon: "edit", color: @status )) %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-    <%= link_to 'Editar', edit_admin_homework_path(@homework), class: "btn btn-primary pull-right" %>
+    <%#= link_to 'Editar', edit_admin_homework_path(@homework), class: "btn btn-primary pull-right" %>
     <%= link_to 'Eventos', admin_homework_events_path(@homework), class: "btn btn-primary pull-right" %>
     <%= link_to 'Volver', admin_homeworks_path, class: "btn" %>
   <% end %>
