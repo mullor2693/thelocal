@@ -1,16 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <% @status = "success" %>
-<% @title = "Rooms" %>
-<% @category = "Descripcion de las habitaciones en general." %>
 
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
-        <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
-        <%= content_tag(:p, @category, class: "card-category") if @category.present? %>
-      <% end %>
+      <%= render(Card::HeaderComponent.new(title: 'Habitaciones', subtitle: "Descripcion de las habitaciones en general.", color: @status)) %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= content_tag(:table, class: "table") do %>
           <%= content_tag(:body) do %>
@@ -18,14 +13,14 @@
               <%= content_tag(:tr) do %>
                 <%= content_tag(:td, room.name) %>
                 <%#= content_tag(:td, room.description) %>
-                <%= render(Table::TdActionsComponent.new(link: room_path(room), color: @status)) %>
+                <%= render(Table::TdActionsComponent.new(link: admin_room_path(room), color: @status)) %>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
-    <%= link_to 'Nueva habitacion', new_room_path, class: "btn btn-success pull-right" %>
-    <%#= link_to 'Volver', dashboard_path, class: "btn" %>
+    <%= link_to 'Nueva habitacion', new_admin_room_path, class: "btn btn-success pull-right" %>
+    <%= link_to 'Volver', dashboard_path, class: "btn" %>
   <% end %>
 <% end %>

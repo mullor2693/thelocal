@@ -8,4 +8,16 @@ class Event < ApplicationRecord
   has_many :managers, through: :event_managers, source: :user
   has_many :event_assignees
   has_many :assignees, through: :event_assignees, source: :user
+
+  
+
+  def self.report_week(events=nil)
+    wday_hash = {}
+    wday_counters = (events || self.all).group_by { |x| x&.start_date&.wday }.sort.map { |wday, record| [ApplicationHelper::WEEK_DAYS[wday-1], record.map(&:start_date).map(&:wday).reduce(:+).to_s] }.to_h
+    ApplicationHelper::WEEK_DAYS.each do |wday|
+      wday_hash[wday] = wday_counters[wday] || "0" 
+    end
+    wday_hash
+  end
+
 end

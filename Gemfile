@@ -60,3 +60,7 @@ gem 'devise'
 gem 'active_link_to'
 
 gem 'montrose'
+
+gem "breadcrumbs_on_rails"
+
+gem "chartkick"

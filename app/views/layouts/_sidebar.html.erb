@@ -1,18 +1,12 @@
-<%= content_tag(:div, class: "sidebar", data: {color: "primary", background_color:"white"} ) do %>
-  <%= content_tag(:div, class: "logo") do %>
-    <%= link_to "MH", root_path, class: "simple-text logo-mini" %>
-    <%= link_to "My Home", root_path, class: "simple-text logo-normal" %>
-  <% end %>
-  <%= content_tag(:div, class: "sidebar-wrapper") do %>
-    <%= content_tag(:ul, class: "nav") do %>
-      <%= render(Nav::NavItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
-      <%= render(Nav::NavItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
-      <%= render(Nav::NavItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Tareas asignadas', active: is_active_link?(homeworks_path, :inclusive) )) %>
-      <%= content_tag(:hr) %>
-      <%= render(Nav::NavItemComponent.new(link: admin_dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(admin_dashboard_path, :inclusive) )) %>
-      <%= render(Nav::NavItemComponent.new(link: admin_users_path, icon: 'people', title: 'Gestion de Usuarios', active: is_active_link?(admin_users_path, :inclusive) )) %>
-      <%= render(Nav::NavItemComponent.new(link: admin_homeworks_path, icon: 'maps_home_work', title: 'Gestión de Tareas', active: is_active_link?(admin_homeworks_path, :inclusive) )) %>
-      <%= render(Nav::NavItemComponent.new(link: admin_rooms_path, icon: 'room_preferences', title: 'Habitaciones', active: is_active_link?(admin_rooms_path, :inclusive) )) %>
-    <% end %>
-  <% end %>
-<%end%>
+
+<%= render(Navs::SidebarComponent.new(name: "My Home")) do %>
+  <%#= render(Navs::SidebarItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Tareas asignadas', active: is_active_link?(homeworks_path, :inclusive) )) %>
+  <%= content_tag(:hr) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(admin_dashboard_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_users_path, icon: 'people', title: 'Gestion de Usuarios', active: is_active_link?(admin_users_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_homeworks_path, icon: 'maps_home_work', title: 'Gestión de Tareas', active: is_active_link?(admin_homeworks_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_rooms_path, icon: 'room_preferences', title: 'Habitaciones', active: is_active_link?(admin_rooms_path, :inclusive) )) %>
+<% end %>
+  

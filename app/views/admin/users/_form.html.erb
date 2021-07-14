@@ -1,52 +1,16 @@
 <%= form_with(model: [:admin, user]) do |form| %>
   <%= content_tag(:div, class: "row") do %>    
-    <%= content_tag(:div, class: "col-sm-6") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :email, class: "form-label" %>
-        <%= form.email_field :email, class: "form-control" %>
-      <% end %>
-    <% end %>
-    <%= content_tag(:div, class: "col-sm-6") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :password, class: "bmd-label-static" %>
-        <%= form.text_field :password, value: (user&.password || SecureRandom.hex(8)), class: "form-control" %>
-      <% end %>
-    <% end %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", field_type: "email_field")), class: "col-sm-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", input_value:(user&.password || SecureRandom.hex(8)) )), class: "col-sm-6") %>
   <% end %>
   <%= content_tag(:div, class: "row") do %>
-    
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :name, class: "bmd-label-static" %>
-        <%= form.text_field :name, class: "form-control" %>
-      <% end %>
-    <% end %>
-
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :surname, class: "bmd-label-static" %>
-        <%= form.text_field :surname, class: "form-control" %>
-      <% end %>
-    <% end %>
-
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name")), class: "col-sm-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"surname")), class: "col-sm-6") %>
   <% end %>
   <%= content_tag(:div, class: "row") do %>
-    
-    <%= content_tag(:div, class: "col-sm-6") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :birth_date, class: "form-label" %>
-        <%= form.date_field :birth_date, class: "form-control" %>
-      <% end %>
-    <% end %>
-
-    <%= content_tag(:div, class: "col-sm-6") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :phone, class: "bmd-label-static" %>
-        <%= form.phone_field :phone, class: "form-control" %>
-      <% end %>
-    <% end %>
-
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"bith_date", field_type: "date_field")), class: "col-sm-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"phone", field_type: "phone_field")), class: "col-sm-6") %>
   <% end %>
-  <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
+  <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
   <%= link_to 'Cancelar', admin_users_path, class: "btn" %>
 <% end %>

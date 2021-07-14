@@ -1,3 +1,21 @@
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thelocal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body class="text-center">
+    <%= yield %>
+  </body>
+</html>-->
+
 <!doctype html>
 <%= content_tag(:html) do %>
   <%= content_tag(:head) do %>
@@ -15,12 +33,16 @@
   <% end %>
   <%= content_tag(:body) do %>
     <%= content_tag(:div, class: "wrapper") do %>
-      <%= render "layouts/sidebar" %>
-      <%= content_tag(:div, class: "main-panel") do %>
+      <%= content_tag(:div, class: "main-panel", style: "width: 100%;") do %>
         <%= render "layouts/navbar" %>
-        <%= content_tag(:div, content_tag(:div, yield, class: "container-fluid"), class: "content") %>
+        <%= content_tag(:div, class: "content") do %>
+          <%= content_tag(:div, yield, class: "container-fluid") %>
+        <% end %>
         <%#= render(Layout::FooterComponent.new(link: dashboard_path, link_text: "Adri Mullor", copyright_text: '&copy;2021, made with <i class="material-icons">favorite</i>'.html_safe) ) %>
       <% end %>
     <% end %>
+    <%= toastr_flash %>
   <% end %>
 <%end%>
+
+

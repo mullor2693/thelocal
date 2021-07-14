@@ -52,11 +52,18 @@
   }
 
   .card-body {
-      & + .card-footer{
-        padding-top: 0rem;
-        border: 0;
-        border-radius: $border-radius-large;
-      }
+    &.sroll-body {
+      height: 326px;
+      margin-top: 10px;
+      margin-right: 1rem;
+      overflow: scroll;
+      scrollbar-color: #eaeaeaf7 #fffffe1c;
+    }
+    & + .card-footer{
+      padding-top: 0rem;
+      border: 0;
+      border-radius: $border-radius-large;
+    }
   }
 
   .card-footer {

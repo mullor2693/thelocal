@@ -1,3 +1,12 @@
-<div class="row">
-  <%= link_to dashboard_path, class: 'login-button' do %>Go to App<% end %>
-</div>
+
+<div class="p">
+  <div class="">
+<%= content_tag(:div, class: "position-relative overflow-hidden text-center") do %>
+  <%= content_tag(:div, class: "col-md-5 mx-auto my-5") do %>
+    <%= content_tag(:h1, 'My Homeworks', class: "display-4 font-weight-normal") %>
+    <%= content_tag(:p, "And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.", class: "lead font-weight-normal") %>
+    <%= link_to "Accede ahora", new_user_session_path, class: "btn btn-outline-primary" %>
+  <% end %>
+  <%= content_tag(:div, '', class: "product-device box-shadow d-none d-md-block") %>
+  <%= content_tag(:div, '', class: "product-device product-device-2 box-shadow d-none d-md-block") %>
+<% end %>
