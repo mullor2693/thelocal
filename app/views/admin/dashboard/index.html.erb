@@ -1,20 +1,5 @@
 <%= content_tag(:div, class: "row") do %>
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to admin_users_path do %>
-      <%= render(CardStatsComponent.new(color: "info", card_icon: "people", category: "Trabaja con los perfiles.", title: "Gestión de Usuarios", footer_text: "#{User.all.count} usuarios creados" )) %>
-    <% end %>
-  <% end %>
-
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to admin_homeworks_path do %>
-      <%= render(CardStatsComponent.new(color: "primary", card_icon: "maps_home_work", category: "Organiza tus tareas.", title: "Gestión de Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
-    <% end %>
-  <% end %>
-
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to admin_rooms_path do %>
-      <%= render(CardStatsComponent.new(color: "success", card_icon: "room_preferences", category: "Edita las salas.", title: "Habitaciones", footer_text: "#{Room.all.count} habitaciones creadas" )) %>
-    <% end %>
-  <% end %>
-
+  <%= render(Card::StatsComponent.new(link: admin_users_path, color: "info", card_icon: "people", category: "Trabaja con los perfiles.", title: "Gestión de Usuarios", footer_text: "#{User.all.count} usuarios creados" )) %>
+  <%= render(Card::StatsComponent.new(link: admin_homeworks_path, color: "primary", card_icon: "maps_home_work", category: "Organiza tus tareas.", title: "Gestión de Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
+  <%= render(Card::StatsComponent.new(link: admin_rooms_path, color: "success", card_icon: "room_preferences", category: "Edita las salas.", title: "Habitaciones", footer_text: "#{Room.all.count} habitaciones creadas" )) %>
 <% end %>

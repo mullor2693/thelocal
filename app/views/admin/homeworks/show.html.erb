@@ -10,12 +10,7 @@
       <%= content_tag(:div, class: "card-body sroll-body") do %>
         <%= @homework.description %>
       <% end %>
-      <%= content_tag(:div, class: "card-footer") do %>
-        <%= content_tag(:div, class: "stats") do %>
-          <%= content_tag(:i, "list", class: "material-icons") %>
-          <%= "#{@homework.events.count} eventos creados."%>
-        <% end %>
-      <% end %>
+      <%= render(Card::FooterComponent.new(title: "#{@homework.events.count} eventos creados.", icon: 'list')) %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
@@ -27,14 +22,9 @@
       <% end %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= content_tag(:h4, "Eventos Semanales Totales", class: "card-title") %>
-        <%= content_tag(:p, "Recuento totales de los eventos semanales asociados a toas las tareas.", class: "card-category") %>
+        <%= content_tag(:p, "Recuento de los eventos asociados a esta tarea.", class: "card-category") %>
       <% end %>
-      <%= content_tag(:div, class: "card-footer") do %>
-        <%= content_tag(:div, class: "stats") do %>
-          <%= content_tag(:i, "list", class: "material-icons") %>
-          <%= "#{Event.count} eventos creados."%>
-        <% end %>
-      <% end %>
+      <%= render(Card::FooterComponent.new(title: "#{Event.count} eventos creados.", icon: 'list')) %>
     <% end %>
   <% end %>
 <% end %>

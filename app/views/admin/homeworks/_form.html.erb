@@ -4,5 +4,5 @@
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", field_type: "text_area")), class: "col-12") %>
   <% end %>
   <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
-  <%= link_to 'Cancelar', homeworks_path, class: "btn" %>
+  <%= link_to 'Cancelar', admin_homeworks_path, class: "btn" %>
 <% end %>

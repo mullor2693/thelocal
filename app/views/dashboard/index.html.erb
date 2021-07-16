@@ -1,9 +1,5 @@
 <%= content_tag(:div, class: "row") do %>
-  <%= content_tag(:div, class: "col-lg-6 col-md-12") do %>
-    <%= link_to homeworks_path do %>
-      <%= render(CardStatsComponent.new(color: "primary", card_icon: "maps_home_work", category: "Descripcion de la tareas en general.", title: "Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
-    <% end %>
-  <% end %>
+  <%= render(Card::StatsComponent.new(link: homeworks_path, color: "primary", card_icon: "maps_home_work", category: "Descripcion de la tareas en general.", title: "Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
   <!-- 
     <div class="col-lg-6 col-md-12">
       <%= content_tag(:div, class: "card") do %>
@@ -249,9 +245,6 @@
           <% end %>
         <% end %>
       <% end %>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <%= render(CardTableComponent.new(status: "warning", category: "New employees on 15th September, 2016", title: "Employees Stats", head_values: ["ID", "Name", "Salary", "Country"] )) %>
     </div>
   -->
 <% end %>

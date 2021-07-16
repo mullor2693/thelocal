@@ -1,10 +1,10 @@
 # localhost:3000/rails/view_components/
-class CardStatsComponentPreview < ViewComponent::Preview
+class Card::StatsComponentPreview < ViewComponent::Preview
   
   # card_stats_component/with_color?color=info
   # statuses: info, warning, danger, success
   def with_color(color: "none")
-    render(CardStatsComponent.new(
+    render(Card::StatsComponent.new(
       color: color, 
       card_icon: "manage_accounts", 
       category: "Category", 
