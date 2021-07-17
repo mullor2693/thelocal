@@ -1,5 +1,5 @@
 class Modals::BaseComponent < ViewComponent::Base
-	def initialize(title:, color:nil, color_secondary:nil, save_text:nil, dimiss_text:nil, close:false)
+	def initialize(title:nil, color:nil, color_secondary:nil, save_text:nil, dimiss_text:nil, close:false)
     @title = title
     @save_text = save_text
     @dimiss_text = dimiss_text

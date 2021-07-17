@@ -61,6 +61,8 @@ class HomeworksController < ApplicationController
 
     def set_homeworks
       @homeworks = Homework.all # current_user.assigned_events
+      @managed_homeworks = current_user.managed_events
+      @assigned_homeworks = current_user.assigned_events
     end
 
     def set_homework
