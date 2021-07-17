@@ -1,7 +1,7 @@
 <%= form_with(model: event) do |form| %>
   <%= content_tag(:div, class: "row") do %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"start_date", field_type: "datetime_select")), class: "col-md-6") %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"end_date", field_type: "datetime_select")), class: "col-md-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"start_date", label:'Fecha Inicio', field_type: "datetime_select")), class: "col-md-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"end_date", label:'Fecha Fin', field_type: "datetime_select")), class: "col-md-6") %>
   <% end %>
   <%= content_tag(:div, class: "row") do %>
     <%= content_tag(:div, class: "col-6") do %>

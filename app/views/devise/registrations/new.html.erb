@@ -6,11 +6,11 @@
       <%= content_tag(:div, class: "card-body") do %>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
           <%= content_tag(:div, class: "row") do %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", field_type:"text_field")), class: "col-md-5") %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"surname", field_type:"text_field")), class: "col-md-7") %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", field_type:"email_field")), class: "col-12") %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", field_type:"password_field")), class: "col-md-6") %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password_confirmation", field_type:"password_field")), class: "col-md-6") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", label:'Nombre', field_type:"text_field")), class: "col-md-5") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"surname", label:'Apellidos', field_type:"text_field")), class: "col-md-7") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-12") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", label:'Contraseña', field_type:"password_field")), class: "col-md-6") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password_confirmation", label:'Confirmación', field_type:"password_field")), class: "col-md-6") %>
           <% end %>
           <%= form.submit "Acceder", class: "btn btn-primary pull-right" %>
         <% end %>

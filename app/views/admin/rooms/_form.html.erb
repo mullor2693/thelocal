@@ -1,34 +1,8 @@
-<%= form_with(model: room) do |form| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
-      <ul>
-        <% room.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: [:admin, room]) do |form| %>
   <%= content_tag(:div, class: "row") do %>
-    
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :name, class: "bmd-label-static" %>
-        <%= form.text_field :name, class: "form-control" %>
-      <% end %>
-    <% end %>
-
-    <%= content_tag(:div, class: "col-md-5") do %>
-      <%= content_tag(:div, class: "form-group bmd-form-group") do %>
-        <%= form.label :description, class: "bmd-label-static" %>
-        <%= form.text_area :description, class: "form-control" %>
-      <% end %>
-    <% end %>
-
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", label: "Nombre", field_type: "text_field")), class: "col-12") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
   <% end %>
-  
-  <%= form.submit "Guardar", class: "btn btn-success pull-right" %>
-  <%= link_to 'Cancelar', rooms_path, class: "btn" %>
-
+  <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
+  <%= link_to 'Cancelar', admin_rooms_path, class: "btn" %>
 <% end %>

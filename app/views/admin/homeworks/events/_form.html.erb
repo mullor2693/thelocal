@@ -1,7 +1,7 @@
 <%= form_with(model: [:admin, @homework, event]) do |form| %>
   <%= content_tag(:div, class: "row") do %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"start_date", field_type: "datetime_select")), class: "col-md-6") %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"end_date", field_type: "datetime_select")), class: "col-md-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"start_date", label:'Fecha Inicio', field_type: "datetime_select")), class: "col-md-6") %>
+    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"end_date", label: 'Fecha Fin', field_type: "datetime_select")), class: "col-md-6") %>
    <% end %>
    <%= content_tag(:div, class: "row") do %>          
     <% users = User.all %>
@@ -24,13 +24,13 @@
     <%= content_tag(:div, class: "col-6") do %>
       <%= content_tag(:div, class: "form-check") do %>
         <%= form.check_box :is_full_event, class: "" %>
-        <%= form.label 'Full day', class: "form-check-label" %>
+        <%= form.label 'Dia Completo', class: "form-check-label" %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: "col-6") do %>
       <%= content_tag(:div, class: "form-check") do %>
         <%= form.check_box :is_recurring, class: "" %>
-        <%= form.label :is_recurring, class: "form-check-label" %>
+        <%= form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
       <% end %>
     <% end %>
   <% end %>

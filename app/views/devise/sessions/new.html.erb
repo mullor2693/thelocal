@@ -5,8 +5,8 @@
       <%= content_tag(:div, class: "card-body") do %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
           <%= content_tag(:div, class: "row") do %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", field_type:"email_field")), class: "col-md-6") %>
-            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", field_type:"password_field")), class: "col-md-6") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-md-6") %>
+            <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", label:'Contraseña', field_type:"password_field")), class: "col-md-6") %>
           <% end %>
           <%= form.submit "Entrar", class: "btn btn-primary pull-right" %>
         <% end %>

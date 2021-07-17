@@ -6,7 +6,7 @@
         <%= @room.description %>
       <% end %>
     <% end %>
-    <%= link_to 'Editar', edit_room_path(@room), class: "btn btn-primary pull-right" %>
-    <%= link_to 'Volver', rooms_path, class: "btn" %>
+    <%= link_to 'Editar', edit_admin_room_path(@room), class: "btn btn-primary pull-right" %>
+    <%= link_to 'Volver', admin_rooms_path, class: "btn" %>
   <% end %>
 <% end %>
