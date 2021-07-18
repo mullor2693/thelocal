@@ -64,3 +64,5 @@ gem 'montrose'
 gem "breadcrumbs_on_rails"
 
 gem "chartkick"
+
+gem 'will_paginate', '~> 3.1.0'

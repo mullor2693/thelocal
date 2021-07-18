@@ -17,3 +17,7 @@ Rails.start()
 ActiveStorage.start()
 
 global.toastr = require("toastr")
+
+// Stimulus: requires all of the controllers in the app/components directory.
+const componentContext = require.context("../../components/", true, /(.*)\/.+\.js$/);
+application.load(definitionsFromContext(componentContext));

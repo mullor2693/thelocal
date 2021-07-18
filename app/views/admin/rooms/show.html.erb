@@ -6,7 +6,9 @@
         <%= @room.description %>
       <% end %>
     <% end %>
-    <%= link_to 'Editar', edit_admin_room_path(@room), class: "btn btn-primary pull-right" %>
-    <%= link_to 'Volver', admin_rooms_path, class: "btn" %>
+  <% end %>
+  <%= content_tag(:div, class: "col-12") do %>
+    <%= link_to render(Button::BaseComponent.new(title:'Editar', color:'primary')), edit_admin_room_path(@room), class: "pull-right" %>
+    <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_rooms_path %>
   <% end %>
 <% end %>

@@ -2,23 +2,12 @@
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Eventos relacionados a la tarea.", color: 'primary')) %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= content_tag(:table, class: "table") do %>
-          <%= content_tag(:body) do %>
-            <% @events.each do |event| %>
-              <%= content_tag(:tr) do %>
-                <%= content_tag(:td, format_date(event.start_date)) %>
-                <%= content_tag(:td, format_date(event.end_date)) %>
-                <%= content_tag(:td, event.assignees.count) %>
-                <%= content_tag(:td, event.managers.count) %>
-                <%= render(Table::TdActionsComponent.new(link: admin_homework_event_path(@homework, event), color: @status)) %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= content_tag(:div, render(Admin::Table::Component.new(items: @events)), class: "card-body") %>
     <% end %>
-    <%= link_to 'Nuevo evento para la Tarea', new_admin_homework_event_path(@homework), class: "btn btn-primary pull-right" %>
-    <%#= link_to 'Volver', dashboard_path, class: "btn" %>
+    <%= link_to render(Button::BaseComponent.new(title:'Nuevo evento para la Tarea', color:'primary')), new_admin_homework_event_path(@homework), class: "pull-right" %>
+  <% end %>
+  <%= content_tag(:div, class: "col-12") do %>
+    <%= link_to render(Button::BaseComponent.new(title:'Nueva Tarea', color:'primary')), new_admin_homework_event_path(@homework), class: "pull-right" %>
+    <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_homework_path(@homework) %>
   <% end %>
 <% end %>

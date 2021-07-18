@@ -1,4 +1,4 @@
-<%= render(Navs::NavbarComponent.new(name: "My Homeworks", hide_toggler: !user_signed_in?)) do %>
+<%= render(Navs::NavbarComponent.new(name: (user_signed_in? ? "Homeworker" : ""), hide_toggler: !user_signed_in?)) do %>
   <!-- TODO: Remove form -->
   <form class="navbar-form">
   </form>
@@ -21,8 +21,8 @@
     </li> -->
     <li class="nav-item dropdown">
       <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= content_tag(:i,  user_signed_in? ? 'person' : 'login', class: "material-icons") %>
-        <%= content_tag(:p, 'Account', class: "d-lg-none d-md-block") %>
+        <%= content_tag(:i, (user_signed_in? ? 'person' : 'login'), class: "material-icons") %>
+        <%= content_tag(:p, (user_signed_in? ? 'Mi Perfil' : 'Acceder'), class: "d-lg-none d-md-block") %>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
         <% if user_signed_in? %>

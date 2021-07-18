@@ -14,4 +14,13 @@ config.resolve.alias = {
  jquery: 'jquery'
 };
 
+environment.config.merge({
+  resolve: {
+      alias: {
+          "javascript": path.join(__dirname, "..", "..",  "/app/javascript"),
+          "channels": path.join(__dirname, "..", "..",  "/app/javascript/channels"),
+      }
+  }
+})
+
 module.exports = environment;

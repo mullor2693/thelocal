@@ -1,5 +1,5 @@
 class Card::StatsComponent < ViewComponent::Base
-  def initialize(title:, link:, category:nil, footer_text:nil, card_icon:nil, footer_icon:nil, color:nil, row_classes:nil)
+  def initialize(title:, link:nil, category:nil, footer_text:nil, card_icon:nil, footer_icon:nil, color:nil, row_classes:nil)
     @title = title 
     @link = link
     @category = category
@@ -13,11 +13,18 @@ class Card::StatsComponent < ViewComponent::Base
 
   def call
     content_tag(:div, class: @row_classes) do
-      link_to @link do
+      if @link.present?
+        link_to @link do
+          content_tag(:div, class: "card card-stats") do 
+            render(Card::HeaderComponent.new(icon_header: true, title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
+            render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon))
+          end 
+        end
+      else
         content_tag(:div, class: "card card-stats") do 
           render(Card::HeaderComponent.new(icon_header: true, title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
           render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon))
-        end 
+        end
       end
     end
   end

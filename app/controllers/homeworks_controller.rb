@@ -60,7 +60,8 @@ class HomeworksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_homeworks
-      @homeworks = Homework.all # current_user.assigned_events
+      @homeworks = Homework.all.paginate(page: params[:page], per_page: 30)
+      # current_user.assigned_events
       @managed_homeworks = current_user.managed_events
       @assigned_homeworks = current_user.assigned_events
     end

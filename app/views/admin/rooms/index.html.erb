@@ -1,26 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<% @status = "success" %>
-
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: 'Habitaciones', subtitle: "Descripcion de las habitaciones en general.", color: @status)) %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= content_tag(:table, class: "table") do %>
-          <%= content_tag(:body) do %>
-            <% @rooms.each do |room| %>
-              <%= content_tag(:tr) do %>
-                <%= content_tag(:td, room.name) %>
-                <%#= content_tag(:td, room.description) %>
-                <%= render(Table::TdActionsComponent.new(link: admin_room_path(room), color: @status)) %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= render(Card::HeaderComponent.new(title: 'Habitaciones', subtitle: "Descripcion de las habitaciones en general.", color: "primary")) %>
+      <%= content_tag(:div, render(Admin::Table::Component.new(items: @rooms)), class: "card-body") %>
     <% end %>
-    <%= link_to 'Nueva habitacion', new_admin_room_path, class: "btn btn-success pull-right" %>
-    <%= link_to 'Volver', dashboard_path, class: "btn" %>
+  <% end %>
+   <%= content_tag(:div, class: "col-12") do %>
+    <%= link_to render(Button::BaseComponent.new(title:'Nueva Sala', color:'primary')), new_admin_room_path, class: "pull-right" %>
+    <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_dashboard_path %>
   <% end %>
 <% end %>

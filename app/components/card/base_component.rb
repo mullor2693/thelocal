@@ -1,5 +1,5 @@
 class Card::BaseComponent < ViewComponent::Base
-  def initialize(title:, category:nil, footer_text:nil, footer_icon:nil, color:nil, row_classes:nil, scroll:false)
+  def initialize(title:nil, category:nil, footer_text:nil, footer_icon:nil, color:nil, row_classes:nil, scroll:false)
     @title = title 
     @category = category
     @footer_icon = footer_icon || "list_alt"
@@ -12,9 +12,9 @@ class Card::BaseComponent < ViewComponent::Base
   def call
     content_tag(:div, class: @row_classes) do
       content_tag(:div, class: "card") do 
-        render(Card::HeaderComponent.new(title: @title, subtitle: @category, color: @color)) +
+        (@title.present? ? render(Card::HeaderComponent.new(title: @title, subtitle: @category, color: @color)) : ''.html_safe) +
         content_tag(:div, content, class: "card-body#{' sroll-body' if @scroll}") +
-        render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon))
+        (@footer_text.present? ? render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon)) : ''.html_safe)
       end 
     end
   end
