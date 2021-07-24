@@ -1,8 +1,10 @@
-<%= form_with(model: [:admin, homework]) do |form| %>
-  <%= content_tag(:div, class: "row") do %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"title", label: 'Titulo', field_type: "text_field")), class: "col-12") %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
+<%= turbo_frame_tag dom_id(homework) do %>
+  <%= form_with(model: [:admin, homework], id: dom_id(homework), format: :turbo_stream) do |form| %>
+    <%= content_tag(:div, class: "row") do %>
+      <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"title", label: 'Titulo', field_type: "text_field")), class: "col-12") %>
+      <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
+    <% end %>
+    <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
+    <%= link_to 'Cancelar', admin_homeworks_path, class: "btn" %>
   <% end %>
-  <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
-  <%= link_to 'Cancelar', admin_homeworks_path, class: "btn" %>
 <% end %>

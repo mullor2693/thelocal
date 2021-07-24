@@ -6,9 +6,10 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'scss/site'
+// import 'scss/site'
 import 'js/site'
 import "chartkick/chart.js"
+import "@hotwired/turbo-rails"
 
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
@@ -21,3 +22,5 @@ global.toastr = require("toastr")
 // Stimulus: requires all of the controllers in the app/components directory.
 const componentContext = require.context("../../components/", true, /(.*)\/.+\.js$/);
 application.load(definitionsFromContext(componentContext));
+
+import "controllers"

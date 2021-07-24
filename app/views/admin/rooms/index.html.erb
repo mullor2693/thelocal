@@ -5,7 +5,7 @@
       <%= content_tag(:div, render(Admin::Table::Component.new(items: @rooms)), class: "card-body") %>
     <% end %>
   <% end %>
-   <%= content_tag(:div, class: "col-12") do %>
+  <%= content_tag(:div, class: "col-12") do %>
     <%= link_to render(Button::BaseComponent.new(title:'Nueva Sala', color:'primary')), new_admin_room_path, class: "pull-right" %>
     <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_dashboard_path %>
   <% end %>

@@ -1,4 +1,4 @@
-class Admin::Table::User::Component < ViewComponent::Base
+class Admin::Table::UserComponent < ViewComponent::Base
 
   with_collection_parameter :user
 

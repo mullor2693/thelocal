@@ -1,4 +1,4 @@
-class Admin::Table::Room::Component < ViewComponent::Base
+class Admin::Table::RoomComponent < ViewComponent::Base
 
   with_collection_parameter :room
 

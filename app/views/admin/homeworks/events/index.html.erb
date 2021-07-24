@@ -4,10 +4,9 @@
       <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Eventos relacionados a la tarea.", color: 'primary')) %>
       <%= content_tag(:div, render(Admin::Table::Component.new(items: @events)), class: "card-body") %>
     <% end %>
-    <%= link_to render(Button::BaseComponent.new(title:'Nuevo evento para la Tarea', color:'primary')), new_admin_homework_event_path(@homework), class: "pull-right" %>
   <% end %>
   <%= content_tag(:div, class: "col-12") do %>
-    <%= link_to render(Button::BaseComponent.new(title:'Nueva Tarea', color:'primary')), new_admin_homework_event_path(@homework), class: "pull-right" %>
+    <%= link_to render(Button::BaseComponent.new(title:'Nuevo evento para la Tarea', color:'primary')), new_admin_homework_event_path(@homework), class: "pull-right" %>
     <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_homework_path(@homework) %>
   <% end %>
 <% end %>

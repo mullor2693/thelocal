@@ -1,4 +1,4 @@
-class Admin::Table::Event::Component < ViewComponent::Base
+class Admin::Table::EventComponent < ViewComponent::Base
   include ApplicationHelper
 
   with_collection_parameter :event

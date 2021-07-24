@@ -10,8 +10,11 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- Material Kit CSS -->
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all', data: { turbo_track: :reload } %>
+    <%= javascript_pack_tag 'application', data: { turbo_track: :reload } %>
+    <!-- Turbo Links -->
+    <%= turbo_include_tags %>
+    <%= yield :head %>
   <% end %>
   <%= content_tag(:body) do %>
     <%= content_tag(:div, class: "wrapper") do %>
@@ -19,7 +22,10 @@
       <%= content_tag(:div, class: "main-panel") do %>
         <%= render "layouts/navbar" %>
         <%= content_tag(:div, class: "content") do %>
-          <%= content_tag(:div, yield, class: "container-fluid") %>
+          <%= content_tag(:div, class: "container-fluid") do %>
+            <div id="toasts"></div>
+            <%= yield %>
+          <% end %>
         <% end %>
         <%#= render(Layout::FooterComponent.new(link: dashboard_path, link_text: "Adri Mullor", copyright_text: '&copy;2021, made with <i class="material-icons">favorite</i>'.html_safe) ) %>
       <% end %>
