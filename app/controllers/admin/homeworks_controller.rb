@@ -35,7 +35,7 @@ class Admin::HomeworksController < Admin::ApplicationController
         # format.turbo_stream { Admin::Table::HomeworkComponent.new(view_context: view_context, homework: @homework).broadcast_prepend }
         format.html { redirect_to [:admin, :homeworks], notice: "Homework was successfully created." }
       else
-        format.turbo_stream { Admin::Table::HomeworkComponent.new(view_context: view_context, homework: @homework).broadcast_replace }
+        format.turbo_stream { Admin::List::HomeworkComponent.new(view_context: view_context, homework: @homework).broadcast_replace }
         format.html { render new_admin_homework_path(@homework), status: :unprocessable_entity }
       end
     end

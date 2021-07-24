@@ -3,8 +3,8 @@
   <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', scroll: false)) do %>
     <%= turbo_stream_from "homeworks" %>
     <%= tag.ul class:"list-group list-group-flush" do %>
-      <%= turbo_frame_tag('homeworks', class: "row") do %>
-        <%= render(Admin::Table::HomeworkComponent.with_collection(@homeworks)) %>
+      <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
+        <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
       <% end %>
     <% end %>
   <% end %>
