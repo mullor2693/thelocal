@@ -390,16 +390,12 @@
             margin-bottom: 10px;
         }
     }
-}
 
-.perfect-scrollbar-on{
-    .sidebar,
-    .main-panel{
+    .nav-open &{
         height: 100%;
-        max-height: 100%;
+        overflow: hidden;
     }
 }
-
 
 .sidebar,
 .main-panel,

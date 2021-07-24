@@ -26,16 +26,9 @@ class Admin::HomeworksController < Admin::ApplicationController
     respond_to do |format|
       if @homework.save
         format.turbo_stream
-        # format.turbo_stream {
-        #   @homeworks = Homework.all
-        #   @homework = Homework.new
-        #   homework_component = Admin::Table::HomeworkComponent.new(view_context: view_context, homework: @homework)
-        #   homework_component.broadcast_prepend
-        # }
-        # format.turbo_stream { Admin::Table::HomeworkComponent.new(view_context: view_context, homework: @homework).broadcast_prepend }
         format.html { redirect_to [:admin, :homeworks], notice: "Homework was successfully created." }
       else
-        format.turbo_stream { Admin::List::HomeworkComponent.new(view_context: view_context, homework: @homework).broadcast_replace }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("admin_new_homework", partial: "admin/homeworks/form", locals: { homework: @homework }) }
         format.html { render new_admin_homework_path(@homework), status: :unprocessable_entity }
       end
     end
