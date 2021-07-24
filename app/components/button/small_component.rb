@@ -4,7 +4,7 @@ class Button::SmallComponent < ViewComponent::Base
 		@title = title || "content"
 		@icon = icon || "close"
 		@color = color
-		@method = method || :get
+		@method = method || nil
 		@data = data || {}
     @status = @color.in?(ApplicationHelper::GLOBAL_STATUSES) ? @color : "none"
 	end

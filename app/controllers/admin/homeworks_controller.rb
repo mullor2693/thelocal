@@ -56,7 +56,8 @@ class Admin::HomeworksController < Admin::ApplicationController
           end
           @homeworks = Homework.all
           @homework = Homework.new
-          render turbo_stream: turbo_stream.replace([:admin, :homeworks], partial: "admin/homeworks/form", locals: {homework: @homework }) 
+          #render turbo_stream: turbo_stream.replace([:admin, :homeworks], partial: "admin/homeworks/form", locals: {homework: @homework })
+          render :create 
         }
         format.html { redirect_to [:admin, :homeworks], notice: "Homework was successfully updated." }
       else

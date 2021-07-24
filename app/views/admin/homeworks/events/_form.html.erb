@@ -35,5 +35,5 @@
     <% end %>
   <% end %>
   <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
-  <%= link_to 'Cancelar', admin_homework_events_path(@homework), class: "btn" %>
+  <%= link_to 'Cancelar', [:admin, @homework], class: "btn" %>
 <% end %>

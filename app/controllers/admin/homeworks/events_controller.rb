@@ -25,6 +25,7 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
     @event.creator = @current_user
     respond_to do |format|
       if @event.save
+        format.turbo_stream
         format.html { redirect_to [:admin, @homework, @event], notice: "Event was successfully created." }
         format.json { render admin_homework_event_path(@homework, @event), status: :created, location: [:admin, @homework, @event] }
       else

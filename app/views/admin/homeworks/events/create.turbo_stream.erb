@@ -1,0 +1,4 @@
+<%= turbo_stream.append "events", render(Admin::Table::EventComponent.new(event: @event)) %>
+<%= turbo_stream.replace "new_event", partial: "admin/homeworks/events/form", locals: {event: @event} %>
+
+<%= turbo_stream.append "toasts", partial: "shared/toast", locals: { title: "New Event", message: "Your event was created successfully." } %>
