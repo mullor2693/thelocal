@@ -1,6 +1,8 @@
 class Homework < ApplicationRecord
   has_many :events, as: :eventable
 
+  accepts_nested_attributes_for :events, allow_destroy: true #, reject_if: :all_blank
+  
   # Validation
   validates :title, presence: true
 

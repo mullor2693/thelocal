@@ -5,6 +5,7 @@ class Admin::HomeworksController < Admin::ApplicationController
   def index
     @homeworks = Homework.all
     @homework = Homework.new
+    @homework.events.build
   end
 
   # GET admin/homeworks/1
@@ -14,6 +15,7 @@ class Admin::HomeworksController < Admin::ApplicationController
   # GET admin/homeworks/new
   def new
     @homework = Homework.new
+    @homework.events.build
   end
 
   # GET admin/homeworks/1/edit
@@ -49,6 +51,7 @@ class Admin::HomeworksController < Admin::ApplicationController
           end
           @homeworks = Homework.all
           @homework = Homework.new
+          @homework.events.build
           #render turbo_stream: turbo_stream.replace([:admin, :homeworks], partial: "admin/homeworks/form", locals: {homework: @homework })
           render :create 
         }
@@ -77,6 +80,6 @@ class Admin::HomeworksController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def homework_params
-      params.require(:homework).permit(:title, :description)
+      params.require(:homework).permit(:title, :description, events_attributes: [:id, :name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :creator_id, :parent_event_id, :_destroy])
     end
 end
