@@ -24,4 +24,9 @@ module ApplicationHelper
         datetime = datetime&.to_datetime
         datetime&.present? ? datetime.strftime("%d/%m/%Y, %H:%M") : nil
     end
+
+    def format_duration(duration)
+        duration = duration&.to_i
+        duration&.present? ? ActiveSupport::Duration.build(duration) : nil
+    end
 end

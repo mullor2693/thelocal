@@ -68,3 +68,5 @@ gem "chartkick"
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'hotwire-rails'
+
+gem 'faker'

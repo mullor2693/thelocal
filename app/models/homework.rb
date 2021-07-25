@@ -16,5 +16,4 @@ class Homework < ApplicationRecord
     Event.all.group("DATE_TRUNC('day', start_date)").count
   end
 
-  
 end

@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(email: "test@test.com", password: "password", name: "Test", surname: "Testing More", birth_date: (Date.today - 28.years), sex: 1, phone: "921876543")
+10.times { 
+  name = Faker::Name.first_name
+  surname = Faker::Name.last_name
+  full_name = [(name.try(:strip) || ""), (surname.try(:strip) || "")].join(" ").strip
+  birth_date = Faker::Date.birthday(min_age: 14, max_age: 65)
+  phone = Faker::PhoneNumber.cell_phone
+  email = Faker::Internet.email(name: full_name, separators: '.', domain: 'test.com')
+  sex = rand(0..2)
+
+  User.create(email: email, password: "password", name: name, surname: surname, birth_date: birth_date, phone: phone, sex: sex)
+}

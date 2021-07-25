@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_221526) do
+ActiveRecord::Schema.define(version: 2021_07_25_202654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2021_07_11_221526) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable"
+  end
+
+  create_table "homework_rooms", force: :cascade do |t|
+    t.bigint "homework_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["homework_id"], name: "index_homework_rooms_on_homework_id"
+    t.index ["room_id"], name: "index_homework_rooms_on_room_id"
   end
 
   create_table "homeworks", force: :cascade do |t|
@@ -90,4 +99,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_221526) do
   add_foreign_key "event_assignees", "users"
   add_foreign_key "event_managers", "events"
   add_foreign_key "event_managers", "users"
+  add_foreign_key "homework_rooms", "homeworks"
+  add_foreign_key "homework_rooms", "rooms"
 end

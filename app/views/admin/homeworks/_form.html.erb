@@ -1,20 +1,15 @@
 <%= turbo_frame_tag "admin_#{dom_id(homework)}" do %>
-  <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream) do |form| %>
-    <%= content_tag(:div, class: "row") do %>
-      <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_title", form:form, object_attr:"title", label: 'Titulo', field_type: "text_field")), class: "col-12") %>
+  <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream, html: {class: "form"}) do |form| %>
+    <%= content_tag(:div, class: "row m-2") do %>
+      <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_title", form:form, object_attr:"title", label: 'Titulo', field_type: "text_field")), class: "col-sm-8 col-md-9") %>
+      <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-4 col-md-3")) do %>
+        <%= form.label 'Duración', class: "bmd-label-floating" %>
+        <%= form.number_field :duration, class: 'form-control'%>
+      <% end %>
       <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
       <%= tag.div class:"col-12" do %>
+        <p>Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
         <%= form.fields_for :events do |events_form| %>
-          <%= content_tag(:div, class: "row") do %>
-            <%= render(Forms::FormGroupComponent.new) do %>
-              <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
-              <%= events_form.datetime_select :start_date, class: 'form-control'%>
-            <% end %>
-            <%= render(Forms::FormGroupComponent.new) do %>
-              <%= events_form.label 'Fecha Fin', class: "bmd-label-floating" %>
-              <%= events_form.datetime_select :end_date, class: 'form-control'%>
-            <% end %>
-          <% end %>
           <%= content_tag(:div, class: "row") do %>          
             <% users = User.all %>
             <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
@@ -36,6 +31,12 @@
             <%= render(Forms::FormGroupComponent.new(col_class: "col-6", fg_class: "form-check")) do %>
               <%= events_form.check_box :is_recurring, class: "" %>
               <%= events_form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
+            <% end %>
+          <% end %>
+          <%= content_tag(:div, class: "row") do %>
+            <%= render(Forms::FormGroupComponent.new) do %>
+              <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
+              <%= events_form.datetime_select :start_date, class: 'form-control'%>
             <% end %>
           <% end %>
         <% end %>

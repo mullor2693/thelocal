@@ -10,11 +10,9 @@
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= content_tag(:table, class: "table") do %>
-          <%= content_tag(:body) do %>
-            <%= render 'form', homework: @homework %>
-          <% end %>
+      <%= content_tag(:div, class: "card-body m-2") do %>
+        <%= content_tag(:body) do %>
+          <%= render 'form', homework: @homework %>
         <% end %>
       <% end %>
     <% end %>
