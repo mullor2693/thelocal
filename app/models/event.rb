@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   has_many :assignees, through: :event_assignees, source: :user
 
   
+  scope :related_to_users, -> (users) { where(creator: users) || joins(:event_managers).where(event_managers: {user: users})  || joins(:event_assignees).where(event_assignees: {user: users})}
 
   def self.report_week(events=nil)
     wday_hash = {}

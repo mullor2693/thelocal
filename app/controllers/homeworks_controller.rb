@@ -60,7 +60,7 @@ class HomeworksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_homeworks
-      @homeworks = Homework.all.paginate(page: params[:page], per_page: 30)
+      @homeworks = Homework.with_user_events(current_user)
       # current_user.assigned_events
       @managed_homeworks = current_user.managed_events
       @assigned_homeworks = current_user.assigned_events
@@ -68,6 +68,8 @@ class HomeworksController < ApplicationController
 
     def set_homework
       @homework = Homework.find(params[:id])
+      @managed_homework_events = current_user.managed_events.where(id: @homework.events)
+      @assigned_homework_events = current_user.assigned_events.where(id: @homework.events)
     end
 
     # Only allow a list of trusted parameters through.

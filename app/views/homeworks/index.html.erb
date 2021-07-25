@@ -1,6 +1,6 @@
 <%#= render Table::Component.new(homeworks: @homeworks) %>
 <%= content_tag(:div, class: "row") do %>
-  <%= render(Card::BaseComponent.new(title: "Todas las Tareas", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', scroll: false, row_classes: "col-12")) do %>
+  <%= render(Card::BaseComponent.new(title: "Todas las Tareas", footer_text: "#{@homeworks.count} tareas asociadas.", color: 'primary', scroll: false, row_classes: "col-12")) do %>
     <%= tag.p  "Aqui puedes ver tus tareas añadidas y gestionar eventos." %>
     <%= turbo_stream_from "homeworks" %>
     <%= tag.ul class:"list-group list-group-flush" do %>

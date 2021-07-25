@@ -6,6 +6,10 @@ class Homework < ApplicationRecord
 
   #after_create_commit { broadcast_append_to "homeworks" }
 
+  scope :with_events, -> { where(id: Event.where(eventable_type: "Homework").pluck(:eventable_id).uniq) }
+  scope :with_user_events, -> (user) { where(id: Event.where(eventable_type: "Homework").related_to_users(user).pluck(:eventable_id).uniq) }
+
+
   def self.weekly_events
     Event.all.group("DATE_TRUNC('day', start_date)").count
   end

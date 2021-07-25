@@ -4,7 +4,7 @@ class Navs::SidebarItemComponent < ViewComponent::Base
     @title = title
     @icon = icon || "highlight_off"
     @active = active
-    @li_class = @active ? "nav-item active" : "nav-item"
+    @li_class = @active ? "nav-item navbar-toggler active" : "nav-item navbar-toggler"
   end
 
   def call

@@ -6,7 +6,19 @@
         <%= @homework.description %>
       <% end %>
     <% end %>
-    <%= link_to 'Eventos', events_path, class: "btn btn-secondary pull-right" %>
+    
+  <% end %>
+<% end %>
+<%= content_tag(:div, class: "row") do %>
+  <%= render(Card::BaseComponent.new(title: "Tareas Asignadas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{@assigned_homework_events.count} teventos asociados.", color: 'primary')) do %>
+    <%= render Table::Component.new(items: @assigned_homework_events) %>
+  <% end %>
+
+  <%= render(Card::BaseComponent.new(title: "Tareas Gestionadas", category: "Aqui puedes ver tus tareas gestionadas.", footer_text: "#{@managed_homework_events.count} eventos gestionados.", color: 'primary')) do %>
+    <%= render Table::Component.new(items: @managed_homework_events) %>
+  <% end %>
+
+  <%= content_tag(:div, class: "col-12") do %>
     <%= link_to 'Volver', homeworks_path, class: "btn" %>
   <% end %>
 <% end %>

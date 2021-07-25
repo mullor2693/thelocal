@@ -16,13 +16,13 @@ class Admin::Table::HomeworkComponent < LiveComponent
   end
 
   def call
-    turbo_frame_tag dom_id(@homework), class: "col-lg-6" do 
+    turbo_frame_tag dom_id(@homework), class: "col-md-6" do 
       tag.li(class:"list-group-item") do
         tag.div class: "row" do
       # tag.div class: "card" do
         # tag.div class: "card-body flex" do
           tag.div( tag.span(@title), class: "col align-self-center") + 
-          tag.div(class: "col-auto text-right") do 
+          tag.div(class: "col-auto text-right align-self-center") do 
             render(Button::SmallComponent.new(link: edit_admin_homework_path(homework), title: "Editar", color: "none", icon: "edit" ))  +
             render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Ver", icon: "open_in_new", color: @color, data: {turbo: false} )) 
             # render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } ))
