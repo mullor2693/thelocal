@@ -1,4 +1,4 @@
-class Admin::Table::HomeworkComponent < LiveComponent
+class Admin::Table::HomeworkComponent < Base::LiveComponent
 
   with_collection_parameter :homework
 

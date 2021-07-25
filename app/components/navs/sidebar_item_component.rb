@@ -8,11 +8,7 @@ class Navs::SidebarItemComponent < ViewComponent::Base
   end
 
   def call
-     content_tag(:li, class: @li_class) do 
-       link_to(@link, class: "nav-link") do 
-         content_tag(:i, @icon, class: "material-icons") + content_tag(:p, @title) 
-       end 
-     end 
+     tag.li(link_to((tag.i(@icon, class: "material-icons") + tag.p(@title)).html_safe, @link, class: "nav-link"), class: @li_class)
   end
 
 end

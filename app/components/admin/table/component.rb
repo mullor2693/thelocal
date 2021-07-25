@@ -1,4 +1,4 @@
-class Admin::Table::Component < LiveComponent
+class Admin::Table::Component < Base::LiveComponent
   include ApplicationHelper
 
   def initialize(items:)

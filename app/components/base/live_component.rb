@@ -1,6 +1,4 @@
-class LiveComponent < ViewComponent::Base
-  include ActionView::Context, ActionView::Helpers::TagHelper  
-  include Turbo::FramesHelper, Turbo::Streams::StreamName, Turbo::Streams::Broadcasts
+class Base::LiveComponent < Base::StaticComponent
 
   attr_reader :streamable, :target
 
