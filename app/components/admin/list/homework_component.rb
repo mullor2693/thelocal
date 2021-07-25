@@ -1,21 +1,8 @@
-class Admin::List::HomeworkComponent < LiveComponent
-
-  with_collection_parameter :homework
+class Admin::List::HomeworkComponent < HomeworkComponent
 
   def initialize(view_context: nil, homework:, show:true, edit:false, destroy:false)
-    @homework = homework
-    @id = "admin_homework_#{homework.id}"
-    @title = homework&.title&.to_s.html_safe
-    @color = "primary"
-
-    @show = !!show
-    @edit = !!edit
-    @destroy = !!destroy
-
-    # these will be used by  LiveComponent to identify
-    # the stream channel and the targeted frame-tag on the UI
-    @streamable = "admin_homeworks"
-    @target = @homework
+    @id = "admin_homework_#{homework.id}".freeze
+    @streamable = "admin_homeworks".freeze
     super
   end
 
@@ -32,14 +19,6 @@ class Admin::List::HomeworkComponent < LiveComponent
         end
       end
     end
-  end
-
-  private
-
-  attr_reader :homework
-
-  def render?
-    @homework.present?
   end
 
 end
