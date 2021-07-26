@@ -1,5 +1,9 @@
 <%= content_tag(:div, class: "row") do %>
   <%= render(Card::StatsComponent.new(link: homeworks_path, color: "primary", card_icon: "maps_home_work", category: "Descripcion de la tareas en general.", title: "Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
+  <%= content_tag :div, nil, data: {controller: "hello"} do %>
+    <div class="btn btn-primary" data-action="click->hello#greet">Say Hello</div>
+    <h4 data-hello-target="heading">JS Replace Content.</h1>
+  <% end %>
   <!-- 
     <div class="col-lg-6 col-md-12">
       <%= content_tag(:div, class: "card") do %>

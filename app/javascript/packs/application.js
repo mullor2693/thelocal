@@ -23,4 +23,4 @@ global.toastr = require("toastr")
 // const componentContext = require.context("../../components/", true, /(.*)\/.+\.js$/);
 // application.load(definitionsFromContext(componentContext));
 
-// import "controllers"
+import "controllers"

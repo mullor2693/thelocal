@@ -43,9 +43,17 @@
 
           <%= content_tag(:div, class: "row") do %>
             <%= events_form.fields_for :recurrence do |recurence_form| %>
-              <%= render(Forms::FormGroupComponent.new) do %>
-                <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
-                <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control" }) %>
+              <%= content_tag :div, nil, data: {controller: "toggle"} do %>
+                <%= render(Forms::FormGroupComponent.new) do %>
+                  <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
+                  <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control", data: { action: "change->toggle#changed", target: "toggle.select" } }) %>
+                <% end %>
+                <div class="form-group" data-target="toggle.element" data-values="week">
+                  <%= render(Forms::FormGroupComponent.new) do %>
+                    <%= recurence_form.label 'Selecciona dia de la semana', class: "bmd-label-floating" %>
+                    <%= recurence_form.select(:on, Date::DAYNAMES, {}, { class: "form-control"}) %>
+                  <% end %>
+                </div>
               <% end %>
             <% end %>
           <% end %>
