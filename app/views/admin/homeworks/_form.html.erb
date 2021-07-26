@@ -33,12 +33,23 @@
               <%= events_form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
             <% end %>
           <% end %>
+
           <%= content_tag(:div, class: "row") do %>
             <%= render(Forms::FormGroupComponent.new) do %>
               <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
               <%= events_form.datetime_select :start_date, class: 'form-control'%>
             <% end %>
           <% end %>
+
+          <%= content_tag(:div, class: "row") do %>
+            <%= events_form.fields_for :recurrence do |recurence_form| %>
+              <%= render(Forms::FormGroupComponent.new) do %>
+                <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
+                <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control" }) %>
+              <% end %>
+            <% end %>
+          <% end %>
+
         <% end %>
       <% end %>
     <% end %>

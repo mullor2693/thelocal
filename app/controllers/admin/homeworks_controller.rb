@@ -80,6 +80,6 @@ class Admin::HomeworksController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def homework_params
-      params.require(:homework).permit(:title, :description, events_attributes: [:id, :name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :creator_id, :parent_event_id, :_destroy])
+      params.require(:homework).permit(:title, :description, :duration, :events_attributes => [:id, :name, :description, :start_date, :end_date, :is_full_event, :is_recurring, :creator_id, :parent_event_id, :_destroy, assignee_ids:[], manager_ids:[], recurrence:{} ])
     end
 end
