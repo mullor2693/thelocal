@@ -4,8 +4,9 @@ class Homework < ApplicationRecord
   accepts_nested_attributes_for :events, allow_destroy: true #, reject_if: :all_blank
   
   # Validation
-  validates :title, presence: true
-
+  validates :title, :description, presence: true
+  validates :title, length: { maximum: 50 }
+  validates :title, uniqueness: true
   #after_create_commit { broadcast_append_to "homeworks" }
 
   scope :with_events, -> { where(id: Event.where(eventable_type: "Homework").pluck(:eventable_id).uniq) }

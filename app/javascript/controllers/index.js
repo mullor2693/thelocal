@@ -6,6 +6,9 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 import Reveal from "stimulus-reveal-controller"
 import Flatpickr from 'stimulus-flatpickr'
 
+// Import style for flatpickr
+require("flatpickr/dist/flatpickr.css")
+
 const application = Application.start()
 const context = require.context("/", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
@@ -13,5 +16,4 @@ application.load(definitionsFromContext(context))
 application.register("reveal", Reveal)
 application.register('flatpickr', Flatpickr)
 
-// Import style for flatpickr
-require("flatpickr/dist/flatpickr.css")
+

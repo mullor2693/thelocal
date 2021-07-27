@@ -1,12 +1,8 @@
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= turbo_frame_tag dom_id(@homework) do %>
-        <%= render(Card::HeaderComponent.new(title: @homework.title, color: "primary")) %>
-        <%= content_tag(:div, class: "card-body") do %>
-          <%= @homework.description %>
-        <% end %>
-        <%= render(Card::FooterComponent.new(title: "#{@homework.events.count} eventos creados.", icon: 'list')) %>
+    <%= turbo_frame_tag dom_id(@homework) do %>
+      <%= render(Card::BaseComponent.new(title: @homework.title, footer_text: "#{@homework.events.count} eventos creados", color: 'primary', row_classes: "col-12")) do %>
+        <%= @homework.description %>
       <% end %>
     <% end %>
   <% end %>
@@ -43,19 +39,26 @@
 <% end %>
 <%= content_tag(:div, class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: "Eventos relacionados a la tarea.", color: 'primary')) %>
-      <%= content_tag(:div, render(Admin::Table::Component.new(items: @homework.events)), class: "card-body") %>
-    <% end %>
-  <% end %>
-
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Nuevo evento asociado.", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= render 'admin/homeworks/events/form', event: @homework.events.new %>
-      <% end %>
+    <%= render(Card::BaseComponent.new(title: "Eventos relacionados a la tarea.", color: 'primary', row_classes: "col-12")) do %>
+      <%= render(Admin::Table::Component.new(items: @homework.events)) %>
     <% end %>
   <% end %>
 <% end %>
 
+<%= content_tag(:div, class: "row") do %>
+  <%= content_tag(:div, class: "col-12", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
+    <%= content_tag(:div, render(Button::BaseComponent.new(title:'Nuevo Evento', color:'primary', classes:"pull-right", data: { action:"click->reveal#toggle", reveal_target: "item" })), class: "col-12") %>
+    <%= content_tag(:div, class: "d-none col-12", data:{ reveal_target: "item" } ) do %>
+      <%= content_tag(:div, class: "card") do %>
+        <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Nuevo evento asociado.", color: "primary")) %>
+        <%= content_tag(:div, class: "card-body") do %>
+          <%= form_with(model: [:admin, @homework, @homework.events.build]) do |form| %>
+            <%= render 'admin/events/form_fields', form: form %>
+            <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
+            <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

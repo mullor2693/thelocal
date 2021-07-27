@@ -1,22 +1,6 @@
 <%= turbo_frame_tag "admin_#{dom_id(homework)}" do %>
   <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream, html: {class: "form"}) do |form| %>
-    <%= content_tag(:div, class: "row m-2") do %>
-    <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-8 col-md-9")) do %>
-        <%= form.label :title, 'Titulo' %>
-        <%= form.text_field :title, class: 'form-control'%>
-      <% end %>
-      <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-4 col-md-3")) do %>
-        <%= form.label :duration, 'Duración' %>
-        <%= form.number_field :duration, class: 'form-control'%>
-      <% end %>
-      <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
-      <%= tag.div class:"col-12 mt-3" do %>
-        <p class="pt-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
-        <%= form.fields_for :events do |events_form| %>
-          <%= render 'admin/events/form_fields', form: events_form %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render 'admin/homeworks/form_fields', form: form %>
     <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
     <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
   <% end %>

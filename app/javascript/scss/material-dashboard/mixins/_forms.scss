@@ -120,9 +120,9 @@
       background-image: $underline-background-image-invalid;
     }
 
-    &:read-only {
-      background-image: $underline-background-image-readonly;
-    }
+    // &:read-only {
+    //   background-image: $underline-background-image-readonly;
+    // }
 
     @include bmd-disabled() {
       background-image: $underline-background-image-disabled;

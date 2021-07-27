@@ -1,7 +1,5 @@
 <%= form_with(model: [:admin, @homework, event]) do |form| %>
-  <%= content_tag(:div, class: "row") do %>
-    <%= render 'admin/events/form_fields', form: form %>
-  <% end %>
+  <%= render 'admin/events/form_fields', form: form %>
   <%= form.submit "Guardar", class: "btn btn-#{@status} pull-right" %>
   <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
 <% end %>
