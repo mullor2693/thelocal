@@ -8,12 +8,12 @@
       <% end %>
       <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
       <%= tag.div class:"col-12 mt-3" do %>
-        <p class="py-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
+        <p class="pt-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
         <%= form.fields_for :events do |events_form| %>
           <%= content_tag(:div, class: "row") do %>   
             <%= render(Forms::FormGroupComponent.new(col_class: "col-12 m-auto")) do %>
-              <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
-              <%= events_form.datetime_select :start_date, class: 'form-control'%>
+              <%= events_form.label 'Fecha Inicio', class: "bmd-label-static" %>
+              <%= events_form.datetime_field :start_date, class:"col-12", data: { controller: "flatpickr",  flatpickr_min_date: Time.zone.now, flatpickr_enable_time: true } %>
             <% end %>       
             <% users = User.all %>
             <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
