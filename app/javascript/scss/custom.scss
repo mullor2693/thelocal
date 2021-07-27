@@ -17,3 +17,10 @@
     }
   }
 }
+
+#toasts {
+  position: fixed;
+  z-index: 9999999999;
+  right: 1.2rem;
+  top: 1.2rem;
+}

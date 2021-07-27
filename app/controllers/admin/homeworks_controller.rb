@@ -27,6 +27,8 @@ class Admin::HomeworksController < Admin::ApplicationController
     @homework = Homework.new(homework_params)
     respond_to do |format|
       if @homework.save
+        @new_homework = Homework.new
+        @new_homework.events.build
         format.turbo_stream
         format.html { redirect_to [:admin, :homeworks], notice: "Homework was successfully created." }
       else

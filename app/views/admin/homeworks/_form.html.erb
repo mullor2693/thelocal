@@ -7,10 +7,14 @@
         <%= form.number_field :duration, class: 'form-control'%>
       <% end %>
       <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
-      <%= tag.div class:"col-12" do %>
-        <p>Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
+      <%= tag.div class:"col-12 mt-3" do %>
+        <p class="py-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
         <%= form.fields_for :events do |events_form| %>
-          <%= content_tag(:div, class: "row") do %>          
+          <%= content_tag(:div, class: "row") do %>   
+            <%= render(Forms::FormGroupComponent.new(col_class: "col-12 m-auto")) do %>
+              <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
+              <%= events_form.datetime_select :start_date, class: 'form-control'%>
+            <% end %>       
             <% users = User.all %>
             <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
             <% counter_show = (users&.count || 0) %>
@@ -23,41 +27,30 @@
               <%= events_form.select(:manager_ids, users_list, {}, { multiple: true, size: counter_show, class: "form-control" }) %>
             <% end %>
           <% end %>
-          <%= content_tag(:div, class: "row") do %>
-            <%= render(Forms::FormGroupComponent.new(col_class: "col-6", fg_class: "form-check")) do %>
+          <%= content_tag(:div, class: "row", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
+            <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
+              <%= events_form.check_box :is_recurring, class: "", data: { action:"click->reveal#toggle" }  %>
+              <%= events_form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
+            <% end %>
+            <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
               <%= events_form.check_box :is_full_event, class: "" %>
               <%= events_form.label 'Dia Completo', class: "form-check-label" %>
             <% end %>
-            <%= render(Forms::FormGroupComponent.new(col_class: "col-6", fg_class: "form-check")) do %>
-              <%= events_form.check_box :is_recurring, class: "" %>
-              <%= events_form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
-            <% end %>
-          <% end %>
-
-          <%= content_tag(:div, class: "row") do %>
-            <%= render(Forms::FormGroupComponent.new) do %>
-              <%= events_form.label 'Fecha Inicio', class: "bmd-label-floating" %>
-              <%= events_form.datetime_select :start_date, class: 'form-control'%>
-            <% end %>
-          <% end %>
-
-          <%= content_tag(:div, class: "row") do %>
-            <%= events_form.fields_for :recurrence do |recurence_form| %>
-              <%= content_tag :div, nil, data: {controller: "toggle"} do %>
-                <%= render(Forms::FormGroupComponent.new) do %>
-                  <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
-                  <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control", data: { action: "change->toggle#changed", target: "toggle.select" } }) %>
-                <% end %>
-                <div class="form-group" data-target="toggle.element" data-values="week">
+            <%= content_tag(:div, class: "col-12#{" d-none" if !events_form.object.is_recurring?}", data:{ reveal_target: "item" } ) do %>
+              <%= events_form.fields_for :recurrence do |recurence_form| %>
+                <%= content_tag :div, class: "row", data: {controller: "toggle"} do %>
                   <%= render(Forms::FormGroupComponent.new) do %>
-                    <%= recurence_form.label 'Selecciona dia de la semana', class: "bmd-label-floating" %>
-                    <%= recurence_form.select(:on, Date::DAYNAMES, {}, { class: "form-control"}) %>
+                    <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
+                    <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control", data: { action: "change->toggle#changed", toggle_target: "select" } }) %>
                   <% end %>
-                </div>
+                  <%= render(Forms::FormGroupComponent.new(col_data: {toggle_target: "element", values: "week"})) do %>
+                    <%= recurence_form.label 'Selecciona dia de la semana', class: "bmd-label-floating" %>
+                    <%= recurence_form.select(:on, Date::DAYNAMES, {include_blank: false}, {multiple: true, size: 7, class: "form-control" }) %>
+                  <% end %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
-
         <% end %>
       <% end %>
     <% end %>

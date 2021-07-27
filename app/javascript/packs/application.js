@@ -17,8 +17,6 @@ import "@hotwired/turbo-rails"
 Rails.start()
 ActiveStorage.start()
 
-global.toastr = require("toastr")
-
 // Stimulus: requires all of the controllers in the app/components directory. (index)
 // const componentContext = require.context("../../components/", true, /(.*)\/.+\.js$/);
 // application.load(definitionsFromContext(componentContext));

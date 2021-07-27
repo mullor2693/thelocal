@@ -19,12 +19,14 @@
       <%= content_tag(:div, class: "main-panel", style: "width: 100%;") do %>
         <%= render "layouts/navbar" %>
         <%= content_tag(:div, class: "content") do %>
-          <%= content_tag(:div, yield, class: "container-fluid") %>
+          <%= content_tag(:div, class: "container-fluid") do %>
+            <div id="toasts"></div>
+            <%= yield %>
+          <% end %>
         <% end %>
         <%#= render(Layout::FooterComponent.new(link: dashboard_path, link_text: "Adri Mullor", copyright_text: '&copy;2021, made with <i class="material-icons">favorite</i>'.html_safe) ) %>
       <% end %>
     <% end %>
-    <%= toastr_flash %>
   <% end %>
 <%end%>
 
