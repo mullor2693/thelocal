@@ -12,7 +12,7 @@ class Forms::InputComponent < ViewComponent::Base
 
   def call
     content_tag(:div, class: "form-group") do
-      @form.label(@object_attr, @label, class: "bmd-label-floating") +
+      @form.label(@object_attr, @label) +
       eval("@form.#{@field_type}(@object_attr, #{@input_value.present? ? "value: @input_value, " : ""}class: 'form-control'#{@id.present? ? ", id: @id" : ""})") 
     end  
   end

@@ -1,5 +1,5 @@
 class Button::BaseComponent < ViewComponent::Base
-	def initialize(title:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil)
+	def initialize(title:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil, classes:nil)
 		# BTN_STYLES = [:default, :round, :fab, :icon, :simple]
 		# BTN_SIZE = [:default,:small, :large]
 		@style = style || "default"
@@ -12,6 +12,7 @@ class Button::BaseComponent < ViewComponent::Base
 		@class += " btn-round" if (@style == "icon" || @style == "round")
 		@class += " btn-sm" if @size == "small"
 		@class += " btn-lg" if @size == "large"
+		@class += " #{classes}" if classes
 		@disabled = !!disabled
 	end
 

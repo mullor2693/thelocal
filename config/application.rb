@@ -30,7 +30,7 @@ module Thelocal
     config.action_view.form_with_generates_remote_forms = false
 
     config.action_view.field_error_proc =  Proc.new{ |html_tag, instance| 
-      "<div class=\"has-danger\">#{html_tag}</div>".html_safe
+      "<span class=\"has-danger\">#{html_tag}</span>".html_safe
     }
 
   end

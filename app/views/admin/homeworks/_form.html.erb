@@ -1,60 +1,23 @@
 <%= turbo_frame_tag "admin_#{dom_id(homework)}" do %>
   <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream, html: {class: "form"}) do |form| %>
     <%= content_tag(:div, class: "row m-2") do %>
-      <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_title", form:form, object_attr:"title", label: 'Titulo', field_type: "text_field")), class: "col-sm-8 col-md-9") %>
+    <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-8 col-md-9")) do %>
+        <%= form.label :title, 'Titulo' %>
+        <%= form.text_field :title, class: 'form-control'%>
+      <% end %>
       <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-4 col-md-3")) do %>
-        <%= form.label 'Duración', class: "bmd-label-floating" %>
+        <%= form.label :duration, 'Duración' %>
         <%= form.number_field :duration, class: 'form-control'%>
       <% end %>
       <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(homework)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
       <%= tag.div class:"col-12 mt-3" do %>
         <p class="pt-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
         <%= form.fields_for :events do |events_form| %>
-          <%= content_tag(:div, class: "row") do %>   
-            <%= render(Forms::FormGroupComponent.new(col_class: "col-12 m-auto")) do %>
-              <%= events_form.label 'Fecha Inicio', class: "bmd-label-static" %>
-              <%= events_form.datetime_field :start_date, class:"col-12", data: { controller: "flatpickr",  flatpickr_min_date: Time.zone.now, flatpickr_enable_time: true } %>
-            <% end %>       
-            <% users = User.all %>
-            <% users_list = users.collect {|user| [ user.full_name, user.id ] } %>
-            <% counter_show = (users&.count || 0) %>
-            <%= render(Forms::FormGroupComponent.new(fg_class: "form-group bmd-form-group")) do %>
-              <%= events_form.label 'Asignados', class: "bmd-label-static" %>
-              <%= events_form.select(:assignee_ids, users_list, {}, { multiple: true, size: counter_show, class: "form-control" }) %>
-            <% end %>
-            <%= render(Forms::FormGroupComponent.new(fg_class: "form-group bmd-form-group")) do %>
-              <%= events_form.label 'Managers', class: "bmd-label-static" %>
-              <%= events_form.select(:manager_ids, users_list, {}, { multiple: true, size: counter_show, class: "form-control" }) %>
-            <% end %>
-          <% end %>
-          <%= content_tag(:div, class: "row", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
-            <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
-              <%= events_form.check_box :is_recurring, class: "", data: { action:"click->reveal#toggle" }  %>
-              <%= events_form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
-            <% end %>
-            <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
-              <%= events_form.check_box :is_full_event, class: "" %>
-              <%= events_form.label 'Dia Completo', class: "form-check-label" %>
-            <% end %>
-            <%= content_tag(:div, class: "col-12#{" d-none" if !events_form.object.is_recurring?}", data:{ reveal_target: "item" } ) do %>
-              <%= events_form.fields_for :recurrence do |recurence_form| %>
-                <%= content_tag :div, class: "row", data: {controller: "toggle"} do %>
-                  <%= render(Forms::FormGroupComponent.new) do %>
-                    <%= recurence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
-                    <%= recurence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control", data: { action: "change->toggle#changed", toggle_target: "select" } }) %>
-                  <% end %>
-                  <%= render(Forms::FormGroupComponent.new(col_data: {toggle_target: "element", values: "week"})) do %>
-                    <%= recurence_form.label 'Selecciona dia de la semana', class: "bmd-label-floating" %>
-                    <%= recurence_form.select(:on, Date::DAYNAMES, {include_blank: false}, {multiple: true, size: 7, class: "form-control" }) %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
+          <%= render 'admin/events/form_fields', form: events_form %>
         <% end %>
       <% end %>
     <% end %>
     <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
-    <%= link_to 'Cancelar', admin_homeworks_path, class: "btn" %>
+    <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
   <% end %>
 <% end %>

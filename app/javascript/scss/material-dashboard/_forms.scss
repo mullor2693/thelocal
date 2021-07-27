@@ -139,8 +139,7 @@ form {
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-
-    &:not(.has-success):not(.has-danger){
+    span:not(.has-success), span:not(.has-danger){
         [class^='bmd-label'],
         [class*=' bmd-label']{
             &.bmd-label-floating{

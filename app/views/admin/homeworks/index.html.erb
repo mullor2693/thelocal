@@ -1,18 +1,23 @@
 <%= content_tag(:div, class: "row") do %>
-  <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', scroll: false)) do %>
-    <%= turbo_stream_from "homeworks" %>
-    <%= tag.ul class:"list-group list-group-flush" do %>
-      <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
-        <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
+  <%= content_tag(:div, class: "col-12") do %>
+    <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12")) do %>
+      <%= turbo_stream_from "homeworks" %>
+      <%= tag.ul class:"list-group list-group-flush" do %>
+        <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
+          <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body m-2") do %>
-        <%= content_tag(:body) do %>
-          <%= render 'form', homework: @homework %>
+  <%= content_tag(:div, class: "col-12", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
+    <%= content_tag(:div, render(Button::BaseComponent.new(title:'Nueva Tarea', color:'primary', classes:"pull-right", data: { action:"click->reveal#toggle", reveal_target: "item" })), class: "col-12") %>
+    <%= content_tag(:div, class: "d-none col-12", data:{ reveal_target: "item" } ) do %>
+      <%= content_tag(:div, class: "card") do %>
+        <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
+        <%= content_tag(:div, class: "card-body m-2") do %>
+          <%= content_tag(:body) do %>
+            <%= render 'form', homework: @homework %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
