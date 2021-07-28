@@ -5,10 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.0.0
 
-* System dependencies
+* System dependencies: yarn
 
+<!-- 
 * Configuration
 
 * Database creation
@@ -21,4 +22,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... 
+-->
