@@ -82,4 +82,4 @@ test:
 production:
   <<: *default
   database: thelocal_production
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['HEROKU_POSTGRESQL_BRONZE_URL'] %>
