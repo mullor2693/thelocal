@@ -1,5 +1,7 @@
 class Homework < ApplicationRecord
   has_many :events, as: :eventable
+  has_many :homework_rooms
+  has_many :rooms, through: :homework_rooms
 
   accepts_nested_attributes_for :events, allow_destroy: true #, reject_if: :all_blank
   
