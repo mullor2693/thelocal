@@ -18,3 +18,9 @@ User.create(email: "test@test.com", password: "password", name: "Test", surname:
 
   User.create(email: email, password: "password", name: name, surname: surname, birth_date: birth_date, phone: phone, sex: sex)
 }
+10.times { 
+  room_params = {}
+  room_params[:name] = Faker::House.unique.room
+  room_params[:description] = Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 3)
+  Room.create(room_params)
+}

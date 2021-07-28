@@ -6,7 +6,7 @@ class InfoAreaComponent < ViewComponent::Base
     @horizontal = !!horizontal
     @icon = icon || 'chat'
     @link = link
-    @link_text = @link.present? (link_text || "Saber Más") : nil
+    @link_text = @link.present? ? (link_text || "Saber Más") : nil
   end
 
   def call

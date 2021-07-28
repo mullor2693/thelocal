@@ -68,3 +68,5 @@ gem "chartkick"
 gem 'hotwire-rails'
 
 gem 'faker'
+
+gem 'newrelic_rpm'
