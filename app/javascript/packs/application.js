@@ -8,9 +8,17 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'scss/site'
 import 'js/site'
+import "chartkick/chart.js"
+import "@hotwired/turbo-rails"
 
-const images = require.context('../images', true)
-const imagePath = (name) => images(name, true)
+// const images = require.context('../images', true)
+// const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()
+
+// Stimulus: requires all of the controllers in the app/components directory. (index)
+// const componentContext = require.context("../../components/", true, /(.*)\/.+\.js$/);
+// application.load(definitionsFromContext(componentContext));
+
+import "controllers"

@@ -1,0 +1,44 @@
+<%= content_tag(:div, class: "row") do %>
+  <%= render(StimulusComponents::RevealComponent.new(title:'Nueva Tarea')) do %>
+    <%= content_tag(:div, class: "card") do %>
+      <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
+      <%= content_tag(:div, class: "card-body m-2") do %>
+        <%= content_tag(:body) do %>
+          <%= render 'form', homework: @homework %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag(:div, class: "col-12") do %>
+    <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12")) do %>
+      <%= turbo_stream_from "homeworks" %>
+      <%= tag.ul class:"list-group list-group-flush" do %>
+        <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
+          <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <%#= content_tag(:div, class: "col-12") do %>
+    <%#= link_to render(Button::BaseComponent.new(title:'Nueva Tarea', color:'primary')), new_admin_homework_path, class: "pull-right" %>
+    <%#= link_to render(Button::BaseComponent.new(title:'Volver')), admin_dashboard_path %>
+  <%# end %>
+<% end %>
+
+<!-- <%= content_tag(:div, class: "row") do %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card card-chart") do %>
+      <%= content_tag(:div, class: "card-header card-header-primary") do %>
+        <%= content_tag(:div, {class: "ct-chart", id: @chart_id}) do %>
+          <%= column_chart Event.report_week, id:"column_chart report-week-events", colors: ["#eeeeeea9"], download: "weekly_events_report", discrete: true %>   
+        <% end %>
+      <% end %>
+      <%= content_tag(:div, class: "card-body") do %>
+        <%= content_tag(:h4, "Eventos Semanales Totales", class: "card-title") %>
+        <%= content_tag(:p, "Recuento de los eventos asociados a todas las tareas.", class: "card-category") %>
+      <% end %>
+      <%= render(Card::FooterComponent.new(title: "#{Event.count} eventos creados.", icon: 'list')) %>
+    <% end %>
+  <% end %>
+<% end %> -->

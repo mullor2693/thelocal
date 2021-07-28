@@ -1,0 +1,87 @@
+<%= content_tag(:div, class: "row") do %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card") do %>
+      <%= render(Card::HeaderComponent.new(title: "Editar Perfil", color: "info")) %>
+      <%= content_tag(:div, class: "card-body") do %>
+        <%= content_tag(:table, class: "table") do %>
+          <%= content_tag(:body) do %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <%= content_tag(:div, class: "row") do %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :name %>
+                    <%= form.text_field :name, class: "form-control", placeholder: :name %>
+                  <% end %>
+                <% end %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :surname, class: "bmd-label-static" %>
+                    <%= form.text_field :surname, class: "form-control" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <%= content_tag(:div, class: "row") do %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group ") do %>
+                    <%= form.label :birth_date, class: "bmd-label-static" %>
+                    <%= form.date_field :birth_date, class: "form-control" %>
+                  <% end %>
+                <% end %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :phone, class: "bmd-label-static" %>
+                    <%= form.phone_field :phone, class: "form-control" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <%= content_tag(:div, class: "row") do %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :email, class: "bmd-label-static" %>
+                    <%= form.text_field :email, class: "form-control" %>
+                  <% end %>
+                <% end %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                    <%= form.password_field :current_password, autocomplete: "current-password" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <%= content_tag(:div, class: "row") do %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                    <%= form.password_field :password, autocomplete: "new-password" %>
+                    <% if @minimum_password_length %>
+                      <br />
+                      <em><%= @minimum_password_length %> characters minimum</em>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <%= content_tag(:div, class: "col-md-6") do %>
+                  <%= content_tag(:div, class: "form-group bmd-form-group") do %>
+                    <%= form.label :password_confirmation %><br />
+                    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <div class="actions">
+                <%= form.submit "Guardar", class: "btn btn-info pull-right" %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+<% end %>
+
+

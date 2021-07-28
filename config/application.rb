@@ -18,5 +18,20 @@ module Thelocal
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.to_prepare do
+      Devise::SessionsController.layout "home"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "home" }
+      Devise::ConfirmationsController.layout "home"
+      Devise::UnlocksController.layout "home"            
+      Devise::PasswordsController.layout "home"        
+    end
+
+    config.action_view.form_with_generates_remote_forms = false
+
+    config.action_view.field_error_proc =  Proc.new{ |html_tag, instance| 
+      "<span class=\"has-danger\">#{html_tag}</span>".html_safe
+    }
+
   end
 end

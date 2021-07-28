@@ -1,0 +1,18 @@
+<%= content_tag(:div, class: "card card-chart") do %>
+  <%if @chart_id.present? %>
+    <%= content_tag(:div, class: "card-header card-header-#{@status}") do %>
+      <%= content_tag(:div, {class: "ct-chart", id: @chart_id}) do %><% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag(:div, class: "card-body") do %>
+    <%= content_tag(:h4, @title, class: "card-title") if @title.present? %>
+    <%= content_tag(:p, @category, class: "card-category") if @category.present? %>
+  <% end %>
+  <%= content_tag(:div, class: "card-footer") do %>
+    <% if @footer_text.present? %>
+      <%= content_tag(:div, class: "stats") do %>
+        <%= @footer_text if @footer_text.present? %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

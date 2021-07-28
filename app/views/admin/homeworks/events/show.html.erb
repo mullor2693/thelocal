@@ -1,0 +1,16 @@
+<%= content_tag(:div, class: "row") do %>
+  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
+    <%= content_tag(:div, class: "card") do %>
+      <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Ver evento asociado.", color: "primary")) %>
+      <%= content_tag(:div, class: "card-body") do %>
+        <%= content_tag(:p, "Inicio: #{@event.start_date}") %>
+        <%= content_tag(:p, "Fin: #{@event.end_date}") %>
+        <%= content_tag(:p, "Dia completo: #{@event.is_full_event}") %>
+        <%= content_tag(:p, "Creado por: #{@event&.creator&.full_name}") %>
+        <%= content_tag(:p, "Recurrente: #{@event.is_recurring}") %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Editar', edit_admin_homework_event_path(@homework, @event), class: "btn btn-primary pull-right" %>
+    <%= link_to 'Volver', admin_homework_events_path(@homework), class: "btn" %>
+  <% end %>
+<% end %>

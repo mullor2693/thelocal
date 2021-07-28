@@ -1,0 +1,10 @@
+
+<%= content_tag(:div, class: "position-relative overflow-hidden text-center") do %>
+  <%= content_tag(:div, class: "") do %>
+    <%= content_tag(:h1, 'Homeworker', class: "display-4 font-weight-normal") %>
+    <%= content_tag(:p, "Gestiona facilmente todas tus tareas del hogar y organiza como repartirla entre todos los convivientes.", class: "lead font-weight-normal") %>
+    <%= link_to "Accede ahora", new_user_session_path, class: "btn btn-primary" %> <!-- btn-outline-primary -->
+  <% end %>
+  <%= content_tag(:div, '', class: "product-device box-shadow d-none d-md-block") %>
+  <%= content_tag(:div, '', class: "product-device product-device-2 box-shadow d-none d-md-block") %>
+<% end %>

@@ -1,0 +1,12 @@
+
+<%= render(Navs::SidebarComponent.new(name: "My Home")) do %>
+  <%#= render(Navs::SidebarItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
+  <%#= render(Navs::SidebarItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Mis Tareas', active: is_active_link?(homeworks_path, :inclusive) )) %>
+  <%= content_tag(:hr) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(admin_dashboard_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_users_path, icon: 'people', title: 'Gestion de Usuarios', active: is_active_link?(admin_users_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_homeworks_path, icon: 'maps_home_work', title: 'Gestión de Tareas', active: is_active_link?(admin_homeworks_path, :inclusive) )) %>
+  <%= render(Navs::SidebarItemComponent.new(link: admin_rooms_path, icon: 'room_preferences', title: 'Habitaciones', active: is_active_link?(admin_rooms_path, :inclusive) )) %>
+<% end %>
+  

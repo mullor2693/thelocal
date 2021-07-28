@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "admin_#{dom_id(homework)}" do %>
+  <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream, html: {class: "form"}) do |form| %>
+    <%= render 'admin/homeworks/form_fields', form: form %>
+    <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
+    <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
+  <% end %>
+<% end %>

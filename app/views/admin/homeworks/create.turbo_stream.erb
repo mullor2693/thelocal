@@ -1,0 +1,3 @@
+<%= turbo_stream.append "admin_homeworks", render(Admin::List::HomeworkComponent.new(homework: @homework)) %>
+<%= turbo_stream.replace "admin_new_homework", partial: "admin/homeworks/form", locals: { homework: @new_homework } %>
+<%= turbo_stream.append "toasts", partial: "shared/toast", locals: { title: "New Homework", message: "Your homework was created successfully." } %>
