@@ -11,7 +11,7 @@ class Progress::BarComponent < ViewComponent::Base
 	def call
     content_tag(:div, class: "progress-container#{" progress-#{@status}" if @status != 'default'}") do
       content_tag(:span, @badge_text, class:"progress-badge") +
-      content_tag(:div, class: "progress-bar#{" progress-bar-striped" if @striped}#{" progress-bar-#{@status}" if @status != 'default'}", role: "progressbar", aria: {valuenow: "#{value}", valuemin: "#{min}", valuemax: "#{max}"}, style: "width: #{value}%;"), class: "progress")
+      content_tag(:div, class: "progress-bar#{" progress-bar-striped" if @striped}#{" progress-bar-#{@status}" if @status != 'default'}", role: "progressbar", aria: {valuenow: "#{value}", valuemin: "#{min}", valuemax: "#{max}"}, style: "width: #{value}%;")
     end
   end
 
