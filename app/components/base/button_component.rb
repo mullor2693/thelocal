@@ -1,4 +1,4 @@
-class Button::BaseComponent < Base::ButtonComponent
+class Base::ButtonComponent < Base::StaticComponent
 	def initialize(title:nil, icon:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil, classes:nil, responsive:true, name:nil, type:nil, inner:false)
 		
 		btn_styles = ['default', 'round', 'fab', 'icon', 'icon-r', 'simple']
