@@ -1,4 +1,4 @@
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: "Editar Perfil", color: "info")) %>
@@ -7,7 +7,7 @@
           <%= content_tag(:body) do %>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
               <%= render "devise/shared/error_messages", resource: resource %>
-              <%= content_tag(:div, class: "row") do %>
+              <%= tag.div(class: "row") do %>
                 <%= content_tag(:div, class: "col-md-6") do %>
                   <%= content_tag(:div, class: "form-group bmd-form-group") do %>
                     <%= form.label :name %>
@@ -21,7 +21,7 @@
                   <% end %>
                 <% end %>
               <% end %>
-              <%= content_tag(:div, class: "row") do %>
+              <%= tag.div(class: "row") do %>
                 <%= content_tag(:div, class: "col-md-6") do %>
                   <%= content_tag(:div, class: "form-group bmd-form-group ") do %>
                     <%= form.label :birth_date, class: "bmd-label-static" %>
@@ -35,7 +35,7 @@
                   <% end %>
                 <% end %>
               <% end %>
-              <%= content_tag(:div, class: "row") do %>
+              <%= tag.div(class: "row") do %>
                 <%= content_tag(:div, class: "col-md-6") do %>
                   <%= content_tag(:div, class: "form-group bmd-form-group") do %>
                     <%= form.label :email, class: "bmd-label-static" %>
@@ -53,7 +53,7 @@
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
 
-              <%= content_tag(:div, class: "row") do %>
+              <%= tag.div(class: "row") do %>
                 <%= content_tag(:div, class: "col-md-6") do %>
                   <%= content_tag(:div, class: "form-group bmd-form-group") do %>
                     <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />

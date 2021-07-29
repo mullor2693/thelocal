@@ -1,4 +1,4 @@
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: "Nuevo Usuario", subtitle: "Descripcion de los usuarios en general.", color: "primary")) %>

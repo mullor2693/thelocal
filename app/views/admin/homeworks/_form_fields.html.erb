@@ -1,4 +1,4 @@
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   
   <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-8 col-md-9")) do %>
     <%= form.label :title, 'Titulo' %>
@@ -16,11 +16,11 @@
     <%= form.label :room_ids, 'Habitaciones involucradas' %>
     <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
   <% end %>
+
   <!-- Create new event associated to homework -->
   <%= tag.div class:"col-12 mt-3" do %>
-    <p class="pt-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
-    <%= render(StimulusComponents::RevealComponent.new(icon:'add', style:'fab')) do %>
-      <%= tag.div(render(Button::CloseComponent.new("float-right")), class: "col-12") %>
+    <% ext_text = int_text = "Añade el primer evento para la tarea: " %>
+    <%= render(StimulusComponents::Reveals::BlockComponent.new(ext_text: ext_text, int_text: int_text)) do %>
       <%= form.fields_for :events do |events_form| %>
         <%= render 'admin/events/form_fields', form: events_form %>
       <% end %>

@@ -1,4 +1,4 @@
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= turbo_frame_tag dom_id(@homework) do %>
       <%= render(Card::BaseComponent.new(title: @homework.title, footer_text: "#{@homework.events.count} eventos creados", color: 'primary', row_classes: "col-12")) do %>
@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   <%= render(StimulusComponents::RevealComponent.new(title:'Nuevo Evento')) do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: "Nuevo Evento Asociado", color: "primary")) %>
@@ -23,7 +23,7 @@
   <% end %>
 <% end %>
 
-<%= content_tag(:div, class: "row") do %>
+<%= tag.div(class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= render(Card::BaseComponent.new(title: "Eventos Asociados", color: 'primary', row_classes: "col-12")) do %>
       <%= render(Admin::Table::Component.new(items: @homework.events)) %>

@@ -4,7 +4,7 @@
       <%= render(Card::HeaderComponent.new(title: '¿Olvidaste tu contraseña?', color: "primary")) %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
-          <%= content_tag(:div, class: "row") do %>
+          <%= tag.div(class: "row") do %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-12") %>
           <% end %>
           <%= form.submit "Enviame el correo de recuperación", class: "btn btn-primary pull-right" %>

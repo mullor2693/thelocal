@@ -1,5 +1,5 @@
 <%= form_with(model: [:admin, room]) do |form| %>
-  <%= content_tag(:div, class: "row") do %>
+  <%= tag.div(class: "row") do %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", label: "Nombre", field_type: "text_field")), class: "col-12") %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
   <% end %>
