@@ -5,7 +5,7 @@
       <%= render(Card::HeaderComponent.new(title: '¡Registrate!', color: "primary")) %>
       <%= content_tag(:div, class: "card-body") do %>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
-          <%= content_tag(:div, class: "row") do %>
+          <%= tag.div(class: "row") do %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", label:'Nombre', field_type:"text_field")), class: "col-md-5") %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"surname", label:'Apellidos', field_type:"text_field")), class: "col-md-7") %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-12") %>
