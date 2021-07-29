@@ -16,13 +16,13 @@
   <% end %>
 <% end %>
 <%= content_tag(:div, class: "row", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
-    <%= form.check_box :is_recurring, class: "", data: { action:"click->reveal#toggle" }  %>
-    <%= form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
-  <% end %>
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-6 m-auto", fg_class: "form-check")) do %>
+  <%= render(Forms::FormGroupComponent.new(col_class: "col-12 col-sm-6 m-auto", fg_class: "form-check")) do %>
     <%= form.check_box :is_full_event, class: "" %>
     <%= form.label 'Dia Completo', class: "form-check-label" %>
+  <% end %>
+  <%= render(Forms::FormGroupComponent.new(col_class: "col-12 col-sm-6 m-auto", fg_class: "form-check")) do %>
+    <%= form.check_box :is_recurring, class: "", data: { action:"click->reveal#toggle" }  %>
+    <%= form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
   <% end %>
   <%= content_tag(:div, class: "col-12#{" d-none" if !form.object.is_recurring?}", data:{ reveal_target: "item" } ) do %>
     <%= form.fields_for :recurrence do |recurrence_form| %>
