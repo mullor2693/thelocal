@@ -1,14 +1,16 @@
 class StimulusComponents::RevealComponent < Base::StaticComponent
 
-  def initialize(object:nil, title:nil)
+  def initialize(object:nil, title:nil, style:nil, icon:nil)
     @object = object
-    @title = title || '+'
+    @title = title
+    @icon = icon
+    @style = style || 'default'
   end
 
   def call
     tag.div(class: "w-100", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do
-      tag.div(render(Button::BaseComponent.new(title: @title, color:'primary', classes:"pull-right", data: { action:"click->reveal#toggle", reveal_target: "item" })), class: "col-12") +
-      tag.div(content, class: "d-none col-12", data: { reveal_target: "item" } )
+      tag.div(render(Button::BaseComponent.new(style: @style, icon: @icon, title: @title, color:'primary', classes:"pull-right", data: { action:"click->reveal#toggle", reveal_target: "item" })), class: "col-12") +
+      tag.div(content, class: "d-none col-12 p-0", data: { reveal_target: "item" } )
     end
   end
 
