@@ -19,13 +19,13 @@ module Thelocal
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.to_prepare do
-      Devise::SessionsController.layout "home"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "home" }
-      Devise::ConfirmationsController.layout "home"
-      Devise::UnlocksController.layout "home"            
-      Devise::PasswordsController.layout "home"        
-    end
+    # config.to_prepare do
+    #   Devise::SessionsController.layout "other_layout"
+    #   Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "other_layout" }
+    #   Devise::ConfirmationsController.layout "other_layout"
+    #   Devise::UnlocksController.layout "other_layout"            
+    #   Devise::PasswordsController.layout "other_layout"        
+    # end
 
     config.action_view.form_with_generates_remote_forms = false
 
