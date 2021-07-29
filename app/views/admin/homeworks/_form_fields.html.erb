@@ -19,8 +19,11 @@
   <!-- Create new event associated to homework -->
   <%= tag.div class:"col-12 mt-3" do %>
     <p class="pt-2">Tambien puedes añadir una instancia de la tarea directamente desde aqui:</p>
-    <%= form.fields_for :events do |events_form| %>
-      <%= render 'admin/events/form_fields', form: events_form %>
+    <%= render(StimulusComponents::RevealComponent.new(icon:'add', style:'fab')) do %>
+      <%= tag.div(render(Button::BaseComponent.new(style:'fab', icon: 'close', color:'primary',classes:"float-right", data: { action:"click->reveal#toggle"})), class: "col-12") %>
+      <%= form.fields_for :events do |events_form| %>
+        <%= render 'admin/events/form_fields', form: events_form %>
+      <% end %>
     <% end %>
   <% end %>
 

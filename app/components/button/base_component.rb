@@ -1,31 +1,33 @@
 class Button::BaseComponent < ViewComponent::Base
-	def initialize(title:nil, icon:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil, classes:nil, responsive:true, name:nil, type:nil)
+	def initialize(title:nil, icon:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil, classes:nil, responsive:true, name:nil, type:nil, inner:false)
 		
 		btn_styles = ['default', 'round', 'fab', 'icon', 'icon-r', 'simple']
 		responsive_styles = ['icon-r', 'icon', 'round', 'default']
 		# BTN_SIZE = [:default,:small, :large]
 		
-		@responsive = !!responsive
 		@style = (!style.nil? && btn_styles.include?(style)) ? style : 'default'
-		is_responsive = !!@responsive && responsive_styles.include?(@style) && icon.present?
+		is_responsive = !!responsive && responsive_styles.include?(@style) && icon.present?
+		@data = !inner ? data : nil
 		
 		@base_title = title || "title"
+		@icon = icon || "close"
+		icon_data = span_data = inner ? data : nil
+		icon_classes = is_responsive ? "material-icons d-sm-none" : "material-icons"
+		span_classes = is_responsive ? 'd-none d-sm-inline-block' : nil
+		tittle_tag =  tag.span(@base_title, class: @span_classes, data: span_data)
+		icon_tag =  tag.i(@icon, class: icon_classes, data: icon_data)
+		
+		@title = tittle_tag.html_safe
 
-		span_header = is_responsive ? '<span class="d-none d-sm-inline-block">' : '<span>'
-		@title = (span_header+@base_title+'</span>').html_safe
-		
-		@icon = icon || "undo"
-		icon_header = is_responsive ? '<i class="material-icons d-sm-none">' : '<i class="material-icons">'
-		
-		@fab_title = (icon_header+@icon+'</i>').html_safe
-		@icon_title = (icon_header+@icon+'</i>'+@title).html_safe
-		@iconr_title = (@title+icon_header+@icon+'</i>').html_safe
+		@fab_title = icon_tag.html_safe
+		@icon_title = (icon_tag+@title).html_safe
+		@iconr_title = (@title+icon_tag).html_safe
 		
 		@title = @fab_title if @style == 'fab'
 		@title = @icon_title if @style == 'icon' || is_responsive
 		@title = @iconr_title if @style == 'icon-r'
 		
-		@data = data || {}
+		
 		@color = color
     @status = status || (@color.in?(ApplicationHelper::GLOBAL_STATUSES) ? @color : "none")
 		@class = "btn btn-#{@status}"
