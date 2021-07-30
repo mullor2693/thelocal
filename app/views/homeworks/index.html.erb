@@ -1,4 +1,4 @@
-<%= tag.div(class: "row") do %>
+<%= content_tag(:div, class: "row") do %>
   <%= render(Card::BaseComponent.new(title: "Todas las Tareas", footer_text: "#{@homeworks.count} tareas asociadas.", color: 'primary', scroll: false, row_classes: "col-12")) do %>
     <%= tag.p  "Aqui puedes ver tus tareas añadidas y gestionar eventos." %>
     <%= turbo_stream_from "homeworks" %>
@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 <% end %>
-<%= tag.div(class: "row") do %>
+<%= content_tag(:div, class: "row") do %>
   <%= render(Card::BaseComponent.new(title: "Tareas Asignadas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{@assigned_homeworks.count} teventos asociados.", color: 'primary', scroll: true)) do %>
     <%= render Table::Component.new(items: @assigned_homeworks) %>
   <% end %>
