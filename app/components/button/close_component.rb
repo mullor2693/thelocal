@@ -1,5 +1,5 @@
 class Button::CloseComponent < Base::StaticComponent
-	def initialize(classes = nil)
+	def initialize(classes:nil)
 		@classes = classes 
 	end
 	def call 

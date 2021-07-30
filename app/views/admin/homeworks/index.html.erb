@@ -1,28 +1,40 @@
 <%= tag.div(class: "row") do %>
+
   <%= tag.div(class: "col-12") do %>
-    <%= render(StimulusComponents::RevealComponent.new(title:'Nueva Tarea')) do %>
-      <%= content_tag(:div, class: "card") do %>
-        <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
-        <%= content_tag(:div, class: "card-body") do %>
-          <%= content_tag(:body) do %>
-            <%= render 'form', homework: @homework %>
+
+    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+      
+      <%= tag.div(render(Button::OpenComponent.new(classes: 'pull-right')), class: "col-12")  %>
+      
+      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(render(Button::CloseComponent.new(classes: 'pull-right')), class: "col-12") %>
+          <%= tag.div(class: "col-12") do %>
+            <%= content_tag(:div, class: "card") do %>
+              <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", color: "primary")) %>
+              <%= tag.div( tag.body( render('form', homework: @homework) ), class: "card-body") %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-  <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12")) do %>
-    <%= turbo_stream_from "homeworks" %>
-    <%= tag.ul class:"list-group list-group-flush" do %>
-      <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
-        <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
+
+      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "Aqui puedes ver tus tareas añadidas y gestionar eventos.", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12")) do %>
+            <%= turbo_stream_from "homeworks" %>
+            <%= tag.ul class:"list-group list-group-flush" do %>
+              <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
+                <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
+
     <% end %>
+
   <% end %>
-  <%#= content_tag(:div, class: "col-12") do %>
-    <%#= link_to render(Button::BaseComponent.new(title:'Nueva Tarea', color:'primary')), new_admin_homework_path, class: "pull-right" %>
-    <%#= link_to render(Button::BaseComponent.new(title:'Volver')), admin_dashboard_path %>
-  <%# end %>
+
 <% end %>
 
 <!-- <%= tag.div(class: "row") do %>
