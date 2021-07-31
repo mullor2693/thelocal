@@ -1,5 +1,5 @@
 class Card::HeaderComponent < ViewComponent::Base
-	def initialize(title:, subtitle:nil, icon:nil, color:nil, icon_header:false, close_button:false, open_button:false)
+	def initialize(title:, subtitle:nil, icon:nil, color:nil, icon_header:false, close_button:false, open_button:false, data:nil)
 		@icon_header = !!icon_header
 		@status = color.present? && color.in?(ApplicationHelper::GLOBAL_STATUSES) ? color : 'primary'
 		@icon = icon || "highlight_off"
@@ -13,10 +13,11 @@ class Card::HeaderComponent < ViewComponent::Base
 			@final_tag = @final_tag
 		end
 		@classes = "card-header card-header-#{@status}#{' card-header-icon' if @icon_header}#{' with-button' if @show_button}"
+		@data = data 
 	end
 
 	def call 
-		tag.div(class: @classes) do
+		tag.div(class: @classes, data: @data) do
 			@final_tag +
 			if @show_button 
 				render(@button)

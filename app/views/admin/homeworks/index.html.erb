@@ -5,8 +5,24 @@
         <%= tag.div(class: "row") do %>
           <%= tag.div(class: "col-12") do %>
             <%= tag.div(class: "card") do %>
-              <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true)) %>
-              <%= tag.div( tag.body( render('form', homework: @homework) ), class: "card-body pt-0") %>
+              <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true, data: {header_animation: true})) %>
+              
+              <%= tag.div(class: "card-body pt-0") do %>
+                <div class="card-actions">
+                    <button type="button" class="btn btn-danger btn-link fix-broken-card">
+                      <i class="material-icons">build</i> Fix Header!
+                    </button>
+
+                    <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
+                      <i class="material-icons">refresh</i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
+                      <i class="material-icons">edit</i>
+                    </button>
+                </div>
+                <%= tag.body( render('form', homework: @homework) ) %>
+              <% end %>
+
             <% end %>
           <% end %>
         <% end %>
