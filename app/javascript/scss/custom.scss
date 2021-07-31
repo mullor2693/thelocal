@@ -54,9 +54,9 @@
 }
 
 .card-header.with-button {
-  margin-top: -60px !important;
-  .header-button {
-    position: fixed;
-    right: 17px;
+  > button {
+    position: absolute;
+    right: -16px;
+    top: -20px;
   }
 }
