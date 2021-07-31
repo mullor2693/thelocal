@@ -1,13 +1,17 @@
 <%= tag.div(class: "row") do %>
   
   <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-8 col-md-9")) do %>
-    <%= form.label :title, 'Titulo' %>
-    <%= form.text_field :title, class: 'form-control'%>
+    <%= tag.label(class:"w-100", for: :homework_title) do %>
+      <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
+      <%= tag.span 'Titulo' %>
+    <% end %>
   <% end %>
   
   <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-4 col-md-3")) do %>
-    <%= form.label :duration, 'Duración' %>
-    <%= form.number_field :duration, class: 'form-control'%>
+    <%= form.label(:duration, class: "w-100") do %>
+      <%= form.number_field :duration, class: 'form-control', placeholder: 'Duración' %>
+      <%= tag.span 'Duración' %>
+    <% end %>
   <% end %>
   
   <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(form.object)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
