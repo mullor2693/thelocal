@@ -1,23 +1,15 @@
 <%= tag.div(class: "row") do %>
-  
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-8 col-md-9")) do %>
-    <%= tag.label(class:"w-100", for: :homework_title) do %>
-      <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
-      <%= tag.span 'Titulo' %>
-    <% end %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Titulo', for: :homework_title}, col_class: "col-sm-8 col-md-9")) do %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
   <% end %>
-  
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-sm-4 col-md-3")) do %>
-    <%= form.label(:duration, class: "w-100") do %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Duración', for: :duration}, col_class: "col-sm-4 col-md-3")) do %>
       <%= form.number_field :duration, class: 'form-control', placeholder: 'Duración' %>
-      <%= tag.span 'Duración' %>
-    <% end %>
   <% end %>
-  
-  <%= content_tag(:div, render(Forms::InputComponent.new(id: dom_id(form.object)+"_description", form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
-  
-  <%= render(Forms::FormGroupComponent.new(fg_class: "form-group", fg_data: {controller: 'select2'})) do %>
-    <%= form.label :room_ids, 'Habitaciones involucradas' %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description}, col_class: "col-12")) do %>
+    <%= form.text_area :description, class: 'form-control' %>
+  <% end %>
+
+  <%= render(Forms::GroupComponent.new(label: {title: 'Habitaciones involucradas', for: :room_ids}, fg_data: {controller: 'select2'}, col_class: "col-12", float: false)) do %>
     <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
   <% end %>
 
