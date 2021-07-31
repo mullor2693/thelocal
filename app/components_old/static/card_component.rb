@@ -2,7 +2,7 @@ class Static::CardComponent < Base::StaticComponent
 
   def initialize(object:nil)
     @object = object
-    @id = object.present? ? "#{object&.class&.model_name&.element}_#{object&.id}" : nil 
+    @id = "#{object&.class&.model_name&.element}_#{object&.id}" if object.present?
   end
 
   def call
