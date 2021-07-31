@@ -1,4 +1,4 @@
-<%= tag.div(class: "row") do %>
+<%= tag.div(class: "row mt-4") do %>
 
   <%= tag.div(class: "col-12") do %>
 
@@ -12,7 +12,7 @@
           <%= tag.div(class: "col-12") do %>
             <%= tag.div(class: "card") do %>
               <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true)) %>
-              <%= tag.div( tag.body( render('form', homework: @homework) ), class: "card-body") %>
+              <%= tag.div( tag.body( render('form', homework: @homework) ), class: "card-body pt-0") %>
             <% end %>
           <% end %>
         <% end %>
@@ -45,7 +45,7 @@
           <%= column_chart Event.report_week, id:"column_chart report-week-events", colors: ["#eeeeeea9"], download: "weekly_events_report", discrete: true %>   
         <% end %>
       <% end %>
-      <%= content_tag(:div, class: "card-body") do %>
+      <%= content_tag(:div, class: "card-body pt-0") do %>
         <%= content_tag(:h4, "Eventos Semanales Totales", class: "card-title") %>
         <%= content_tag(:p, "Recuento de los eventos asociados a todas las tareas.", class: "card-category") %>
       <% end %>

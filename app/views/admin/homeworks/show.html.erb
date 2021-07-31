@@ -12,7 +12,7 @@
   <%= render(StimulusComponents::RevealComponent.new(title:'Nuevo Evento')) do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: "Nuevo Evento Asociado", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
+      <%= content_tag(:div, class: "card-body pt-0") do %>
         <%= form_with(model: [:admin, @homework, Event.new(eventable:@homework)]) do |form| %>
            <%= render 'admin/events/form_fields', form: form %>
           <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
