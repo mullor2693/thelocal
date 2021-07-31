@@ -23,7 +23,7 @@ class HomeworkComponent < Base::LiveComponent
   def call
     render(Static::CardComponent.new(object: homework)) do
       tag.div( tag.span(@title), class: "col align-self-center") + 
-      tag.div(class: "col-auto text-right align-self-center") do 
+      tag.div(class: "col-auto pr-0") do 
         (@edit ? render(Button::SmallComponent.new(link: edit_homework_path(homework), title: "Editar", color: "none", icon: "edit" ))  : ''.html_safe) +
         (@show ? render(Button::SmallComponent.new(link: homework_path(homework), title: "Ver", icon: "open_in_new", color: @color, data: {turbo: false} ))  : ''.html_safe) +
         (@destroy ? render(Button::SmallComponent.new(link: homework_path(homework), title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } )) : ''.html_safe) 

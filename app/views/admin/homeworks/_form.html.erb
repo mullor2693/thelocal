@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "admin_#{dom_id(homework)}" do %>
   <%= form_with(model: [:admin, homework], id: "admin_#{dom_id(homework)}", format: :turbo_stream, html: {class: "form"}) do |form| %>
     <%= render 'admin/homeworks/form_fields', form: form %>
-    <%= render(Button::BaseComponent.new(responsive: true, icon:'save', title:'Guardar', color:'primary', type:"submit", name:"commit", classes:"pull-right")) %>
+    <%= render(Button::BaseComponent.new(responsive: true, icon:'save', title:'Guardar', color:'primary', type:"submit", name:"commit", classes:"w-100")) %>
     <%#= render(Button::BaseComponent.new(responsive: true, icon:'undo', title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
     <%=  %>
   <% end %>
