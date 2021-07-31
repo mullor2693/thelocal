@@ -1,4 +1,4 @@
-<%= tag.div(class: "row mt-4") do %>
+<%= tag.div(class: "row") do %>
 
   <%= tag.div(class: "col-12") do %>
 
@@ -20,7 +20,7 @@
 
       <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
         <%= tag.div(class: "row") do %>
-          <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "tareas añadidas y eventos asociados", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12", add_button: true)) do %>
+          <%= render(Card::BaseComponent.new(title: "Gestión de Tareas", category: "y eventos asociados", footer_text: "#{Homework.count} tareas creadas.", color: 'primary', row_classes: "col-12", add_button: true)) do %>
             <%= turbo_stream_from "homeworks" %>
             <%= tag.ul class:"list-group list-group-flush" do %>
               <%= turbo_frame_tag('admin_homeworks', class: "row") do %>

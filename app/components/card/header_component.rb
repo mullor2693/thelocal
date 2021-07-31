@@ -10,16 +10,16 @@ class Card::HeaderComponent < ViewComponent::Base
 		@final_tag = @icon_header ? @icon_tag+@subtitle_tag+@title_tag : @title_tag+@subtitle_tag
 		if @show_button
 			@button = add_button ? Button::OpenComponent.new() : Button::CloseComponent.new()
-			@final_tag = tag.div(@final_tag, class: "col m-auto")
+			@final_tag = @final_tag
 		end
-		@classes = "row card-header card-header-#{@status}#{' card-header-icon' if @icon_header}#{' with-button' if @show_button}"
+		@classes = "card-header card-header-#{@status}#{' card-header-icon' if @icon_header}#{' with-button' if @show_button}"
 	end
 
 	def call 
 		tag.div(class: @classes) do
 			@final_tag +
 			if @show_button 
-				tag.div(render(@button), class: "col-auto m-auto header-button") 
+				render(@button)
 			end
 		end
 	end
