@@ -13,7 +13,7 @@ class Card::HeaderComponent < ViewComponent::Base
 			(@icon_header && @icon.present? ? content_tag(:div, content_tag(:i, @icon, class: "material-icons"), class: "card-icon") : ''.html_safe) +
 			(@icon_header && @subtitle.present? ? content_tag(:p, @subtitle, class: "card-category") : ''.html_safe) +	
 			content_tag((@icon_header ? :h3 : :h4), @title, class: "card-title") +  
-			(!@icon_header && @subtitle.present? ? content_tag(:p, @subtitle, class: "card-subtitle") : ''.html_safe) +
+			(!@icon_header && @subtitle.present? ? content_tag(:p, @subtitle, class: "card-subtitle") : ''.html_safe)
 		end 
 
 
