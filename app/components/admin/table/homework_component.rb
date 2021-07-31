@@ -22,7 +22,7 @@ class Admin::Table::HomeworkComponent < Base::LiveComponent
       # tag.div class: "card" do
         # tag.div class: "card-body flex" do
           tag.div( tag.span(@title), class: "col align-self-center") + 
-          tag.div(class: "col-auto text-right align-self-center") do 
+          tag.div(class: "col-auto pr-0") do 
             render(Button::SmallComponent.new(link: edit_admin_homework_path(homework), title: "Editar", color: "none", icon: "edit" ))  +
             render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Ver", icon: "open_in_new", color: @color, data: {turbo: false} )) 
             # render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } ))

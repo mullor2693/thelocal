@@ -1,22 +1,21 @@
 <%= tag.div(class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= turbo_frame_tag dom_id(@homework) do %>
-      <%= render(Card::BaseComponent.new(title: @homework.title, footer_text: "#{@homework.events.count} eventos creados", color: 'primary', row_classes: "col-12")) do %>
-        <%= @homework.description %>
+  <%= tag.div(class: "col-12") do %>
+    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= tag.div(class: "card") do %>
+              <%= render(Card::HeaderComponent.new(title: "Editar Tarea", subtitle: "Aqui puedes editar la tarea", close_button: true)) %>
+              <%= tag.div(tag.body(render('form', homework: @homework)), class: "card-body pt-0") %>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<%= tag.div(class: "row") do %>
-  <%= render(StimulusComponents::RevealComponent.new(title:'Nuevo Evento')) do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: "Nuevo Evento Asociado", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body pt-0") do %>
-        <%= form_with(model: [:admin, @homework, Event.new(eventable:@homework)]) do |form| %>
-           <%= render 'admin/events/form_fields', form: form %>
-          <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
-          <%= render(Button::BaseComponent.new(title:'Cancelar', color:'none', data: { action:"click->reveal#toggle" })) %>
+      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+        <%= turbo_frame_tag dom_id(@homework) do %>
+          <%= render(Card::BaseComponent.new(title: @homework.title, color: 'primary', row_classes: "", footer_text: "#{@homework.events.count} eventos creados", open_button: true)) do %>
+            <%= @homework.description %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
@@ -24,10 +23,38 @@
 <% end %>
 
 <%= tag.div(class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= render(Card::BaseComponent.new(title: "Eventos Asociados", color: 'primary', row_classes: "col-12")) do %>
-      <%= render(Admin::Table::Component.new(items: @homework.events)) %>
+  <%= tag.div(class: "col-12") do %>
+    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= content_tag(:div, class: "card") do %>
+              <%= render(Card::HeaderComponent.new(title: "Nuevo Evento", color: "primary", close_button: true)) %>
+              <%= content_tag(:div, class: "card-body") do %>
+                <%= form_with(model: [:admin, @homework, Event.new(eventable:@homework)]) do |form| %>
+                  <%= render 'admin/events/form_fields', form: form %>
+                  <%= form.submit "Guardar", class: "btn btn-primary w-100" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= content_tag(:div, class: "card") do %>
+              <%= render(Card::HeaderComponent.new(title: "Nuevo Evento", color: "primary", open_button: true)) %>
+              <%= turbo_stream_from "homeworks" %>
+              <%= tag.ul class:"list-group list-group-flush" do %>
+                <%= turbo_frame_tag('admin_homework_events') do %>
+                  <%= render(Admin::Table::Component.new(items: @homework.events)) %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
-

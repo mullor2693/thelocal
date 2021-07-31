@@ -5,7 +5,7 @@
   <%= render(Forms::GroupComponent.new(label: {title: 'Duración', for: :duration}, col_class: "col-sm-4 col-md-3")) do %>
       <%= form.number_field :duration, class: 'form-control', placeholder: 'Duración' %>
   <% end %>
-  <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description}, col_class: "col-12")) do %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description, class: "mb-2"}, col_class: "col-12", float: false)) do %>
     <%= form.text_area :description, class: 'form-control' %>
   <% end %>
 
@@ -13,12 +13,14 @@
     <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
   <% end %>
 
-  <!-- Create new event associated to homework -->
-  <%= tag.div class:"col-12 mt-3" do %>
-    <% ext_text = int_text = "Añade el primer evento para la tarea: " %>
-    <%= render(StimulusComponents::Reveals::BlockComponent.new(ext_text: ext_text, int_text: int_text)) do %>
-      <%= form.fields_for :events do |events_form| %>
-        <%= render 'admin/events/form_fields', form: events_form %>
+  <% if form.object.new_record? %>
+    <!-- Create new event associated to homework -->
+    <%= tag.div class:"col-12 mt-3" do %>
+      <% ext_text = int_text = "Añade el primer evento para la tarea: " %>
+      <%= render(StimulusComponents::Reveals::BlockComponent.new(ext_text: ext_text, int_text: int_text)) do %>
+        <%= form.fields_for :events do |events_form| %>
+          <%= render 'admin/events/form_fields', form: events_form %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
