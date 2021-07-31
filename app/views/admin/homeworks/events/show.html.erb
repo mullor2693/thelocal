@@ -2,7 +2,7 @@
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: @homework.title, subtitle: "Ver evento asociado.", color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
+      <%= content_tag(:div, class: "card-body pt-0") do %>
         <%= content_tag(:p, "Inicio: #{@event.start_date}") %>
         <%= content_tag(:p, "Fin: #{@event.end_date}") %>
         <%= content_tag(:p, "Dia completo: #{@event.is_full_event}") %>

@@ -53,3 +53,10 @@
   }
 }
 
+.card-header.with-button {
+  margin-top: -60px !important;
+  .header-button {
+    position: fixed;
+    right: 17px;
+  }
+}

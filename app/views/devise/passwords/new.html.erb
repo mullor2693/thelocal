@@ -2,7 +2,7 @@
   <%= content_tag(:div, class: "col-11 col-sm-10 col-md-8") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: '¿Olvidaste tu contraseña?', color: "primary")) %>
-      <%= content_tag(:div, class: "card-body") do %>
+      <%= content_tag(:div, class: "card-body pt-0") do %>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
           <%= tag.div(class: "row") do %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-12") %>

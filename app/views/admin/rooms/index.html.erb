@@ -2,7 +2,7 @@
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
       <%= render(Card::HeaderComponent.new(title: 'Habitaciones', subtitle: "Descripcion de las habitaciones en general.", color: "primary")) %>
-      <%= content_tag(:div, render(Admin::Table::Component.new(items: @rooms)), class: "card-body") %>
+      <%= content_tag(:div, render(Admin::Table::Component.new(items: @rooms)), class: "card-body pt-0") %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: "col-12") do %>

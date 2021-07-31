@@ -15,7 +15,7 @@ class Card::BaseComponent < ViewComponent::Base
     content_tag(:div, class: @row_classes) do
       content_tag(:div, class: "card") do 
         (@title.present? ? render(Card::HeaderComponent.new(title: @title, subtitle: @category, color: @color, close_button: @close_button, add_button: @add_button)) : ''.html_safe) +
-        content_tag(:div, content, class: "card-body#{' sroll-body' if @scroll}") +
+        content_tag(:div, content, class: "card-body pt-0#{' sroll-body' if @scroll}") +
         (@footer_text.present? ? render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon)) : ''.html_safe)
       end 
     end
