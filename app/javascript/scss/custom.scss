@@ -60,3 +60,36 @@
     top: -20px;
   }
 }
+
+
+
+
+
+
+form .form-group{
+  label{
+    margin-bottom:15px;
+    position:relative;
+  }
+  input{
+    padding:10px 0px;
+    margin-top:20px;
+    border:none;
+  }
+  input::placeholder{
+    opacity:0;
+  }
+  span{
+    position:absolute;
+    top:0;
+    left:0;
+    transform:translateY(30px);
+    font-size:0.825em;
+    transition-duration:300ms;
+  }
+  label:focus-within > span,
+  input:not(:placeholder-shown) + span{
+    color:purple;
+    transform:translateY(0px);
+  }
+}
