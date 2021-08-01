@@ -5,6 +5,7 @@ import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import Reveal from "stimulus-reveal-controller"
 import Flatpickr from 'stimulus-flatpickr'
+import TextareaAutogrow from "stimulus-textarea-autogrow"
 import { Alert, Autosave, Dropdown, Modal, Tabs, Popover, Toggle, Slideover } from "tailwindcss-stimulus-components"
 
 // Import style for flatpickr
@@ -16,7 +17,7 @@ application.load(definitionsFromContext(context))
 
 application.register("reveal", Reveal)
 application.register('flatpickr', Flatpickr)
-
+application.register("textarea-autogrow", TextareaAutogrow)
 application.register('alert', Alert)
 application.register('autosave', Autosave)
 application.register('dropdown', Dropdown)

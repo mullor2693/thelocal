@@ -1,8 +1,8 @@
 <%= tag.div(class: "row") do %>
   <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: @homework.title, color: "primary")) %>
-      <%= content_tag(:div, class: "card-body pt-0") do %>
+      <%= render(Headers::DefaultComponent.new(title: @homework.title)) %>
+      <%= content_tag(:div, class: "card-body") do %>
         <%= @homework.description %>
       <% end %>
     <% end %>

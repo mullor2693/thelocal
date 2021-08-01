@@ -5,15 +5,16 @@
         <%= tag.div(class: "row") do %>
           <%= tag.div(class: "col-12") do %>
             <%= tag.div(class: "card") do %>
-              <%= render(Card::HeaderComponent.new(title: "Editar Tarea", subtitle: "Aqui puedes editar la tarea", close_button: true)) %>
-              <%= tag.div(tag.body(render('form', homework: @homework)), class: "card-body pt-0") %>
+              <%= render(Headers::WithButtonComponent.new(title: "Editar Tarea", subtitle: "Aqui puedes editar la tarea")) %>
+              <%= tag.div(tag.body(render('form', homework: @homework)), class: "card-body") %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
       <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
-        <%= turbo_frame_tag dom_id(@homework) do %>
-          <%= render(Card::BaseComponent.new(title: @homework.title, color: 'primary', row_classes: "", footer_text: "#{@homework.events.count} eventos creados", open_button: true)) do %>
+        <%= content_tag(:div, class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: @homework.title, data:{button:{open: true}})) %>
+          <%= content_tag(:div, class: "card-body") do %>
             <%= @homework.description %>
           <% end %>
         <% end %>
@@ -29,7 +30,7 @@
         <%= tag.div(class: "row") do %>
           <%= tag.div(class: "col-12") do %>
             <%= content_tag(:div, class: "card") do %>
-              <%= render(Card::HeaderComponent.new(title: "Nuevo Evento", color: "primary", close_button: true)) %>
+              <%= render(Headers::WithButtonComponent.new(title: "Nuevo Evento", color: "primary")) %>
               <%= content_tag(:div, class: "card-body") do %>
                 <%= form_with(model: [:admin, @homework, Event.new(eventable:@homework)]) do |form| %>
                   <%= render 'admin/events/form_fields', form: form %>
@@ -44,13 +45,16 @@
         <%= tag.div(class: "row") do %>
           <%= tag.div(class: "col-12") do %>
             <%= content_tag(:div, class: "card") do %>
-              <%= render(Card::HeaderComponent.new(title: "Nuevo Evento", color: "primary", open_button: true)) %>
-              <%= turbo_stream_from "homeworks" %>
-              <%= tag.ul class:"list-group list-group-flush" do %>
-                <%= turbo_frame_tag('admin_homework_events') do %>
-                  <%= render(Admin::Table::Component.new(items: @homework.events)) %>
+              <%= render(Headers::WithButtonComponent.new(title: "Eventos Asociados", data: {button: {open: true}} )) %>
+              <%= content_tag(:div, class: "card-body") do %>
+                <%= turbo_stream_from "homeworks" %>
+                <%= tag.ul class:"list-group list-group-flush" do %>
+                  <%= turbo_frame_tag('admin_homework_events') do %>
+                    <%= render(Admin::Table::Component.new(items: @homework.events)) %>
+                  <% end %>
                 <% end %>
               <% end %>
+              <%= render(Card::FooterComponent.new(title: "#{@homework.events.count} eventos asociados.", icon: 'list'))  %>
             <% end %>
           <% end %>
         <% end %>

@@ -6225,6 +6225,11 @@ stimulus-reveal-controller@^3.0.0:
   resolved "https://registry.yarnpkg.com/stimulus-reveal-controller/-/stimulus-reveal-controller-3.0.0.tgz#1765c7bf51f8da88543a26c87302d3e650919ef6"
   integrity sha512-DEHSKz5X7Qdy01sEnqyoftAy2PXS6JaZMCy5ZEivn8c+Pz5QDXuavVfCJ0AbrotOfQrtv8mEIW/fwiL2SUIMng==
 
+stimulus-textarea-autogrow@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus-textarea-autogrow/-/stimulus-textarea-autogrow-3.0.0.tgz#40dd34b262b4a65e2838f75f60c2a17b59dee631"
+  integrity sha512-IFTMw34E+iwUAKCEwFNA9nX7bGCmMtWFPnRktzMipnlYhK4BpaHC8uP0nurAfuenVqaCMb4Vn5pTkZPZ2pgx4w==
+
 stimulus@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-2.0.0.tgz#713c8b91a72ef90914b90955f0e705f004403047"

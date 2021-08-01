@@ -19,6 +19,7 @@
     "stimulus": "^2.0.0",
     "stimulus-flatpickr": "^1.4.0",
     "stimulus-reveal-controller": "^3.0.0",
+    "stimulus-textarea-autogrow": "^3.0.0",
     "tailwindcss-stimulus-components": "^2.2.0"
   },
   "version": "0.1.0",

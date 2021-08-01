@@ -8,11 +8,9 @@
   <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description, class: "mb-2"}, col_class: "col-12", float: false)) do %>
     <%= form.text_area :description, class: 'form-control' %>
   <% end %>
-
   <%= render(Forms::GroupComponent.new(label: {title: 'Habitaciones involucradas', for: :room_ids}, fg_data: {controller: 'select2'}, col_class: "col-12", float: false)) do %>
     <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
   <% end %>
-
   <% if form.object.new_record? %>
     <!-- Create new event associated to homework -->
     <%= tag.div class:"col-12 mt-3" do %>

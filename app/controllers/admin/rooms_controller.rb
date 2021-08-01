@@ -4,6 +4,7 @@ class Admin::RoomsController < Admin::ApplicationController
   # GET /rooms or /rooms.json
   def index
     @rooms = Room.all
+    @room = Room.new
   end
 
   # GET /rooms/1 or /rooms/1.json

@@ -1,19 +1,39 @@
 class Base::HeaderComponent < Base::StaticComponent
-	def initialize(title:, style:"default", subtitle:nil, icon:nil, color:nil, icon_header:false, close_button:false, open_button:false, data:nil)
-		@icon_header = !!icon_header
-		@status = color.present? && color.in?(ApplicationHelper::GLOBAL_STATUSES) ? color : 'primary'
-		@icon = icon || "highlight_off"
-		@show_button = (!!close_button || !!open_button)
-		@title_tag = content_tag((@icon_header ? :h3 : :h4), title, class: 'card-title') 
-		@icon_tag = @icon.present? ? content_tag(:div, content_tag(:i, @icon, class: 'material-icons'), class: 'card-icon') : ''.html_safe
-		@subtitle_tag = subtitle.present? ? content_tag(:p, subtitle, class: @icon_header ? "card-category" : 'card-subtitle') : ''.html_safe
-		@final_tag = @icon_header ? @icon_tag+@subtitle_tag+@title_tag : @title_tag+@subtitle_tag
-		if @show_button
-			@button = open_button ? Button::OpenComponent.new() : Button::CloseComponent.new()
-			@final_tag = @final_tag
+	def initialize(
+		style: :default,
+		title:nil, 
+		subtitle:nil, 
+		icon:nil, 
+		color:nil,
+		data:{}
+	)
+
+		style = [:default, :button, :animated, :icon_header].include?(style&.to_sym) ? style.to_sym : :default
+		status = ApplicationHelper::GLOBAL_STATUSES.include?(color) ? color : 'primary'
+
+		@title_tag = tag.h4(title, class: 'card-title') if title.present?
+		@subtitle_tag = tag.p(subtitle, class: 'card-subtitle') if subtitle.present?
+		@classes = "card-header card-header-#{status}"
+		@data = data || {}
+		@final_tag = @title_tag+@subtitle_tag
+
+		case style
+			when :default
+
+			when :button
+				@show_button = true
+				@classes += ' with-button'
+				@button = !!data.try(:[], :button).try(:[], :open) ? Button::OpenComponent.new() : Button::CloseComponent.new()
+			when :animated
+				@data[:header_animation] = true
+			when :icon_header
+				@classes += ' card-header-icon'
+				@icon = icon || "highlight_off"
+				@subtitle_tag = tag.p(subtitle, class: "card-category") if subtitle.present?
+				@title_tag = tag.h3(title, class: 'card-title') if title.present?
+				@icon_tag = content_tag(:div, content_tag(:i, @icon, class: 'material-icons'), class: 'card-icon')
+				@final_tag = @icon_tag+@subtitle_tag+@title_tag
 		end
-		@classes = "card-header card-header-#{@status}#{' card-header-icon' if @icon_header}#{' with-button' if @show_button}"
-		@data = data 
 	end
 
 	def call 
