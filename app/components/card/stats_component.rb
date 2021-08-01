@@ -16,13 +16,13 @@ class Card::StatsComponent < ViewComponent::Base
       if @link.present?
         link_to @link do
           content_tag(:div, class: "card card-stats") do 
-            render(Card::HeaderComponent.new(icon_header: true, title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
+            render(Headers::WithIconComponent.new(title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
             render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon))
           end 
         end
       else
         content_tag(:div, class: "card card-stats") do 
-          render(Card::HeaderComponent.new(icon_header: true, title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
+          render(Headers::WithIconComponent.new(title: @title, icon: @card_icon, subtitle: @category, color: @color)) +
           render(Card::FooterComponent.new(title: @footer_text, icon: @footer_icon))
         end
       end

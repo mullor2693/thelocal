@@ -30,28 +30,16 @@
 //     background-image: linear-gradient(to top, rgb(255, 255, 255) 1px, fade-out(grey, 1) 1px);
 //   }
 // }
-.form-group {
-  .has-danger {
-    label { 
-      color: #f44336 
-    }
-  }
-}
-.form-control {
-  &.flatpickr-input {
-    &:disabled,  
-    &[readonly] {
-      background-color: white;
-    }
-  }
-  &.content-search {
-    border: 1px solid rgb(0 0 0 / 10%);
-    border-radius: 0.25rem;
-    box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 14%);
-    background-image: none;
-    padding: 0.4rem;
-  }
-}
+
+// .form-group {
+//   .has-danger {
+//     label { 
+//       color: #f44336 
+//     }
+//   }
+// }
+
+
 
 .card-header.with-button {
   > button {
@@ -61,30 +49,47 @@
   }
 }
 
-form .form-group{
-  label{
-    margin-bottom:15px;
-    position:relative;
+form {
+  .form-control {
+    &.flatpickr-input {
+      &:disabled,  
+      &[readonly] {
+        background-color: white;
+      }
+    }
+    &.content-search {
+      border: 1px solid rgb(0 0 0 / 10%);
+      border-radius: 0.25rem;
+      box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 14%);
+      background-image: none;
+      padding: 0.4rem;
+    }
   }
-  input{
-    padding:10px 0px;
-    margin-top:20px;
-    border:none;
-  }
-  input::placeholder{
-    opacity:0;
-  }
-  span{
-    position:absolute;
-    top:0;
-    left:0;
-    transform:translateY(30px);
-    font-size:0.825em;
-    transition-duration:300ms;
-  }
-  label:focus-within > span,
-  input:not(:placeholder-shown) + span{
-    color:purple;
-    transform:translateY(0px);
+  .form-group{
+    label{
+      margin-bottom:15px;
+      position:relative;
+    }
+    input{
+      padding:10px 0px;
+      margin-top:20px;
+      border:none;
+    }
+    input::placeholder{
+      opacity:0;
+    }
+    span{
+      position:absolute;
+      top:0;
+      left:0;
+      transform:translateY(30px);
+      font-size:0.825em;
+      transition-duration:300ms;
+    }
+    label:focus-within > span,
+    input:not(:placeholder-shown) + span{
+      color:purple;
+      transform:translateY(0px);
+    }
   }
 }

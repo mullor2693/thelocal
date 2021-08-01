@@ -1,8 +1,11 @@
 <%= form_with(model: [:admin, room]) do |form| %>
   <%= tag.div(class: "row") do %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"name", label: "Nombre", field_type: "text_field")), class: "col-12") %>
-    <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"description", label:'Descripcción', field_type: "text_area")), class: "col-12") %>
+    <%= render(Forms::GroupComponent.new(label: {title: 'Titulo', for: :homework_title}, col_class: "col-sm-8 col-md-9")) do %>
+      <%= form.text_field :name, class: 'form-control', placeholder: 'Titulo' %>
+    <% end %>
+    <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description, class: "mb-2"}, col_class: "col-12", float: false)) do %>
+      <%= form.text_area :description, class: 'form-control', data: {controller:"textarea-autogrow"} %>
+    <% end %>
   <% end %>
-  <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
-  <%= link_to 'Cancelar', admin_rooms_path, class: "btn" %>
+  <%= form.submit "Guardar", class: "btn btn-primary w-100" %>
 <% end %>

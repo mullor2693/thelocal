@@ -1,14 +1,24 @@
 <%= tag.div(class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: @room.name, color: "primary")) %>
-      <%= content_tag(:div, class: "card-body pt-0") do %>
-        <%= @room.description %>
+  <%= tag.div(class: "col-12") do %>
+    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= tag.div(class: "card") do %>
+              <%= render(Headers::WithButtonComponent.new(title: "Editar Habitacion", subtitle: "Aqui puedes editar la habitacion")) %>
+              <%= tag.div(tag.body(render('form', room: @room)), class: "card-body") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+        <%= content_tag(:div, class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: @room.name, data:{button:{open: true}})) %>
+          <%= content_tag(:div, class: "card-body") do %>
+            <%= @room.description %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-  <%= content_tag(:div, class: "col-12") do %>
-    <%= link_to render(Button::BaseComponent.new(title:'Editar', color:'primary')), edit_admin_room_path(@room), class: "pull-right" %>
-    <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_rooms_path %>
   <% end %>
 <% end %>

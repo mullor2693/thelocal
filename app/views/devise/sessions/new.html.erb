@@ -1,8 +1,8 @@
 <%= content_tag(:div, class: "row justify-content-center") do %>
   <%= content_tag(:div, class: "col-11 col-sm-10 col-md-8") do %>
     <%= content_tag(:div, class: "card") do %>
-      <%= render(Card::HeaderComponent.new(title: 'Acceso a Usuarios', color: "primary")) %>
-      <%= content_tag(:div, class: "card-body pt-0") do %>
+      <%= render(Headers::DefaultComponent.new(title: 'Acceso a Usuarios')) %>
+      <%= content_tag(:div, class: "card-body") do %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), data_turbo: false) do |form| %>
           <%= tag.div(class: "row") do %>
             <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type:"email_field")), class: "col-md-6") %>
