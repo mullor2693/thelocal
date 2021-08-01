@@ -5,8 +5,8 @@
         <%= tag.div(class: "row") do %>
           <%= tag.div(class: "col-12") do %>
             <%= tag.div(class: "card") do %>
-              <%= render(Card::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true, data: {header_animation: true})) %>
-              
+              <%= render(Base::HeaderComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true, data: {header_animation: true})) %>
+              <%#= render(Card::HeaderComponent.new(style: "animated", title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas.", close_button: true, data: {header_animation: true})) %>
               <%= tag.div(class: "card-body pt-0") do %>
                 <div class="card-actions">
                     <button type="button" class="btn btn-danger btn-link fix-broken-card">
