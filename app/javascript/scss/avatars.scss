@@ -1,0 +1,68 @@
+.avatar {
+  /* Center the content */
+  display: inline-block;
+  vertical-align: middle;
+
+  /* Used to position the content */
+  position: relative;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, .3);
+  color: #FFF;
+
+  /* Rounded border */
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+.avatar__image {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.avatar__letters {
+  /* Center the content */
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatars__item {
+  
+   /* Center the content */
+   display: inline-block;
+   vertical-align: middle;
+ 
+   /* Used to position the content */
+   position: relative;
+  /* Colors */
+  background-color: #cbcbcb;
+  color: #FFF;
+
+  /* Rounded border */
+  border-radius: 50%;
+
+  /* Nagative margin make avatar overlap to previous one */
+  margin-left: -5px;
+  
+}
+
+.avatars__image {
+  /* Add a white curve between avatars */
+  box-shadow: 0 0 0 4px #eee;
+
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  /* Rounded border */
+  border-radius: 50%;
+}

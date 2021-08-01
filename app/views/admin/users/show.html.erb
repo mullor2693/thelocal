@@ -3,6 +3,8 @@
     <%= content_tag(:div, class: "card") do %>
       <%= render(Headers::DefaultComponent.new(title: @user.full_name)) %>
       <%= content_tag(:div, class: "card-body") do %>
+        <%= render(Avatars::BaseComponent.new(image: @user.avatar_thumbnail, letters: @user.name_initials)) %>
+        
         <%= content_tag(:p, "Email: #{@user.email}") %>
         <%= content_tag(:p, "Phone: #{@user.phone}") %>
         <%= content_tag(:p, "Birhdate: #{@user.birth_date}") %>

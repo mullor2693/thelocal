@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :managed_events, through: :event_managers, source: :event
   has_many :event_assignees
   has_many :assigned_events, through: :event_assignees, source: :event
-
+  has_one_attached :avatar
 
   # Callbacks
 
@@ -23,5 +23,17 @@ class User < ApplicationRecord
 
   def full_name
     [(name.try(:strip) || ""), (surname.try(:strip) || "")].join(" ").strip
+  end
+
+  def name_initials(letters=2)
+    full_name.split.map(&:first).first(letters).join
+  end
+
+  def avatar_thumbnail
+    avatar.variant(resize: "150x150!").processed if avatar.attached?
+  end
+
+  def avatar_icon
+    avatar.variant(resize: "40x40!").processed if avatar.attached?
   end
 end

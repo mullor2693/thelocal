@@ -5,11 +5,7 @@
     <%= content_tag(:div, class: "card") do %>
       <%= render(Headers::DefaultComponent.new(title: "Editar Usuario", subtitle: "Descripcion de los usuarios en general.", color: @status)) %>
       <%= content_tag(:div, class: "card-body") do %>
-        <%= content_tag(:table, class: "table") do %>
-          <%= content_tag(:body) do %>
-            <%= render 'admin/users/form', user: @user %>
-          <% end %>
-        <% end %>
+        <%= render 'admin/users/form', user: @user %>
       <% end %>
     <% end %>
   <% end %>
