@@ -1,0 +1,24 @@
+.container {
+  position: relative;
+  &.center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.container__indicator {
+  /* Shown at the bottom right corner */
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, 50%);
+
+  /* Rounded border */
+  border-radius: 9999px;
+  height: 16px;
+  width: 16px;
+
+  /* Background color */
+  background-color: #FF4136;
+}

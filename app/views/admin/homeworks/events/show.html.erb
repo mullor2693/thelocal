@@ -19,6 +19,14 @@
         <% end %>
       <% end %>
     <% end %>
+    <%= tag.div(class: "row m-auto pb-3") do %>
+      <%= tag.div("Asignados:", class: "col m-auto") %>
+      <%= tag.div(render(Avatars::ListComponent.new(avatars: @event.assignees.map{ |u| u.avatar_icon } )), class: "col-auto") %>
+    <% end %>
+    <%= tag.div(class: "row m-auto pb-3") do %>
+      <%= tag.div("Managers:", class: "col m-auto") %>
+      <%= tag.div(render(Avatars::ListComponent.new(avatars: @event.managers.map{ |u| u.avatar_icon } )), class: "col-auto") %>
+    <% end %>
     <%= link_to 'Editar', edit_admin_homework_event_path(@homework, @event), class: "btn btn-primary w-100" %>
   <% end %>
 <% end %>

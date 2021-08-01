@@ -1,4 +1,7 @@
 <%= form_with(model: [:admin, user]) do |form| %>
+  <%= tag.div(class: "row") do %>
+    <%= form.file_field :avatar %>
+  <% end %>
   <%= tag.div(class: "row") do %>    
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"email", label:'Email', field_type: "email_field")), class: "col-sm-6") %>
     <%= content_tag(:div, render(Forms::InputComponent.new(form:form, object_attr:"password", label:'Contraseña', input_value:(user&.password || SecureRandom.hex(8)) )), class: "col-sm-6") %>
