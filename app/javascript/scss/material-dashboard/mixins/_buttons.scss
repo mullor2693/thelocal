@@ -231,19 +231,16 @@
   &.btn-rose {
     @include bmd-raised-button-variant($btn-rose-color, $btn-rose-bg, $btn-rose-border-color);
   }
+  &.btn-facebook {
+    @include bmd-raised-button-variant($white, $social-facebook, $social-facebook);
+  }
+  &.btn-twitter {
+      @include bmd-raised-button-variant($white, $social-twitter, $social-twitter);
+  }
   &,
   &.btn-default{
     @include bmd-raised-button-variant($btn-default-color, $btn-default-bg, $btn-default-border-color);
   }
-}
-
-@mixin bmd-social-buttons(){
-    &.btn-facebook {
-      @include bmd-raised-button-variant($white, $social-facebook, $social-facebook);
-    }
-    &.btn-twitter {
-        @include bmd-raised-button-variant($white, $social-twitter, $social-twitter);
-    }
 }
 
 @mixin undo-bs-tab-focus() {

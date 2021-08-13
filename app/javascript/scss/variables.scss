@@ -1,0 +1,884 @@
+// Colors
+$red-50: #ffebee !default;
+$red-100: #ffcdd2 !default;
+$red-200: #ef9a9a !default;
+$red-300: #e57373 !default;
+$red-400: #ef5350 !default;
+$red-500: #f44336 !default;
+$red-600: #e53935 !default;
+$red-700: #d32f2f !default;
+$red-800: #c62828 !default;
+$red-900: #b71c1c !default;
+$red-a100: #ff8a80 !default;
+$red-a200: #ff5252 !default;
+$red-a400: #ff1744 !default;
+$red-a700: #d50000 !default;
+$red: $red-500 !default;
+$pink-50: #fce4ec !default;
+$pink-100: #f8bbd0 !default;
+$pink-200: #f48fb1 !default;
+$pink-300: #f06292 !default;
+$pink-400: #ec407a !default;
+$pink-500: #e91e63 !default;
+$pink-600: #d81b60 !default;
+$pink-700: #c2185b !default;
+$pink-800: #ad1457 !default;
+$pink-900: #880e4f !default;
+$pink-a100: #ff80ab !default;
+$pink-a200: #ff4081 !default;
+$pink-a400: #f50057 !default;
+$pink-a700: #c51162 !default;
+$pink: $pink-500 !default;
+$purple-50: #f3e5f5 !default;
+$purple-100: #e1bee7 !default;
+$purple-200: #ce93d8 !default;
+$purple-300: #ba68c8 !default;
+$purple-400: #ab47bc !default;
+$purple-500: #9c27b0 !default;
+$purple-600: #8e24aa !default;
+$purple-700: #7b1fa2 !default;
+$purple-800: #6a1b9a !default;
+$purple-900: #4a148c !default;
+$purple-a100: #ea80fc !default;
+$purple-a200: #e040fb !default;
+$purple-a400: #d500f9 !default;
+$purple-a700: #a0f !default;
+$purple: $purple-500 !default;
+$deep-purple-50: #ede7f6 !default;
+$deep-purple-100: #d1c4e9 !default;
+$deep-purple-200: #b39ddb !default;
+$deep-purple-300: #9575cd !default;
+$deep-purple-400: #7e57c2 !default;
+$deep-purple-500: #673ab7 !default;
+$deep-purple-600: #5e35b1 !default;
+$deep-purple-700: #512da8 !default;
+$deep-purple-800: #4527a0 !default;
+$deep-purple-900: #311b92 !default;
+$deep-purple-a100: #b388ff !default;
+$deep-purple-a200: #7c4dff !default;
+$deep-purple-a400: #651fff !default;
+$deep-purple-a700: #6200ea !default;
+$deep-purple: $deep-purple-500 !default;
+$indigo-50: #e8eaf6 !default;
+$indigo-100: #c5cae9 !default;
+$indigo-200: #9fa8da !default;
+$indigo-300: #7986cb !default;
+$indigo-400: #5c6bc0 !default;
+$indigo-500: #3f51b5 !default;
+$indigo-600: #3949ab !default;
+$indigo-700: #303f9f !default;
+$indigo-800: #283593 !default;
+$indigo-900: #1a237e !default;
+$indigo-a100: #8c9eff !default;
+$indigo-a200: #536dfe !default;
+$indigo-a400: #3d5afe !default;
+$indigo-a700: #304ffe !default;
+$indigo: $indigo-500 !default;
+$blue-50: #e3f2fd !default;
+$blue-100: #bbdefb !default;
+$blue-200: #90caf9 !default;
+$blue-300: #64b5f6 !default;
+$blue-400: #42a5f5 !default;
+$blue-500: #2196f3 !default;
+$blue-600: #1e88e5 !default;
+$blue-700: #1976d2 !default;
+$blue-800: #1565c0 !default;
+$blue-900: #0d47a1 !default;
+$blue-a100: #82b1ff !default;
+$blue-a200: #448aff !default;
+$blue-a400: #2979ff !default;
+$blue-a700: #2962ff !default;
+$blue: $blue-500 !default;
+$light-blue-50: #e1f5fe !default;
+$light-blue-100: #b3e5fc !default;
+$light-blue-200: #81d4fa !default;
+$light-blue-300: #4fc3f7 !default;
+$light-blue-400: #29b6f6 !default;
+$light-blue-500: #03a9f4 !default;
+$light-blue-600: #039be5 !default;
+$light-blue-700: #0288d1 !default;
+$light-blue-800: #0277bd !default;
+$light-blue-900: #01579b !default;
+$light-blue-a100: #80d8ff !default;
+$light-blue-a200: #40c4ff !default;
+$light-blue-a400: #00b0ff !default;
+$light-blue-a700: #0091ea !default;
+$light-blue: $light-blue-500 !default;
+$cyan-50: #e0f7fa !default;
+$cyan-100: #b2ebf2 !default;
+$cyan-200: #80deea !default;
+$cyan-300: #4dd0e1 !default;
+$cyan-400: #26c6da !default;
+$cyan-500: #00bcd4 !default;
+$cyan-600: #00acc1 !default;
+$cyan-700: #0097a7 !default;
+$cyan-800: #00838f !default;
+$cyan-900: #006064 !default;
+$cyan-a100: #84ffff !default;
+$cyan-a200: #18ffff !default;
+$cyan-a400: #00e5ff !default;
+$cyan-a700: #00b8d4 !default;
+$cyan: $cyan-500 !default;
+$teal-50: #e0f2f1 !default;
+$teal-100: #b2dfdb !default;
+$teal-200: #80cbc4 !default;
+$teal-300: #4db6ac !default;
+$teal-400: #26a69a !default;
+$teal-500: #009688 !default;
+$teal-600: #00897b !default;
+$teal-700: #00796b !default;
+$teal-800: #00695c !default;
+$teal-900: #004d40 !default;
+$teal-a100: #a7ffeb !default;
+$teal-a200: #64ffda !default;
+$teal-a400: #1de9b6 !default;
+$teal-a700: #00bfa5 !default;
+$teal: $teal-500 !default;
+$green-50: #e8f5e9 !default;
+$green-100: #c8e6c9 !default;
+$green-200: #a5d6a7 !default;
+$green-300: #81c784 !default;
+$green-400: #66bb6a !default;
+$green-500: #4caf50 !default;
+$green-600: #43a047 !default;
+$green-700: #388e3c !default;
+$green-800: #2e7d32 !default;
+$green-900: #1b5e20 !default;
+$green-a100: #b9f6ca !default;
+$green-a200: #69f0ae !default;
+$green-a400: #00e676 !default;
+$green-a700: #00c853 !default;
+$green: $green-500 !default;
+$light-green-50: #f1f8e9 !default;
+$light-green-100: #dcedc8 !default;
+$light-green-200: #c5e1a5 !default;
+$light-green-300: #aed581 !default;
+$light-green-400: #9ccc65 !default;
+$light-green-500: #8bc34a !default;
+$light-green-600: #7cb342 !default;
+$light-green-700: #689f38 !default;
+$light-green-800: #558b2f !default;
+$light-green-900: #33691e !default;
+$light-green-a100: #ccff90 !default;
+$light-green-a200: #b2ff59 !default;
+$light-green-a400: #76ff03 !default;
+$light-green-a700: #64dd17 !default;
+$light-green: $light-green-500 !default;
+$lime-50: #f9fbe7 !default;
+$lime-100: #f0f4c3 !default;
+$lime-200: #e6ee9c !default;
+$lime-300: #dce775 !default;
+$lime-400: #d4e157 !default;
+$lime-500: #cddc39 !default;
+$lime-600: #c0ca33 !default;
+$lime-700: #afb42b !default;
+$lime-800: #9e9d24 !default;
+$lime-900: #827717 !default;
+$lime-a100: #f4ff81 !default;
+$lime-a200: #eeff41 !default;
+$lime-a400: #c6ff00 !default;
+$lime-a700: #aeea00 !default;
+$lime: $lime-500 !default;
+$yellow-50: #fffde7 !default;
+$yellow-100: #fff9c4 !default;
+$yellow-200: #fff59d !default;
+$yellow-300: #fff176 !default;
+$yellow-400: #ffee58 !default;
+$yellow-500: #ffeb3b !default;
+$yellow-600: #fdd835 !default;
+$yellow-700: #fbc02d !default;
+$yellow-800: #f9a825 !default;
+$yellow-900: #f57f17 !default;
+$yellow-a100: #ffff8d !default;
+$yellow-a200: #ff0 !default;
+$yellow-a400: #ffea00 !default;
+$yellow-a700: #ffd600 !default;
+$yellow: $yellow-500 !default;
+$amber-50: #fff8e1 !default;
+$amber-100: #ffecb3 !default;
+$amber-200: #ffe082 !default;
+$amber-300: #ffd54f !default;
+$amber-400: #ffca28 !default;
+$amber-500: #ffc107 !default;
+$amber-600: #ffb300 !default;
+$amber-700: #ffa000 !default;
+$amber-800: #ff8f00 !default;
+$amber-900: #ff6f00 !default;
+$amber-a100: #ffe57f !default;
+$amber-a200: #ffd740 !default;
+$amber-a400: #ffc400 !default;
+$amber-a700: #ffab00 !default;
+$amber: $amber-500 !default;
+$orange-50: #fff3e0 !default;
+$orange-100: #ffe0b2 !default;
+$orange-200: #ffcc80 !default;
+$orange-300: #ffb74d !default;
+$orange-400: #ffa726 !default;
+$orange-500: #ff9800 !default;
+$orange-600: #fb8c00 !default;
+$orange-700: #f57c00 !default;
+$orange-800: #ef6c00 !default;
+$orange-900: #e65100 !default;
+$orange-a100: #ffd180 !default;
+$orange-a200: #ffab40 !default;
+$orange-a400: #ff9100 !default;
+$orange-a700: #ff6d00 !default;
+$orange: $orange-500 !default;
+$deep-orange-50: #fbe9e7 !default;
+$deep-orange-100: #ffccbc !default;
+$deep-orange-200: #ffab91 !default;
+$deep-orange-300: #ff8a65 !default;
+$deep-orange-400: #ff7043 !default;
+$deep-orange-500: #ff5722 !default;
+$deep-orange-600: #f4511e !default;
+$deep-orange-700: #e64a19 !default;
+$deep-orange-800: #d84315 !default;
+$deep-orange-900: #bf360c !default;
+$deep-orange-a100: #ff9e80 !default;
+$deep-orange-a200: #ff6e40 !default;
+$deep-orange-a400: #ff3d00 !default;
+$deep-orange-a700: #dd2c00 !default;
+$deep-orange: $deep-orange-500 !default;
+$brown-50: #efebe9 !default;
+$brown-100: #d7ccc8 !default;
+$brown-200: #bcaaa4 !default;
+$brown-300: #a1887f !default;
+$brown-400: #8d6e63 !default;
+$brown-500: #795548 !default;
+$brown-600: #6d4c41 !default;
+$brown-700: #5d4037 !default;
+$brown-800: #4e342e !default;
+$brown-900: #3e2723 !default;
+$brown-a100: #d7ccc8 !default;
+$brown-a200: #bcaaa4 !default;
+$brown-a400: #8d6e63 !default;
+$brown-a700: #5d4037 !default;
+$brown: $brown-500 !default;
+$grey-50: #fafafa !default;
+$grey-100: #f5f5f5 !default;
+$grey-200: #eee !default;
+$grey-300: #e0e0e0 !default;
+$grey-400: #bdbdbd !default;
+$grey-500: #9e9e9e;
+$grey-600: #757575 !default;
+$grey-700: #616161 !default;
+$grey-800: #424242 !default;
+$grey-900: #212121 !default;
+$grey-a100: #f5f5f5 !default;
+$grey-a200: #eee !default;
+$grey-a400: #bdbdbd !default;
+$grey-a700: #616161 !default;
+$grey: $grey-500 !default;
+$blue-grey-50: #eceff1 !default;
+$blue-grey-100: #cfd8dc !default;
+$blue-grey-200: #b0bec5 !default;
+$blue-grey-300: #90a4ae !default;
+$blue-grey-400: #78909c !default;
+$blue-grey-500: #607d8b !default;
+$blue-grey-600: #546e7a !default;
+$blue-grey-700: #455a64 !default;
+$blue-grey-800: #37474f !default;
+$blue-grey-900: #263238 !default;
+$blue-grey-a100: #cfd8dc !default;
+$blue-grey-a200: #b0bec5 !default;
+$blue-grey-a400: #78909c !default;
+$blue-grey-a700: #455a64 !default;
+$blue-grey: $blue-grey-500 !default;
+$gray-color:  #999999 !default;
+$black-color: #3C4858 !default;
+$black: #000000; 
+$rgb-black: "0,0,0" !default;
+$white: #ffffff; 
+$rgb-white: "255,255,255" !default;
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             #999999 !default; // #999999
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-lighter: rgba($black, 0.12) !default;
+$gray-light: #999 !default;
+$gray-alpha: .54 !default;
+$gray: #555 !default; // spec color
+$gray-dark: rgba($black, 0.87) !default; // used for text color - others use grey-600 which is considerably lighter
+
+// Shadows
+$bmd-shadow-umbra-opacity: 0.2 !default;
+$bmd-shadow-penumbra-opacity: 0.14 !default;
+$bmd-shadow-ambient-opacity: 0.12 !default;
+$bmd-shadow-focus: 0 0 8px rgba($black, .18), 0 8px 16px rgba($black, .36);
+$bmd-shadow-2dp: 0 2px 2px 0 rgba($black, $bmd-shadow-penumbra-opacity),
+  0 3px 1px -2px rgba($black, $bmd-shadow-umbra-opacity),
+  0 1px 5px 0 rgba($black, $bmd-shadow-ambient-opacity);
+$bmd-shadow-3dp: 0 3px 4px 0 rgba($black, $bmd-shadow-penumbra-opacity),
+  0 3px 3px -2px rgba($black, $bmd-shadow-umbra-opacity),
+  0 1px 8px 0 rgba($black, $bmd-shadow-ambient-opacity);
+$bmd-shadow-4dp: 0 4px 5px 0 rgba($black, $bmd-shadow-penumbra-opacity),
+  0 1px 10px 0 rgba($black, $bmd-shadow-ambient-opacity),
+  0 2px 4px -1px rgba($black, $bmd-shadow-umbra-opacity);
+$bmd-shadow-6dp: 0 6px 10px 0 rgba($black, $bmd-shadow-penumbra-opacity),
+  0 1px 18px 0 rgba($black, $bmd-shadow-ambient-opacity),
+  0 3px 5px -1px rgba($black, $bmd-shadow-umbra-opacity);
+$bmd-shadow-8dp: 0 8px 10px 1px rgba($black, $bmd-shadow-penumbra-opacity),
+  0 3px 14px 2px rgba($black, $bmd-shadow-ambient-opacity),
+  0 5px 5px -3px rgba($black, $bmd-shadow-umbra-opacity);
+$bmd-shadow-16dp: 0 16px 24px 2px rgba($black, $bmd-shadow-penumbra-opacity),
+  0 6px 30px 5px rgba($black, $bmd-shadow-ambient-opacity),
+  0 8px 10px -5px rgba($black, $bmd-shadow-umbra-opacity);
+$bmd-shadow-24dp: 0 9px 46px 8px rgba($black, $bmd-shadow-penumbra-opacity),
+  0 11px 15px -7px rgba($black, $bmd-shadow-ambient-opacity),
+  0 24px 38px 3px rgba($black, $bmd-shadow-umbra-opacity);
+$bmd-font-weight-base: 400;
+// wondering if any of these could still be refactored out, but are definitely in use.
+$bmd-inverse: rgba($white, 1) !default;
+$bmd-inverse-light: rgba($white, 0.84) !default;
+$bmd-inverse-lighter: rgba($white, 0.54) !default;
+$bmd-label-color: $gray-color !default;
+$bmd-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
+$border-radius-base: 3px !default;
+$border-radius-small: 2px !default;
+$border-radius-large: 6px !default;
+$border-radius-huge: 10px !default;
+$border-radius-label: 12px !default;
+$border-radius-extreme: 30px !default;
+
+// Typography elements
+$mdb-font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$mdb-text-color-light:  $white !default;
+$mdb-text-color-light-hex: $white !default; // for contrast function in inverse
+$mdb-text-color-primary: unquote("rgba(#{$rgb-black}, 0.87)") !default;
+$mdb-text-color-primary-hex: $black !default; // for contrast function in inverse
+$icon-color: rgba(0,0,0,0.5) !default;
+$mdb-label-color: unquote("rgba(#{$rgb-black}, 0.26)") !default;
+$mdb-label-color-toggle-focus: unquote("rgba(#{$rgb-black}, .54)") !default;
+
+// Customized BS variables
+$custom-file-bg: transparent !default;
+$custom-file-border-width: 0 !default;
+$custom-file-box-shadow: none !default;
+$custom-file-border-radius: 0 !default;
+$custom-file-line-height: 1.3 !default;
+$spacer:  1rem !default; 
+$body-bg: #fafafa !default;
+
+// Brand Colors
+$brand-primary:              $purple-500 !default;
+$brand-primary-light:        $purple-400 !default;
+$brand-primary-dark:         $purple-600 !default;
+$brand-info:                 $cyan-500 !default;
+$brand-success:              $green-500 !default;
+$brand-warning:              $orange-500 !default;
+$brand-danger:               $red-500 !default;
+$brand-rose:                 $pink-500 !default;
+$brand-inverse:              $black-color !default;
+
+// Buttons:
+$bmd-btn-font-size: .875rem !default; // 14px
+$bmd-btn-font-size-lg: 1.25rem !default;
+$bmd-btn-font-size-sm: .6875rem !default; // 11px
+$bmd-btn-margin-bottom: .3125rem !default; // 5px
+$bmd-btn-color: $gray-dark !default;
+$bmd-btn-bg: transparent !default; //$body-bg !default; // #fff
+$bmd-btn-border: #ccc !default;
+$bmd-btn-focus-bg: rgba(#999, .20) !default; // spec: bg Hover: 20% #999999
+$bmd-btn-active-bg: rgba(#999, .40) !default; // spec: bg Pressed: 40% #999999
+$bmd-btn-disabled: rgba($black, .26) !default; // spec: light theme: Disabled text: 26% $black
+$bmd-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
+$bmd-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
+$bmd-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
+$bmd-btn-fab-size: 3.5rem !default; // 56px
+$bmd-btn-fab-size-sm: 2.5rem !default; // 40px
+$bmd-btn-fab-font-size: 1.5rem !default; // 24px
+
+// icons
+$bmd-btn-icon-size: 2rem !default; // 32px
+$bmd-btn-icon-size-sm: (.75 * $bmd-btn-icon-size) !default; // ~24px
+$bmd-btn-icon-font-size-sm: (.75 * $bmd-btn-fab-font-size) !default;
+
+// Buttons
+$input-btn-padding-x:                  1rem !default; // 1rem
+$input-btn-padding-y:                  .46875rem !default; // .5rem achieve a 36dp height
+$btn-font-weight:                400 !default; // normal
+$btn-box-shadow:                 none !default;
+$btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.125)
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border-color:             $btn-primary-bg !default;
+$btn-secondary-color:            $gray-dark !default;
+$btn-secondary-bg:               $body-bg !default; // #fff
+$btn-secondary-border-color:           #ccc !default;
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border-color:                $btn-info-bg !default;
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border-color:             $btn-success-bg !default;
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border-color:             $btn-warning-bg !default;
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border-color:              $btn-danger-bg !default;
+$btn-rose-color:                 #fff !default;
+$btn-rose-bg:                    $brand-rose !default;
+$btn-rose-border-color:              $btn-rose-bg !default;
+$btn-default-color:                 #fff !default;
+$btn-default-bg:                    $gray-color !default;
+$btn-default-border-color:              $btn-default-bg !default;
+$btn-link-disabled-color:        $gray-light !default;
+$input-btn-padding-x-sm:               1.25rem !default;
+$input-btn-padding-y-sm:               .40625rem !default; // achieve a 32dp height was .25rem
+$input-btn-padding-y-lg:    1.125rem !default;
+$input-btn-padding-x-lg:    2.25rem  !default;
+$btn-border-radius-sm:             .1875rem !default;
+$border-radius-extreme:            2rem !default;
+
+// Cards
+$card-border-color: $gray-lighter !default; // #e5e5e5
+$card-bg: #fff !default;
+$card-cap-bg: $card-bg !default; // #f5f5f5
+$mdb-card-body-text: $mdb-text-color-primary !default;
+$mdb-card-body-background: #fff !default;
+$mdb-card-image-headline: #fff !default;
+$text-disabled: #a8a8a8 !default;
+$background-disabled: #eaeaea !default;
+$code-bg: $grey-200 !default; // #f7f7f9 !default;
+
+// Dropdowns
+$dropdown-box-shadow: $bmd-shadow-2dp !default; //0 6px 12px rgba(0,0,0,.175) !default;
+
+// Forms
+$input-bg: rgba($black, 0) !default; // #fff !default;
+$input-bg-disabled: rgba($black, 0) !default; // $gray-lighter !default;
+$input-border-color: #d2d2d2 !default; // #ccc !default;
+$input-border-color-white: #FFFFFF !default;
+$input-box-shadow: none !default; //inset 0 1px 1px rgba(0,0,0,.075) !default;
+$input-border-radius: 0 !default; // $border-radius !default;
+$input-box-shadow-focus: none !default; // rgba(102,175,233,.6) !default;
+$input-color-placeholder: $bmd-label-color !default; // #999 !default;
+$input-padding-x: 0 !default; // .75rem !default;
+$input-padding-y: .4375rem !default; // spec 8px // .375rem !default;
+$input-padding-x-sm: 0 !default; // .75rem !default;
+$input-padding-y-sm: .25rem !default; // spec 4px //.275rem !default;
+$input-padding-x-lg: 0 !default; //   1.25rem !default;
+$input-padding-y-lg: .5625rem !default; // no-spec 9px // .75rem !default;
+$input-group-addon-bg: transparent !default; //$gray-lighter !default;
+
+// Form validation icons
+$form-icon-success: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjNWNiODVjIiBkPSJNMjMzLjggNjEwYy0xMy4zIDAtMjYtNi0zNC0xNi44TDkwLjUgNDQ4LjhDNzYuMyA0MzAgODAgNDAzLjMgOTguOCAzODljMTguOC0xNC4yIDQ1LjUtMTAuNCA1OS44IDguNGw3MiA5NUw0NTEuMyAyNDJjMTIuNS0yMCAzOC44LTI2LjIgNTguOC0xMy43IDIwIDEyLjQgMjYgMzguNyAxMy43IDU4LjhMMjcwIDU5MGMtNy40IDEyLTIwLjIgMTkuNC0zNC4zIDIwaC0yeiIvPjwvc3ZnPg==";
+$form-icon-warning: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjZjBhZDRlIiBkPSJNNjAzIDY0MC4ybC0yNzguNS01MDljLTMuOC02LjYtMTAuOC0xMC42LTE4LjUtMTAuNnMtMTQuNyA0LTE4LjUgMTAuNkw5IDY0MC4yYy0zLjcgNi41LTMuNiAxNC40LjIgMjAuOCAzLjggNi41IDEwLjggMTAuNCAxOC4zIDEwLjRoNTU3YzcuNiAwIDE0LjYtNCAxOC40LTEwLjQgMy41LTYuNCAzLjYtMTQuNCAwLTIwLjh6bS0yNjYuNC0zMGgtNjEuMlY1NDloNjEuMnY2MS4yem0wLTEwN2gtNjEuMlYzMDRoNjEuMnYxOTl6Ii8+PC9zdmc+";
+$form-icon-danger: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjZDk1MzRmIiBkPSJNNDQ3IDU0NC40Yy0xNC40IDE0LjQtMzcuNiAxNC40LTUyIDBsLTg5LTkyLjctODkgOTIuN2MtMTQuNSAxNC40LTM3LjcgMTQuNC01MiAwLTE0LjQtMTQuNC0xNC40LTM3LjYgMC01Mmw5Mi40LTk2LjMtOTIuNC05Ni4zYy0xNC40LTE0LjQtMTQuNC0zNy42IDAtNTJzMzcuNi0xNC4zIDUyIDBsODkgOTIuOCA4OS4yLTkyLjdjMTQuNC0xNC40IDM3LjYtMTQuNCA1MiAwIDE0LjMgMTQuNCAxNC4zIDM3LjYgMCA1MkwzNTQuNiAzOTZsOTIuNCA5Ni40YzE0LjQgMTQuNCAxNC40IDM3LjYgMCA1MnoiLz48L3N2Zz4=";
+
+// List group
+$list-group-bg: inherit !default; // #fff
+$list-group-border-width: 0 !default; // $border-width
+$list-group-border-radius: 0 !default; // $border-radius
+
+// Navs https://www.google.com/design/spec/components/tabs.html#tabs-specs
+$nav-disabled-link-color: $gray-light !default;
+$nav-disabled-link-hover-color: $gray-light !default;
+$bmd-navbar-link-font-weight: $bmd-font-weight-base !default; //
+$bmd-navbar-link-font-size: .875rem !default; // 14
+$bmd-navbar-link-padding: .5321rem; // 7
+
+// tabs & pills
+$bmd-nav-tabs-pills-font-weight: 500 !default; //
+$bmd-nav-tabs-pills-font-size: .875rem !default; // 14
+$bmd-nav-tabs-pills-link-padding: 1.4286em .8575em !default; // spec // was .5em 1em   // relative em based on 14
+
+// tabs only
+$bmd-nav-tabs-border-size: .214rem !default; // 3px
+$bmd-nav-tabs-color: $gray !default;
+$bmd-nav-tabs-active-color: $gray-dark !default;
+$bmd-nav-tabs-active-border-color: $brand-primary !default;
+$bmd-nav-tabs-disabled-link-color: $nav-disabled-link-color !default;
+$bmd-nav-tabs-disabled-link-color-hover: $nav-disabled-link-hover-color !default;
+$bmd-nav-tabs-primary-color: $bmd-inverse !default;
+$bmd-nav-tabs-primary-active-color: #fff !default;
+$bmd-nav-tabs-primary-active-border-color: #fff !default;
+$bmd-nav-tabs-primary-disabled-link-color: $bmd-inverse-light !default;
+$bmd-nav-tabs-primary-disabled-link-color-hover: $bmd-inverse-light !default;
+$bmd-nav-tabs-inverse-color: $bmd-inverse !default;
+$bmd-nav-tabs-inverse-active-color: #fff !default;
+$bmd-nav-tabs-inverse-active-border-color: #fff !default;
+$bmd-nav-tabs-inverse-disabled-link-color: $bmd-inverse-light !default;
+$bmd-nav-tabs-inverse-disabled-link-color-hover: $bmd-inverse-light !default;
+$nav-tabs-active-link-hover-bg: transparent !default; // $body-bg
+$pagination-border-width: 0;
+$pagination-bg: transparent;
+$pagination-disabled-bg: transparent;
+$pagination-padding-x-lg: 0;
+$pagination-padding-x-sm: 0;
+
+// Form states and alerts
+$state-success-text: $bmd-inverse !default;
+$state-success-bg: $brand-success !default;
+$state-info-text: $bmd-inverse !default;
+$state-info-bg: $brand-info !default;
+$state-warning-text: $bmd-inverse !default;
+$state-warning-bg: $brand-warning !default;
+$state-danger-text: $bmd-inverse !default;
+$state-danger-bg: $brand-danger !default;
+$state-rose-bg: $brand-rose !default;
+$table-bg-accent: rgba(#000, .03);
+$table-border-color: rgba(#000, .06);
+$table-bg-hover: rgba(#000, .02); // Grey 100 (on white background)
+$bmd-table-header-font-size: .95rem;
+$bmd-table-border-color-inverse: rgba(#fff, .06);
+$tooltip-bg: rgba($grey-700, .9);
+
+// Typography
+$font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$font-family-serif:      'Roboto Slab', 'Times New Roman', serif !default;
+$font-size-h1:                 3.3125rem;
+$font-size-h2:                 2.25rem !default;
+$font-size-h3:                 1.5625rem;
+$font-size-h4:                 1.125rem !default;
+$font-size-h5:                 1.0625rem !default;
+$font-size-h6:                 0.75rem !default;
+$font-paragraph:               14px !default;
+$font-size-navbar:             16px !default;
+$font-size-small:              12px !default;
+$display1-size: 7rem !default; // md display-4 112px was 6rem;
+$display2-size: 3.5rem !default; // md display-3 56px was 5.5rem
+$display3-size: 2.8125rem !default; // md display-2 45px was 4.5rem
+$display4-size: 2.125rem !default; // md display-1 34px was 3.5rem
+$headings-margin-bottom:     ($spacer / 2) !default;
+$headings-font-weight:         400 !default; // was 500
+$font-weight-light: 300 !default;
+$font-weight-default: 400 !default;
+$font-weight-bold:    500 !default;
+$font-weight-extra-bold: 700 !default;
+$font-size-large:              1em          !default;
+$font-size-large-navbar:       20px         !default;
+$padding-input-vertical:        11px !default;
+$padding-input-horizontal:      19px !default;
+$padding-btn-vertical:         11px !default;
+$padding-btn-horizontal:       22px !default;
+$padding-base-vertical:        .5rem !default;
+$padding-base-horizontal:      .7rem !default;
+$padding-round-horizontal:     23px !default;
+$padding-simple-vertical:      10px !default;
+$padding-simple-horizontal:    17px !default;
+$padding-large-vertical:       15px !default;
+$padding-large-horizontal:     48px !default;
+$padding-small-vertical:        5px !default;
+$padding-small-horizontal:     15px !default;
+$padding-label-vertical:        2px !default;
+$padding-label-horizontal:     12px !default;
+$margin-large-vertical:        30px !default;
+$margin-base-vertical:         15px !default;
+$margin-base-horizontal:       15px !default;
+
+// Modals
+$modal-content-xs-box-shadow: $bmd-shadow-24dp !default;
+$modal-backdrop-opacity: .26 !default; // .5
+$transition-ease-in:              ease-in !default;
+$transition-ease-out:             ease-out !default;
+$ultra-fast-transition-time:      60ms  !default;
+$navbar-padding-a:               10px 15px;
+$padding-zero:                   0px !default;
+$sidebar-width:               calc(100% - 260px) !default;
+$sidebar-mini-width:         calc(100% - 80px) !default;
+$topbar-back:          topbar-back !default;
+$bottombar-back:       bottombar-back !default;
+$topbar-x:             topbar-x !default;
+$bottombar-x:          bottombar-x !default;
+$margin-bottom:                0 0 10px 0 !default;
+$margin-base-vertical:         15px !default;
+
+// import their vars after customization for use below
+$enable-flex: true; // fully adopt flexbox layouts
+$enable-shadows: true; // enable shadows, set to false to turn off shadows
+
+$bmd-menu-line-height: 1 !default; // makes it easier to use sizes to match spec
+
+$bmd-menu-item-min-width: 7rem !default; // Minimum width on mobile = 2 * 56dp = 112dp
+$bmd-menu-item-max-width: 17.5rem !default; // Maximum width on mobile (in both portrait and landscape) = 5 * 56dp = 280dp
+$bmd-menu-item-min-height: 3rem !default; // 48px
+
+$bmd-menu-item-padding-right: 1rem !default;
+$bmd-menu-item-padding-bottom: .8rem !default;
+$bmd-menu-item-padding-left: 1rem !default;
+$bmd-menu-item-padding-top: .8rem !default;
+
+// md and up
+$bmd-menu-item-padding-right-md: 1.5rem !default;
+$bmd-menu-item-padding-left-md: 1.5rem !default;
+
+// Menu
+$bmd-menu-expand-duration: 0.3s !default;
+$bmd-menu-fade-duration: 0.2s !default;
+
+// Drawer
+$bmd-drawer-x-size: 240px !default;
+$bmd-drawer-y-size: 100px !default;
+
+// Snackbar
+$bmd-snackbar-bg: #323232 !default;
+$bmd-snackbar-color: #fff !default;
+$bmd-snackbar-min-width: 280px !default;
+$bmd-snackbar-padding: .8rem 1.5rem !default;
+$bmd-snackbar-min-width-sm: 100% !default;
+
+$bmd-label-color-focus: $brand-primary !default;
+$bmd-invalid-underline: $brand-danger !default;
+$bmd-readonly-underline: $input-border-color !default;
+
+//---
+// verified in use with refactoring to v4
+
+//---
+//-- unverified below here
+$bmd-brand-inverse: $indigo !default;
+// Typography elements FIXME: review to see if we actually need these
+$icon-color: rgba($black, 0.5) !default;
+
+// --------------------
+// inputs
+$mdb-input-placeholder-color: #AAAAAA !default;
+$mdb-input-underline-color: #D2D2D2 !default;
+
+$mdb-input-font-size-base: 14px !default;
+$mdb-input-font-size-large: ceil(($font-size-base * 1.25)) !default; // ~20px
+$mdb-input-font-size-small: ceil(($font-size-base * 0.75)) !default; // ~12px
+
+$bmd-bmd-label-static-size-ratio: 75 / 100 !default;
+$bmd-help-size-ratio: 75 / 100 !default;
+
+$bmd-form-control-bg-repeat-y: no-repeat !default;
+$bmd-form-control-bg-position: center bottom, center calc(100% - 1px) !default;
+$bmd-form-control-bg-size: 0 100%, 100% 100% !default;
+$bmd-form-control-bg-size-active: 100% 100%, 100% 100% !default;
+
+// expandable
+$input-text-button-size: 32px !default;
+
+// sizing
+$bmd-form-line-height: 1 !default; // set as 1x font-size so that padding is easier calculated to match the spec.
+$bmd-label-top-margin-base: 1rem !default;
+
+$bmd-form-line-height-lg: 1 !default; // set as 1x font-size so that padding is easier calculated to match the spec.
+$bmd-label-top-margin-lg: 1rem !default; // 16px
+
+$bmd-form-line-height-sm: 1 !default; // set as 1x font-size so that padding is easier calculated to match the spec.
+$bmd-label-top-margin-sm: .75rem !default; // 12px
+
+$text-disabled: #a8a8a8 !default;
+$background-disabled: #eaeaea !default;
+
+$margin-base:               1.071rem !default;
+
+
+// Checkboxes
+$bmd-checkbox-size: 1.25rem !default;
+$bmd-checkbox-animation-ripple: 500ms !default;
+$bmd-checkbox-animation-check: 0.3s !default;
+$bmd-checkbox-checked-color: $white !default;
+$bmd-checkbox-label-padding: .3125rem !default; // 5px
+$checkboxes-text-color: $mdb-input-placeholder-color !default;
+
+$bmd-checkbox-border-size: .0625rem !default;
+$bmd-checkbox-border-color: $bmd-label-color-inner-focus !default;
+$bmd-checkbox-border-color-disabled: $gray-lighter !default; //#bdbdbd !default;
+
+// Toggle
+$mdb-toggle-label-color: $mdb-label-color !default;
+
+// Variables for datetimepicker //
+$padding-default-vertical:     10px !default;
+$medium-pale-bg:             #F1EAE0 !default;
+$pale-bg:                    #F9F7F3 !default;
+
+
+$font-color:                 #66615b !default;
+
+// $brand-default:     #cecece !default;
+// $brand-primary:     $purple !default;
+// $brand-success:     $green !default;
+// $brand-danger:      $red !default;
+// $brand-warning:     $orange !default;
+// $brand-info:        $cyan !default;
+// $brand-rose:        $pink !default;
+
+$black-color:           #3C4858 !default;
+
+// Dropdowns
+
+$dropdown-item-padding-y: .625rem;
+$dropdown-item-padding-x: 1.25rem;
+$dropdown-header-padding-y: 0.1875rem;
+$bmd-dropdown-margin-y: .3125rem !default;
+$bmd-dropdown-header-color: #777 !default;
+$bmd-dropdown-link-color: #333 !default;
+
+// Switches
+$bmd-switch-label-padding: .3125rem !default; // 5px
+$bmd-switch-width: 2.125rem !default; // 34px
+$bmd-switch-height: .875rem !default; // 14px
+$bmd-switch-handle-size: 1.25rem !default; // 20px (was 18px)
+
+$bmd-switch-handle-checked-bg: $brand-primary !default;
+$bmd-switch-handle-unchecked-bg: #f1f1f1 !default;
+$bmd-switch-handle-disabled-bg: #bdbdbd !default;
+$bmd-switch-unchecked-bg: $gray-lighter !default;
+$bmd-switch-checked-bg: desaturate(
+  lighten($bmd-switch-handle-checked-bg, 28%),
+  32%
+); // kind of magic recipe
+$bmd-switch-disabled-bg: $gray-lighter !default;
+
+// Popovers and Popups
+$bmd-popover-background: rgba(101, 101, 101, 0.9) !default;
+$bmd-popover-color: #ececec !default;
+
+// Radio:
+$bmd-radio-border: .0625rem !default; // 1px
+$bmd-radio-size: 1rem !default;
+$bmd-radio-ripple-offset: 1em !default;
+$bmd-radio-label-padding: .3125rem !default; // 5px
+
+$bmd-radio-color-off: $bmd-label-color-inner-focus !default;
+$bmd-radio-color-on: $brand-primary !default;
+$bmd-radio-color-disabled: $gray-lighter; //
+$bmd-radio-color-disabled-inverse: rgba(
+  $white,
+  0.30
+); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
+
+$white-color: #fff !default;
+$navbar-color: #555 !default;
+$pills-color: $navbar-color !default;
+$black-color: #3C4858 !default;
+$link-color: $brand-primary;
+$white-transparent: rgba($white-color, .8);
+$transparent: transparent;
+
+//Popovers
+$popover-color: $navbar-color !default;
+
+//Tooltips
+$tooltip-font-size: 0.75rem !default;
+
+// Background colors
+$bg-primary: $brand-primary;
+$bg-danger: $brand-danger;
+$bg-warning: $brand-warning;
+$bg-info: $brand-info;
+$bg-rose: $brand-rose;
+$bg-success: $brand-success;
+$bg-dark: $grey-900;
+
+//Paddings
+$padding-general-y: 0.625rem !default;
+$padding-general-x: 0.9375rem !default;
+$padding-card-body-y: 0.9375rem !default;
+$padding-card-body-x: 1.875rem !default;
+
+// Buttons:
+$mdb-btn-font-size-base: 12px !default;
+$mdb-btn-font-size-lg: 14px !default;
+$mdb-btn-font-size-sm: 11px !default;
+$mdb-btn-font-size-xs: 10px !default;
+
+$mdb-btn-fab-size: 41px !default;
+$mdb-btn-fab-size-lg: 56px !default;
+$mdb-btn-fab-size-mini: 29px !default;
+$mdb-btn-fab-font-size: 24px !default;
+$mdb-btn-just-icon-font-size: 20px !default;
+
+$mdb-btn-icon-size: 32px !default;
+$mdb-btn-icon-size-mini: 17px !default;
+
+$bmd-line-height: 1.42857143 !default;
+$btn-lg-line-height: 1.3333333 !default;
+
+//Font-weight
+$font-weight-light: 300 !default;
+$font-weight-default: 400 !default;
+$font-weight-bold:    500 !default;
+$font-weight-extra-bold: 700 !default;
+$font-weight-ultra-bold: 900 !default;
+
+//Border-radius
+$border-radius-base: 3px !default;
+$border-radius-small: 2px !default;
+$border-radius-large: 6px !default;
+$border-radius-huge: 10px !default;
+$border-radius-label: 12px !default;
+$border-radius-extreme: 30px !default;
+
+// Animations
+$bmd-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$bmd-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$bmd-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$bmd-animation-curve-default: $bmd-animation-curve-fast-out-slow-in !default;
+$bmd-animation-dropdown-caret: 150ms !default;
+$general-transition-time:  300ms !default;
+
+$slow-transition-time:           370ms !default;
+$fast-transition-time:           150ms !default;
+
+$transition-linear:                                   linear !default;
+$transition-bezier:         cubic-bezier(0.34, 1.61, 0.7, 1) !default;
+$transition-bezier-rotating-card:         cubic-bezier(0.34, 1.45, 0.7, 1) !default;
+$transition-ease:           ease 0s;
+
+//variables for social
+$social-facebook: 			#3b5998;
+$social-twitter: 			#55acee;
+$social-pinterest: 			#cc2127;
+$social-google: 			#dd4b39;
+$social-linkedin: 			#0976b4;
+$social-dribbble: 			#ea4c89;
+$social-github: 			#333333;
+$social-youtube: 			#e52d27;
+$social-instagram: 		    #125688;
+$social-reddit: 			#ff4500;
+$social-tumblr: 			#35465c;
+$social-behance: 			#1769ff;
+
+
+// Variables for checkboxes
+
+$mdb-label-color: unquote("rgba(#{$rgb-black}, 0.26)") !default;
+$mdb-label-color-toggle-focus: unquote("rgba(#{$rgb-black}, .54)") !default;
+
+$mdb-checkbox-size: 20px !default;
+$mdb-checkbox-animation-ripple: 500ms !default;
+$mdb-checkbox-animation-check: 0.3s !default;
+$mdb-checkbox-checked-color: $brand-primary !default;
+
+$mdb-checkbox-label-color: $mdb-label-color !default;
+$mdb-checkbox-border-color: $mdb-label-color-toggle-focus !default;
+
+// Radio:
+$mdb-radio-label-color: $mdb-label-color !default;
+$mdb-radio-color-off: $mdb-label-color-toggle-focus !default;
+$mdb-radio-color-on: $brand-primary !default;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$opacity-gray-3:             rgba(222,222,222, .3) !default;
+$opacity-gray-5:             rgba(222,222,222, .5) !default;
+$opacity-gray-8:             rgba(222,222,222, .8) !default;
+
+$opacity-5:                  rgba(255,255,255, .5) !default;
+$opacity-8:                  rgba(255,255,255, .8) !default;
+
+$opacity-1:                  rgba(255,255,255, .1) !default;
+$opacity-2:                  rgba(255,255,255, .2) !default;
+
+//== Components
+//
+
+$topbar-x:             topbar-x !default;
+$topbar-back:          topbar-back !default;
+$bottombar-x:          bottombar-x !default;
+$bottombar-back:       bottombar-back !default;
+
+// Sidebar variables
+$sidebar-width:              calc(100% - 260px) !default;
+$sidebar-mini-width:         calc(100% - 80px) !default;

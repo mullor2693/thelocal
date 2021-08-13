@@ -1,53 +1,39 @@
-/*!
 
- =========================================================
- * Material Dashboard - v2.1.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/material-dashboard
- * Copyright 2020 Creative Tim (http://www.creative-tim.com)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
- @import "material-dashboard/variables";
- @import "material-dashboard/mixins";
- @import "material-dashboard/core-bootstrap";
+ @import "material-dashboard/variables"; // [:TODO]: check
+ @import "material-dashboard/mixins"; // [:TODO]: check
+ @import "material-dashboard/core-bootstrap"; // [:TODO]: use real boostrap
 
  // Core Components
- @import "material-dashboard/buttons";
- @import "material-dashboard/checkboxes";
- @import "material-dashboard/radios";
- @import "material-dashboard/forms";
- @import "material-dashboard/input-group";
- @import "material-dashboard/images";
- @import "material-dashboard/navbar";
- @import "material-dashboard/alerts";
- @import "material-dashboard/headers";
- @import "material-dashboard/type";
- @import "material-dashboard/tabs";
- @import "material-dashboard/tooltip";
- @import "material-dashboard/popover";
- @import "material-dashboard/dropdown";
- @import "material-dashboard/togglebutton";
- @import "material-dashboard/ripples";
- @import "material-dashboard/footers";
- @import "material-dashboard/sidebar-and-main-panel";
- @import "material-dashboard/fixed-plugin";
- @import "material-dashboard/tables";
- @import "material-dashboard/misc";
- @import "material-dashboard/social-buttons";
+ @import "material-dashboard/buttons"; // [:TODO]: check
+ @import "material-dashboard/checkboxes"; // [:TODO]: check
+ @import "material-dashboard/radios"; // [:TODO]: check
+ @import "material-dashboard/forms"; // [:TODO]: check
+ @import "material-dashboard/input-group"; // [:TODO]: check
+ @import "material-dashboard/images"; // [:TODO]: check
+ @import "material-dashboard/navbar"; // [:TODO]: check
+ @import "material-dashboard/alerts"; // [:TODO]: check
+ @import "material-dashboard/headers"; // [:TODO]: check
+ @import "material-dashboard/type"; // [:TODO]: check
+ @import "material-dashboard/tabs"; // [:TODO]: check
+ @import "material-dashboard/tooltip"; // [:TODO]: check
+ @import "material-dashboard/popover"; // [:TODO]: check
+ @import "material-dashboard/dropdown"; // [:TODO]: check
+ @import "material-dashboard/togglebutton"; // [:TODO]: check
+ @import "material-dashboard/ripples"; // [:TODO]: check
+ @import "material-dashboard/footers"; // [:TODO]: check
+ @import "material-dashboard/sidebar-and-main-panel"; // [:TODO]: check
+ @import "material-dashboard/fixed-plugin"; // [:TODO]: check
+ @import "material-dashboard/tables"; // [:TODO]: check
+ @import "material-dashboard/misc"; // [:TODO]: check
+ @import "material-dashboard/social-buttons"; // [:TODO]: check
 
-@import "material-dashboard/cards";
-@import "material-dashboard/cards/card-stats";
-@import "material-dashboard/cards/card-profile";
-@import "material-dashboard/cards/card-plain";
+@import "material-dashboard/cards"; // [:TODO]: check
+@import "material-dashboard/cards/card-stats"; // [:TODO]: check
+@import "material-dashboard/cards/card-profile"; // [:TODO]: check
+@import "material-dashboard/cards/card-plain"; // [:TODO]: check
 
  //plugin scss
- @import "material-dashboard/plugins/animate";
- @import "material-dashboard/plugins/chartist";
+ @import "material-dashboard/plugins/animate"; // [:TODO]: check
+ @import "material-dashboard/plugins/chartist"; // [:TODO]: check
 
- @import "material-dashboard/responsive";
+ @import "material-dashboard/responsive"; // [:TODO]: check

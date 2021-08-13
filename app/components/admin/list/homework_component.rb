@@ -7,8 +7,7 @@ class Admin::List::HomeworkComponent < HomeworkComponent
   end
 
   def call
-    turbo_frame_tag dom_id(@homework), class: "col-lg-6" do 
-      tag.li(class:"list-group-item", id: @id) do
+    turbo_frame_tag @id, class: "list-group-item w-100" do 
         tag.div class: "row" do
           tag.div( tag.span(@title), class: "col align-self-center") + 
           tag.div(class: "col-auto pr-0") do 
@@ -17,7 +16,7 @@ class Admin::List::HomeworkComponent < HomeworkComponent
             (@destroy ? render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } )) : ''.html_safe) 
           end 
         end
-      end
+  
     end
   end
 
