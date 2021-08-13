@@ -6,8 +6,9 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'scss/site'
-import 'js/site'
+import 'bootstrap'
+import 'scss/application'
+//import 'js/application'
 import "chartkick/chart.js"
 import "@hotwired/turbo-rails"
 

@@ -16,29 +16,9 @@
     <%#= yield :head %>
   <% end %>
   <%= content_tag(:body) do %>
-    <%= content_tag(:div, class: "wrapper") do %>
-      <% if user_signed_in? %>
-        <%= render(Navs::SidebarComponent.new(name: "My Home")) do %>
-          <%#= render(Navs::SidebarItemComponent.new(link: dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(dashboard_path, :inclusive) )) %>
-          <%#= render(Navs::SidebarItemComponent.new(link: users_path, icon: 'people', title: 'Usuarios', active: is_active_link?(users_path, :inclusive) )) %>
-          <%= render(Navs::SidebarItemComponent.new(link: homeworks_path, icon: 'maps_home_work', title: 'Mis Tareas', active: is_active_link?(homeworks_path, :inclusive) )) %>
-          <%= content_tag(:hr) %>
-          <%= render(Navs::SidebarItemComponent.new(link: admin_dashboard_path, icon: 'dashboard', title: 'Dashboard', active: is_active_link?(admin_dashboard_path, :inclusive) )) %>
-          <%= render(Navs::SidebarItemComponent.new(link: admin_users_path, icon: 'people', title: 'Gestion de Usuarios', active: is_active_link?(admin_users_path, :inclusive) )) %>
-          <%= render(Navs::SidebarItemComponent.new(link: admin_homeworks_path, icon: 'maps_home_work', title: 'Gestión de Tareas', active: is_active_link?(admin_homeworks_path, :inclusive) )) %>
-          <%= render(Navs::SidebarItemComponent.new(link: admin_rooms_path, icon: 'room_preferences', title: 'Habitaciones', active: is_active_link?(admin_rooms_path, :inclusive) )) %>
-        <% end %>
-      <% else %>
-        <%= render(Navs::SidebarComponent.new(name: "Homeworker", classes: "d-lg-none")) %>
-      <% end %>
-      <%= content_tag(:div, class: "main-panel#{" w-100" if !user_signed_in?}") do %>
-        <%= render "layouts/navbar" %>
-        <%= content_tag(:div, class: "content") do %>
-          <%= tag.div id: "toasts" %>
-          <%= content_tag(:div, yield, class: "container-fluid") %>
-        <% end %>
-        <%#= render(Layout::FooterComponent.new(link: dashboard_path, link_text: "Adri Mullor", copyright_text: '&copy;2021, made with <i class="material-icons">favorite</i>'.html_safe) ) %>
-      <% end %>
+    <%= content_tag(:div, class: "content") do %>
+      <%= tag.div id: "toasts" %>
+      <%= content_tag(:div, yield, class: "container-fluid") %>
     <% end %>
   <% end %>
 <%end%>

@@ -1,4 +1,4 @@
-<%= tag.div(class: "row") do %>
+<%= tag.div(class: "row mt-3") do %>
   <%= tag.div(class: "col-12") do %>
     <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
       <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
@@ -7,26 +7,8 @@
             <%= tag.div(class: "card") do %>
               <%= render(Headers::WithButtonComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas")) %>
               <%= tag.div(class: "card-body") do %>
-
-<%
-=begin%>
-  <div class="card-actions">
-    <button type="button" class="btn btn-danger btn-link fix-broken-card">
-      <i class="material-icons">build</i> Fix Header!
-    </button>
-    <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
-      <i class="material-icons">refresh</i>
-    </button>
-    <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
-      <i class="material-icons">edit</i>
-    </button>
-  </div> 
-<%
-=end%>
-
                 <%= tag.body( render('form', homework: @homework) ) %>
               <% end %>
-
             <% end %>
           <% end %>
         <% end %>
@@ -43,8 +25,8 @@
                     <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
                   <% end %>
                 <% end %>
-                <%= render(Card::FooterComponent.new(title: "#{Homework.count} tareas creadas.", icon: 'list'))  %>
               <% end %>
+              <%= render(Card::FooterComponent.new(title: "#{Homework.count} tareas creadas.", icon: 'list'))  %>
             <% end %>
           <% end %>
         <% end %>
@@ -52,20 +34,3 @@
     <% end %>
   <% end %>
 <% end %>
-
-<!-- <%= tag.div(class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card card-chart") do %>
-      <%= content_tag(:div, class: "card-header card-header-primary") do %>
-        <%= content_tag(:div, {class: "ct-chart", id: @chart_id}) do %>
-          <%= column_chart Event.report_week, id:"column_chart report-week-events", colors: ["#eeeeeea9"], download: "weekly_events_report", discrete: true %>   
-        <% end %>
-      <% end %>
-      <%= content_tag(:div, class: "card-body") do %>
-        <%= content_tag(:h4, "Eventos Semanales Totales", class: "card-title") %>
-        <%= content_tag(:p, "Recuento de los eventos asociados a todas las tareas.", class: "card-category") %>
-      <% end %>
-      <%= render(Card::FooterComponent.new(title: "#{Event.count} eventos creados.", icon: 'list')) %>
-    <% end %>
-  <% end %>
-<% end %> -->

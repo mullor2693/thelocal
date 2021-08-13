@@ -12,7 +12,6 @@
     "chartkick": "^4.0.5",
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
-    "material-dashboard": "^2.1.0",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",
     "select2-bootstrap-theme": "^0.1.0-beta.10",

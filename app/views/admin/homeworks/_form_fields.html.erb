@@ -1,15 +1,20 @@
-<%= tag.div(class: "row") do %>
-  <%= render(Forms::GroupComponent.new(label: {title: 'Titulo', for: :homework_title}, col_class: "col-sm-8 col-md-9")) do %>
-    <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
-  <% end %>
-  <%= render(Forms::GroupComponent.new(label: {title: 'Duración', for: :duration}, col_class: "col-sm-4 col-md-3")) do %>
+  <%= tag.div(class: 'row') do %>
+    <%= tag.div(class: 'mb-3 col-8') do %>
+      <%= form.label :title, 'Título' %>
+      <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
+    <% end %> 
+    <%= tag.div(class: 'mb-3 col-4') do %>
+      <%= form.label :duration, 'Duración' %>
       <%= form.number_field :duration, class: 'form-control', placeholder: 'Duración' %>
+    <% end %>
   <% end %>
-  <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description, class: "mb-2"}, col_class: "col-12", float: false)) do %>
+  <%= tag.div(class: 'mb-3') do %>
+    <%= form.label :description, 'Descripción' %>
     <%= form.text_area :description, class: 'form-control' %>
   <% end %>
-  <%= render(Forms::GroupComponent.new(label: {title: 'Habitaciones involucradas', for: :room_ids}, fg_data: {controller: 'select2'}, col_class: "col-12", float: false)) do %>
-    <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
+  <%= tag.div(class: 'mb-3', data: {controller: 'select2'}) do %>
+    <%= form.label :rooms, 'Habitaciones involucradas' %>
+    <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search' }) %>
   <% end %>
   <% if form.object.new_record? %>
     <!-- Create new event associated to homework -->
@@ -22,5 +27,3 @@
       <% end %>
     <% end %>
   <% end %>
-
-<% end %>
