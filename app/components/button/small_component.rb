@@ -11,7 +11,7 @@ class Button::SmallComponent < ViewComponent::Base
 
 	def call
 		link_to @link, method: @method, data: @data do
-			content_tag(:button, content_tag(:i, @icon, class: "material-icons"), title: @title, class:"btn btn-#{@status} btn-link btn-sm")
+			content_tag(:button, content_tag(:i, @icon, class: "material-icons"), title: @title, class:"btn btn-#{@status} btn-link btn-sm btn-outline")
 		end
 	end
 end

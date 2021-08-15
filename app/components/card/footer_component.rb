@@ -5,12 +5,10 @@ class Card::FooterComponent < ViewComponent::Base
 	end
 
 	def call 
-		content_tag(:div, class: "card-footer") do 
-			content_tag(:div, class: "stats") do 
-				(@icon.present? ? content_tag(:i, @icon, class: "material-icons") : ''.html_safe) +
-				(@title.present? ? @title : ''.html_safe)
-			end
-		end 
+		content_tag(:div, class: "card-footer d-flex") do 
+			(@icon.present? ? content_tag(:i, @icon, class: 'material-icons mr-2') : ''.html_safe) +
+			(@title.present? ? tag.div(@title, class: 'align-self-center') : ''.html_safe)
+		end
 	end
 
 end

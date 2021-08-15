@@ -4,6 +4,6 @@ class Button::OpenComponent < Base::StaticComponent
 	end
 	
 	def call
-		render(Button::FabComponent.new('add', color:'success', classes: @classes, data: { action:"click->reveal#toggle", reveal_target: "item" }))
+		render(Button::OutlineComponent.new('add', color:'success', classes: @classes, data: { action:"click->reveal#toggle", reveal_target: "item" }))
 	end
 end

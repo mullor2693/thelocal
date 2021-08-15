@@ -1,23 +1,3 @@
-.list-group-flush {
-  .list-group-item {
-    border-right: 0;
-    border-left: 0;
-    @include border-radius(0);
-  }
-
-  &:first-child {
-    .list-group-item:first-child {
-      border-top: 10;
-    }
-  }
-
-  &:last-child {
-    .list-group-item:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
 #toasts {
   position: fixed;
   z-index: 9999999999;
@@ -25,71 +5,13 @@
   top: 1.2rem;
 }
 
-// .form-control.flatpickr-input {
-//   &:read-only {
-//     background-image: linear-gradient(to top, rgb(255, 255, 255) 1px, fade-out(grey, 1) 1px);
-//   }
-// }
-
-// .form-group {
-//   .has-danger {
-//     label { 
-//       color: #f44336 
-//     }
-//   }
-// }
-
-
-
-.card-header.with-button {
-  > button {
-    position: absolute;
-    right: -15px;
-    top: -20px;
+form {
+  .search-container {
+    > label { width: 100%; }
+    > span { width: 100% !important; }
   }
 }
 
-form {
-  .form-control {
-    &.flatpickr-input {
-      &:disabled,  
-      &[readonly] {
-        background-color: white;
-      }
-    }
-    &.content-search {
-      border: 1px solid rgb(0 0 0 / 10%);
-      border-radius: 0.25rem;
-      box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 14%);
-      background-image: none;
-      padding: 0.4rem;
-    }
-  }
-  .form-group{
-    label{
-      margin-bottom:15px;
-      position:relative;
-    }
-    input{
-      padding:10px 0px;
-      margin-top:20px;
-      border:none;
-    }
-    input::placeholder{
-      opacity:0;
-    }
-    span{
-      position:absolute;
-      top:0;
-      left:0;
-      transform:translateY(30px);
-      font-size:0.825em;
-      transition-duration:300ms;
-    }
-    label:focus-within > span,
-    input:not(:placeholder-shown) + span{
-      color:purple;
-      transform:translateY(0px);
-    }
-  }
+.material-icons {
+  line-height: 1.5 !important; 
 }

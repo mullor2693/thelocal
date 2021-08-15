@@ -1,34 +1,29 @@
-<%= tag.div(class: "row mt-3") do %>
-  <%= tag.div(class: "col-12") do %>
-    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
-      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas")) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= tag.body( render('form', homework: @homework) ) %>
-              <% end %>
-            <% end %>
+
+<%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+  <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas")) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= tag.body( render('form', homework: @homework) ) %>
           <% end %>
         <% end %>
       <% end %>
-      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: "Gestión de Tareas", subtitle: "y eventos asociados", data: {button: {open: true}})) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= turbo_stream_from "homeworks" %>
-                <%= tag.ul class:"list-group list-group-flush" do %>
-                  <%= turbo_frame_tag('admin_homeworks', class: "row") do %>
-                    <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <%= render(Card::FooterComponent.new(title: "#{Homework.count} tareas creadas.", icon: 'list'))  %>
+    <% end %>
+  <% end %>
+  <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: "Gestión de Tareas", subtitle: "y eventos asociados", data: {button: {open: true}})) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= turbo_stream_from "homeworks" %>
+            <%= turbo_frame_tag('admin_homeworks', class: "list-group list-group-flush") do %>
+              <%= render(Admin::List::HomeworkComponent.with_collection(@homeworks)) %>
             <% end %>
           <% end %>
+          <%= render(Card::FooterComponent.new(title: "#{Homework.count} tareas creadas.", icon: 'list'))  %>
         <% end %>
       <% end %>
     <% end %>

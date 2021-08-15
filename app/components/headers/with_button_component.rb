@@ -9,7 +9,9 @@ class Headers::WithButtonComponent < Base::HeaderComponent
 
   def call 
 		tag.div(class: @classes, data: @data) do
-			@final_tag + render(@button)
+			tag.div(class: 'row') do
+				tag.div(@final_tag, class: 'col m-auto') + tag.div(render(@button), class: 'col-auto m-auto')
+			end
 		end
 	end
 

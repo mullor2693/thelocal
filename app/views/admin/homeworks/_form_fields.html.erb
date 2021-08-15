@@ -1,24 +1,26 @@
   <%= tag.div(class: 'row') do %>
-    <%= tag.div(class: 'mb-3 col-8') do %>
+    <%= tag.div(class: 'mb-3 col-sm-8') do %>
       <%= form.label :title, 'Título' %>
       <%= form.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
     <% end %> 
-    <%= tag.div(class: 'mb-3 col-4') do %>
+    <%= tag.div(class: 'mb-3 col-sm-4') do %>
       <%= form.label :duration, 'Duración' %>
-      <%= form.number_field :duration, class: 'form-control', placeholder: 'Duración' %>
+      <%= form.text_field :duration, class:"form-control", data: { 
+        controller: "flatpickr",  flatpickr_enable_time: true, flatpickr_no_calendar: true, flatpickr_date_format: "H:i", flatpickr_time_24hr: true, flatpickr_default_date: "0:00 "
+      } %>
     <% end %>
   <% end %>
   <%= tag.div(class: 'mb-3') do %>
     <%= form.label :description, 'Descripción' %>
     <%= form.text_area :description, class: 'form-control' %>
   <% end %>
-  <%= tag.div(class: 'mb-3', data: {controller: 'select2'}) do %>
+  <%= tag.div(class: 'mb-3 search-container', data: {controller: 'select2'}) do %>
     <%= form.label :rooms, 'Habitaciones involucradas' %>
     <%= form.select(:room_ids, Room.all.collect {|x| [x.name, x.id]}, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search' }) %>
   <% end %>
   <% if form.object.new_record? %>
     <!-- Create new event associated to homework -->
-    <%= tag.div class:"col-12 mt-3" do %>
+    <%= tag.div class:"my-3" do %>
       <% ext_text = int_text = "Añade el primer evento para la tarea: " %>
       <%= render(StimulusComponents::Reveals::BlockComponent.new(ext_text: ext_text, int_text: int_text)) do %>
         <%= form.fields_for :events do |events_form| %>

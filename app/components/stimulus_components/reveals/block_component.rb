@@ -13,7 +13,7 @@ class StimulusComponents::Reveals::BlockComponent < Base::StaticComponent
         tag.div(class: "row") do
           tag.div(@int_text, class: "col m-auto") +
           tag.div(render(Button::CloseComponent.new()), class: "col-auto m-auto") +
-          tag.div(content, class: "col-12")
+          tag.div(content, class: "col-12 mt-3")
         end
       end
     end

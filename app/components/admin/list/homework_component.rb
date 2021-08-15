@@ -7,16 +7,13 @@ class Admin::List::HomeworkComponent < HomeworkComponent
   end
 
   def call
-    turbo_frame_tag @id, class: "list-group-item w-100" do 
-        tag.div class: "row" do
-          tag.div( tag.span(@title), class: "col align-self-center") + 
-          tag.div(class: "col-auto pr-0") do 
-            (@edit ? render(Button::SmallComponent.new(link: edit_admin_homework_path(homework), title: "Editar", color: "none", icon: "edit" ))  : ''.html_safe) +
-            (@show ? render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Ver", icon: "open_in_new", color: @color, data: {turbo: false} ))  : ''.html_safe) +
-            (@destroy ? render(Button::SmallComponent.new(link: admin_homework_path(homework), title: "Borrar", color: "danger", method: :delete, data: { confirm: '¿Estás seguro?' } )) : ''.html_safe) 
-          end 
-        end
-  
+    turbo_frame_tag @id, class: "list-group-item d-flex justify-content-between" do   
+      tag.div(@title, class: "align-self-center") + 
+      tag.div() do 
+        (@edit ? link_to('<i class="material-icons">open_in_new</i>'.html_safe, edit_admin_homework_path(homework), class: "align-self-center", data: {turbo: false}) : ''.html_safe) +
+        (@show ? link_to('<i class="material-icons">open_in_new</i>'.html_safe, admin_homework_path(homework), class: "align-self-center", data: {turbo: false})  : ''.html_safe) +
+        (@destroy ? link_to('<i class="material-icons">delete</i>'.html_safe, admin_homework_path(homework), method: :delete, class: "align-self-center") : ''.html_safe) 
+      end 
     end
   end
 

@@ -1,7 +1,7 @@
 class Base::ButtonComponent < Base::StaticComponent
 	def initialize(title:nil, icon:nil, disabled:nil, color:nil, status:nil, data:nil, style:nil, size:nil, classes:nil, responsive:true, name:nil, type:nil, inner:false)
 		
-		btn_styles = ['default', 'round', 'fab', 'icon', 'icon-r', 'simple']
+		btn_styles = ['default', 'round', 'fab', 'icon', 'icon-r', 'simple', 'outline']
 		responsive_styles = ['icon-r', 'icon', 'round', 'default']
 		# BTN_SIZE = [:default,:small, :large]
 		
@@ -23,14 +23,14 @@ class Base::ButtonComponent < Base::StaticComponent
 		@icon_title = (icon_tag+@title).html_safe
 		@iconr_title = (@title+icon_tag).html_safe
 		
-		@title = @fab_title if @style == 'fab'
+		@title = @fab_title if @style == 'fab' || @style == 'outline'
 		@title = @icon_title if @style == 'icon' || is_responsive
 		@title = @iconr_title if @style == 'icon-r'
 		
 		
 		@color = color
     @status = status || (@color.in?(ApplicationHelper::GLOBAL_STATUSES) ? @color : "none")
-		@class = "btn btn-#{@status}"
+		@class = @style == 'outline' ? "btn btn-outline-#{@status}" : "btn btn-#{@status}"
 		@class += " btn-fab btn-fab-mini btn-round" if @style == 'fab' 
 		@class += " btn-round" if (@style == 'icon' || @style == 'icon-r' || @style == 'round')
 		@class += " btn-sm" if @size == "small"

@@ -1,12 +1,34 @@
 <%= tag.div(class: "row") do %>
-  <%= content_tag(:div, class: "col-xl-6 col-md-12") do %>
-    <%= content_tag(:div, class: "card") do %>
-      <%= render(Headers::DefaultComponent.new(title: "Usuarios", subtitle: "Descripcion de los usuarios en general.")) %>
-      <%= content_tag(:div, render(Admin::Table::Component.new(items: @users)), class: "card-body") %>
+  <%= tag.div(class: "col-12") do %>
+    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= tag.div(class: "card") do %>
+              <%= render(Headers::WithButtonComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas")) %>
+              <%= tag.div(class: "card-body") do %>
+                <%= tag.body( render('form', user: @user) ) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+        <%= tag.div(class: "row") do %>
+          <%= tag.div(class: "col-12") do %>
+            <%= tag.div(class: "card") do %>
+              <%= render(Headers::WithButtonComponent.new(title: "Gestión de Tareas", subtitle: "y eventos asociados", data: {button: {open: true}})) %>
+              <%= tag.div(class: "card-body") do %>
+                <%= turbo_stream_from "users" %>
+                <%= turbo_frame_tag('admin_users', class: "list-group list-group-flush") do %>
+                  <%= render(Admin::List::UserComponent.with_collection(@users)) %>
+                <% end %>
+              <% end %>
+              <%= render(Card::FooterComponent.new(title: "#{User.count} tareas creadas.", icon: 'list'))  %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= content_tag(:div, class: "col-12") do %>
-    <%= link_to render(Button::BaseComponent.new(title:'Nuevo Usuario', color:'primary')), new_admin_user_path, class: "pull-right" %>
-    <%= link_to render(Button::BaseComponent.new(title:'Volver')), admin_dashboard_path %>
   <% end %>
 <% end %>
