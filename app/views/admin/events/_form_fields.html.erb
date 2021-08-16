@@ -2,7 +2,7 @@
   <%= render(Forms::GroupComponent.new(label: {title: 'Fecha de Inicio', for: :start_date, class: "mb-0"}, col_class: 'col-12 col-sm-6 m-auto', float: false)) do %>
     <%= form.text_field :start_date, class:"form-control mt-0", data: { controller: "flatpickr",  flatpickr_min_date: Time.zone.now, flatpickr_date_format: "d/m/Y H:i", flatpickr_enable_time: true } %>
   <% end %>
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-12 col-sm-6 m-auto", fg_class: "form-check")) do %>
+  <%= render(Forms::FormGroupComponent.new(fg_class: "form-check")) do %>
     <%= form.check_box :is_full_event, class: "form-check-sign" %>
     <%= form.label 'Dia Completo', class: "form-check-label" %>
   <% end %>      
@@ -20,7 +20,7 @@
 
 <% end %>
 <%= content_tag(:div, class: "row", data: {controller: "reveal", reveal_hidden_class: "d-none"}) do %>
-  <%= render(Forms::FormGroupComponent.new(col_class: "col-6", fg_class: "form-check")) do %>
+  <%= render(Forms::FormGroupComponent.new(fg_class: "form-check")) do %>
     <%= form.check_box :is_recurring, class: "form-check-sign", data: { action:"click->reveal#toggle" }  %>
     <%= form.label :is_recurring, 'Recurrente', class: "form-check-label" %>
   <% end %>

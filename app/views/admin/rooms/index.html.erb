@@ -1,5 +1,4 @@
-<%= tag.div(class: "row") do %>
-  <%= tag.div(class: "col-12") do %>
+
     <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
       <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
         <%= tag.div(class: "row") do %>
@@ -25,12 +24,10 @@
                     <%= render(Admin::Table::Component.new(items: @rooms)) %>
                   <% end %>
                 <% end %>
-                <%= render(Card::FooterComponent.new(title: "#{Room.count} habitaciones creadas.", icon: 'list'))  %>
               <% end %>
+              <%= render(Card::FooterComponent.new(title: "#{Room.count} habitaciones creadas.", icon: 'list'))  %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
-<% end %>
