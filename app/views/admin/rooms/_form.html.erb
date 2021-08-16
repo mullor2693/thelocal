@@ -1,11 +1,13 @@
 <%= form_with(model: [:admin, room]) do |form| %>
-  <%= tag.div(class: "row") do %>
-    <%= render(Forms::GroupComponent.new(label: {title: 'Titulo', for: :homework_title}, col_class: "col-sm-8 col-md-9")) do %>
-      <%= form.text_field :name, class: 'form-control', placeholder: 'Titulo' %>
+
+    <%= tag.div(class: 'mb-3') do %>
+      <%= form.label :name, 'Nombre' %>
+      <%= form.text_field :name, class: 'form-control' %>
     <% end %>
-    <%= render(Forms::GroupComponent.new(label: {title: 'Descripcción', for: :description, class: "mb-2"}, col_class: "col-12", float: false)) do %>
+    <%= tag.div(class: 'mb-3') do %>
+      <%= form.label :description, 'Descripción' %>
       <%= form.text_area :description, class: 'form-control', data: {controller:"textarea-autogrow"} %>
-    <% end %>
-  <% end %>
+    <% end %> 
+
   <%= form.submit "Guardar", class: "btn btn-primary w-100" %>
 <% end %>

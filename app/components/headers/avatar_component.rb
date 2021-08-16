@@ -8,7 +8,9 @@ class Headers::AvatarComponent < Base::HeaderComponent
 
   def call 
 		tag.div(class: @classes, data: @data) do
-			@final_tag + render(Avatars::BaseComponent.new(image: @user.avatar_thumbnail, letters: @user.name_initials))
+			tag.div(class: 'row') do
+				tag.div(@final_tag, class: 'col m-auto') + tag.div(render(Avatars::BaseComponent.new(image: @user.avatar_thumbnail, letters: @user.name_initials)), class: 'col-auto m-auto')
+			end
 		end
 	end
 

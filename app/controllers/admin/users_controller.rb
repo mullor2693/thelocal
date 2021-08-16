@@ -4,6 +4,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   # GET /users or /users.json
   def index
+    @user = User.new
   end
 
   # GET /users/1 or /users/1.json

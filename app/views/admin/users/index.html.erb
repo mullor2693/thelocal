@@ -1,32 +1,28 @@
-<%= tag.div(class: "row") do %>
-  <%= tag.div(class: "col-12") do %>
-    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
-      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: "Nueva Tarea", subtitle: "Aqui puedes añadir tareas")) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= tag.body( render('form', user: @user) ) %>
-              <% end %>
-            <% end %>
+<%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+  <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: "Nuevo Usuario", subtitle: "Aqui puedes añadir usuarios")) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= tag.body( render('form', user: @user) ) %>
           <% end %>
         <% end %>
       <% end %>
-      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: "Gestión de Tareas", subtitle: "y eventos asociados", data: {button: {open: true}})) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= turbo_stream_from "users" %>
-                <%= turbo_frame_tag('admin_users', class: "list-group list-group-flush") do %>
-                  <%= render(Admin::List::UserComponent.with_collection(@users)) %>
-                <% end %>
-              <% end %>
-              <%= render(Card::FooterComponent.new(title: "#{User.count} tareas creadas.", icon: 'list'))  %>
+    <% end %>
+  <% end %>
+  <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: "Usuarios", subtitle: "Listado y acceso", data: {button: {open: true}})) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= turbo_stream_from "users" %>
+            <%= turbo_frame_tag('admin_users', class: "list-group list-group-flush") do %>
+              <%= render(Admin::List::UserComponent.with_collection(@users)) %>
             <% end %>
           <% end %>
+          <%= render(Card::FooterComponent.new(title: "#{User.count} usuarios creados.", icon: 'list'))  %>
         <% end %>
       <% end %>
     <% end %>
