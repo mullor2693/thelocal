@@ -1,4 +1,4 @@
-class Headers::WithButtonComponent < Base::HeaderComponent
+class Headers::WithButtonComponent < Base::HeaderComponent 
 	
   def initialize(title:nil, subtitle:nil, color:nil, data:nil)
 		super
