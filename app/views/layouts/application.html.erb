@@ -18,7 +18,8 @@
   <%= content_tag(:body) do %>
     <%= content_tag(:div, class: "content") do %>
       <%= tag.div id: "toasts" %>
-      <%= content_tag(:div, yield, class: "container-fluid pt-3") %>
+      <%= render_breadcrumbs(builder: ::BootstrapBreadcrumbsBuilder, separator: "") %>
+      <%= content_tag(:div, yield, class: "container-fluid") %>
     <% end %>
   <% end %>
 <%end%>

@@ -31,7 +31,7 @@
           <%= recurrence_form.label 'Selecciona recurrencia', class: "bmd-label-floating" %>
           <%= recurrence_form.select(:every, ApplicationHelper::R_OPTS, {}, { class: "form-control", data: { action: "change->toggle#changed", toggle_target: "select" } }) %>
         <% end %>
-        <%= render(Forms::FormGroupComponent.new(fg_class: "form-group search-container", fg_data: {controller:'select2'}, col_data: {toggle_target: "element", values: "week"})) do %>
+        <%= render(Forms::FormGroupComponent.new(fg_class: "form-group search-container", fg_data: {controller:'select2', toggle_target: "element", values: "week"})) do %>
           <%= recurrence_form.label :on, 'Dias de la semana' %>
           <%= recurrence_form.select(:on, Date::DAYNAMES, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: 'form-control content-search pb-0' }) %>
         <% end %>

@@ -1,7 +1,8 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_users
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  add_breadcrumb "Usuarios", :admin_users_path
+  
   # GET /users or /users.json
   def index
     @user = User.new

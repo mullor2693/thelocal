@@ -1,34 +1,30 @@
-
-
-    <%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
-      <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: "Nueva Habitacion", subtitle: "Aqui puedes añadir habitaciones")) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= tag.body( render('form', room: @room) ) %>
-              <% end %>
-            <% end %>
+<%= tag.div(class: "row", data: {controller: "reveal", reveal_hidden_class: 'd-none'}) do %>
+  <%= tag.div(class: "d-none col-12", data: {reveal_target: "item"} ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: "Nueva Habitacion", subtitle: "Aqui puedes añadir habitaciones")) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= tag.body( render('form', room: @room) ) %>
           <% end %>
         <% end %>
       <% end %>
-      <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
-        <%= tag.div(class: "row") do %>
-          <%= tag.div(class: "col-12") do %>
-            <%= tag.div(class: "card") do %>
-              <%= render(Headers::WithButtonComponent.new(title: 'Habitaciones', subtitle: 'Habitaciones en general', data: {button: {open: true}})) %>
-              <%= tag.div(class: "card-body") do %>
-                <%= turbo_stream_from "rooms" %>
-                <%= tag.ul class:"list-group list-group-flush" do %>
-                  <%= turbo_frame_tag('admin_rooms', class: "row") do %>
-                    <%= render(Admin::Table::Component.new(items: @rooms)) %>
-                  <% end %>
-                <% end %>
-              <% end %>
+    <% end %>
+  <% end %>
+  <%= tag.div(class: "col-12", data: { reveal_target: "item" } ) do %>
+    <%= tag.div(class: "row") do %>
+      <%= tag.div(class: "col-12") do %>
+        <%= tag.div(class: "card") do %>
+          <%= render(Headers::WithButtonComponent.new(title: 'Habitaciones', subtitle: 'Habitaciones en general', data: {button: {open: true}})) %>
+          <%= tag.div(class: "card-body") do %>
+            <%= turbo_stream_from "rooms" %>
+            <%= turbo_frame_tag('admin_rooms', class: "list-group-flush") do %>
+              <%= render(Admin::List::RoomComponent.with_collection(@rooms)) %>
             <% end %>
           <% end %>
           <%= render(Card::FooterComponent.new(title: "#{Room.count} usuarios creados.", icon: 'list'))  %>
         <% end %>
       <% end %>
     <% end %>
+  <% end %>
+<% end %>

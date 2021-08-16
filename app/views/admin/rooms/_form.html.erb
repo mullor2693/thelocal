@@ -1,10 +1,10 @@
 <%= form_with(model: [:admin, room]) do |form| %>
 
-  <%= render(Forms::FormGroupComponent.new()) do %>
+  <%= render(Forms::FormGroupComponent.new) do %>
     <%= form.label :name, 'Nombre' %>
     <%= form.text_field :name, class: 'form-control' %>
   <% end %>
-  <%= render(Forms::FormGroupComponent.new()) do %>
+  <%= render(Forms::FormGroupComponent.new) do %>
     <%= form.label :description, 'Descripción' %>
     <%= form.text_area :description, class: 'form-control', data: {controller:"textarea-autogrow"} %>
   <% end %>

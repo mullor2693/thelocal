@@ -5,7 +5,7 @@ class Card::BaseComponent < ViewComponent::Base
     @footer_icon = footer_icon || "list_alt"
     @footer_text = footer_text
     @color = color
-    @row_classes = row_classes || "col-lg-6 col-md-12"
+    @row_classes = row_classes || "col-lg-6 col-md-12 mb-3"
     @scroll = !!scroll
     @style = style
     @data = data

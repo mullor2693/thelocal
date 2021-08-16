@@ -8,7 +8,7 @@ class Card::StatsComponent < ViewComponent::Base
     @footer_text = footer_text
     @color = color
     @status = @color.in?(ApplicationHelper::GLOBAL_STATUSES) ? @color : "none"
-    @row_classes = row_classes || "col-lg-6 col-md-12"
+    @row_classes = row_classes || "col-lg-6 col-md-12 mb-3"
   end
 
   def call

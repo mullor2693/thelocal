@@ -1,5 +1,6 @@
 class Admin::HomeworksController < Admin::ApplicationController
   before_action :set_homework, only: %i[ show edit update destroy ]
+  add_breadcrumb "Tareas", :admin_homeworks_path
 
   # GET admin/homeworks
   def index

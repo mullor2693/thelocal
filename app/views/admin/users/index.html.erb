@@ -18,7 +18,7 @@
           <%= render(Headers::WithButtonComponent.new(title: "Usuarios", subtitle: "Listado y acceso", data: {button: {open: true}})) %>
           <%= tag.div(class: "card-body") do %>
             <%= turbo_stream_from "users" %>
-            <%= turbo_frame_tag('admin_users', class: "list-group list-group-flush") do %>
+            <%= turbo_frame_tag('admin_users', class: "list-group-flush") do %>
               <%= render(Admin::List::UserComponent.with_collection(@users)) %>
             <% end %>
           <% end %>
