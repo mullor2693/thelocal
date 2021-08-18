@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :schedules
   resources :event_managers
   resources :event_assignees
   devise_for :users, path: 'account'

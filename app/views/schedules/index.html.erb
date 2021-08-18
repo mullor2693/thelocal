@@ -1,0 +1,1 @@
+<%= tag.div nil, data: {schedules: Event.includes(:eventable).all.to_json, controller: "calendar"}, id: "calendar" %>

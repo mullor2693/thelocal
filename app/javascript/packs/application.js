@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'scss/application'
 //import 'js/application'
 import "chartkick/chart.js"

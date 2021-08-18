@@ -47,12 +47,13 @@
             <%= content_tag(:div, class: "card") do %>
               <%= render(Headers::WithButtonComponent.new(title: "Eventos Asociados", data: {button: {open: true}} )) %>
               <%= content_tag(:div, class: "card-body") do %>
-                <%= turbo_stream_from "homeworks" %>
-                <%= tag.ul class:"list-group list-group-flush" do %>
-                  <%= turbo_frame_tag('admin_homework_events') do %>
-                    <%= render(Admin::Table::Component.new(items: @homework.events)) %>
-                  <% end %>
-                <% end %>
+                <%= tag.div nil, data: {schedules: @homework.events.to_json, controller: "homework-calendar"}, id: "homework-calendar" %>
+                <%#= turbo_stream_from "homeworks" %>
+                <%#= tag.ul class:"list-group list-group-flush" do %>
+                  <%#= turbo_frame_tag('admin_homework_events') do %>
+                    <%#= render(Admin::Table::Component.new(items: @homework.events)) %>
+                  <%# end %>
+                <%# end %>
               <% end %>
               <%= render(Card::FooterComponent.new(title: "#{@homework.events.count} eventos asociados.", icon: 'list'))  %>
             <% end %>
