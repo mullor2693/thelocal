@@ -1,9 +1,9 @@
 import { Controller } from "stimulus"
 import Rails from "@rails/ujs"
-import "tui-calendar/dist/tui-calendar.css";
-import 'tui-date-picker/dist/tui-date-picker.css';
-import 'tui-time-picker/dist/tui-time-picker.css';
 import Calendar from "tui-calendar";
+import "tui-calendar/dist/tui-calendar.css";
+// import 'tui-date-picker/dist/tui-date-picker.css';
+// import 'tui-time-picker/dist/tui-time-picker.css';
 
 export default class extends Controller {
   // config_month_data = { daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], startDayOfWeek: 1, narrowWeekend: false }
@@ -36,8 +36,8 @@ export default class extends Controller {
           return schedule.title; // + ' <i class="bi bi-skip-forward-circle"></i>' + schedule.start;
       }
     },
-    month: { daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], startDayOfWeek: 1, narrowWeekend: false }, // config_month_data,
-    week: { daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], startDayOfWeek: 1, narrowWeekend: false } // config_month_data
+    month: { daynames: ['D', 'L', 'M', 'X', 'J', 'V', 'S'], startDayOfWeek: 1, narrowWeekend: false }, // config_month_data,
+    week: { daynames: ['D', 'L', 'M', 'X', 'J', 'V', 'S'], startDayOfWeek: 1, narrowWeekend: false } // config_month_data
   });
   getCalendardata(){
     var schedules = JSON.parse(document.querySelector("#homework-calendar").dataset.schedules);
