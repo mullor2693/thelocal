@@ -79,11 +79,11 @@ export default class extends Controller {
     formData.append('start', schedule.start._date);
     formData.append('end', schedule.end._date);
   
-    Rails.ajax({
-      type: "POST",
-      url: '/events',
-      data: formData
-    })
+    // Rails.ajax({
+    //   type: "POST",
+    //   url: '/events',
+    //   data: formData
+    // })
     
   });
   } 
@@ -116,7 +116,8 @@ export default class extends Controller {
       calendar.deleteSchedule(schedule.id, schedule.calendarId)
       Rails.ajax({
         type: "DELETE",
-        url: '/events/'+ schedule.id,
+        dataType: 'stream',
+        url: '/admin/homeworks/' + schedule.calendarId + '/events/' + schedule.id,
       })
     });
   }
