@@ -32,10 +32,9 @@
             <%= content_tag(:div, class: "card") do %>
               <%= render(Headers::WithButtonComponent.new(title: "Nuevo Evento", color: "primary")) %>
               <%= content_tag(:div, class: "card-body") do %>
-                <%= form_with(model: [:admin, @homework, Event.new(eventable:@homework)]) do |form| %>
-                  <%= render 'admin/events/form_fields', form: form %>
-                  <%= form.submit "Guardar", class: "btn btn-primary w-100" %>
-                <% end %>
+                <%= turbo_frame_tag "admin_homework_event_edit" do %>
+                  <%= render 'admin/homeworks/events/form', event: @event %>
+                <%end%>
               <% end %>
             <% end %>
           <% end %>
@@ -47,6 +46,7 @@
             <%= content_tag(:div, class: "card") do %>
               <%= render(Headers::WithButtonComponent.new(title: "Eventos Asociados", data: {button: {open: true}} )) %>
               <%= content_tag(:div, class: "card-body p-0") do %>
+                 <%= turbo_stream_from "admin_homeworks_events" %>
                 <%= tag.div nil, data: {schedules: @homework.events.to_json, controller: "homework-calendar"}, id: "homework-calendar" %>
               <% end %>
               <%= render(Card::FooterComponent.new(title: "#{@homework.events.count} eventos asociados.", icon: 'list'))  %>

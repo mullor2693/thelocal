@@ -11,7 +11,7 @@ export default class extends Controller {
     defaultView: 'month',
     milestone: true,    // Can be also ['milestone', 'task']
     scheduleView: true,  // Can be also ['allday', 'time']
-    useCreationPopup: true,
+    useCreationPopup: false,
     useDetailPopup: true,
     template: {
       milestone: function(schedule) {
@@ -61,8 +61,8 @@ export default class extends Controller {
     var triggerEventName = event.triggerEventName;
     var schedule =  {
       id: 1,
-      calendarId: '1',
-      category: 'time',
+      calendarId: event.calendarId,
+      // category: 'time',
       start: event.start,
       end: event.end
     }
@@ -93,21 +93,21 @@ export default class extends Controller {
       var schedule = event.schedule;
       var changes = event.changes;
       var formUpdate = new FormData()    
-      if (changes.end) {
-      formUpdate.append("end", changes.end._date)    
-      }
-      if (changes.start) {
-      formUpdate.append("start", changes.start._date)    
-      }
+      // if (changes.end) {
+      // formUpdate.append("end", changes.end._date)    
+      // }
+      // if (changes.start) {
+      // formUpdate.append("start", changes.start._date)    
+      // }
       calendar.updateSchedule(schedule.id, schedule.calendarId, changes);
-      
+      Rails.fire(event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('button'), 'click');
       Rails.ajax({
-      type: "PATCH",
-      url: '/events/'+ schedule.id,
-      data: formUpdate
+        type: "get",
+        dataType: 'stream',
+        url: '/admin/homeworks/' + schedule.calendarId + '/events/' + schedule.id + "/edit",
+        // data: formUpdate
       })
-      
-      });
+    });
   }
   deleteCalendarSchedule(){
     let calendar = this.calendar

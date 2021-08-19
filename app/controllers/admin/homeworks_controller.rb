@@ -11,6 +11,7 @@ class Admin::HomeworksController < Admin::ApplicationController
 
   # GET admin/homeworks/1
   def show
+    @event = Event.new(eventable:@homework)
   end
 
   # GET admin/homeworks/new

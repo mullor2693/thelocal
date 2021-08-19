@@ -17,6 +17,11 @@ class Admin::Homeworks::EventsController < Admin::Homeworks::ApplicationControll
 
   # GET admin/homeworks/1/events/1/edit
   def edit
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("admin_homework_event_edit", partial: "admin/homeworks/events/form", locals: { homework: @homework, event: @event }) }
+      format.html { render edit_admin_homework_event_path(@homework, @event) }
+    end
+    # render turbo_stream: turbo_stream.replace("admin_homework_event_edit", partial: "admin/homeworks/events/form", locals: { homework: @homework, event: @event }) 
   end
 
   # POST admin/homeworks/1/events
