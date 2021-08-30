@@ -9,6 +9,8 @@ Things you may want to cover:
 
 * System dependencies: yarn
 
+* Require Imagemagick: sudo apt install imagemagick
+
 <!-- 
 * Configuration
 

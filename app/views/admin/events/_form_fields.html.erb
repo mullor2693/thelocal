@@ -1,6 +1,9 @@
 <%= tag.div(class: "row") do %>   
-  <%= render(Forms::GroupComponent.new(label: {title: 'Fecha de Inicio', for: :start_date, class: "mb-0"}, col_class: 'col-12 col-sm-6 m-auto', float: false)) do %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Fecha / Hora de Inicio', for: :start_date, class: "mb-0"}, col_class: 'col-12 col-sm-6 m-auto', float: false)) do %>
     <%= form.text_field :start_date, class:"form-control mt-0", data: { controller: "flatpickr",  flatpickr_min_date: Time.zone.now, flatpickr_date_format: "d/m/Y H:i", flatpickr_enable_time: true } %>
+  <% end %>
+  <%= render(Forms::GroupComponent.new(label: {title: 'Fecha / Hora de fin', for: :start_date, class: "mb-0"}, col_class: 'col-12 col-sm-6 m-auto', float: false)) do %>
+    <%= form.text_field :end_date, class:"form-control mt-0", data: { controller: "flatpickr",  flatpickr_min_date: Time.zone.now, flatpickr_date_format: "d/m/Y H:i", flatpickr_enable_time: true } %>
   <% end %>
   <%= render(Forms::FormGroupComponent.new(fg_class: "form-check")) do %>
     <%= form.check_box :is_full_event, class: "form-check-sign" %>

@@ -8,12 +8,6 @@ environment.plugins.append('Provide', new webpack.ProvidePlugin({
  Popper: ['popper.js', 'default']
 }));
 
-const config = environment.toWebpackConfig();
-
-config.resolve.alias = {
- jquery: 'jquery'
-};
-
 environment.config.merge({
   resolve: {
       alias: {

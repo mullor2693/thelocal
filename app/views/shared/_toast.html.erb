@@ -2,10 +2,10 @@
 
   <div data-controller="alert" class="shadow-lg rounded mb-1 bg-white" style="max-width: 20rem;">
      <div class="toast-header shadow-sm">
-        <!--<img src="..." class="rounded mr-2" alt="...">-->
-        <%= tag.strong(title, class:"mr-auto") %>
+        <!--<img src="..." class="rounded me-2" alt="...">-->
+        <%= tag.strong(title, class:"me-auto") %>
         <!--<small>11 mins ago</small>-->
-        <%= render(Button::CloseComponent.new(data: {action: "alert#close"}, classes: "ml-2 mb-1 close")) %>
+        <%= render(Button::CloseComponent.new(data: {action: "alert#close"}, classes: "ms-2 mb-1 close")) %>
       </div>
       <%= tag.div(message, class:"toast-body") %>
   </div>
