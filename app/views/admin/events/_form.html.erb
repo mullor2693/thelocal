@@ -1,6 +1,6 @@
 Whaaaaat
 
-<%= form_with(model: event) do |form| %>
+<%= form_with(model: [:admin, event]) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -43,6 +43,17 @@ Whaaaaat
     <%= form.check_box :is_recurring %>
   </div>
 
+  <%= form.fields_for :recurrence do |recurrence_form| %>
+    <div class="field">
+      <%= recurrence_form.label 'Recurence'%>
+      <%= recurrence_form.select(:every, ApplicationHelper::R_OPTS, {}, {}) %>
+    </div>
+    <div class="field">
+      <%= recurrence_form.label :on, 'Week days' %>
+      <%= recurrence_form.select(:on, Date::DAYNAMES, {include_blank: false, required: true, include_hidden: false}, { multiple: true, class: ''}) %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

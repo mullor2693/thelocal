@@ -5,7 +5,7 @@ module ApplicationHelper
     GLOBAL_STATUSES = ["primary", "info", "warning", "danger", "success", "none"]
     STATUSES = ["info", "warning", "danger", "success", "none"]
     WEEK_DAYS = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"]
-    R_OPTS = {every: [:day, :week, :month]}
+    R_OPTS = {every: [:day, :week, :month, :year]}
 
     def tailwind_classes_for(flash_type)
         {
