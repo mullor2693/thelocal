@@ -1,0 +1,38 @@
+<p>
+  <strong>Exercise:</strong>
+  <%= @exercise_workout.exercise.name %>
+</p>
+
+<p>
+  <strong>Serie type:</strong>
+  <%= @exercise_workout.serie_type_name %>
+</p>
+
+<p>
+  <strong>Serie reps:</strong>
+  <%= @exercise_workout.serie_reps %>
+</p>
+
+<p>
+  <strong>Serie rest:</strong>
+  <%= @exercise_workout.serie_rest %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @exercise_workout.notes %>
+</p>
+
+<p>
+  <strong>Series:</strong><br/>
+  <% @exercise_workout.typed_series.each do |key,value| %>
+    <%= "Serie #{key.to_i+1} |" %>
+    <% value.each do |subkey,subvalue| %>
+      <%= "#{subkey}: #{subvalue};" %>
+    <% end %>
+    | <br/>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_user_workout_exercise_workout_path(@user, @workout, @exercise_workout) %> |
+<%= link_to 'Back', admin_user_workout_exercise_workouts_path(@user, @workout) %>

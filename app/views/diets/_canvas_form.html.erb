@@ -1,0 +1,23 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3><%= diet.new_record? ? "Añadir Dieta" : "Editar Dieta"%></h3>
+
+<%= form_with(model: diet, remote: true) do |form| %>
+  <% errors = diet.errors.present? ? diet.errors.messages : {} %>
+  <div class="uk-margin">
+    <%= form.text_field :name, class: "uk-input#{" uk-form-danger" if errors[:name].present?}", placeholder: "Nombre" %>
+  </div>
+
+  <div class="uk-margin">
+    <%= form.text_area :description, class: "uk-textarea", placeholder: "Descripcion" %>
+  </div>
+
+  <div class="uk-margin">
+    <%= select(diet.model_name.singular, :weekdays, Weekable::WEEKDAYS, {}, { multiple: true, class: "uk-select#{" uk-form-danger" if errors[:weekdays].present?}" }) %>
+  </div>
+
+  <div class="uk-margin">
+    <%= form.submit "Guardar", class:"uk-button uk-button-default" %>
+  </div>
+
+<% end %>

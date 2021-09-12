@@ -1,0 +1,22 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3><%= @diet_meal.new_record? ? "Añadir Comida" : "Editar Comida"%></h3>
+
+<%= form_with(model: [:admin, @diet, @diet_meal], local: true) do |form| %>
+  <%= form.fields_for :meal, @diet_meal.meal || Meal.new() do |meal_form| %>
+    <div class="uk-margin">
+      <%= meal_form.text_field :name, list: "meals_autocomplete", class: "uk-input" %>
+      <datalist id="meals_autocomplete">
+        <% Meal.all.each do |meal| %>
+          <option value="<%= meal.name %>">
+        <% end %>
+      </datalist>
+    </div>
+  <% end %> 
+  <div class="uk-margin">
+    <%= form.collection_select(:daytime, Daytimeable::DAYTIMES.collect.with_index.to_a, :second, :first.to_s, {include_blank: 'Selecciona hora del dia', selected: @diet_meal&.daytime},{ class: "uk-select"}) %>
+  </div>
+  <div class="uk-margin">
+    <%= form.submit "Guardar", class:"uk-button uk-button-default" %>
+  </div>
+<% end %>

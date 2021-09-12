@@ -1,0 +1,17 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3><%= @meal.new_record? ? "Añadir Comida" : "Editar Comida"%></h3>
+
+<%= form_with(model: [:admin, @diet, @meal], local: true) do |form| %>
+  <div class="uk-margin">
+    <%= form.text_field :name, class: "uk-input", placeholder: "Nombre de la comida" %>
+  </div>
+
+  <div class="uk-margin">
+    <%= form.collection_select(:daytime, Daytimeable::DAYTIMES.collect.with_index.to_a, :second, :first.to_s, {include_blank: 'Selecciona uno...'},{ class: "uk-select"}) %>
+  </div>
+
+  <div class="uk-margin">
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary uk-width-1-1" %>
+  </div>
+<% end %>

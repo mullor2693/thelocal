@@ -1,0 +1,15 @@
+<div id="menu" class="uk-hidden@m canvas-menu" uk-offcanvas="overlay: true; mode: push">
+    <div class="uk-offcanvas-bar">
+        <div uk-grid>
+            <div class="uk-width-auto">
+                <%= image_pack_tag "media/images/app/logo4.png", width:"50", height:"50" %>
+            </div>
+            <div class="uk-width-expand uk-margin-small-top">
+                <h3><%= link_to "SPARTAN", authenticated_root_path, class:"uk-link-heading" %></h3> 
+            </div>
+        </div>
+        <hr class="navbar-top">
+        <%= render "shared/navbars/navbar_left_content" %>
+        <h3 class="uk-margin-remove-top uk-position-bottom-center">SPARTAN</h3> 
+    </div>
+</div>

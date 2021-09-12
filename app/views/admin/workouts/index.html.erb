@@ -1,0 +1,28 @@
+<h1 class="uk-heading-divider"><%= link_to "", admin_authenticated_root_path, :"uk-icon" => "chevron-left", class: "uk-icon" %> Rutinas</h1>
+
+<div uk-grid>
+    <div class="uk-width-expand@s">
+      <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Dias de Entrenamiento</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @workouts.each do |workout| %>
+          <tr>
+            <td><%= workout.name %></td>
+            <td><%= workout.description %></td>
+            <td><%= workout.weekdays_sentence %></td>
+            <td><%= link_to '', [:admin, workout], :"uk-icon" => "chevron-right", class: "uk-icon"%></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<%= link_to 'Nueva Rutina', new_admin_workout_path, class:"uk-button uk-button-default" %>

@@ -1,0 +1,26 @@
+<%= link_to 'Back', admin_user_workouts_path(@user) %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @workout.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workout.description %>
+</p>
+
+<p>
+  <strong>Training days:</strong>
+  <%= @workout.weekdays_sentence %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @workout.user_id %>
+</p>
+
+<%= link_to 'Exercises', admin_user_workout_exercises_path(@user, @workout) %> |
+<%= link_to 'Series', admin_user_workout_exercise_workouts_path(@user, @workout) %> |
+<%= link_to 'Edit', edit_admin_user_workout_path(@user, @workout) %> |
+

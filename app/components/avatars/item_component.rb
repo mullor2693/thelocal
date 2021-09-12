@@ -8,7 +8,7 @@ class Avatars::ItemComponent < Base::AvatarComponent
 
   def call
     tag.div(class: "avatars__item") do
-      tag.div(image_tag(@avatar, class:'avatar__image'), class: "avatars__image")
+      tag.div(image_pack_tag(@avatar, class:'avatar__image'), class: "avatars__image")
     end
   end
 

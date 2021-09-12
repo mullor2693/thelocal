@@ -1,0 +1,56 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3 class="uk-margin-remove-top"><%= @measurement.new_record? ? "Nueva Medición" : "Editar Medición"%></h3>
+
+<%= form_with(model: [:admin, @user, @measurement], remote: true) do |form| %>
+  <% errors = @measurement.errors.present? ? @measurement.errors.messages : {} %>
+  <fieldset class="uk-fieldset">
+    <div class="uk-margin">
+      <%= form.datetime_field :evaluation_date, class: "uk-input#{" uk-form-danger" if errors[:evaluation_date].present?}", placeholder: "Fecha de la evaluación" %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :shoulder, class: "uk-input#{" uk-form-danger" if errors[:shoulder].present?}", placeholder: "Hombro", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :pecs, class: "uk-input#{" uk-form-danger" if errors[:pecs].present?}", placeholder: "Pectoral", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :right_arm, class: "uk-input#{" uk-form-danger" if errors[:right_arm].present?}", placeholder: "Brazo derecho", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :left_arm, class: "uk-input#{" uk-form-danger" if errors[:left_arm].present?}", placeholder: "Brazo izquierdo", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :right_forearm, class: "uk-input#{" uk-form-danger" if errors[:right_forearm].present?}", placeholder: "Antebrazo derecho", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :left_forearm, class: "uk-input#{" uk-form-danger" if errors[:left_forearm].present?}", placeholder: "Antebrazo izquierdo", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :waist, class: "uk-input#{" uk-form-danger" if errors[:waist].present?}", placeholder: "Cintura", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :hip, class: "uk-input#{" uk-form-danger" if errors[:hip].present?}", placeholder: "Cadera", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :right_leg, class: "uk-input#{" uk-form-danger" if errors[:right_leg].present?}", placeholder: "Pierna derecha", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :left_leg, class: "uk-input#{" uk-form-danger" if errors[:left_leg].present?}", placeholder: "Pierna izquierda", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :right_twin, class: "uk-input#{" uk-form-danger" if errors[:right_twin].present?}", placeholder: "Gemelo derecho", step: :any %>
+    </div>
+    <div class="uk-margin">
+      <%= form.number_field :left_twin, class: "uk-input#{" uk-form-danger" if errors[:left_twin].present?}", placeholder: "Gemelo izquierdo", step: :any %>
+    </div>
+  </fieldset>
+  
+  <div class="actions">
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary uk-width-1-1" %>
+  </div>
+<% end %>
+
+
+
+  

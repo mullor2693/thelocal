@@ -16,12 +16,29 @@
     <%#= yield :head %>
   <% end %>
   <%= content_tag(:body) do %>
-    <%= content_tag(:div, class: "content") do %>
-      <%= tag.div id: "toasts" %>
-      <%= render_breadcrumbs(builder: ::BootstrapBreadcrumbsBuilder, separator: "") %>
-      <%= content_tag(:div, yield, class: "container-fluid") %>
+    <% if current_user.present? %>
+      <%= render 'shared/navbars/admin_navbar' %>
+    <% else %>
+      <%= render 'shared/navbars/guest_navbar' %>
     <% end %>
+    <div class="tm-main">
+      <% if current_user.present? %>
+        <%= render 'shared/navbars/breadcrumbs' %>
+      <% end %>
+      <div class="uk-margin">
+        <div class="uk-container uk-container-center uk-position-relative">
+          <%= yield %>
+        </div>
+      </div>
+      <%#= render partial: "shared/navbars/navbar_bottom" %>
+    </div>
+    <% if current_user.present? %>
+      <%#= render 'shared/loader' %>
+      <%= render 'shared/modal' %>
+      <%= render 'shared/canvas/menu' %>
+      <%= render 'shared/edition_canvas' %>
+    <% end %>
+
   <% end %>
 <%end%>
-
 

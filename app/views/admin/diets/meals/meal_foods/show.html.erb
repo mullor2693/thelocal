@@ -1,0 +1,28 @@
+<h1 class="uk-heading-divider"><%= link_to "", admin_diet_meal_path(@diet, @meal), :"uk-icon" => "chevron-left", class: "uk-icon" %> Alimento<%= remote_icon_link(edit_admin_diet_meal_meal_food_path(@diet, @meal, @meal_food), "file-edit", {class: "uk-margin-small uk-align-right"}) %></h1>
+<h3 class="uk-text-center"><%= @meal_food.food.name %></h3>
+
+<div class="uk-section uk-padding-large uk-padding-remove-top">
+  <p class="uk-text-center uk-margin-remove">
+    <span>Cantidad:</span>
+    <%= "#{@meal_food.quantity} #{@meal_food.unit}" %>
+  </p>
+  <div class="uk-container uk-padding-small">
+    <p>
+      <% Food::COMPONENT_GROUPS.each do |key, name| %>
+        <% if @meal_food.food.food_nutrients.by_component_group(key).present? %>
+          <dl class="uk-description-list uk-margin-medium-bottom">
+            <dt><strong><%= name %></strong></dt>
+          <% @meal_food.food.food_nutrients.by_component_group(key).each do |fn| %>
+            <dd>
+              <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+                <div class="uk-width-expand" uk-leader><%= fn&.nutrient&.name&.capitalize %></div>
+                <div><%= "#{fn&.quantity||0*(@meal_food.quantity/100)} #{fn&.unit}" %></div>
+              </div>
+            </dd>
+          <% end %>
+          </dl>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+</div>

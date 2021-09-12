@@ -1,0 +1,25 @@
+<h1 class="uk-heading-divider">Weight</h1>
+
+<%= link_to 'Back', weights_path %>
+
+<p>
+  <strong>Score:</strong>
+  <%= @weight.score %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @weight.evaluation_date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @weight.notes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @weight.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_weight_path(@weight) %> 

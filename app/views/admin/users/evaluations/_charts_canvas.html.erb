@@ -1,0 +1,14 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right">
+  Gráficas
+  <button class="uk-offcanvas-close" type="button" uk-close></button>
+</h1>
+<div class="uk-padding-small" uk-grid>
+  <div class="uk-width-expand@s">
+    <%= line_chart @user.get_evaluable_info_with_future( ["height", "weight", "imc", "fat_rate"]) %>
+    <hr>
+    <%= line_chart @user.get_evaluable_info_with_future(["fat_weight", "slim_weight", "residual_weight", "muscle_weight"]) %>
+    <hr>
+    <%= line_chart @user.get_evaluable_info_with_future(["triceps_skinfold", "subscapular_skinfold", "bicipital_skinfold", "axilliary_skinfold", "suprailiac_skinfold", "thoracic_skinfold", "abdominal_skinfold", "medialcalf_skinfold"]) %>
+  </div>
+</div>
+

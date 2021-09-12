@@ -1,0 +1,50 @@
+<%= form_with(model: [:admin, @user, @workout, exercise_workout], local: true) do |form| %>
+   <% if exercise_workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise_workout.errors.count, "error") %> prohibited this exercise_workout from being saved:</h2>
+
+      <ul>
+        <% exercise_workout.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :exercise_id %>
+    <%= select(exercise_workout.model_name.singular, :exercise_id, Exercise.all.collect {|exercise| [ exercise.name, exercise.id ] }, { include_blank: true }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serie_type %>
+    <%= select(exercise_workout.model_name.singular, :serie_type, ExerciseWorkout::TYPES.collect {|type| [ type[1], type[0] ] }, { include_blank: true }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serie_reps %>
+    <%= form.number_field :serie_reps, in: 1..5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serie_rest %>
+    <%= form.number_field :serie_rest, in: 0..120 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <% exercise_workout.series.each do |key,value| %>
+    <%= form.label "Serie #{key.to_i+1}" %>
+    <% value.each do |subkey,subvalue| %>
+      <%= form.label "#{subkey}" %>
+      <%= form.number_field "series_#{key}_#{subkey}", value: subvalue, name:"exercise_workout[series][#{key}][#{subkey}]" %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

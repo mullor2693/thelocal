@@ -1,0 +1,17 @@
+<%= link_to 'Back', workout_exercises_path(@workout) %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @exercise.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @exercise.description %>
+</p>
+
+<% @exercise.examples.each do |example| %>
+  <%= image_pack_tag example.variant(resize: "40x40!") %>
+<% end %>
+
+

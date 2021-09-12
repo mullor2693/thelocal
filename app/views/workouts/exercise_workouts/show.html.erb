@@ -1,0 +1,37 @@
+<p>
+  <strong>Exercise:</strong>
+  <%= @exercise_workout.exercise_id %>
+</p>
+
+<p>
+  <strong>Workout:</strong>
+  <%= @exercise_workout.workout_id %>
+</p>
+
+<p>
+  <strong>Serie type:</strong>
+  <%= @exercise_workout.serie_type %>
+</p>
+
+<p>
+  <strong>Serie reps:</strong>
+  <%= @exercise_workout.serie_reps %>
+</p>
+
+<p>
+  <strong>Serie rest:</strong>
+  <%= @exercise_workout.serie_rest %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @exercise_workout.notes %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @exercise_workout.series %>
+</p>
+
+<%= link_to 'Edit', edit_workout_exercise_workout_path(@workout, @exercise_workout) %> |
+<%= link_to 'Back', workout_exercise_workouts_path(@workout) %>

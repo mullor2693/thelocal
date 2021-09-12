@@ -13,8 +13,10 @@ import 'scss/application'
 import "chartkick/chart.js"
 import "@hotwired/turbo-rails"
 
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+import 'uikit'
+
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()
@@ -24,3 +26,4 @@ ActiveStorage.start()
 // application.load(definitionsFromContext(componentContext));
 
 import "controllers"
+ 

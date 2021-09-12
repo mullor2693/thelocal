@@ -1,0 +1,18 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3>Editar Relación</h3>
+
+<%= form_with(model: [:admin, @diet, @meal, @meal_food], local: true) do |form| %>
+    <div class="uk-margin">
+        <%= form.collection_select(:food_id, Food.all, :id, :name, {include_blank: 'Selecciona un alimento'},{ class: "uk-select"}) %>
+    </div>
+    <div class="uk-margin">
+        <%= form.number_field :quantity, class: "uk-input", placeholder: "Cantidad" %>
+    </div>
+    <div class="uk-margin">
+        <%= form.collection_select(:unit, MealFood::UNITS, :to_s, :to_s, {include_blank: '', selected: "g" },{ class: "uk-select"}) %>
+    </div>    
+    <div class="uk-margin">
+        <%= form.submit "Guardar", class:"uk-button uk-button-default" %>
+    </div>
+<% end %>

@@ -1,0 +1,45 @@
+
+<h1 class="uk-heading-divider">Exercise Workouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercise</th>
+      <th>Serie type</th>
+      <th>Serie reps</th>
+      <th>Serie rest</th>
+      <th>Notes</th>
+      <th>Series</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercise_workouts.each do |exercise_workout| %>
+      <tr>
+        <td><%= exercise_workout.exercise.name %></td>
+        <td><%= exercise_workout.serie_type_name %></td>
+        <td><%= exercise_workout.serie_reps %></td>
+        <td><%= exercise_workout.serie_rest %></td>
+        <td><%= exercise_workout.notes %></td>
+        <td>
+          <% exercise_workout.typed_series.each do |key,value| %>
+            <%= "Serie #{key.to_i+1} |" %>
+            <% value.each do |subkey,subvalue| %>
+              <%= "#{subkey}: #{subvalue};" %>
+            <% end %>
+            | <br/>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', [:admin, @user, @workout, exercise_workout] %></td>
+        <td><%= link_to 'Edit', edit_admin_user_workout_exercise_workout_path(@user, @workout, exercise_workout) %></td>
+        <td><%= link_to 'Destroy', [:admin, @user, @workout, exercise_workout], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exercise', new_admin_user_workout_exercise_workout_path(@user, @workout) %>
+<%= link_to 'Back to User Workout', admin_user_workout_path(@user, @workout) %>

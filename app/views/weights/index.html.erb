@@ -1,0 +1,38 @@
+<ul class="uk-child-width-expand" uk-tab>
+    <li class="uk-active"><a href="#">Monitor</a></li>
+    <li><a href="#">Historial</a></li>
+</ul>
+
+<ul class="uk-switcher uk-margin">
+    <li class="uk-active uk-padding uk-text-center">
+      <% if @last_weight %>
+        <p class="uk-padding-small"><%= @last_weight.evaluation_date.to_date %></p>
+        <div class="uk-flex uk-flex-center">
+            <h3 class="uk-text-bold"><span class="count"><%= '%.2f' % @last_weight.score %></span> Kg</h3>
+        </div>
+      <% else %>
+        <p>Aun no hay registros de peso.</p>
+      <% end %>
+      <div class="uk-padding">
+        <%= remote_link(new_weight_path, "Nuevo registro", {:class=>"uk-button uk-button-default"}) %>
+      </div>
+    </li>
+    <li class="uk-padding-small">
+      <%= line_chart @weights.order(evaluation_date: :desc).map {|e| [e.evaluation_date.to_date, "#{'%.2f' % e.score} Kg"] }, id:"line_chart_weights", colors: ["#C10000"], download: "weights_#{Date.today.to_s}" %>   
+      <div class="uk-card uk-card-small uk-card-secondary uk-card-body uk-margin-large-top">
+        <% if @weights.count > 0 %>
+          <ul class="uk-list uk-list-divider">
+          <% @weights.order(evaluation_date: :desc).each do |weight| %>
+            <li class="uk-flex uk-flex-around uk-grid uk-margin-small uk-margin-small-left">
+              <div class="uk-width-2-5 uk-padding-remove-left"><%= '%.2f' % weight.score %> Kg</div>
+              <div class="uk-width-2-5 uk-padding-remove-left"><%= weight.evaluation_date.strftime("%d/%m/%Y") %></div>
+              <div class="uk-width-1-5"><%= remote_icon_link(edit_weight_path(weight), "file-edit") %></div>
+            </li>
+          <% end %>
+          </ul>
+        <% else %>
+          <p class="uk-text-center">Aun no hay registros de peso.</p>
+        <% end %>
+      </div>
+    </li>
+</ul>

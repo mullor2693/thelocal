@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="uk-heading-divider">Meal Foods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meal</th>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meal_foods.each do |meal_food| %>
+      <tr>
+        <td><%= meal_food.meal_id %></td>
+        <td><%= meal_food.food_id %></td>
+        <td><%= meal_food.quantity %></td>
+        <td><%= meal_food.unit %></td>
+        <td><%= link_to 'Show', meal_food %></td>
+        <td><%= link_to 'Edit', edit_meal_food_path(meal_food) %></td>
+        <td><%= link_to 'Destroy', meal_food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meal Food', new_meal_food_path %>

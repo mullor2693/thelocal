@@ -1,0 +1,48 @@
+<h1 class="uk-heading-divider"><%= link_to "", admin_diet_path(@diet), :"uk-icon" => "chevron-left", class: "uk-icon" %> Comida<%= remote_icon_link(edit_admin_diet_meal_path(@diet, @meal), "file-edit", {class: "uk-margin-small-top uk-align-right"}) %></h1>
+
+<div class="uk-margin-medium">
+
+    <div class="uk-width-1-1 uk-width-1-3@s">
+
+      <h3><%= @meal.name %></h3>
+      <p>
+        <strong>Hora del Dia:</strong>
+        <%= @meal.name_daytime %>
+      </p>
+      
+    </div>
+
+    <div class="uk-width-1-1 uk-width-2-3@s uk-margin-small-left uk-margin-small-right">
+      <div class="uk-card uk-card-large uk-card-default uk-card-body uk-text-center">
+
+        <ul class="uk-list uk-list-divider">
+          <% @meal.meal_foods.where.not(id: nil).each do |meal_food| %>
+          <li class="uk-flex">
+            <div class="uk-width-1-1 uk-width-expand">
+              <%= meal_food.food.name %>
+            </div>
+            <div class="uk-width-1-1 uk-width-auto@s uk-margin-small-left">
+              <%= meal_food.quantity %>
+            </div>
+            <div class="uk-width-1-1 uk-width-auto@s">
+              <%= meal_food.unit %>
+            </div>
+            <div class="uk-width-1-1 uk-width-auto@s uk-margin-left">
+              <ul class="uk-iconnav">
+                <li><%= link_to '', admin_diet_meal_meal_food_path(@diet, @meal, meal_food), :'uk-icon' => "icon: plus" %></li>
+                <li><%= remote_icon_link(edit_admin_diet_meal_meal_food_path(@diet, @meal, meal_food), "file-edit") %></li>
+                <li><%= link_to '', [:admin, @diet, @meal, meal_food], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
+              </ul>
+            </div>
+          </li>
+          <%end%>
+        </ul>
+
+      </div>
+    </div>
+
+    
+
+</div>
+
+<button class="uk-button uk-button-default ajaxNew" data-link="<%= url_for new_admin_diet_meal_meal_food_path(@diet, @meal) %>">Añadir Alimento</button>

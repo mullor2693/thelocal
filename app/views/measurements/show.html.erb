@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shoulder:</strong>
+  <%= @measurement.shoulder %>
+</p>
+
+<p>
+  <strong>Pecs:</strong>
+  <%= @measurement.pecs %>
+</p>
+
+<p>
+  <strong>Right arm:</strong>
+  <%= @measurement.right_arm %>
+</p>
+
+<p>
+  <strong>Left arm:</strong>
+  <%= @measurement.left_arm %>
+</p>
+
+<p>
+  <strong>Right forearm:</strong>
+  <%= @measurement.right_forearm %>
+</p>
+
+<p>
+  <strong>Left forearm:</strong>
+  <%= @measurement.left_forearm %>
+</p>
+
+<p>
+  <strong>Waist:</strong>
+  <%= @measurement.waist %>
+</p>
+
+<p>
+  <strong>Hip:</strong>
+  <%= @measurement.hip %>
+</p>
+
+<p>
+  <strong>Right leg:</strong>
+  <%= @measurement.right_leg %>
+</p>
+
+<p>
+  <strong>Left leg:</strong>
+  <%= @measurement.left_leg %>
+</p>
+
+<p>
+  <strong>Right twin:</strong>
+  <%= @measurement.right_twin %>
+</p>
+
+<p>
+  <strong>Left twin:</strong>
+  <%= @measurement.left_twin %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @measurement.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
+<%= link_to 'Back', measurements_path %>

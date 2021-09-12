@@ -1,0 +1,39 @@
+<div class="navbar-container admin-navbar" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+
+    <nav class="uk-navbar-container head-navbar" uk-navbar>
+        <div class="uk-navbar-left">
+            <a href="#menu" class="uk-navbar-item uk-logo uk-hidden@m" uk-toggle>
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon">
+                    <rect y="9" width="20" height="2"></rect>
+                    <rect y="3" width="20" height="2"></rect>
+                    <rect y="15" width="20" height="2"></rect>
+                </svg>
+            </a>
+            <div class="uk-navbar-item uk-logo uk-visible@m">
+                <%= image_pack_tag "media/images/app/logo4.png", size: '45x45' %>
+                <h1 class="uk-margin-top uk-margin-small-left">SPARTAN</h1>
+            </div>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#">
+                        <%= image_pack_tag(current_user.avatar.attached? ? current_user.avatar_sized(:small) : "media/images/users/avatar.png", class:"uk-border-circle", size: '45x45')%>                  
+                    </a>
+                    <div class="uk-navbar-dropdown" uk-dropdown="mode: click">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><%= link_to profile_path do %><span class="uk-margin-right" uk-icon="user"></span>Perfil<% end %></li>
+                            <li><%= link_to profile_path do %><span class="uk-margin-right" uk-icon="settings"></span> Ajustes<% end %></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><%= link_to destroy_user_session_path, method: :delete do %><span class="uk-margin-right" uk-icon="sign-out"></span> Salir<% end %></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="tm-sidebar-left uk-visible@m">
+    <%= render "shared/navbars/navbar_left_content" %>
+</div>

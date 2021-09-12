@@ -1,0 +1,22 @@
+
+
+<div class="uk-padding-small">
+  <h1 class="uk-heading-divider"> <%= @food.name %></h1>
+
+  <% Food::COMPONENT_GROUPS.each do |key, name| %>
+    <% if @food.food_nutrients.by_component_group(key).present? %>
+      <dl class="uk-description-list uk-margin-medium-bottom">
+        <dt><strong><%= name %></strong></dt>
+      <% @food.food_nutrients.by_component_group(key).each do |fn| %>
+        <dd>
+          <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+            <div class="uk-width-expand" uk-leader><%= fn&.nutrient&.name&.capitalize %></div>
+            <div><%= "#{fn&.quantity} #{fn&.unit}" %></div>
+          </div>
+        </dd>
+      <% end %>
+      </dl>
+    <% end %>
+  <% end %>
+
+</div>

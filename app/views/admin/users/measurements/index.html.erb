@@ -1,0 +1,30 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right"> Mediciones<%= remote_icon_link(new_admin_user_measurement_path(@user), "plus", {:class=>"uk-align-right uk-margin-small-top"}) %></h1>
+
+<div class="uk-padding-small" uk-grid>
+    <div class="uk-width-expand@s">
+    <% if @measurements.count > 0 %>
+      <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+        <thead>
+          <tr>
+            <th>Fecha de Evaluacion</th>
+            <th collapse="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @measurements.order(evaluation_date: :desc).each do |measurement| %>
+            <tr>
+              <td><%= measurement.evaluation_date.strftime("%d/%m/%Y, %H:%M") %></td>
+              <td>
+                <%= link_to '', [:admin, @user, measurement], :"uk-icon" => "file-text", class: "uk-icon"%>
+                <%= remote_icon_link(edit_admin_user_measurement_path(@user, measurement), "file-edit", {:class=>""}) %>
+                <%= link_to '', [:admin, @user, measurement], method: :delete, :"uk-icon" => "trash", class: "uk-icon", data: { confirm: '¿Estás seguro que deseas borrar la evaluación?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No existe ninguna medición para este usuario.<p>
+    <% end %>
+    </div>
+</div>

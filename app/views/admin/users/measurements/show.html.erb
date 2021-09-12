@@ -1,0 +1,75 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right">
+  Medida
+  <%= link_to '', [:admin, @user, @measurement], method: :delete, :"uk-icon" => "trash", class: "uk-icon uk-align-right uk-margin-small-top uk-margin-small-left", data: { confirm: '¿Estás seguro que deseas borrar la evaluación?' } %>
+  <%= remote_icon_link(edit_admin_user_measurement_path(@user, @measurement), "file-edit", {class: "uk-align-right uk-margin-small-top"}) %>
+</h1>
+
+<div class="uk-padding-small" uk-grid>
+  <div class="uk-width-expand@s">
+    <p>
+      <strong>Shoulder:</strong>
+      <%= @measurement.shoulder %>
+    </p>
+
+    <p>
+      <strong>Pecs:</strong>
+      <%= @measurement.pecs %>
+    </p>
+
+    <p>
+      <strong>Right arm:</strong>
+      <%= @measurement.right_arm %>
+    </p>
+
+    <p>
+      <strong>Left arm:</strong>
+      <%= @measurement.left_arm %>
+    </p>
+
+    <p>
+      <strong>Right forearm:</strong>
+      <%= @measurement.right_forearm %>
+    </p>
+
+    <p>
+      <strong>Left forearm:</strong>
+      <%= @measurement.left_forearm %>
+    </p>
+
+    <p>
+      <strong>Waist:</strong>
+      <%= @measurement.waist %>
+    </p>
+
+    <p>
+      <strong>Hip:</strong>
+      <%= @measurement.hip %>
+    </p>
+
+    <p>
+      <strong>Right leg:</strong>
+      <%= @measurement.right_leg %>
+    </p>
+
+    <p>
+      <strong>Left leg:</strong>
+      <%= @measurement.left_leg %>
+    </p>
+
+    <p>
+      <strong>Right twin:</strong>
+      <%= @measurement.right_twin %>
+    </p>
+
+    <p>
+      <strong>Left twin:</strong>
+      <%= @measurement.left_twin %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @measurement.user_id %>
+    </p>
+
+  </div>
+</div>

@@ -21,7 +21,8 @@
     "stimulus-reveal-controller": "^3.0.0",
     "stimulus-textarea-autogrow": "^3.0.0",
     "tailwindcss-stimulus-components": "^2.2.0",
-    "tui-calendar": "^1.13.1"
+    "tui-calendar": "^1.13.1",
+    "uikit": "^3.7.3"
   },
   "version": "0.1.0",
   "devDependencies": {

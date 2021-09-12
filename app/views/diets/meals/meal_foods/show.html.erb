@@ -1,0 +1,27 @@
+<h1 class="uk-heading-divider"><%= @meal_food.food.name %></h1>
+
+<%= link_to 'Atras', diet_meal_path(@diet, @meal) %> | 
+<%= link_to 'Editar Alimento', edit_diet_meal_meal_food_path(@diet, @meal, @meal_food) %>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= "#{@meal_food.quantity} #{@meal_food.unit}" %>
+</p>
+
+<p>
+  <% Food::COMPONENT_GROUPS.each do |key, name| %>
+    <% if @meal_food.food.food_nutrients.by_component_group(key).present? %>
+      <dl class="uk-description-list uk-margin-medium-bottom">
+        <dt><strong><%= name %></strong></dt>
+      <% @meal_food.food.food_nutrients.by_component_group(key).each do |fn| %>
+        <dd>
+          <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+            <div class="uk-width-expand" uk-leader><%= fn&.nutrient&.name&.capitalize %></div>
+            <div><%= "#{fn&.quantity} #{fn&.unit}" %></div>
+          </div>
+        </dd>
+      <% end %>
+      </dl>
+    <% end %>
+  <% end %>
+</p>

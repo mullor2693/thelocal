@@ -1,0 +1,42 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right"> 
+  Evaluaciones
+  <%= remote_fa_icon_link(new_admin_user_evaluation_path(@user), "far fa-plus-square", {:class=>"uk-align-right uk-margin-top uk-margin-left"}) %>
+  <%= remote_fa_icon_link(admin_user_evaluations_charts_path(@user), "far fa-chart-bar", {:class=>"uk-align-right uk-margin-top"}) %>
+</h1>
+
+<div class="uk-padding-small" uk-grid>
+    <div class="uk-width-expand@s uk-width-1-2@m">
+    <% if @evaluations.count > 0 %>
+      <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+        <thead>
+          <tr>
+            <th>Fecha de Evaluacion</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>IMC</th>
+            <th collapse="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @evaluations.order(evaluation_date: :desc).each do |evaluation| %>
+            <tr>
+              <td><%= evaluation.evaluation_date.strftime("%d/%m/%Y, %H:%M") %></td>
+              <td><%= evaluation.height %> cm</td>
+              <td><%= evaluation.weight %> kg</td>
+              <td><%= evaluation.imc %></td>
+              <td>
+                <%= remote_icon_link(admin_user_evaluation_path(@user, evaluation), "file-text") %>
+                <%= remote_icon_link(edit_admin_user_evaluation_path(@user, evaluation), "file-edit", {:class=>""}) %>
+                <%= link_to '', [:admin, @user, evaluation], method: :delete, :"uk-icon" => "trash", class: "uk-icon", data: { confirm: '¿Estás seguro que deseas borrar la evaluación?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No existe ninguna evaluacion para este usuario.<p>
+    <% end %>
+    </div>
+    <!-- <div class="uk-width-expand@s uk-width-1-2@m">
+    </div> -->
+</div>

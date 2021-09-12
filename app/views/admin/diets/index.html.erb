@@ -1,0 +1,33 @@
+<h1 class="uk-heading-divider uk-margin-left uk-margin-small-right">Dietas<%= remote_icon_link(new_admin_diet_path, "plus", {:class=>"uk-align-right uk-margin-small-top"}) %></h1>
+
+<div>
+  <div class="uk-width-expand@s">
+
+    <div uk-filter="target: .js-filter">
+      <div class="sticky-options uk-margin-small-left" uk-sticky="offset: 134">
+        <ul class="uk-subnav uk-subnav-pill uk-margin-remove-left@s">
+          <li class="uk-active" uk-filter-control><a href="#">Todas</a></li>
+          <li uk-filter-control="[data-owner='owned']"><a href="#">Propias</a></li>
+          <li uk-filter-control="[data-owner='other']"><a href="#">Otros</a></li>
+        </ul>
+      </div>
+      <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@l uk-child-width-1-4@xl uk-text-center uk-margin-medium-top" uk-grid uk-height-match="target: > li > a > .uk-card">
+        <% @diets.each do |diet| %>
+          <li data-owner="<%= diet.creator == @current_user ? "owned" : "other" %>">
+          <%= link_to [:admin, diet], class: "uk-link-reset" do %>
+            <div class="uk-card uk-height-1-1 <%= diet.creator == @current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body uk-margin-small-left uk-margin-small-right">
+              <h3 class="uk-card-title"><%= diet.name %></h3>
+              <div class="uk-width-1-1 uk-text-center">
+                <% Weekable::SM_WEEKDAYS.each do |number, small| %>
+                  <p class="uk-margin-top uk-icon-button weekday_btn<%= " active" if diet.weekdays.include?(number) %>"><%= small %></p>
+                <% end %>
+              </div>
+            </div>
+            <%end%>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+    
+  </div>
+</div>

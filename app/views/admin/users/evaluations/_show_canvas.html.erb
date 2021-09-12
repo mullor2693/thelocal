@@ -1,0 +1,99 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right">
+  Evaluación
+  <button class="uk-offcanvas-close" type="button" uk-close></button>
+</h1>
+
+<div class="uk-padding-small" uk-grid>
+  <div class="uk-width-expand@s">
+    <p>
+      <strong>Fecha de evaluación:</strong><br>
+      <%= @evaluation.evaluation_date.strftime("%d/%m/%Y, %H:%M") %>
+    </p>
+
+    <p>
+      <strong>Altura:</strong>
+      <%= @evaluation.height %> cm
+    </p>
+
+    <p>
+      <strong>Peso:</strong>
+      <%= @evaluation.weight %> kg
+    </p>
+
+    <p>
+      <strong>IMC:</strong>
+      <%= @evaluation.imc %> kg/m2
+    </p>
+
+    <p>
+      <strong>Tasa de grasa:</strong>
+      <%= @evaluation.fat_rate %> %
+    </p>
+
+    <p>
+      <strong>Peso Oseo:</strong>
+      <%= @evaluation.slim_weight %> kg
+    </p>
+
+    <p>
+      <strong>Peso residual:</strong>
+      <%= @evaluation.residual_weight %> kg
+    </p>
+
+    <p>
+      <strong>Peso muscular:</strong>
+      <%= @evaluation.muscle_weight %> kg
+    </p>
+
+    <p>
+      <strong>Pliegue triciptal:</strong>
+      <%= @evaluation.triceps_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue subcapular:</strong>
+      <%= @evaluation.subscapular_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue bicipital:</strong>
+      <%= @evaluation.bicipital_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue axilar:</strong>
+      <%= @evaluation.axilliary_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue suprailíaco:</strong>
+      <%= @evaluation.suprailiac_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue torácico:</strong>
+      <%= @evaluation.thoracic_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue abdominal:</strong>
+      <%= @evaluation.abdominal_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Pliegue pantorrilla:</strong>
+      <%= @evaluation.medialcalf_skinfold %> cm
+    </p>
+
+    <p>
+      <strong>Diametro del puño:</strong>
+      <%= @evaluation.fist_bone_diametre %> cm
+    </p>
+
+    <p>
+      <strong>Diametro del femur:</strong>
+      <%= @evaluation.femur_bone_diametre %> cm
+    </p>
+  </div>
+</div>
+

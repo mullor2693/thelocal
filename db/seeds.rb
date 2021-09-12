@@ -24,3 +24,8 @@ User.create(email: "test@test.com", password: "password", name: "Test", surname:
   room_params[:description] = Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 3)
   Room.create(room_params)
 }
+
+Rake::Task['exercises:create_initials'].invoke
+Rake::Task['foods:create_initials'].invoke
+Rake::Task['roles:create_initials'].invoke
+Rake::Task['users:create_initials'].invoke

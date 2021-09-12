@@ -33,5 +33,9 @@ module Thelocal
       "<span class=\"has-danger\">#{html_tag}</span>".html_safe
     }
 
+    # I18n configuration
+    config.i18n.available_locales = [:en, :es]
+    config.i18n.default_locale = :es
+
   end
 end

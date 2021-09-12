@@ -1,0 +1,44 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<h3 class="uk-margin-remove-top"><%= @exercise.new_record? ? "Nuevo Ejercicio" : "Editar Ejercicio"%></h3>
+
+<%= form_with(model: [:admin, @user, @exercise], remote: true, class: "uk-form-stacked") do |form| %>
+  <% errors = @exercise.errors.present? ? @exercise.errors.messages : {} %>
+  <fieldset class="uk-fieldset">
+    <div class="uk-margin">
+    <%= form.label "Nombre", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <% if errors[:name].present? %>
+          <%= form.text_field :name, class: "uk-input uk-form-danger", placeholder: "#{errors[:name].first.capitalize}" %>
+        <% else %>
+          <%= form.text_field :name, class: "uk-input" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="uk-margin">
+    <%= form.label "Descripción", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.text_area :description, class: "uk-textarea" %>
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <%= form.label "Categorías", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= select(@exercise.model_name.singular, :category_list, Exercise.category_list.map(&:capitalize), {}, { multiple: true, class: "uk-select#{" uk-form-danger" if errors[:categories].present?}" }) %>
+      </div>
+    </div>
+
+    <div class="uk-margin">
+    <%= form.label "Grupos Musculares", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.text_field :involved_muscle_list %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <div class="actions">
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary uk-width-1-1" %>
+  </div>
+<% end %>

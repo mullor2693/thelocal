@@ -1,0 +1,2 @@
+json.extract! evaluation, :id, :height, :weight, :imc, :fat_rate, :slim_weight, :residual_weight, :muscle_weight, :triceps_skinfold, :subscapular_skinfold, :bicipital_skinfold, :axilliary_skinfold, :suprailiac_skinfold, :thoracic_skinfold, :abdominal_skinfold, :medialcalf_skinfold, :fist_bone_diametre, :femur_bone_diametre, :evaluation_date, :user_id, :created_at, :updated_at
+json.url evaluation_url(evaluation, format: :json)

@@ -1,0 +1,38 @@
+<%= form_with(model: [:admin, workout], local: true, class: "uk-form-horizontal uk-margin-medium" ) do |form| %>
+  <% if workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+        <% workout.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">Nombre</label>
+    <div class="uk-form-controls">
+      <%= form.text_field :name, class:"uk-input" %>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">Descripción</label>
+    <div class="uk-form-controls">
+      <%= form.text_area :description, class:"uk-input" %>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-select">Dias de Entrenamiento</label>
+    <div class="uk-form-controls">
+      <%= select(workout.model_name.singular, :weekdays, Weekable::WEEKDAYS, {}, { multiple: true, class: "uk-select" }) %>
+    </div>
+  </div>
+
+  <div class="actions uk-align-right">
+    <%= form.submit "Crear", class: "uk-button uk-button-default" %>
+  </div>
+<% end %>

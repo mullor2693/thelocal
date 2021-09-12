@@ -1,0 +1,129 @@
+<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+<%= form_with(model: [:admin, @user, @evaluation], remote: true, class: "uk-form-stacked") do |form| %>
+  <% errors = @evaluation.errors.present? ? @evaluation.errors.messages : {} %>
+  <fieldset class="uk-fieldset">
+      <legend class="uk-legend"><%= @evaluation.new_record? ? "Nueva Evaluación" : "Editar Evaluación"%></legend>
+
+    <div class="uk-margin">
+      <%= form.label "Fecha de evaluación", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.datetime_field :evaluation_date, class: "uk-input#{" uk-form-danger" if errors[:evaluation_date].present?}", placeholder: "Fecha de la evaluación" %>
+      </div>
+    </div>
+    <hr>
+    <div class="uk-margin">
+      <%= form.label "Altura", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :height, class: "uk-input#{" uk-form-danger" if errors[:height].present?}", placeholder: "Altura", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Peso", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :weight, class: "uk-input#{" uk-form-danger" if errors[:weight].present?}", placeholder: "Peso", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "IMC", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :imc, class: "uk-input#{" uk-form-danger" if errors[:imc].present?}", placeholder: "IMC", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Porcentaje de grasa", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :fat_rate, class: "uk-input#{" uk-form-danger" if errors[:fat_rate].present?}", placeholder: "Porcentaje de grasa", step: :any %>
+      </div>
+    </div>
+    <hr>
+    <div class="uk-margin">
+      <%= form.label "Peso Oseo", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :slim_weight, class: "uk-input#{" uk-form-danger" if errors[:slim_weight].present?}", placeholder: "Peso Oseo", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Peso muscular", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :muscle_weight, class: "uk-input#{" uk-form-danger" if errors[:muscle_weight].present?}", placeholder: "Peso muscular", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Peso residual", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :residual_weight, class: "uk-input#{" uk-form-danger" if errors[:residual_weight].present?}", placeholder: "Peso residual", step: :any %>
+      </div>
+    </div>
+    <hr>
+    <div class="uk-margin">
+      <%= form.label "Pliegue triciptal", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :triceps_skinfold, class: "uk-input#{" uk-form-danger" if errors[:triceps_skinfold].present?}", placeholder: "Pliegue triceps", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue subcapular", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :subscapular_skinfold, class: "uk-input#{" uk-form-danger" if errors[:subscapular_skinfold].present?}", placeholder: "Pliegue subcapular", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue bicipital", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :bicipital_skinfold, class: "uk-input#{" uk-form-danger" if errors[:bicipital_skinfold].present?}", placeholder: "Pliegue bicipital", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue axilar", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :axilliary_skinfold, class: "uk-input#{" uk-form-danger" if errors[:axilliary_skinfold].present?}", placeholder: "Pliegue axilar", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue suprailíaco", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :suprailiac_skinfold, class: "uk-input#{" uk-form-danger" if errors[:suprailiac_skinfold].present?}", placeholder: "Pliegue suprailíaco", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue torácico", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :thoracic_skinfold, class: "uk-input#{" uk-form-danger" if errors[:thoracic_skinfold].present?}", placeholder: "Pliegue torácico", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue abdominal", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :abdominal_skinfold, class: "uk-input#{" uk-form-danger" if errors[:abdominal_skinfold].present?}", placeholder: "Pliegue abdominal", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Pliegue pantorrilla", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :medialcalf_skinfold, class: "uk-input#{" uk-form-danger" if errors[:medialcalf_skinfold].present?}", placeholder: "Pliegue pantorrilla", step: :any %>
+      </div>
+    </div>
+    <hr>
+    <div class="uk-margin">
+      <%= form.label "Diametro del puño", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :fist_bone_diametre, class: "uk-input#{" uk-form-danger" if errors[:fist_bone_diametre].present?}", placeholder: "Diametro del puño", step: :any %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label "Diametro del femur", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.number_field :femur_bone_diametre, class: "uk-input#{" uk-form-danger" if errors[:femur_bone_diametre].present?}", placeholder: "Diametro del femur", step: :any %>
+      </div>
+    </div>
+  </fieldset>
+  <hr>
+  <div class="actions">
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary uk-width-1-1" %>
+  </div>
+<% end %>
+
+
+
+  

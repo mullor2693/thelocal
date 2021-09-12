@@ -1,0 +1,25 @@
+<div class="uk-margin uk-align-right">
+    <%= search_form_for @q do |f| %>
+      <div class="uk-search uk-search-default">
+        <%= f.search_field :name_or_description_cont, class: "uk-search-input", placeholder: "Buscar..." %>
+      </div>
+      <% if !@q.conditions.empty?%>
+        <%= link_to "", foods_path, class: "uk-button uk-button-default uk-icon", :"uk-icon" => "trash" %>
+      <%end%>
+      <%= link_to '', "#", onclick:"$('#food_search').submit()", class:"uk-button uk-button-default uk-icon", "uk-icon": "search"  %>
+    <% end %>
+</div>
+<div>
+  <div class="uk-width-expand@s">
+    <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td class="uk-align-right uk-margin-remove"><%= link_to '', food, :"uk-icon" => "chevron-right", class: "uk-icon" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

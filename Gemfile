@@ -61,12 +61,27 @@ gem 'active_link_to'
 
 gem 'montrose'
 
-gem "breadcrumbs_on_rails"
-
-gem "chartkick"
-
 gem 'hotwire-rails'
 
 gem 'faker'
 
 gem 'newrelic_rpm'
+
+# Authentication/authorization stack
+gem 'cancancan'
+gem 'rolify'
+
+# Gem for charts
+gem "chartkick"
+
+# Gem for searching ActiveRecord models
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
+# Gem for add breadcrumbs
+gem "breadcrumbs_on_rails"
+
+# Gem for translations
+gem 'rails-i18n'
+
+# Gem for tags 
+gem 'acts-as-taggable-on'

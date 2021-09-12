@@ -1,0 +1,80 @@
+<h1 class="uk-heading-divider"><%= link_to "", authenticated_root_path, :"uk-icon" => "chevron-left", class: "uk-icon" %> Perfil</h1>
+
+<p>
+  <%= image_pack_tag(@current_user.avatar.attached? ? @current_user.avatar.variant(resize: "40x40!") : "media/images/users/avatar.png") %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @current_user.full_name %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @current_user.sex %>
+</p>
+
+<p>
+  <strong>Fecha de nacimineto:</strong>
+  <%= @current_user.birth_date %>
+</p>
+
+<p>
+  <strong>Altura:</strong>
+  <%= @current_user.height %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @current_user.birth_date %>
+</p>
+
+<!--
+// Change password 
+<%= form_for(@current_user, as: @current_user, url: edit_diet_path(@current_user), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @current_user %>
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+// Change email
+<%= form_for(@current_user, as: @current_user, url: edit_diet_path(@current_user), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @current_user %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+-->
+<ul class="uk-list uk-list-divider">
+<% TrackingLog.where(user: @current_user).each do |tl| %>
+  <li class="uk-flex uk-flex-around">
+    <div><%= tl.event_type %></div>
+    <div><%= tl.created_at.strftime("%d/%m/%Y - %H:%M")  %></div>
+    </li>
+<% end %>
+</ul>

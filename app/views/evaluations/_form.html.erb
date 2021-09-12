@@ -1,0 +1,107 @@
+<%= form_with(model: evaluation, local: true) do |form| %>
+  <% if evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
+
+      <ul>
+        <% evaluation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imc %>
+    <%= form.text_field :imc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fat_rate %>
+    <%= form.text_field :fat_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slim_weight %>
+    <%= form.text_field :slim_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :residual_weight %>
+    <%= form.text_field :residual_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :muscle_weight %>
+    <%= form.text_field :muscle_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :triceps_skinfold %>
+    <%= form.text_field :triceps_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subscapular_skinfold %>
+    <%= form.text_field :subscapular_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bicipital_skinfold %>
+    <%= form.text_field :bicipital_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :axilliary_skinfold %>
+    <%= form.text_field :axilliary_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suprailiac_skinfold %>
+    <%= form.text_field :suprailiac_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thoracic_skinfold %>
+    <%= form.text_field :thoracic_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abdominal_skinfold %>
+    <%= form.text_field :abdominal_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medialcalf_skinfold %>
+    <%= form.text_field :medialcalf_skinfold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fist_bone_diametre %>
+    <%= form.text_field :fist_bone_diametre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :femur_bone_diametre %>
+    <%= form.text_field :femur_bone_diametre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :evaluation_date %>
+    <%= form.datetime_select :evaluation_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

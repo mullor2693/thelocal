@@ -1,0 +1,24 @@
+<h1 class="uk-heading-divider uk-margin-small-left uk-margin-small-right">
+  Ejercicio
+  <%= link_to '', [:admin, @exercise], method: :delete, :"uk-icon" => "trash", class: "uk-icon uk-align-right uk-margin-small-top uk-margin-small-left", data: { confirm: '¿Estás seguro que deseas borrar el ejercicio?' } %>
+  <%= remote_icon_link(edit_admin_exercise_path(@exercise), "file-edit", {class: "uk-align-right uk-margin-small-top"}) %>
+</h1>
+
+<div class="uk-padding-small" uk-grid>
+  <div class="uk-width-expand@s">
+    <p>
+      <strong>Name:</strong>
+      <%= @exercise.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @exercise.description %>
+    </p>
+
+    <% @exercise.examples.each do |example| %>
+      <%= image_tag example.variant(resize: "40x40!") %>
+    <% end %>
+  </div>
+</div>
+

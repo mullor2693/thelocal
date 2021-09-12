@@ -1,0 +1,77 @@
+<%= form_with(model: measurement, local: true) do |form| %>
+  <% if measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+
+      <ul>
+        <% measurement.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :shoulder %>
+    <%= form.text_field :shoulder %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pecs %>
+    <%= form.text_field :pecs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_arm %>
+    <%= form.text_field :right_arm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :left_arm %>
+    <%= form.text_field :left_arm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_forearm %>
+    <%= form.text_field :right_forearm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :left_forearm %>
+    <%= form.text_field :left_forearm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :waist %>
+    <%= form.text_field :waist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hip %>
+    <%= form.text_field :hip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_leg %>
+    <%= form.text_field :right_leg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :left_leg %>
+    <%= form.text_field :left_leg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_twin %>
+    <%= form.text_field :right_twin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :left_twin %>
+    <%= form.text_field :left_twin %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
