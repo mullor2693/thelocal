@@ -1,4 +1,4 @@
-class Admin::Diets::UserDietsController < Admin::Users::ApplicationController
+class Admin::Users::UserDietsController < Admin::Users::ApplicationController
   before_action :set_diet_user_diets
   before_action :set_user_diet, only: [:show, :edit, :update, :destroy]
 
