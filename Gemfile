@@ -85,3 +85,6 @@ gem 'rails-i18n'
 
 # Gem for tags 
 gem 'acts-as-taggable-on'
+
+# Nested forms
+gem "cocoon"

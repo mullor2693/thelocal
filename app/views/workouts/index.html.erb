@@ -6,7 +6,11 @@
         <%= link_to workout, class: "uk-link-reset" do %>
           <div class="uk-card uk-height-1-1 <%= workout.creator == @current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">
               <h3 class="uk-card-title"><%= workout.name %></h3>
-              <p class="uk-text-meta">Dias: <%= workout.weekdays_sentence %></p>
+              <div class="uk-width-1-1 uk-text-center uk-margin-remove">
+                <% Weekable::SM_WEEKDAYS.each do |number, small| %>
+                  <p class="uk-margin-top uk-icon-button weekday_btn<%= " active" if workout.weekdays.include?(number) %>"><%= small %></p>
+                <% end %>
+              </div>
           </div>
           <%end%>
         </li>

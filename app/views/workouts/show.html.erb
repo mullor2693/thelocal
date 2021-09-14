@@ -1,14 +1,10 @@
 <h1 class="uk-heading-divider uk-text-center uk-margin-small-top"><%= @workout.name %></h1>
-
-<p>
-  <%= @workout.description %>
-</p>
-
 <div class="uk-width-1-1 uk-text-center uk-margin-remove">
   <% Weekable::SM_WEEKDAYS.each do |number, small| %>
     <p class="uk-margin-top uk-icon-button weekday_btn<%= " active" if @workout.weekdays.include?(number) %>"><%= small %></p>
   <% end %>
 </div>
+<p><%= @workout.description %></p>
 
 <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
   <div class="uk-card uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">
@@ -35,7 +31,7 @@
   </div>
 </div>
 
-<%= remote_link(new_workout_exercise_workout_path(@workout), "Añadir Ejercicio", {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
+<%= link_to("Añadir Ejercicio", new_workout_exercise_workout_path(@workout), {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
 
 
 <%= link_to 'Editar Workout', edit_workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>

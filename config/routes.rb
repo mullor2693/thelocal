@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exercise_series
   resources :schedules
   resources :event_managers
   resources :event_assignees

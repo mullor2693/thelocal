@@ -1,0 +1,24 @@
+<div class="nested-fields uk-flex uk-text-center">
+    <%= f.hidden_field :_destroy %>
+    <div class="uk-margin-small uk-margin-small-right">
+        <%= f.label :reps, "Repeticiones", class: "uk-form-label" %>
+        <div class="uk-form-controls">
+            <%= f.number_field :reps, class: "uk-input" %>
+        </div>
+    </div>
+    <div class="uk-margin-small uk-margin-small-right">
+        <%= f.label :weight, "Peso", class: "uk-form-label" %>
+        <div class="uk-form-controls">
+            <%= f.number_field :weight, step: 0.01, class: "uk-input" %>
+        </div>
+    </div>
+    <div class="uk-margin-small uk-margin-small-right">
+        <%= f.label :time_track, "Tiempo", class: "uk-form-label" %>
+        <div class="uk-form-controls">
+            <%= f.number_field :time_track, class: "uk-input" %>
+        </div>
+    </div>
+    <div class="uk-text-center">
+        <%= link_to_remove_association("<span class='uk-icon' uk-icon='close'></span>".html_safe, f) %>
+    </div>
+</div>

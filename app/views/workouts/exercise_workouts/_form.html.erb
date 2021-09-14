@@ -1,47 +1,43 @@
-<%= form_with(model: [@workout, exercise_workout], local: true) do |form| %>
-  <% if exercise_workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exercise_workout.errors.count, "error") %> prohibited this exercise_workout from being saved:</h2>
+<%= form_with(model: [@workout, exercise_workout]) do |form| %>
 
-      <ul>
-        <% exercise_workout.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="uk-margin">
+    <%= form.label :exercise_id, "Ejercicio", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.select :exercise_id, options_from_collection_for_select(Exercise.all, 'id', 'name', params[:exercise]), {}, { class: "uk-select"} %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :exercise_id %>
-    <%= form.text_field :exercise_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :serie_type %>
-    <%= form.number_field :serie_type %>
+  <div class="uk-margin">
+    <%= form.label :serie_rest, "Descanso", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.number_field :serie_rest, class: "uk-input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :serie_reps %>
-    <%= form.number_field :serie_reps %>
+  <div class="uk-margin">
+    <%= form.label :serie_type, "Tipo de Series", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.select :serie_type, options_for_select(ExerciseWorkout::TYPES.collect{|type| [type[1], type[0]]}, params[:serie_type]), {}, {class: "uk-select"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :serie_rest %>
-    <%= form.number_field :serie_rest %>
+  <legend class="uk-form-label">Series:</legend>
+  <fieldset>
+    <%= form.fields_for :exercise_series do |series_form| %>
+      <%= render "exercise_series/form_fields", f: series_form %>
+    <% end %>
+    <%= link_to_add_association 'Añadir nueva serie', form, :exercise_series, partial: "exercise_series/form_fields", class: "uk-button uk-button-default uk-width-1-1"  %>
+  </fieldset>
+
+  <div class="uk-margin">
+    <%= form.label :notes, "Notas", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.text_area :notes, class: "uk-textarea" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :series %>
-    <%= form.text_field :series %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", workout_path(@workout), class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
   </div>
 <% end %>

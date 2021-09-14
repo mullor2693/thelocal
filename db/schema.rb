@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_024738) do
+ActiveRecord::Schema.define(version: 2021_09_14_205013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,16 @@ ActiveRecord::Schema.define(version: 2021_08_18_024738) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable"
+  end
+
+  create_table "exercise_series", force: :cascade do |t|
+    t.integer "reps"
+    t.decimal "weight"
+    t.integer "time_track"
+    t.bigint "exercise_workout_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_workout_id"], name: "index_exercise_series_on_exercise_workout_id"
   end
 
   create_table "exercise_workouts", force: :cascade do |t|
@@ -382,6 +392,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_024738) do
   add_foreign_key "event_assignees", "users"
   add_foreign_key "event_managers", "events"
   add_foreign_key "event_managers", "users"
+  add_foreign_key "exercise_series", "exercise_workouts"
   add_foreign_key "exercise_workouts", "exercises"
   add_foreign_key "exercise_workouts", "workouts"
   add_foreign_key "food_nutrients", "foods"

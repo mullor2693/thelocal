@@ -1,0 +1,34 @@
+<%= form_with(model: [:admin, @user, @exercise], remote: true, class: "uk-form-stacked") do |form| %>
+  <% errors = @exercise.errors.present? ? @exercise.errors.messages : {} %>
+  <fieldset class="uk-fieldset">
+    <div class="uk-margin">
+    <%= form.label "Nombre", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <% if errors[:name].present? %>
+          <%= form.text_field :name, class: "uk-input uk-form-danger", placeholder: "#{errors[:name].first.capitalize}" %>
+        <% else %>
+          <%= form.text_field :name, class: "uk-input" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="uk-margin">
+    <%= form.label "Descripción", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= form.text_area :description, class: "uk-textarea" %>
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <%= form.label "Categorías", class: "uk-form-label" %>
+      <div class="uk-form-controls">
+        <%= select(@exercise.model_name.singular, :category_list, Exercise.category_list.map(&:capitalize), {}, { multiple: true, class: "uk-select#{" uk-form-danger" if errors[:categories].present?}" }) %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", admin_exercises_path, class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @exercise_series.reps %>
+</p>
+
+<p>
+  <strong>Time track:</strong>
+  <%= @exercise_series.time_track %>
+</p>
+
+<p>
+  <strong>Exercise workout:</strong>
+  <%= @exercise_series.exercise_workout_id %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_series_path(@exercise_series) %> |
+<%= link_to 'Back', exercise_series_index_path %>

@@ -1,13 +1,10 @@
-<%= tag.div(class: "row") do %>
-  <%= render(Card::StatsComponent.new(link: admin_users_path, color: "info", card_icon: "people", category: "Trabaja con los perfiles.", title: "Gestión de Usuarios", footer_text: "#{User.all.count} usuarios creados" )) %>
-  <%= render(Card::StatsComponent.new(link: admin_homeworks_path, color: "primary", card_icon: "maps_home_work", category: "Organiza tus tareas.", title: "Gestión de Tareas", footer_text: "#{Homework.all.count} tareas creadas" )) %>
-  <%= render(Card::StatsComponent.new(link: admin_rooms_path, color: "success", card_icon: "room_preferences", category: "Edita las salas.", title: "Habitaciones", footer_text: "#{Room.all.count} habitaciones creadas" )) %>
-<% end %>
-
 
 <%#= render partial: "shared/headers/profile_header", locals: {section_name: "Panel de Administración"}  %>
 <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match uk-padding-small" uk-grid>
     <% [
+
+        ["Gestión de Tareas", "Organiza tus tareas.", admin_homeworks_path],
+        ["Salas", "Edita las salas.", admin_rooms_path],
         ['Usuarios', "Acceso al sistema de gestion de usuarios.", admin_users_path],
         # ['Nutrición', "Acceso al servicio de getion de alimentos y dietas.", admin_nutrition_path],
         ['Entrenamiento', "Acceso al servicio de gestion de ejercicios y entrenamientos.", admin_training_path]

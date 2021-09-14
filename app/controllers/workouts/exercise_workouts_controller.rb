@@ -28,9 +28,11 @@ class Workouts::ExerciseWorkoutsController < Workouts::ApplicationController
     @exercise_workout.workout = @workout
     respond_to do |format|
       if @exercise_workout.save
+        format.turbo_stream { redirect_to @workout, notice: 'Exercise workout was successfully created.' }
         format.html { redirect_to [@workout, @exercise_workout], notice: 'Exercise workout was successfully created.' }
         format.json { render :show, status: :created, location: [@workout, @exercise_workout] }
       else
+        format.turbo_stream { redirect_to @workout, alert: 'Exercise workout was wrong' }
         format.html { render :new }
         format.json { render json: @exercise_workout.errors, status: :unprocessable_entity }
       end

@@ -13,7 +13,14 @@ import 'scss/application'
 import "chartkick/chart.js"
 import "@hotwired/turbo-rails"
 
-import 'uikit'
+import UIkit from 'uikit'
+import Icons from 'uikit/dist/js/uikit-icons';
+UIkit.use(Icons);
+
+import "jquery"
+import "@nathanvda/cocoon"
+
+
 
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)

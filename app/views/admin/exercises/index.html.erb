@@ -5,7 +5,7 @@
     <nav uk-navbar>
       <div class="nav-overlay uk-navbar-left">
         <ul class="uk-subnav uk-subnav-pill uk-margin-top">
-          <li class="uk-active" uk-filter-control><a href="#"><span uk-icon="users"></span></a></li>
+          <li class="uk-active" uk-filter-control><a href="#"><span uk-icon="database"></span></a></li>
           <% Exercise.category_list.each do |category| %>
             <li uk-filter-control="[data-category='<%= category %>']"><a href="#"><%= category.capitalize %></a></li>
           <% end %>

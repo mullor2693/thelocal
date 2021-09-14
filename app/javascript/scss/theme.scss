@@ -3359,6 +3359,9 @@ ul.uk-nav-sub{
 .uk-breadcrumb>*{
     display:contents
 }
+.uk-breadcrumb>ul{
+    display:none
+}
 .uk-breadcrumb>*>*{
     font-size:14px;
     color:#999
@@ -3373,7 +3376,7 @@ ul.uk-nav-sub{
 .uk-breadcrumb>:nth-child(n+2):not(.uk-first-column)::before{
     content:"/";
     display:inline-block;
-    margin:0 20px;
+    margin: 0 0.6rem;
     font-size:14px;
     color:#999
 }
@@ -7069,4 +7072,8 @@ a.remote-icon-margin-top-link {
 
 .w-100 {
     width: 100% !important;
+}
+
+select:-internal-list-box option:checked {
+    background-color: #c40000 !important;
 }
