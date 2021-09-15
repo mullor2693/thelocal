@@ -1,4 +1,6 @@
-<%= form_with(model: measurement, local: true) do |form| %>
+<h1 class="uk-heading-divider"><%= measurement.new_record? ? "Añadir Medidas" : "Editar Medidas" %></h1>
+
+<%= form_with(model: measurement) do |form| %>
   <% if measurement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
@@ -10,68 +12,69 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :shoulder %>
-    <%= form.text_field :shoulder %>
+  
+  <div class="uk-margin">
+    <%= form.label :shoulder, "Hombro", class:"uk-form-label" %>
+    <%= form.text_field :shoulder, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :pecs %>
-    <%= form.text_field :pecs %>
+  <div class="uk-margin">
+    <%= form.label :pecs, "Pectoral", class:"uk-form-label" %>
+    <%= form.text_field :pecs, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :right_arm %>
-    <%= form.text_field :right_arm %>
+  <div class="uk-margin">
+    <%= form.label :right_arm, "Brazo Derecho", class:"uk-form-label" %>
+    <%= form.text_field :right_arm, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :left_arm %>
-    <%= form.text_field :left_arm %>
+  <div class="uk-margin">
+    <%= form.label :left_arm, "Brazo Izquierdo", class:"uk-form-label" %>
+    <%= form.text_field :left_arm, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :right_forearm %>
-    <%= form.text_field :right_forearm %>
+  <div class="uk-margin">
+    <%= form.label :right_forearm, "Antebrazo Derecho", class:"uk-form-label" %>
+    <%= form.text_field :right_forearm, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :left_forearm %>
-    <%= form.text_field :left_forearm %>
+  <div class="uk-margin">
+    <%= form.label :left_forearm, "Antebrazo Izquierdo", class:"uk-form-label" %>
+    <%= form.text_field :left_forearm, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :waist %>
-    <%= form.text_field :waist %>
+  <div class="uk-margin">
+    <%= form.label :waist, "Cintura", class:"uk-form-label" %>
+    <%= form.text_field :waist, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :hip %>
-    <%= form.text_field :hip %>
+  <div class="uk-margin">
+    <%= form.label :hip, "Cadera", class:"uk-form-label" %>
+    <%= form.text_field :hip, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :right_leg %>
-    <%= form.text_field :right_leg %>
+  <div class="uk-margin">
+    <%= form.label :right_leg, "Pierna Derecha", class:"uk-form-label" %>
+    <%= form.text_field :right_leg, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :left_leg %>
-    <%= form.text_field :left_leg %>
+  <div class="uk-margin">
+    <%= form.label :left_leg, "Pierna Izquierda", class:"uk-form-label" %>
+    <%= form.text_field :left_leg, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :right_twin %>
-    <%= form.text_field :right_twin %>
+  <div class="uk-margin">
+    <%= form.label :right_twin, "Gemelo Derecho", class:"uk-form-label" %>
+    <%= form.text_field :right_twin, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :left_twin %>
-    <%= form.text_field :left_twin %>
+  <div class="uk-margin">
+    <%= form.label :left_twin, "Gemelo Izquierdo", class:"uk-form-label" %>
+    <%= form.text_field :left_twin, class: "uk-input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", (measurement.new_record? ? measurements_path : measurement_path(@measurement)), class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
   </div>
 <% end %>
