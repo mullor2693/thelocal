@@ -1,15 +1,7 @@
 <h1 class="uk-heading-divider uk-text-center uk-margin-small-top"><%= @exercise_workout.exercise.name %></h1>
 <%#= image_tag(@exercise_workout.exercise.examples.first) %>
 
-<p>
-  <strong>Tipo de serie:</strong>
-  <%= @exercise_workout.serie_type_name %>
-</p>
-
-<p>
-  <strong>Descanso:</strong>
-  <%= @exercise_workout.serie_rest %>''
-</p>
+<p><strong>Descripcion del ejercicio: </strong><%= @exercise_workout.exercise.description %></p>
 
 <% if @exercise_workout.serie_type.present? %>
   <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
@@ -31,7 +23,7 @@
                 <% end %>
               </div>
               <div class="uk-width-auto uk-margin-small-left">
-                <ul class="uk-iconnav">
+                <ul class="uk-iconnav" style="flex-wrap: nowrap;">
                   <li><%#= remote_icon_link(edit_exercise_workout_serie_path(@exercise_workout, serie), "file-edit") %></li>
                   <li><%#= link_to '', [@exercise_workout, serie], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
                 </ul>
@@ -46,14 +38,27 @@
   </div>
 <% end %>
 
-<% unless @exercise_workout.notes.blank? %>
-  <p><strong>Notas:</strong><%= @exercise_workout.notes %></p>
-<% end %>
+<div>
+  <p>
+    <strong>Tipo de serie:</strong>
+    <%= @exercise_workout.serie_type_name %>
+  </p>
+  <p>
+    <strong>Descanso:</strong>
+    <%= @exercise_workout.serie_rest %>''
+  </p>
+</div>
+
+<div>
+  <% unless @exercise_workout.notes.blank? %>
+    <p><strong>Notas:</strong><%= @exercise_workout.notes %></p>
+  <% end %>
+</div>
+
 
 <%= link_to 'Editar Ejercicio', edit_workout_exercise_workout_path(@workout, @exercise_workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin-small" %>
 <%= link_to 'Volver', workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
-<p><strong>Descripcion del ejercicio:</strong><%= @exercise_workout.exercise.description %></p>
 
 <% @exercise_workout.exercise.examples.each do |example| %>
   <p><%= image_tag(example) %></p>
