@@ -15,6 +15,7 @@ class Workouts::ExerciseWorkoutsController < Workouts::ApplicationController
   # GET /exercise_workouts/new
   def new
     @exercise_workout = ExerciseWorkout.new(workout: @workout)
+    render :edit
   end
 
   # GET /exercise_workouts/1/edit

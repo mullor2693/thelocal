@@ -15,6 +15,7 @@ class ExerciseWorkoutsController < ApplicationController
   # GET /exercise_workouts/new
   def new
     @exercise_workout = ExerciseWorkout.new
+    render :edit
   end
 
   # GET /exercise_workouts/1/edit
@@ -31,7 +32,7 @@ class ExerciseWorkoutsController < ApplicationController
         format.html { redirect_to @exercise_workout, notice: 'Exercise workout was successfully created.' }
         format.json { render :show, status: :created, location: @exercise_workout }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @exercise_workout.errors, status: :unprocessable_entity }
       end
     end
