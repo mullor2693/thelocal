@@ -25,7 +25,7 @@ class MeasurementsController < ApplicationController
   # POST /measurements.json
   def create
     @measurement = @measurements.new(measurement_params)
-
+    @measurement.creator = @current_user
     respond_to do |format|
       if @measurement.save
         format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
@@ -74,6 +74,6 @@ class MeasurementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def measurement_params
-      params.require(:measurement).permit(:shoulder, :pecs, :right_arm, :left_arm, :right_forearm, :left_forearm, :waist, :hip, :right_leg, :left_leg, :right_twin, :left_twin, :user_id)
+      params.require(:measurement).permit(:evaluation_date, :shoulder, :pecs, :right_arm, :left_arm, :right_forearm, :left_forearm, :waist, :hip, :right_leg, :left_leg, :right_twin, :left_twin, :user_id)
     end
 end

@@ -12,65 +12,70 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="uk-margin">
+    <%= form.label :evaluation_date, "Fecha de Evaluación", class:"uk-form-label" %>
+    <%= form.date_field :evaluation_date, class: "uk-input" %>
+  </div>
   
   <div class="uk-margin">
     <%= form.label :shoulder, "Hombro", class:"uk-form-label" %>
-    <%= form.text_field :shoulder, class: "uk-input" %>
+    <%= form.number_field :shoulder, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :pecs, "Pectoral", class:"uk-form-label" %>
-    <%= form.text_field :pecs, class: "uk-input" %>
+    <%= form.number_field :pecs, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :right_arm, "Brazo Derecho", class:"uk-form-label" %>
-    <%= form.text_field :right_arm, class: "uk-input" %>
+    <%= form.number_field :right_arm, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :left_arm, "Brazo Izquierdo", class:"uk-form-label" %>
-    <%= form.text_field :left_arm, class: "uk-input" %>
+    <%= form.number_field :left_arm, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :right_forearm, "Antebrazo Derecho", class:"uk-form-label" %>
-    <%= form.text_field :right_forearm, class: "uk-input" %>
+    <%= form.number_field :right_forearm, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :left_forearm, "Antebrazo Izquierdo", class:"uk-form-label" %>
-    <%= form.text_field :left_forearm, class: "uk-input" %>
+    <%= form.number_field :left_forearm, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :waist, "Cintura", class:"uk-form-label" %>
-    <%= form.text_field :waist, class: "uk-input" %>
+    <%= form.number_field :waist, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :hip, "Cadera", class:"uk-form-label" %>
-    <%= form.text_field :hip, class: "uk-input" %>
+    <%= form.number_field :hip, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :right_leg, "Pierna Derecha", class:"uk-form-label" %>
-    <%= form.text_field :right_leg, class: "uk-input" %>
+    <%= form.number_field :right_leg, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :left_leg, "Pierna Izquierda", class:"uk-form-label" %>
-    <%= form.text_field :left_leg, class: "uk-input" %>
+    <%= form.number_field :left_leg, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :right_twin, "Gemelo Derecho", class:"uk-form-label" %>
-    <%= form.text_field :right_twin, class: "uk-input" %>
+    <%= form.number_field :right_twin, class: "uk-input" %>
   </div>
 
   <div class="uk-margin">
     <%= form.label :left_twin, "Gemelo Izquierdo", class:"uk-form-label" %>
-    <%= form.text_field :left_twin, class: "uk-input" %>
+    <%= form.number_field :left_twin, class: "uk-input" %>
   </div>
 
   <div class="actions uk-flex uk-flex-between">

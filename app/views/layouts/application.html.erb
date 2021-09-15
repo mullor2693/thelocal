@@ -15,7 +15,7 @@
     <!-- Turbo Links -->
     <%#= yield :head %>
   <% end %>
-  <%= content_tag(:body) do %>
+  <%= content_tag(:body, class:"not-touch-select") do %>
     <% if current_user.present? %>
       <%= render 'shared/navbars/admin_navbar' %>
     <% else %>
