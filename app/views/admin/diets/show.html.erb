@@ -11,7 +11,7 @@
     </div>
     <div class="uk-width-1-1 uk-text-center">
       <% Weekable::SM_WEEKDAYS.each do |number, small| %>
-        <p class="uk-margin-top uk-icon-button weekday_btn<%= " active" if @diet.weekdays.include?(number) %>"><%= small %></p>
+        <p class="uk-margin-remove uk-icon-button weekday_btn<%= " active" if @diet.weekdays.include?(number) %>"><%= small %></p>
       <% end %>
     </div>
   </div>
@@ -50,7 +50,7 @@
         <p class="uk-text-center">Aun no ha seleccionado ninguna comida en esta dieta. </p>
       <%end%>
     </div>
-    <%= remote_link(new_admin_diet_diet_meal_path(@diet), "Añadir Comida", {:class=>"uk-button uk-button-default uk-width-1-1 uk-margin-top"}) %>
+    <%= remote_link(new_admin_diet_diet_meal_path(@diet), "Añadir Comida", {:class=>"uk-button uk-button-default uk-width-1-1 uk-margin-small-top"}) %>
   </div>
 
 </div>

@@ -1,4 +1,4 @@
-<h1 class="uk-heading-divider"><%= exercise_workout.new_record? ? "Nuevo Ejercicio" : "Modificar Ejercicio" %></h1>
+<h1 class="uk-heading-divider"><%= exercise_workout.new_record? ? "Añadir Ejercicio" : "Editar Ejercicio" %></h1>
 <%= form_with(model: [@workout, exercise_workout]) do |form| %>
   <div class="uk-margin">
     <%= form.label :exercise_id, "Ejercicio", class: "uk-form-label" %>

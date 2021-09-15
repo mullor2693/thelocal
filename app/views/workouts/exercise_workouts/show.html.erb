@@ -17,7 +17,7 @@
       <% if @exercise_workout.exercise_series.count > 0 %>   
         <ul class="uk-list uk-list-divider">
           <% @exercise_workout.exercise_series.each_with_index do |serie, i| %>
-            <li class="uk-flex">
+            <li class="uk-flex uk-text-center">
               <div class="uk-width-expand">
                 <strong>Serie <%=i+1%>: </strong>
                 <% if @exercise_workout.serie_type == 0 %>
@@ -50,8 +50,14 @@
   <p><strong>Notas:</strong><%= @exercise_workout.notes %></p>
 <% end %>
 
-<%= link_to 'Editar Ejercicio', edit_workout_exercise_workout_path(@workout, @exercise_workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>
+<%= link_to 'Editar Ejercicio', edit_workout_exercise_workout_path(@workout, @exercise_workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin-small" %>
 <%= link_to 'Volver', workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
+
+<p><strong>Descripcion del ejercicio:</strong><%= @exercise_workout.exercise.description %></p>
+
+<% @exercise_workout.exercise.examples.each do |example| %>
+  <p><%= image_tag(example) %></p>
+<% end %>
 
 
 

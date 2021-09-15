@@ -1,32 +1,30 @@
+<h1 class="uk-heading-divider"><%= workout.new_record? ? "Añadir Rutina" : "Editar Rutina" %></h1>
+
 <%= form_with(model: workout, local: true) do |form| %>
-  <% if workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
 
-      <ul>
-        <% workout.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="uk-margin">
+    <%= form.label :name, "Nombre", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.text_field :name, class: "uk-input" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="uk-margin">
+    <%= form.label :description, "Descripción general", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= form.text_area :description, class: "uk-input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :weekdays %>
-    <%= select(workout.model_name.singular, :weekdays, Weekable::WEEKDAYS, {}, { multiple: true }) %>
+  <div class="uk-margin">
+    <%= form.label :weekdays, "Dias de la semana", class: "uk-form-label" %>
+    <div class="uk-form-controls">
+      <%= select(workout.model_name.singular, :weekdays, Weekable::WEEKDAYS, {}, { multiple: true, class: "uk-select" }) %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", (workout.new_record? ? workouts_path : workout_path(@workout)), class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
   </div>
 <% end %>
