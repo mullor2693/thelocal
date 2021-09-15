@@ -1,7 +1,6 @@
 <h1 class="uk-heading-divider">Mis Medidas</h1>
 
-<%= link_to 'Back', authenticated_root_path %>
-
+<% if @measurements.any? %>
 <table>
   <thead>
     <tr>
@@ -21,7 +20,9 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p>Aún no hay registros de medidas, iañada uno nuevo.</p>
+<% end %>
 
-<br>
-
-<%= link_to 'Añadir Medidas', new_measurement_path %>
+<%= link_to 'Añadir Medidas', new_measurement_path, class: "uk-button uk-button-default uk-width-1-1" %>
+<%= link_to 'Back', authenticated_root_path, class: "uk-button uk-button-default uk-width-1-1" %>
