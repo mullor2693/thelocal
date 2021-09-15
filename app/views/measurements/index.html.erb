@@ -4,15 +4,15 @@
   <table class="uk-table uk-table-middle uk-table-divider">
     <thead>
       <tr>
-        <th>Lista de Medidas</th>
-        <th class="uk-width-small">Opciones</th>
+        <th>Fecha de Evaluación</th>
+        <th class="uk-width-small uk-text-right">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <% @measurements.order(:evaluation_date).each do |measurement| %>
         <tr>
           <td><%= measurement.evaluation_date.to_date %></td>
-          <td><%= link_to 'Show', measurement, class:"uk-button uk-button-default" %></td>
+          <td class="uk-text-right"><%= link_to 'Ver', measurement, class:"uk-button uk-button-default" %></td>
         </tr>
       <%end %>
     </tbody>
@@ -21,5 +21,5 @@
   <p>Aún no hay registros de medidas, iañada uno nuevo.</p>
 <% end %>
 
-<%= link_to 'Añadir Medidas', new_measurement_path, class: "uk-button uk-button-default uk-width-1-1" %>
-<%= link_to 'Back', authenticated_root_path, class: "uk-button uk-button-default uk-width-1-1" %>
+<%= link_to 'Añadir Medidas', new_measurement_path, class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>
+<%= link_to 'Volver', authenticated_root_path, class: "uk-button uk-button-default uk-width-1-1" %>
