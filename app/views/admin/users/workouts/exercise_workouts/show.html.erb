@@ -8,10 +8,7 @@
   <%= @exercise_workout.serie_type_name %>
 </p>
 
-<p>
-  <strong>Serie reps:</strong>
-  <%= @exercise_workout.serie_reps %>
-</p>
+
 
 <p>
   <strong>Serie rest:</strong>
@@ -25,11 +22,8 @@
 
 <p>
   <strong>Series:</strong><br/>
-  <% @exercise_workout.typed_series.each do |key,value| %>
-    <%= "Serie #{key.to_i+1} |" %>
-    <% value.each do |subkey,subvalue| %>
-      <%= "#{subkey}: #{subvalue};" %>
-    <% end %>
+  <% exercise_workout.exercise_series.each_with_index do |s, i| %>
+    <%= "Serie #{i+1} |" %>
     | <br/>
   <% end %>
 </p>

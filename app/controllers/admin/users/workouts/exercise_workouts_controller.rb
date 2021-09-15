@@ -74,6 +74,6 @@ class Admin::Users::Workouts::ExerciseWorkoutsController < Admin::Users::Workout
 
     # Only allow a list of trusted parameters through.
     def exercise_workout_params
-      params.require(:exercise_workout).permit(:exercise_id, :serie_type, :serie_reps, :serie_rest, :notes, series: {})
+      params.require(:exercise_workout).permit(:exercise_id, :serie_type, :serie_rest, :notes)
     end
 end

@@ -8,7 +8,6 @@
       <th>Exercise</th>
       <th>Workout</th>
       <th>Serie type</th>
-      <th>Serie reps</th>
       <th>Serie rest</th>
       <th>Notes</th>
       <th>Series</th>
@@ -22,10 +21,9 @@
         <td><%= exercise_workout.exercise_id %></td>
         <td><%= exercise_workout.workout_id %></td>
         <td><%= exercise_workout.serie_type %></td>
-        <td><%= exercise_workout.serie_reps %></td>
         <td><%= exercise_workout.serie_rest %></td>
         <td><%= exercise_workout.notes %></td>
-        <td><%= exercise_workout.series %></td>
+        <td><%= exercise_workout.exercise_series.count %></td>
         <td><%= link_to 'Show', [@workout, exercise_workout] %></td>
         <td><%= link_to 'Edit', edit_workout_exercise_workout_path(@workout, exercise_workout) %></td>
         <td><%= link_to 'Destroy', [@workout, exercise_workout], method: :delete, data: { confirm: 'Are you sure?' } %></td>

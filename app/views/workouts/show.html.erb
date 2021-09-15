@@ -17,7 +17,7 @@
             </div>
             <div class="uk-width-auto uk-margin-small-left">
               <ul class="uk-iconnav">
-                <li><%= link_to '', [@workout, ew.exercise], :'uk-icon' => "icon: folder" %></li>
+                <li><%= link_to '', [@workout, ew], :'uk-icon' => "icon: folder" %></li>
                 <li><%= remote_icon_link(edit_workout_exercise_workout_path(@workout, ew), "file-edit") %></li>
                 <li><%= link_to '', [@workout, ew], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
               </ul>

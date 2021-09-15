@@ -1,5 +1,5 @@
+<h1 class="uk-heading-divider"><%= exercise_workout.new_record? ? "Nuevo Ejercicio" : "Modificar Ejercicio" %></h1>
 <%= form_with(model: [@workout, exercise_workout]) do |form| %>
-
   <div class="uk-margin">
     <%= form.label :exercise_id, "Ejercicio", class: "uk-form-label" %>
     <div class="uk-form-controls">
@@ -37,7 +37,7 @@
   </div>
 
   <div class="actions uk-flex uk-flex-between">
-    <%= link_to "Cancelar", workout_path(@workout), class: "uk-button uk-button-secondary" %>
+    <%= link_to "Cancelar", (exercise_workout.new_record? ? workout_path(@workout) : workout_exercise_workout_path(@workout, exercise_workout)), class: "uk-button uk-button-secondary" %>
     <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
   </div>
 <% end %>

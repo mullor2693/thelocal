@@ -13,24 +13,8 @@
   </div>
 
   <div class="uk-margin">
-    <%= form.number_field :serie_reps, class: "uk-input", placeholder: "Repeticiones" %>
-  </div>
-
-  <div class="uk-margin">
     <%= form.number_field :serie_rest, class: "uk-input", placeholder: "Descanso (segundos)" %>
   </div>
-
-  <% exercise_workout.series.each do |key,value| %>
-    <ul class="uk-list uk-list-divider">
-    <p><%= "Serie #{key.to_i+1}" %></p>
-    <% value.each do |subkey,subvalue| %>
-      <li>
-        <%= form.label "#{subkey}" %>
-        <%= form.number_field "series_#{key}_#{subkey}", value: subvalue, name:"exercise_workout[series][#{key}][#{subkey}]", class: "uk-width-1-2" %>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
 
   <div class="uk-margin">
     <%= form.text_area :notes, class: "uk-textarea", placeholder: "Notas" %>

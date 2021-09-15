@@ -6,7 +6,6 @@
     <tr>
       <th>Exercise</th>
       <th>Serie type</th>
-      <th>Serie reps</th>
       <th>Serie rest</th>
       <th>Notes</th>
       <th>Series</th>
@@ -19,15 +18,11 @@
       <tr>
         <td><%= exercise_workout.exercise.name %></td>
         <td><%= exercise_workout.serie_type_name %></td>
-        <td><%= exercise_workout.serie_reps %></td>
         <td><%= exercise_workout.serie_rest %></td>
         <td><%= exercise_workout.notes %></td>
         <td>
-          <% exercise_workout.typed_series.each do |key,value| %>
-            <%= "Serie #{key.to_i+1} |" %>
-            <% value.each do |subkey,subvalue| %>
-              <%= "#{subkey}: #{subvalue};" %>
-            <% end %>
+          <% exercise_workout.exercise_series.each_with_index do |s, i| %>
+            <%= "Serie #{i+1} |" %>
             | <br/>
           <% end %>
         </td>

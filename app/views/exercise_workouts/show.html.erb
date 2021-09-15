@@ -15,10 +15,6 @@
   <%= @exercise_workout.serie_type %>
 </p>
 
-<p>
-  <strong>Serie reps:</strong>
-  <%= @exercise_workout.serie_reps %>
-</p>
 
 <p>
   <strong>Serie rest:</strong>
@@ -32,7 +28,7 @@
 
 <p>
   <strong>Series:</strong>
-  <%= @exercise_workout.series %>
+  <%= @exercise_workout.exercise_series %>
 </p>
 
 <%= link_to 'Edit', edit_exercise_workout_path(@exercise_workout) %> |

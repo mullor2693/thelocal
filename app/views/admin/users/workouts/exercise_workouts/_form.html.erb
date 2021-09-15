@@ -22,11 +22,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :serie_reps %>
-    <%= form.number_field :serie_reps, in: 1..5 %>
-  </div>
-
-  <div class="field">
     <%= form.label :serie_rest %>
     <%= form.number_field :serie_rest, in: 0..120 %>
   </div>
@@ -36,12 +31,8 @@
     <%= form.text_area :notes %>
   </div>
 
-  <% exercise_workout.series.each do |key,value| %>
-    <%= form.label "Serie #{key.to_i+1}" %>
-    <% value.each do |subkey,subvalue| %>
-      <%= form.label "#{subkey}" %>
-      <%= form.number_field "series_#{key}_#{subkey}", value: subvalue, name:"exercise_workout[series][#{key}][#{subkey}]" %>
-    <% end %>
+  <% exercise_workout.exercise_series.each_with_index do |s, i| %>
+    <%= form.label "Serie #{i+1}" %>
   <% end %>
 
   <div class="actions">

@@ -1,37 +1,58 @@
+<h1 class="uk-heading-divider uk-text-center uk-margin-small-top"><%= @exercise_workout.exercise.name %></h1>
+<%#= image_tag(@exercise_workout.exercise.examples.first) %>
+
 <p>
-  <strong>Exercise:</strong>
-  <%= @exercise_workout.exercise_id %>
+  <strong>Tipo de serie:</strong>
+  <%= @exercise_workout.serie_type_name %>
 </p>
 
 <p>
-  <strong>Workout:</strong>
-  <%= @exercise_workout.workout_id %>
+  <strong>Descanso:</strong>
+  <%= @exercise_workout.serie_rest %>''
 </p>
 
-<p>
-  <strong>Serie type:</strong>
-  <%= @exercise_workout.serie_type %>
-</p>
+<% if @exercise_workout.serie_type.present? %>
+  <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
+    <div class="uk-card uk-card uk-card-secondary uk-card-body">
+      <% if @exercise_workout.exercise_series.count > 0 %>   
+        <ul class="uk-list uk-list-divider">
+          <% @exercise_workout.exercise_series.each_with_index do |serie, i| %>
+            <li class="uk-flex">
+              <div class="uk-width-expand">
+                <strong>Serie <%=i+1%>: </strong>
+                <% if @exercise_workout.serie_type == 0 %>
+                  Repeticiones: <%= serie.reps %> | Peso: <%= serie.weight %>
+                <% elsif @exercise_workout.serie_type == 1 %>
+                  Tiempo: <%= serie.time_track %>
+                <% elsif @exercise_workout.serie_type == 2 %>
+                  Repeticiones: <%= serie.reps %>
+                <% elsif @exercise_workout.serie_type == 3 %>
+                  Peso: <%= serie.weight %>
+                <% end %>
+              </div>
+              <div class="uk-width-auto uk-margin-small-left">
+                <ul class="uk-iconnav">
+                  <li><%#= remote_icon_link(edit_exercise_workout_serie_path(@exercise_workout, serie), "file-edit") %></li>
+                  <li><%#= link_to '', [@exercise_workout, serie], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
+                </ul>
+              </div>
+            </li>
+          <%end%>
+        </ul>   
+      <%else%>
+        <p class="uk-text-center">No hay series asociadas a este ejercicio. </p>
+      <%end%>
+    </div>
+  </div>
+<% end %>
 
-<p>
-  <strong>Serie reps:</strong>
-  <%= @exercise_workout.serie_reps %>
-</p>
+<% unless @exercise_workout.notes.blank? %>
+  <p><strong>Notas:</strong><%= @exercise_workout.notes %></p>
+<% end %>
 
-<p>
-  <strong>Serie rest:</strong>
-  <%= @exercise_workout.serie_rest %>
-</p>
+<%= link_to 'Editar Ejercicio', edit_workout_exercise_workout_path(@workout, @exercise_workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>
+<%= link_to 'Volver', workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @exercise_workout.notes %>
-</p>
 
-<p>
-  <strong>Series:</strong>
-  <%= @exercise_workout.series %>
-</p>
 
-<%= link_to 'Edit', edit_workout_exercise_workout_path(@workout, @exercise_workout) %> |
-<%= link_to 'Back', workout_exercise_workouts_path(@workout) %>
+
