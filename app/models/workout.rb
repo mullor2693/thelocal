@@ -6,5 +6,5 @@ class Workout < ApplicationRecord
   has_many :exercises, -> { distinct }, through: :exercise_workouts
 
   before_validation :clean_weekdays
-  
+  validates_presence_of :name
 end

@@ -8,7 +8,7 @@
   <p class="uk-text-center"><%= @workout.description %></p>
 </div>
 
-<%= link_to 'Editar Workout', edit_workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
+<%= link_to 'Editar Workout', edit_training_workout_path(@training, @workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
 <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
   <div class="uk-card uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">

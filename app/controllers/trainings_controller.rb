@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
   add_breadcrumb "Home", :authenticated_root_path
-  # add_breadcrumb "Entrenamientos", :trainings_path
+  add_breadcrumb "Entrenamientos", :trainings_path, only: %i[ show edit]
   before_action :set_training, only: %i[ show edit update destroy ]
 
   # GET /trainings or /trainings.json
@@ -25,7 +25,6 @@ class TrainingsController < ApplicationController
   # POST /trainings or /trainings.json
   def create
     @training = Training.new(training_params)
-
     respond_to do |format|
       if @training.save
         format.html { redirect_to @training, notice: "Training was successfully created." }

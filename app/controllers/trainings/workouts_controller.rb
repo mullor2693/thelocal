@@ -1,67 +1,50 @@
 class Trainings::WorkoutsController < Trainings::ApplicationController
   before_action :set_training_workouts
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
-  
-  add_breadcrumb "Entrenamiento", :dashboard_training_path
-  add_breadcrumb "Workouts", :workouts_path
-  # GET /workouts
-  # GET /workouts.json
+   
+  # GET /trainings/:id/workouts
   def index
   end
 
-  # GET /workouts/1
-  # GET /workouts/1.json
+  # GET /trainings/:id/workouts/1
   def show
   end
 
-  # GET /workouts/new
+  # GET /trainings/:id/workouts/new
   def new
     @workout = @workouts.new
+    render :edit
   end
 
-  # GET /workouts/1/edit
+  # GET /trainings/:id/workouts/1/edit
   def edit
   end
 
-  # POST /workouts
-  # POST /workouts.json
+  # POST /trainings/:id/workouts
   def create
     @workout = @workouts.new(workout_params)
     @workout.creator = @current_user
-    respond_to do |format|
-      if @workout.save
-        UserWorkout.create(user: @current_user, workout: @workout)
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render :show, status: :created, location: @workout }
-      else
-        format.html { render :new }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
+    if @workout.save
+      UserWorkout.create(user: @current_user, workout: @workout)
+      redirect_to @workout, notice: 'Workout was successfully created.'
+    else
+      render :edit
     end
   end
 
-  # PATCH/PUT /workouts/1
-  # PATCH/PUT /workouts/1.json
+  # PATCH/PUT /trainings/:id/workouts/1
   def update
-    respond_to do |format|
-      if @workout.update(workout_params)
-        format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
-        format.json { render :show, status: :ok, location: @workout }
-      else
-        format.html { render :edit }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
+    if @workout.update(workout_params)
+      redirect_to @workout, notice: 'Workout was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /workouts/1
-  # DELETE /workouts/1.json
+  # DELETE /trainings/:id/workouts/1
   def destroy
     @workout.destroy
-    respond_to do |format|
-      format.html { redirect_to workouts_url, notice: 'Workout was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to workouts_url, notice: 'Workout was successfully destroyed.'
   end
 
 
@@ -69,6 +52,9 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_training_workouts
       @workouts = @training.workouts
+      add_breadcrumb "Entrenamientos", :trainings_path
+      add_breadcrumb @training.name, @training
+      add_breadcrumb "Workouts", :workouts_path
     end
 
     def set_workout
