@@ -13,10 +13,7 @@
     </div>
   <% end %>
 
-  <div class="uk-margin">
-    <%= form.label :evaluation_date, "Fecha de Evaluación", class:"uk-form-label" %>
-    <%= form.date_field :evaluation_date, class: "uk-input" %>
-  </div>
+  <%= input_field(form, :evaluation_date, :date_field, data: {name: "Fecha de Evaluación"}) %>
   
   <div class="uk-margin">
     <%= form.label :shoulder, "Hombro", class:"uk-form-label" %>

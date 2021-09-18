@@ -1,107 +1,24 @@
 <h1 class="uk-heading-divider"><%= evaluation.new_record? ? "Añadir Evaluacion" : "Editar Evaluacion" %></h1>
 
 <%= form_with(model: evaluation) do |form| %>
-  <% if evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
-      <ul>
-        <% evaluation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="uk-margin">
-    <%= form.label :evaluation_date, "Fecha de Evaluación", class:"uk-form-label" %>
-    <%= form.date_field :evaluation_date, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :height, "Altura", class:"uk-form-label" %>
-    <%= form.number_field :height, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :weight, "Peso", class:"uk-form-label" %>
-    <%= form.number_field :weight, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :imc, "IMC", class:"uk-form-label" %>
-    <%= form.number_field :imc, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :fat_rate, class:"uk-form-label" %>
-    <%= form.number_field :fat_rate, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :slim_weight, class:"uk-form-label" %>
-    <%= form.number_field :slim_weight, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :residual_weight, class:"uk-form-label" %>
-    <%= form.number_field :residual_weight, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :muscle_weight, class:"uk-form-label" %>
-    <%= form.number_field :muscle_weight, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :triceps_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :triceps_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :subscapular_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :subscapular_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :bicipital_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :bicipital_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :axilliary_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :axilliary_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :suprailiac_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :suprailiac_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :thoracic_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :thoracic_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :abdominal_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :abdominal_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :medialcalf_skinfold, class:"uk-form-label" %>
-    <%= form.number_field :medialcalf_skinfold, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :fist_bone_diametre, class:"uk-form-label" %>
-    <%= form.number_field :fist_bone_diametre, class: "uk-input" %>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :femur_bone_diametre, class:"uk-form-label" %>
-    <%= form.number_field :femur_bone_diametre, class: "uk-input" %>
-  </div>
-
+  <%= input_field(form, :evaluation_date, :date_field, data: {name: "Fecha de Evaluación"}) %>
+  <%= input_field(form, :height, :number_field, data: {name: "Altura"}) %>
+  <%= input_field(form, :weight, :number_field, data: {name: "Peso"}) %>
+  <%= input_field(form, :imc, :number_field, data: {name: "IMC"}) %>
+  <%= input_field(form, :fat_rate, :number_field) %>
+  <%= input_field(form, :slim_weight, :number_field) %>
+  <%= input_field(form, :residual_weight, :number_field) %>
+  <%= input_field(form, :muscle_weight, :number_field) %>
+  <%= input_field(form, :triceps_skinfold, :number_field) %>
+  <%= input_field(form, :subscapular_skinfold, :number_field) %>
+  <%= input_field(form, :bicipital_skinfold, :number_field) %>
+  <%= input_field(form, :axilliary_skinfold, :number_field) %>
+  <%= input_field(form, :suprailiac_skinfold, :number_field) %>
+  <%= input_field(form, :thoracic_skinfold, :number_field) %>
+  <%= input_field(form, :abdominal_skinfold, :number_field) %>
+  <%= input_field(form, :medialcalf_skinfold, :number_field) %>
+  <%= input_field(form, :fist_bone_diametre, :number_field) %>
+  <%= input_field(form, :femur_bone_diametre, :number_field) %>
   <div class="actions uk-flex uk-flex-between">
     <%= link_to "Cancelar", (evaluation.new_record? ? evaluations_path : evaluation_path(@evaluation)), class: "uk-button uk-button-secondary" %>
     <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>

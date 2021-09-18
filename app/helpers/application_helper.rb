@@ -66,7 +66,7 @@ module ApplicationHelper
         tag.div(class:"uk-margin") do
             form.label(input_attr, data[:name], class: "uk-form-label") + 
             tag.div(class:"uk-form-controls") do
-                eval("form."+input_type.to_s+"(input_attr, class: 'uk-input')").html_safe + span_show_error(@errors[input_attr])
+                eval("form."+input_type.to_s+"(input_attr, class: 'uk-input')").html_safe + span_show_error(form.object.errors.try(:[], input_attr))
             end
         end
     end
