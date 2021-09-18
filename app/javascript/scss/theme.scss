@@ -28,7 +28,8 @@ a:hover,.uk-link:hover,.uk-link-toggle:hover .uk-link,.uk-link-toggle:focus .uk-
 }
 abbr[title]{
     text-decoration:underline dotted;
-    -webkit-text-decoration-style:dotted
+    text-decoration-style:dotted;
+    -webkit-text-decoration-style:dotted;
 }
 b,strong{
     font-weight:bolder
@@ -1273,8 +1274,6 @@ select.uk-form-width-xsmall{
     z-index:1
 }
 .uk-progress{
-    
-    vertical-align: baseline;
     -webkit-appearance:none;
     -moz-appearance:none;
     display:block;
@@ -4559,6 +4558,7 @@ ul.uk-nav-sub{
     color:#f0506e !important
 }
 .uk-text-background{
+    background-clip:text;
     -webkit-background-clip:text;
     display:inline-block;
     color:#c40000 !important
@@ -5068,7 +5068,8 @@ iframe.uk-cover{
     position:relative;
     max-width:100%;
     vertical-align:middle;
-    -webkit-backface-visibility:hidden
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
 }
 .uk-inline-clip{
     overflow:hidden
@@ -5098,7 +5099,8 @@ iframe.uk-cover{
     border-radius:5px
 }
 .uk-inline-clip[class*='uk-border-']{
-    -webkit-transform:translateZ(0)
+    transform:translateZ(0);
+    -webkit-transform:translateZ(0);
 }
 .uk-box-shadow-small{
     box-shadow:0 2px 8px rgba(0,0,0,0.08)
