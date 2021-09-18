@@ -1,96 +1,70 @@
-<h1 class="uk-heading-divider">Evaluation</h1>
+<div class="uk-overflow-auto uk-margin">
+  <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+    <thead>
+      <tr>
+        <%# <th class="uk-table-small uk-text-right"></th> %>
+        <th>Medidas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Height: <%= @evaluation.height %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Weight: <%= @evaluation.weight %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Imc: <%= @evaluation.imc %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Fat rate: <%= @evaluation.fat_rate %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Slim weight: <%= @evaluation.slim_weight %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Residual weight: <%= @evaluation.residual_weight %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Muscle weight: <%= @evaluation.muscle_weight %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Triceps skinfold: <%= @evaluation.triceps_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Subscapular skinfold: <%= @evaluation.subscapular_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Bicipital skinfold: <%= @evaluation.bicipital_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Axilliary skinfold: <%= @evaluation.axilliary_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Suprailiac skinfold: <%= @evaluation.suprailiac_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Thoracic skinfold: <%= @evaluation.thoracic_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Abdominal skinfold: <%= @evaluation.abdominal_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Medialcalf skinfold: <%= @evaluation.medialcalf_skinfold %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Fist bone diametre: <%= @evaluation.fist_bone_diametre %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Femur bone diametre: <%= @evaluation.femur_bone_diametre %></p></td>
+      </tr><tr>
+        <%# <td><input class="uk-checkbox" type="checkbox"></td> %>
+        <td><p> Evaluation date: <%= @evaluation.evaluation_date %></p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'Back', evaluations_path %>
-
-<p>
-  <strong>Height:</strong>
-  <%= @evaluation.height %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @evaluation.weight %>
-</p>
-
-<p>
-  <strong>Imc:</strong>
-  <%= @evaluation.imc %>
-</p>
-
-<p>
-  <strong>Fat rate:</strong>
-  <%= @evaluation.fat_rate %>
-</p>
-
-<p>
-  <strong>Slim weight:</strong>
-  <%= @evaluation.slim_weight %>
-</p>
-
-<p>
-  <strong>Residual weight:</strong>
-  <%= @evaluation.residual_weight %>
-</p>
-
-<p>
-  <strong>Muscle weight:</strong>
-  <%= @evaluation.muscle_weight %>
-</p>
-
-<p>
-  <strong>Triceps skinfold:</strong>
-  <%= @evaluation.triceps_skinfold %>
-</p>
-
-<p>
-  <strong>Subscapular skinfold:</strong>
-  <%= @evaluation.subscapular_skinfold %>
-</p>
-
-<p>
-  <strong>Bicipital skinfold:</strong>
-  <%= @evaluation.bicipital_skinfold %>
-</p>
-
-<p>
-  <strong>Axilliary skinfold:</strong>
-  <%= @evaluation.axilliary_skinfold %>
-</p>
-
-<p>
-  <strong>Suprailiac skinfold:</strong>
-  <%= @evaluation.suprailiac_skinfold %>
-</p>
-
-<p>
-  <strong>Thoracic skinfold:</strong>
-  <%= @evaluation.thoracic_skinfold %>
-</p>
-
-<p>
-  <strong>Abdominal skinfold:</strong>
-  <%= @evaluation.abdominal_skinfold %>
-</p>
-
-<p>
-  <strong>Medialcalf skinfold:</strong>
-  <%= @evaluation.medialcalf_skinfold %>
-</p>
-
-<p>
-  <strong>Fist bone diametre:</strong>
-  <%= @evaluation.fist_bone_diametre %>
-</p>
-
-<p>
-  <strong>Femur bone diametre:</strong>
-  <%= @evaluation.femur_bone_diametre %>
-</p>
-
-<p>
-  <strong>Evaluation date:</strong>
-  <%= @evaluation.evaluation_date %>
-</p>
-
-<%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
-<%= link_to 'Back', evaluations_path %>
+<%= link_to 'Editar Medidas', edit_measurement_path(@measurement), class: "uk-button uk-button-default uk-width-1-1" %>
+<%= link_to 'Volver', measurements_path, class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>

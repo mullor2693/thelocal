@@ -15,6 +15,7 @@ class MeasurementsController < ApplicationController
   # GET /measurements/new
   def new
     @measurement = @measurements.new
+    render :edit
   end
 
   # GET /measurements/1/edit
@@ -31,7 +32,7 @@ class MeasurementsController < ApplicationController
         format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
         format.json { render :show, status: :created, location: @measurement }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @measurement.errors, status: :unprocessable_entity }
       end
     end

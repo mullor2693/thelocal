@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_user_workouts
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Entrenamiento", :training_path
+  add_breadcrumb "Entrenamiento", :dashboard_training_path
   add_breadcrumb "Workouts", :workouts_path
   # GET /workouts
   # GET /workouts.json

@@ -9,7 +9,7 @@
 </p>
 
 <% @exercise.examples.each do |example| %>
-  <%= image_pack_tag example.variant(resize: "40x40!") %>
+  <%= image_tag example.variant(resize: "40x40!") %>
 <% end %>
 
 <%#= link_to 'Edit', edit_admin_user_workout_exercise_path(@user, @workout, @exercise) %> |

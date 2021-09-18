@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trainings
   resources :exercise_series
   resources :schedules
   resources :event_managers
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   authenticated :user do
 
     namespace :admin do
-      get "/training", to: "dashboard#training", as: :training
+      get "/training", to: "dashboard#training", as: :dashboard_training
       scope 'training' do
         resources :exercises
         resources :workouts
@@ -103,7 +104,7 @@ Rails.application.routes.draw do
       resources :evaluations
     end
 
-    get "/training", to: "dashboard#training", as: :training
+    get "/training", to: "dashboard#training", as: :dashboard_training
     scope 'training' do
       resources :exercises, only: [:index, :show]
       resources :workouts do
@@ -111,6 +112,12 @@ Rails.application.routes.draw do
           resources :exercises, only: [:index, :show]
           resources :exercise_workouts
         end
+      end
+    end
+
+    resources :trainings do
+      scope module: 'trainings' do
+        resources :workouts
       end
     end
 

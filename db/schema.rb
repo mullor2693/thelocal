@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_233253) do
+ActiveRecord::Schema.define(version: 2021_09_18_132751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -306,6 +306,13 @@ ActiveRecord::Schema.define(version: 2021_09_14_233253) do
     t.index ["user_id"], name: "index_tracking_logs_on_user_id"
   end
 
+  create_table "trainings", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "user_diets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "diet_id", null: false
@@ -376,6 +383,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_233253) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "training_id"
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 

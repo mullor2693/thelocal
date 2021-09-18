@@ -1,33 +1,25 @@
-<h1 class="uk-heading-divider">Evaluations</h1>
+<h1 class="uk-heading-divider">Mis Evaluaciones</h1>
 
-<%= link_to 'Back', authenticated_root_path %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Imc</th>
-      <th>Fat rate</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @evaluations.each do |evaluation| %>
+<% if @evaluations.any? %>
+  <table class="uk-table uk-table-middle uk-table-divider">
+    <thead>
       <tr>
-        <td><%= evaluation.height %></td>
-        <td><%= evaluation.weight %></td>
-        <td><%= evaluation.imc %></td>
-        <td><%= evaluation.fat_rate %></td>
-        <td><%= link_to 'Show', evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Fecha de Evaluación</th>
+        <th class="uk-width-small uk-text-right">Opciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @evaluations.order(:evaluation_date).each do |evaluation| %>
+        <tr>
+          <td><%= evaluation.evaluation_date.to_date %></td>
+          <td class="uk-text-right"><%= link_to 'Ver', evaluation, class:"uk-button uk-button-default" %></td>
+        </tr>
+      <%end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Aún no hay registros de evaluaciones, añada uno nuevo.</p>
+<% end %>
 
-<br>
-
-<%= link_to 'New Evaluation', new_evaluation_path %>
+<%= link_to 'Añadir Evaluacion', new_evaluation_path, class: "uk-button uk-button-default uk-width-1-1 uk-margin" %>
+<%= link_to 'Volver', physical_path, class: "uk-button uk-button-default uk-width-1-1" %>

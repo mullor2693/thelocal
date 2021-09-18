@@ -1,0 +1,42 @@
+<h1 class="uk-heading-divider uk-text-center uk-margin-small-top"><%= @workout.name %></h1>
+<div class="uk-width-1-1 uk-text-center uk-margin-remove">
+  <% Weekable::SM_WEEKDAYS.each do |number, small| %>
+    <p class="uk-margin-remove uk-icon-button weekday_btn<%= " active" if @workout.weekdays.include?(number) %>"><%= small %></p>
+  <% end %>
+</div>
+<div class="uk-margin">
+  <p class="uk-text-center"><%= @workout.description %></p>
+</div>
+
+<%= link_to 'Editar Workout', edit_workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
+
+<div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
+  <div class="uk-card uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">
+    <% if @workout.exercise_workouts.count > 0 %>   
+      <ul class="uk-list uk-list-divider">
+        <% @workout.exercise_workouts.each do |ew| %>
+          <li class="uk-flex">
+            <div class="uk-width-expand">
+              <div class="uk-flex uk-flex-middle">
+              <p class="uk-margin-remove uk-icon-button weekday_btn active"><%= ew.exercise_series.count %></p>
+              <div class="uk-flex uk-flex-middle uk-margin-small-left">
+              <p class="uk-margin-remove uk-text-center"><%= ew.exercise.name %></p>
+            </div>
+            <div class="uk-width-auto uk-margin-small-left">
+              <ul class="uk-iconnav" style="flex-wrap: nowrap;">
+                <li><%= link_to '', [@workout, ew], :'uk-icon' => "icon: folder" %></li>
+                <li><%= link_to '', [@workout, ew], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
+              </ul>
+            </div>
+          </li>
+        <%end%>
+      </ul>   
+    <%else%>
+      <p class="uk-text-center">No hay ejercicios asociadas a este workout. </p>
+    <%end%>
+  </div>
+</div>
+
+<%= link_to("Añadir Ejercicio", new_workout_exercise_workout_path(@workout), {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
+
+

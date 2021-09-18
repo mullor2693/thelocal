@@ -3,11 +3,12 @@
     
     <!-- <li class=""><%= link_to 'Nutrición', nutrition_path %></li> -->
     <li class=""><%= link_to 'Físico', physical_path %></li>
-    <li class=""><%= link_to 'Entrenamiento', training_path %></li>
+    <li class=""><%= link_to 'Entrenamientos', trainings_path %></li>
+    <li class=""><%= link_to 'Ejercicios', exercises_path %></li>
     <% if current_user.is_admin? %>
         <li class="uk-nav-header"><%= link_to 'Administración', admin_authenticated_root_path %></li>
         <li class=""><%= link_to 'Usuarios', admin_users_path %></li>
         <!-- <li class=""><%= link_to 'Nutrición', admin_nutrition_path %></li> -->
-        <li class=""><%= link_to 'Entrenamiento', admin_training_path %></li>
+        <li class=""><%= link_to 'Entrenamiento', admin_dashboard_training_path %></li>
     <% end %>
 </ul>

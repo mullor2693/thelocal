@@ -1,8 +1,14 @@
-<ul class="uk-list uk-list-divider">
-<% @exercises.each do |exercise| %>
-  <li class="uk-flex uk-flex-around uk-grid uk-margin-small">
-    <div class="uk-width-5-6"><%= exercise.name %></div>
-    <div class="uk-width-1-6"><%= link_to '', exercise, :'uk-icon' => "icon: file-edit"  %></div>
-    </li>
-<% end %>
-</ul>
+<div>
+  <div class="uk-width-expand@s">
+    <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+      <tbody>
+        <% @exercises.each do |exercise| %>
+          <tr>
+            <td><%= exercise.name %></td>
+            <td class="uk-align-right uk-margin-remove"><%= link_to '', exercise, :"uk-icon" => "chevron-right", class: "uk-icon" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

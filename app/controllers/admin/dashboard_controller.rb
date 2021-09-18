@@ -10,6 +10,6 @@ class Admin::DashboardController < Admin::ApplicationController
   end
 
   def training
-    add_breadcrumb "Entrenamiento", :admin_training_path
+    add_breadcrumb "Entrenamiento", :admin_dashboard_training_path
   end
 end

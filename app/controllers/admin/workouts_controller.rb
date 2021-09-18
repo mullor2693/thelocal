@@ -1,7 +1,7 @@
 class Admin::WorkoutsController < Admin::ApplicationController
   before_action :set_workouts
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Entrenamiento", :admin_training_path
+  add_breadcrumb "Entrenamiento", :admin_dashboard_training_path
   add_breadcrumb "Rutinas", :admin_workouts_path
 
   # GET /workouts

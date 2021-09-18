@@ -15,6 +15,7 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = @evaluations.new
+    render :edit
   end
 
   # GET /evaluations/1/edit
@@ -30,7 +31,7 @@ class EvaluationsController < ApplicationController
         format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }
       end
     end
