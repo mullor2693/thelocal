@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
-  add_breadcrumb "Entrenamiento", :dashboard_training_path
-  add_breadcrumb "Trainings", :trainings_path
+  add_breadcrumb "Home", :authenticated_root_path
+  # add_breadcrumb "Entrenamientos", :trainings_path
   before_action :set_training, only: %i[ show edit update destroy ]
 
   # GET /trainings or /trainings.json

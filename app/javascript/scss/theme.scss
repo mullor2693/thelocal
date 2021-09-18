@@ -908,7 +908,7 @@ button.uk-icon:not(:disabled){
 .uk-form-large:not(select):not(input):not(textarea){
     line-height:53px
 }
-.uk-form-danger,.uk-form-danger:focus {
+span.has-danger>input, .uk-form-danger,.uk-form-danger:focus {
     color:#f0506e;
     border-color:#f0506e;
     &::placeholder {

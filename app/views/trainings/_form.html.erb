@@ -1,21 +1,8 @@
-<h1 class="uk-heading-divider"><%= training.new_record? ? "Añadir Training" : "Editar Training" %></h1>
-
+<h1 class="uk-heading-divider"><%= training.new_record? ? "Añadir Entrenamiento" : "Editar Entrenamiento" %></h1>
 <%= form_with(model: training) do |form| %>
-
-  <div class="uk-margin">
-    <%= form.label :name, "Nombre", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.text_field :name, class: "uk-input" %>
-    </div>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :description, "Descripción general", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.text_area :description, class: "uk-input" %>
-    </div>
-  </div>
-
+  <% @errors = training&.errors %>
+  <%= input_field(form, :name, data: {name: "Nombre"}) %>
+  <%= input_field(form, :description, :text_area, data: {name: "Descripción general"}) %>
   <div class="actions uk-flex uk-flex-between">
     <%= link_to "Cancelar", (training.new_record? ? trainings_path : training_path(@training)), class: "uk-button uk-button-secondary" %>
     <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>

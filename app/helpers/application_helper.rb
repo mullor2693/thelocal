@@ -57,4 +57,17 @@ module ApplicationHelper
         return "<a class='#{link_class}' href='#{url_for data_link}'><i class='#{icon_name}'></i></a>".html_safe
     end
 
+    def span_show_error(error_attr)
+        tag.span(error_attr.first.upcase_first, class: "uk-text-danger uk-text-small") if error_attr.present?
+    end
+
+    # input_field: this helper allows you to create easy inputs with errors
+    def input_field(form, input_attr, input_type = :text_field, data: {})
+        tag.div(class:"uk-margin") do
+            form.label(input_attr, data[:name], class: "uk-form-label") + 
+            tag.div(class:"uk-form-controls") do
+                eval("form."+input_type.to_s+"(input_attr, class: 'uk-input')").html_safe + span_show_error(@errors[input_attr])
+            end
+        end
+    end
 end
