@@ -27,3 +27,13 @@ html {
     }
 }
 body { min-height: 100%; }
+
+body.uk-light {
+    background-color: #222;
+    .head-navbar {
+        background-color: #262626;
+    }
+    .uk-offcanvas .uk-offcanvas-bar {
+        background: #383838;
+    }
+}
