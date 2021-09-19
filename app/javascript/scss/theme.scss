@@ -1171,7 +1171,7 @@ select.uk-form-width-xsmall{
     border:1px solid transparent
 }
 .uk-button-primary:hover,.uk-button-primary:focus{
-    background-color:#0f7ae5;
+    background-color:#cc1111;
     color:#fff
 }
 .uk-button-primary:active,.uk-button-primary.uk-active{
@@ -6294,20 +6294,28 @@ iframe.uk-cover{
     border-color:#fff
 }
 .uk-light .uk-button-primary,.uk-section-primary:not(.uk-preserve-color) .uk-button-primary,.uk-section-secondary:not(.uk-preserve-color) .uk-button-primary,.uk-tile-primary:not(.uk-preserve-color) .uk-button-primary,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-primary,.uk-card-primary.uk-card-body .uk-button-primary,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-primary,.uk-card-secondary.uk-card-body .uk-button-primary,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-primary,.uk-overlay-primary .uk-button-primary,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-primary{
-    background-color:#fff;
-    color:#666
+    // background-color:#fff;
+    // color:#666
+    background-color: #c40000;
+    color: #fff;
 }
 .uk-light .uk-button-primary:hover,.uk-light .uk-button-primary:focus,.uk-section-primary:not(.uk-preserve-color) .uk-button-primary:hover,.uk-section-primary:not(.uk-preserve-color) .uk-button-primary:focus,.uk-section-secondary:not(.uk-preserve-color) .uk-button-primary:hover,.uk-section-secondary:not(.uk-preserve-color) .uk-button-primary:focus,.uk-tile-primary:not(.uk-preserve-color) .uk-button-primary:hover,.uk-tile-primary:not(.uk-preserve-color) .uk-button-primary:focus,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-primary:hover,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-primary:focus,.uk-card-primary.uk-card-body .uk-button-primary:hover,.uk-card-primary.uk-card-body .uk-button-primary:focus,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-primary:hover,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-primary:focus,.uk-card-secondary.uk-card-body .uk-button-primary:hover,.uk-card-secondary.uk-card-body .uk-button-primary:focus,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-primary:hover,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-primary:focus,.uk-overlay-primary .uk-button-primary:hover,.uk-overlay-primary .uk-button-primary:focus,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-primary:hover,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-primary:focus{
     background-color:#f2f2f2;
-    color:#666
+    color:#666;
+    &:focus{
+        background-color: #c40000;
+        color: #fff;
+    }
 }
 .uk-light .uk-button-primary:active,.uk-light .uk-button-primary.uk-active,.uk-section-primary:not(.uk-preserve-color) .uk-button-primary:active,.uk-section-primary:not(.uk-preserve-color) .uk-button-primary.uk-active,.uk-section-secondary:not(.uk-preserve-color) .uk-button-primary:active,.uk-section-secondary:not(.uk-preserve-color) .uk-button-primary.uk-active,.uk-tile-primary:not(.uk-preserve-color) .uk-button-primary:active,.uk-tile-primary:not(.uk-preserve-color) .uk-button-primary.uk-active,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-primary:active,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-primary.uk-active,.uk-card-primary.uk-card-body .uk-button-primary:active,.uk-card-primary.uk-card-body .uk-button-primary.uk-active,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-primary:active,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-primary.uk-active,.uk-card-secondary.uk-card-body .uk-button-primary:active,.uk-card-secondary.uk-card-body .uk-button-primary.uk-active,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-primary:active,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-primary.uk-active,.uk-overlay-primary .uk-button-primary:active,.uk-overlay-primary .uk-button-primary.uk-active,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-primary:active,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-primary.uk-active{
     background-color:#e6e6e6;
     color:#666
 }
 .uk-light .uk-button-secondary,.uk-section-primary:not(.uk-preserve-color) .uk-button-secondary,.uk-section-secondary:not(.uk-preserve-color) .uk-button-secondary,.uk-tile-primary:not(.uk-preserve-color) .uk-button-secondary,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-secondary,.uk-card-primary.uk-card-body .uk-button-secondary,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-secondary,.uk-card-secondary.uk-card-body .uk-button-secondary,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-secondary,.uk-overlay-primary .uk-button-secondary,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-secondary{
-    background-color:#fff;
-    color:#666
+    // background-color:#fff;
+    // color:#666
+    background-color: #666666;
+    color: #fff;
 }
 .uk-light .uk-button-secondary:hover,.uk-light .uk-button-secondary:focus,.uk-section-primary:not(.uk-preserve-color) .uk-button-secondary:hover,.uk-section-primary:not(.uk-preserve-color) .uk-button-secondary:focus,.uk-section-secondary:not(.uk-preserve-color) .uk-button-secondary:hover,.uk-section-secondary:not(.uk-preserve-color) .uk-button-secondary:focus,.uk-tile-primary:not(.uk-preserve-color) .uk-button-secondary:hover,.uk-tile-primary:not(.uk-preserve-color) .uk-button-secondary:focus,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-secondary:hover,.uk-tile-secondary:not(.uk-preserve-color) .uk-button-secondary:focus,.uk-card-primary.uk-card-body .uk-button-secondary:hover,.uk-card-primary.uk-card-body .uk-button-secondary:focus,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-secondary:hover,.uk-card-primary>:not([class*='uk-card-media']) .uk-button-secondary:focus,.uk-card-secondary.uk-card-body .uk-button-secondary:hover,.uk-card-secondary.uk-card-body .uk-button-secondary:focus,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-secondary:hover,.uk-card-secondary>:not([class*='uk-card-media']) .uk-button-secondary:focus,.uk-overlay-primary .uk-button-secondary:hover,.uk-overlay-primary .uk-button-secondary:focus,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-secondary:hover,.tm-navbar-container:not(.uk-navbar-transparent) .uk-button-secondary:focus{
     background-color:#f2f2f2;

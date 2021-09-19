@@ -31,9 +31,20 @@ body { min-height: 100%; }
 body.uk-light {
     background-color: #222;
     .head-navbar {
-        background-color: #262626;
+        background: #2e2e2e;
+        .uk-navbar-left>a {
+            background-color: #383838;
+            box-shadow: 6px 0px 8px -4px #00000033;
+        }
     }
     .uk-offcanvas .uk-offcanvas-bar {
         background: #383838;
     }
 }
+
+.avatar-menu {
+    border: 2px solid #c40000;
+    box-shadow: 0 0px 10px -2px #000000b3;
+    background-color: #80000012;
+}
+
