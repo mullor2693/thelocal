@@ -5,7 +5,7 @@
     <% @trainings.each do |training| %>
       <li>
       <%= link_to training, class: "uk-link-reset" do %>
-        <div class="uk-card uk-height-1-1 uk-card-primary uk-card-body">
+        <div class="uk-card uk-height-1-1 uk-card-secondary uk-card-body">
             <h3 class="uk-card-title"><%= training.name %></h3>
             <div class="uk-width-1-1 uk-text-center uk-margin-remove">
               <% Weekable::SM_WEEKDAYS.each do |number, small| %>

@@ -70,4 +70,11 @@ module ApplicationHelper
             end
         end
     end
+
+    def header_content(title, edit_link = nil)
+        tag.h1(class: "uk-heading-divider uk-text-center uk-margin-small-top") do
+            title.html_safe +
+            (edit_link.present? ? tag.span(link_to("", edit_link, class: "uk-icon", 'uk-icon': "pencil"), class:"uk-float-right") : "").html_safe
+        end
+    end
 end

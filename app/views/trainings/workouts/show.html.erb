@@ -1,4 +1,4 @@
-<h1 class="uk-heading-divider uk-text-center uk-margin-small-top"><%= @workout.name %></h1>
+<%= header_content(@workout.name, edit_training_workout_path(@training, @workout)) %>
 <div class="uk-width-1-1 uk-text-center uk-margin-remove">
   <% Weekable::SM_WEEKDAYS.each do |number, small| %>
     <p class="uk-margin-remove uk-icon-button weekday_btn<%= " active" if @workout.weekdays.include?(number) %>"><%= small %></p>
@@ -8,7 +8,6 @@
   <p class="uk-text-center"><%= @workout.description %></p>
 </div>
 
-<%= link_to 'Editar Workout', edit_training_workout_path(@training, @workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
 <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
   <div class="uk-card uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">
@@ -32,7 +31,7 @@
         <%end%>
       </ul>   
     <%else%>
-      <p class="uk-text-center">No hay ejercicios asociadas a este workout. </p>
+      <p class="uk-text-center">No hay ejercicios asociados a esta rutina. </p>
     <%end%>
   </div>
 </div>

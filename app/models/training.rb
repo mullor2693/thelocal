@@ -5,6 +5,6 @@ class Training < ApplicationRecord
     validates_presence_of :name
 
     def weekdays
-        [] # TODO: something
+        self&.workouts&.pluck(:weekdays)&.flatten&.uniq || []
     end
 end
