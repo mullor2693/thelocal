@@ -26,7 +26,7 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
     @workout.creator = @current_user
     if @workout.save
       UserWorkout.create(user: @current_user, workout: @workout)
-      redirect_to @workout, notice: 'Workout was successfully created.'
+      redirect_to [@training, @workout], notice: 'Workout was successfully created.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
   # PATCH/PUT /trainings/:id/workouts/1
   def update
     if @workout.update(workout_params)
-      redirect_to @workout, notice: 'Workout was successfully updated.'
+      redirect_to [@training, @workout], notice: 'Workout was successfully updated.'
     else
       render :edit
     end
@@ -52,9 +52,9 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_training_workouts
       @workouts = @training.workouts
+      add_breadcrumb "Home", :authenticated_root_path
       add_breadcrumb "Entrenamientos", :trainings_path
       add_breadcrumb @training.name, @training
-      add_breadcrumb "Workouts", :workouts_path
     end
 
     def set_workout

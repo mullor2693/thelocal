@@ -24,9 +24,9 @@
         <td><%= exercise_workout.serie_rest %></td>
         <td><%= exercise_workout.notes %></td>
         <td><%= exercise_workout.exercise_series.count %></td>
-        <td><%= link_to 'Show', [@workout, exercise_workout] %></td>
+        <td><%= link_to 'Show', [@training, @workout, exercise_workout] %></td>
         <td><%= link_to 'Edit', edit_workout_exercise_workout_path(@workout, exercise_workout) %></td>
-        <td><%= link_to 'Destroy', [@workout, exercise_workout], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [@training, @workout, exercise_workout], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

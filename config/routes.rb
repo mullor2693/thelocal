@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :event_managers
   resources :event_assignees
   devise_for :users, path: 'account'
+
   authenticated :user do
 
     namespace :admin do
@@ -17,21 +18,6 @@ Rails.application.routes.draw do
           resources :events
         end
       end
-    end
-
-     # resources :rooms
-     resources :homeworks
-     resources :events
-     resources :users, only: [:index, :show]
- 
-     get "dashboard", to: 'dashboard#index'
-
-    root 'dashboard#index', as: :authenticated_root
-  end
-
-  authenticated :user do
-
-    namespace :admin do
       get "/training", to: "dashboard#training", as: :dashboard_training
       scope 'training' do
         resources :exercises
@@ -104,22 +90,27 @@ Rails.application.routes.draw do
       resources :evaluations
     end
 
-    get "/training", to: "dashboard#training", as: :dashboard_training
-    scope 'training' do
-      resources :exercises, only: [:index, :show]
-      resources :workouts do
-        scope module: 'workouts' do
-          resources :exercises, only: [:index, :show]
-          resources :exercise_workouts
+    resources :trainings do
+      scope module: 'trainings' do
+        resources :workouts do
+          scope module: 'workouts' do
+            resources :exercises, only: [:index, :show]
+            resources :exercise_workouts
+          end
         end
       end
     end
 
-    resources :trainings do
-      scope module: 'trainings' do
-        resources :workouts
-      end
-    end
+    resources :exercises, only: [:index, :show]
+
+    # resources :rooms
+    resources :homeworks
+    resources :events
+    resources :users, only: [:index, :show]
+
+    get "dashboard", to: 'dashboard#index'
+
+    root 'dashboard#index', as: :authenticated_root
 
   end
   

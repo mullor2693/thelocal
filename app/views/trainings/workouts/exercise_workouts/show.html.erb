@@ -1,4 +1,4 @@
-<%= header_content(@exercise_workout.exercise.name, edit_workout_exercise_workout_path(@workout, @exercise_workout)) %>
+<%= header_content(@exercise_workout.exercise.name, edit_training_workout_exercise_workout_path(@training, @workout, @exercise_workout)) %>
 <div class="uk-column-1-2">
   <div>
     <p><strong><%= @exercise_workout.serie_type_name %></strong></p>
@@ -43,7 +43,7 @@
 
 <p class="uk-text-justify"><strong>Descripcion del ejercicio: </strong><%= @exercise_workout.exercise.description %></p>
 
-<%= link_to 'Volver', workout_path(@workout), class: "uk-button uk-button-default uk-width-1-1" %>
+<%= link_to 'Volver', training_workout_path(@training, @workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
 
 

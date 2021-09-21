@@ -1,4 +1,4 @@
-class Workouts::ExercisesController < Workouts::ApplicationController
+class Trainings::Workouts::ExercisesController < Trainings::Workouts::ApplicationController
   before_action :set_user_exercises
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 

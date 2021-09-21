@@ -4,6 +4,6 @@
 <div class="uk-margin">
     <%= form.label :weekdays, "Dias de la semana", class: "uk-form-label" %>
     <div class="uk-form-controls">
-        <%= select(workout.model_name.singular, :weekdays, Weekable::WEEKDAYS, {}, { multiple: true, class: "uk-select" }) %>
+        <%= form.select :weekdays, options_for_select(Weekable::WEEKDAYS, params[:weekdays]), {}, {multiple: true, class: "uk-select"} %>
     </div>
 </div>

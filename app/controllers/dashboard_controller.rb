@@ -20,8 +20,4 @@ class DashboardController < ApplicationController
   def nutrition
     # add_breadcrumb "Nutrición", :nutrition_path
   end
-
-  def training
-    # add_breadcrumb "Entrenamiento", :dashboard_training_path
-  end
 end
