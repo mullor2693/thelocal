@@ -14,4 +14,9 @@ class ExerciseWorkout < ApplicationRecord
     TYPES[serie_type]
   end
 
+  def print_series_counter
+    counter = exercise_series.count
+    counter != 0 ? (counter.to_s + (counter != 1 ? " series" : " serie" )): "Sin series"
+  end
+
 end

@@ -7,22 +7,16 @@
 <div class="uk-margin">
   <p class="uk-text-center"><%= @workout.description %></p>
 </div>
-
-
 <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
-  <div class="uk-card uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-card-body">
+  <div class="uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-padding-small">
     <% if @workout.exercise_workouts.count > 0 %>   
-      <ul class="uk-list uk-list-divider">
+      <ul class="uk-list uk-list-divider uk-margin-remove-bottom">
         <% @workout.exercise_workouts.each do |ew| %>
-          <li class="uk-flex">
-            <div class="uk-width-expand">
-              <div class="uk-flex uk-flex-middle">
-              <p class="uk-margin-remove uk-icon-button weekday_btn active"><%= ew.exercise_series.count %></p>
-              <div class="uk-flex uk-flex-middle uk-margin-small-left">
-              <p class="uk-margin-remove uk-text-center"><%= ew.exercise.name %></p>
-            </div>
-            <div class="uk-width-auto uk-margin-small-left">
-              <ul class="uk-iconnav" style="flex-wrap: nowrap;">
+          <li class="uk-flex-inline uk-width-1-1">
+            <div class="uk-icon-button list-counter"><%= ew.print_series_counter %></div>
+            <div class="uk-width-expand uk-margin-small-left uk-text-center"><%= ew.exercise.name %></div>
+            <div class="uk-width-auto">
+              <ul class="uk-margin-auto uk-flex-right uk-iconnav" style="flex-wrap: nowrap;">
                 <li><%= link_to '', [@workout, ew], :'uk-icon' => "icon: folder" %></li>
                 <li><%= link_to '', [@workout, ew], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
               </ul>
@@ -31,11 +25,10 @@
         <%end%>
       </ul>   
     <%else%>
-      <p class="uk-text-center">No hay ejercicios asociados a esta rutina. </p>
+      <p class="uk-text-center uk-margin-remove-bottom">No hay ejercicios asociados a esta rutina. </p>
     <%end%>
   </div>
 </div>
-
 <%= link_to("Añadir Ejercicio", new_workout_exercise_workout_path(@workout), {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
 
 

@@ -1,41 +1,6 @@
 <h1 class="uk-heading-divider"><%= exercise_workout.new_record? ? "Añadir Ejercicio" : "Editar Ejercicio" %></h1>
 <%= form_with(model: [@workout, exercise_workout]) do |form| %>
-  <div class="uk-margin">
-    <%= form.label :exercise_id, "Ejercicio", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.select :exercise_id, options_from_collection_for_select(Exercise.all, 'id', 'name', params[:exercise]), {}, { class: "uk-select"} %>
-    </div>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :serie_rest, "Descanso", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.number_field :serie_rest, class: "uk-input" %>
-    </div>
-  </div>
-
-  <div class="uk-margin">
-    <%= form.label :serie_type, "Tipo de Series", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.select :serie_type, options_for_select(ExerciseWorkout::TYPES.collect{|type| [type[1], type[0]]}, params[:serie_type]), {}, {class: "uk-select"} %>
-    </div>
-  </div>
-
-  <legend class="uk-form-label">Series:</legend>
-  <fieldset>
-    <%= form.fields_for :exercise_series do |series_form| %>
-      <%= render "exercise_series/form_fields", f: series_form %>
-    <% end %>
-    <%= link_to_add_association 'Añadir nueva serie', form, :exercise_series, partial: "exercise_series/form_fields", class: "uk-button uk-button-default uk-width-1-1"  %>
-  </fieldset>
-
-  <div class="uk-margin">
-    <%= form.label :notes, "Notas", class: "uk-form-label" %>
-    <div class="uk-form-controls">
-      <%= form.text_area :notes, class: "uk-textarea" %>
-    </div>
-  </div>
-
+  <%= render 'exercise_workouts/form_fields', form: form %>
   <div class="actions uk-flex uk-flex-between">
     <%= link_to "Cancelar", (exercise_workout.new_record? ? workout_path(@workout) : workout_exercise_workout_path(@workout, exercise_workout)), class: "uk-button uk-button-secondary" %>
     <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>

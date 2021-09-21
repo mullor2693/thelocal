@@ -21,7 +21,7 @@
               </p>
           
               <div class="uk-width-1-2 uk-padding-small uk-padding-remove-top">
-                <ul class="uk-iconnav uk-flex-right">
+                <ul class="uk-flex-right uk-iconnav uk-flex-right">
                   <li><%= link_to '', diet_meal_meal_food_path(@diet, @meal, meal_food), :'uk-icon' => "icon: plus" %></li>
                   <li><%= remote_icon_link(edit_diet_meal_meal_food_path(@diet, @meal, meal_food), "file-edit") %></li>
                   <li><%= link_to '', [@diet, @meal, meal_food], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>

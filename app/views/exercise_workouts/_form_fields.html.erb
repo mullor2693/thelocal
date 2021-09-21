@@ -1,0 +1,27 @@
+<%= tag.div(class: "uk-margin") do %>
+	<%= form.label :exercise_id, "Ejercicio", class: "uk-form-label" %>
+	<%= tag.div(class: "uk-form-controls") do %>
+		<%= form.select :exercise_id, options_from_collection_for_select(Exercise.all, 'id', 'name', params[:exercise]), {}, { class: "uk-select"} %>
+	<% end %>
+<% end %>
+
+<%= input_field(form, :serie_rest, :number_field, data: {name: "Descanso"}) %>
+<%= tag.div(class: "uk-margin") do %>
+	<%= form.label :serie_type, "Tipo de Series", class: "uk-form-label" %>
+	<%= tag.div(class: "uk-form-controls") do %>
+		<%= form.select :serie_type, options_for_select(ExerciseWorkout::TYPES.collect{|type| [type[1], type[0]]}, params[:serie_type]), {}, {class: "uk-select"} %>
+	<% end %>
+<% end %>
+
+<%= tag.legend("Series", class:"uk-form-label") %>
+<%= tag.fieldset do %>
+	<%= form.fields_for :exercise_series do |series_form| %>
+		<%= render "exercise_series/form_fields", f: series_form %>
+	<% end %>
+	<%= link_to_add_association 'Añadir nueva serie', form, :exercise_series, partial: "exercise_series/form_fields", class: "uk-button uk-button-default uk-width-1-1"  %>
+<% end %>
+
+<%= input_field(form, :notes, :text_area, data: {name: "Notas"}) %>
+
+
+

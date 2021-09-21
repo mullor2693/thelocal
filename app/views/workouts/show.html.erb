@@ -16,14 +16,14 @@
       <ul class="uk-list uk-list-divider">
         <% @workout.exercise_workouts.each do |ew| %>
           <li class="uk-flex">
-            <div class="uk-width-expand">
+            <div class="uk-width-expand uk-margin-small-left">
               <div class="uk-flex uk-flex-middle">
               <p class="uk-margin-remove uk-icon-button weekday_btn active"><%= ew.exercise_series.count %></p>
               <div class="uk-flex uk-flex-middle uk-margin-small-left">
               <p class="uk-margin-remove uk-text-center"><%= ew.exercise.name %></p>
             </div>
             <div class="uk-width-auto uk-margin-small-left">
-              <ul class="uk-iconnav" style="flex-wrap: nowrap;">
+              <ul class="uk-flex-right uk-iconnav" style="flex-wrap: nowrap;">
                 <li><%= link_to '', [@workout, ew], :'uk-icon' => "icon: folder" %></li>
                 <li><%= link_to '', [@workout, ew], method: :delete, data: { confirm: 'Estas seguro?' }, :'uk-icon' => "icon: trash" %></li>
               </ul>
