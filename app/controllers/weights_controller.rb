@@ -18,6 +18,7 @@ class WeightsController < ApplicationController
   def new
     @weight = @weights.new
     @weight.evaluation_date = DateTime.now()
+    render :edit
   end
 
   # GET /weights/1/edit
@@ -28,14 +29,10 @@ class WeightsController < ApplicationController
   # POST /weights.json
   def create
     @weight = @weights.new(weight_params)
-    respond_to do |format|
-      if @weight.save
-        format.html { redirect_to weights_path, notice: 'Nuevo peso añadido.' }
-        format.json { render :index, status: :created, location: @weight }
-      else
-        format.html { render :new }
-        format.js { render :new, status: :unprocessable_entity }
-      end
+    if @weight.save
+        redirect_to weights_path, notice: 'Nuevo peso añadido.' 
+    else
+      render :edit
     end
   end
 

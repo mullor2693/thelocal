@@ -1,0 +1,9 @@
+<h1 class="uk-heading-divider"><%= weight.new_record? ? "Añadir Peso" : "Editar Peso" %></h1>
+<%= form_with(model: weight) do |form| %>
+  <% @errors = weight&.errors %>
+  <%= render 'weights/form_fields', form: form %>
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", (weight.new_record? ? weights_path : weight_path(@weight)), class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
+  </div>
+<% end %>

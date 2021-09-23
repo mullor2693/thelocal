@@ -109,13 +109,12 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
 
     get "dashboard", to: 'dashboard#index'
-
     root 'dashboard#index', as: :authenticated_root
 
   end
   
   root to: "home#index"
 
-  # match "*path", to: "home#none", via: :al
+  # match "*path", to: "home#none", via: :all
   
 end
