@@ -39369,18 +39369,19 @@ namespace :foods do
         if !food.present?
             food = Food.create(getter_food.except(:identificacion, :components))
             puts "Comida: #{food.name}"
-            getter_food[:components].each do |component|
-                nutrient = nil
-                nutrient = Nutrient.find_by_name(component[:name])
-                if !nutrient.present?
-                    nutrient=Nutrient.create(name: component[:name], component_group: component[:component_group])
-                    puts "Create new nutrient: #{nutrient.name}"
-                end
-                if component[:quantity].present? && component[:quantity] > 0
-                    fn = FoodNutrient.create(food: food, nutrient: nutrient, unit: component[:unit], quantity: component[:quantity])
-                    puts "#{fn.nutrient.name}: #{fn.quantity}#{fn.unit}"
-                end
-            end
+            # Commented until solved how to store this data
+            # getter_food[:components].each do |component|
+            #     nutrient = nil
+            #     nutrient = Nutrient.find_by_name(component[:name])
+            #     if !nutrient.present?
+            #         nutrient=Nutrient.create(name: component[:name], component_group: component[:component_group])
+            #         puts "Create new nutrient: #{nutrient.name}"
+            #     end
+            #     if component[:quantity].present? && component[:quantity] > 0
+            #         fn = FoodNutrient.create(food: food, nutrient: nutrient, unit: component[:unit], quantity: component[:quantity])
+            #         puts "#{fn.nutrient.name}: #{fn.quantity}#{fn.unit}"
+            #     end
+            # end
             food_created+=1
         end
     end
