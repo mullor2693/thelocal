@@ -3,6 +3,47 @@
 <div class="uk-padding-small">
   <h1 class="uk-heading-divider"> <%= @food.name %></h1>
 
+
+  <dl class="uk-description-list uk-margin-medium-bottom">
+    <dt><strong>Valores Nutricionales</strong></dt>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Energía</div>
+        <div><%= "#{@food.energy.round(2)} kcal" %></div>
+      </div>
+    </dd>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Carbohidratos</div>
+        <div><%= "#{@food.carbohydrates.round(2)} g" %></div>
+      </div>
+    </dd>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Grasas (lípidos)</div>
+        <div><%= "#{@food.lipids.round(2)} g" %></div>
+      </div>
+    </dd>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Proteinas</div>
+        <div><%= "#{@food.protein.round(2)} g" %></div>
+      </div>
+    </dd>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Agua (humedad)</div>
+        <div><%= "#{@food.humidity.round(2)} g" %></div>
+      </div>
+    </dd>
+    <dd>
+      <div class="uk-grid-small uk-text-left uk-margin-small-top" uk-grid>
+        <div class="uk-width-expand" uk-leader>Alcohol (Etanol)</div>
+        <div><%= "#{@food.alcohol.round(2)} g" %></div>
+      </div>
+    </dd>
+  </dl>
+
   <% Food::COMPONENT_GROUPS.each do |key, name| %>
     <% if @food.food_nutrients.by_component_group(key).present? %>
       <dl class="uk-description-list uk-margin-medium-bottom">

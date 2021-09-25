@@ -30,7 +30,7 @@ class Diets::Meals::MealFoodsController < Diets::Meals::ApplicationController
         format.html { redirect_to [@diet, @meal, @meal_food], notice: 'Meal food was successfully created.' }
         format.json { render :show, status: :created, location: [@diet, @meal, @meal_food] }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @meal_food.errors, status: :unprocessable_entity }
       end
     end

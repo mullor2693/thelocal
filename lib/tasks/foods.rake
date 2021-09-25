@@ -3,9 +3,9 @@ namespace :foods do
   task create_initials: :environment do
     food_count = 0
     food_created = 0
-    puts "----------------------------------------"
+    puts "--------------------------------------------------------------"
     puts "CREATE FOODS"
-    puts "----------------------------------------\n"
+    puts "--------------------------------------------------------------\n"
     [
         {
             identificacion: 746,
@@ -39362,13 +39362,30 @@ namespace :foods do
         
     ].each do |getter_food|
         food_count+=1
-        puts "----------------------------------------"
-        puts "Food: #{getter_food[:name]}, started..."
+        puts "--------------------------------------------------------------"
+        puts " #{getter_food[:name]}"
         food = nil
         food = Food.find_by_name(getter_food[:name])
         if !food.present?
-            food = Food.create(getter_food.except(:identificacion, :components))
-            puts "Comida: #{food.name}"
+            food = Food.new(getter_food.except(:identificacion, :components))
+            getter_food[:components].each do |component|
+                if component[:quantity].present? && component[:quantity] > 0
+                    if component[:name] == "Agua (humedad)" 
+                        food.humidity = component[:quantity].round(2)
+                    elsif component[:name] == "Alcohol (etanol)" 
+                        food.alcohol = component[:quantity].round(2)
+                    elsif component[:name] == "Grasa (lipidos)" 
+                        food.lipids = component[:quantity].round(2)
+                    elsif component[:name] == "Proteina" 
+                        food.protein = component[:quantity].round(2)
+                    elsif component[:name] == "Carbohidratos" 
+                        food.carbohydrates = component[:quantity].round(2)
+                    elsif component[:name] == "Energía" 
+                        food.energy = (component[:quantity]*0.239006).round(2)
+                    end
+                end
+            end
+            food.save
             # Commented until solved how to store this data
             # getter_food[:components].each do |component|
             #     nutrient = nil
@@ -39385,10 +39402,10 @@ namespace :foods do
             food_created+=1
         end
     end
-    puts "----------------------------------------\n"
-    puts "----------------------------------------"
+    puts "--------------------------------------------------------------"
+    puts "--------------------------------------------------------------"
     puts "Total: #{food_count}, Creados: #{food_created}"
-    puts "----------------------------------------\n\n"
-  end
+    puts "--------------------------------------------------------------"
+end
 
 end

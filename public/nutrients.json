@@ -1,17 +1,13 @@
 [
-    {"name":"Agua (humedad)","component_group":1},
-    {"name":"Alcohol (etanol)","component_group":1},
-    {"name":"Calcio","component_group":7},
-    {"name":"Carbohidratos","component_group":2},
-    {"name":"Carbohidratos, totales","component_group":1},
+    
+    {"name":"Calcio","unit":"mg","component_group":7},
+    {"name":"Carbohidratos","unit":"g","component_group":2},
     {"name":"Carotenoides","component_group":6},
     {"name":"Cobre","component_group":7},
     {"name":"Colesterol","component_group":3},
-    {"name":"Energía","component_group":1},
     {"name":"Fibra Dietética","component_group":2},
     {"name":"Folato","component_group":6},
     {"name":"Fósforo","component_group":7},
-    {"name":"Grasa (lipidos)","component_group":1},
     {"name":"Hierro","component_group":7},
     {"name":"Ioduro","component_group":7},
     {"name":"Magnesio","component_group":7},
@@ -19,7 +15,6 @@
     {"name":"Niacina","component_group":6},
     {"name":"Piridoxina","component_group":6},
     {"name":"Potasio","component_group":7},
-    {"name":"Proteina","component_group":1},
     {"name":"Provitamina A","component_group":6},
     {"name":"Retinol","component_group":6},
     {"name":"Riboflavina","component_group":6},
@@ -40,8 +35,8 @@
     {"name":"beta-caroteno","component_group":6},
     {"name":"beta-criptoxantina","component_group":6},
     {"name":"biotina","component_group":6},
-    {"name":"campesterol, total","component_group":3},
-    {"name":"caroteno, total (precursores de la vitamina A)","component_group":6},
+    {"name":"campesterol","component_group":3},
+    {"name":"caroteno","component_group":6},
     {"name":"cloruro","component_group":7},
     {"name":"colecalciferol","component_group":6},
     {"name":"estaquiosa","component_group":2},
@@ -86,6 +81,5 @@
     {"name":"ácido graso 22:6 n-3 (ácido docosahexaenóico)","component_group":3},
     {"name":"ácido graso 4:0 (ácido butírico)","component_group":3},
     {"name":"ácido graso 6:0 (ácido capróico)","component_group":3},
-    {"name":"ácido graso 8:0 (ácido caprílico)","component_group":3},
-    {"name":"ácidos orgánicos, totales","component_group":1}
+    {"name":"ácido graso 8:0 (ácido caprílico)","component_group":3}
 ]

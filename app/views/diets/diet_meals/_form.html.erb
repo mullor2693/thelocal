@@ -1,0 +1,9 @@
+<h1 class="uk-heading-divider"><%= diet_meal.new_record? ? "Añadir Comida" : "Editar Comida" %></h1>
+<%= form_with(model: diet_meal, local: true) do |form| %>
+  <% @errors = diet_meal&.errors %>
+  <%= render 'diet_meals/form_fields', form: form %>
+  <div class="actions uk-flex uk-flex-between">
+    <%= link_to "Cancelar", (diet_meal.new_record? ? diet_meals_path : diet_meal_path(@diet_meal)), class: "uk-button uk-button-secondary" %>
+    <%= form.submit "Guardar", class: "uk-button uk-button-primary" %>
+  </div>
+<% end %>

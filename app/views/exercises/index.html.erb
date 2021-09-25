@@ -1,3 +1,12 @@
+<%= search_form_for @q, class: "uk-align-right" do |f| %>
+  <div class="uk-search uk-search-default">
+    <%= f.search_field :name_or_description_cont, class: "uk-search-input", placeholder: "Buscar..." %>
+  </div>
+  <%= f.button tag.span(class: 'uk-icon', 'uk-icon': 'search').html_safe, type: :submit, class:"uk-button uk-button-default uk-padding-remove-vertical uk-padding-small" %>
+  <% if !@q.conditions.empty?%> 
+    <%= link_to "", exercises_path, class: "uk-button uk-button-default uk-padding-remove-vertical uk-padding-small uk-icon", :"uk-icon" => "trash" %>
+  <%end%>
+<% end %>
 <div>
   <div class="uk-width-expand@s">
     <table class="uk-table uk-table-divider uk-table-small uk-table-justify">
