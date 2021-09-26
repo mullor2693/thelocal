@@ -5,12 +5,10 @@
     <p class="uk-margin-remove uk-icon-button weekday_btn<%= " active" if @training.weekdays.include?(number) %>"><%= small %></p>
   <% end %>
 </div>
-<div class="uk-margin">
+<div class="uk-margin uk-margin-large-bottom">
   <p class="uk-text-center"><%= @training.description %></p>
 </div>
-
-
-<div class="uk-width-1-1 uk-margin-large">
+<div class="uk-width-1-1 uk-margin">
   <% if @training.workouts.count > 0 %>   
     <ul class="uk-child-width-1-1 uk-text-center uk-margin uk-grid-small" uk-grid uk-height-match="target: > li > a > .uk-card">
       <% @training.workouts.each do |workout| %>
@@ -30,12 +28,12 @@
     </ul>
   <%else%>
     <div class="uk-card uk-height-1-1 uk-card-secondary uk-card-body">
-      <p class="uk-text-center">No hay ejercicios asociadas a esta rutina.</p>
+      <p class="uk-text-center">No hay rutinas asociadas a este entranamiento.</p>
     </div>
   <%end%>
 </div>
 
-<%= link_to("Añadir Workout", new_training_workout_path(@training), {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
+<%= link_to("Añadir Rutina", new_training_workout_path(@training), {:class=>"uk-button uk-button-default uk-width-1-1"}) %>
 
 
 

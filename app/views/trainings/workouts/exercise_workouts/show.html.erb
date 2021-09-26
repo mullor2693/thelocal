@@ -1,5 +1,5 @@
 <%= header_content(@exercise_workout.exercise.name, edit_training_workout_exercise_workout_path(@training, @workout, @exercise_workout)) %>
-<div class="uk-column-1-2">
+<div class="uk-column-1-2 uk-text-meta">
   <div>
     <p><strong><%= @exercise_workout.serie_type_name %></strong></p>
   </div>
@@ -8,7 +8,7 @@
   </div>
 </div>
 <% if @exercise_workout.serie_type.present? %>
-  <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin-remove-top">
+  <div class="uk-width-1-1 uk-margin uk-margin-remove-top">
     <div class="uk-card uk-card uk-card-secondary uk-card-body">
       <% if @exercise_workout.exercise_series.count > 0 %>   
         <ul class="uk-list uk-list-divider">
@@ -41,8 +41,7 @@
   <% end %>
 </div>
 
-<p class="uk-text-justify"><strong>Descripcion del ejercicio: </strong><%= @exercise_workout.exercise.description %></p>
-
+<%= link_to 'Ver Ejercicio', exercise_training_workout_exercise_workout_path(@training, @workout, @exercise_workout), class: "uk-button uk-button-default uk-width-1-1 uk-margin-small" %>
 <%= link_to 'Volver', training_workout_path(@training, @workout), class: "uk-button uk-button-default uk-width-1-1" %>
 
 

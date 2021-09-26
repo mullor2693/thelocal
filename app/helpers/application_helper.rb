@@ -40,6 +40,23 @@ module ApplicationHelper
     end
 
     # View helpers
+
+    def format_image_tag(example)
+        image_pack_tag("media/images/exercises/#{example&.blob&.filename&.to_s}")
+    end
+
+    def exercise_images_slider
+        tag.div(class:"uk-position-relative uk-visible-toggle", :"uk-slider"=>"true") do
+            tag.ul(class:"uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m") do 
+                @exercise.examples.each do |example|
+                    tag.li(format_image_tag(example)) 
+                end
+            end 
+            tag.a(class:"uk-position-center-left uk-position-small uk-text-secondary", :'uk-slidenav-previous'=>'true', :'uk-slider-item'=>"previous") +
+            tag.a(class:"uk-position-center-right uk-position-small uk-text-secondary", :'uk-slidenav-next'=>'true', :'uk-slider-item'=>"next")
+        end
+    end
+
     def remote_link(data_link, text, options={})
         link_class = options[:class] ? "ajaxNew #{options[:class]}" : "ajaxNew"
         return "<a class='#{link_class}' href='#{url_for data_link}'>#{text}</a>".html_safe
@@ -72,9 +89,9 @@ module ApplicationHelper
     end
 
     def header_content(title, edit_link = nil)
-        tag.h1(class: "uk-heading-divider uk-text-center uk-margin-small-top") do
-            title.html_safe +
-            (edit_link.present? ? tag.span(link_to("", edit_link, class: "uk-icon", 'uk-icon': "pencil"), class:"uk-float-right") : "").html_safe
+        tag.div(class: "uk-heading-divider uk-margin-bottom") do
+            tag.h1(title.html_safe, class: "uk-margin-remove-vertical uk-padding uk-padding-remove-vertical uk-text-center") +
+            (edit_link.present? ? tag.span(link_to("", edit_link, class: "uk-icon", 'uk-icon': "pencil"), class:"uk-margin-right uk-margin-small-top uk-position-right") : "").html_safe
         end
     end
 end

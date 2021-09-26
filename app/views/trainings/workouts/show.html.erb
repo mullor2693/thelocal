@@ -7,13 +7,13 @@
 <div class="uk-margin">
   <p class="uk-text-center"><%= @workout.description %></p>
 </div>
-<div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-margin">
+<div class="uk-width-1-1 uk-margin-large">
   <div class="uk-card <%=@workout.creator == current_user ? "uk-card-secondary" : "uk-card-primary" %> uk-padding-small">
     <% if @workout.exercise_workouts.count > 0 %>   
       <ul class="uk-list uk-list-divider uk-margin-remove-bottom">
         <% @workout.exercise_workouts.each do |ew| %>
-          <li class="uk-flex-inline uk-width-1-1">
-            <div class="uk-icon-button list-counter"><%= ew.print_series_counter %></div>
+          <li class="uk-flex-inline">
+            <div><div class="list-counter uk-icon-button"><%= ew.print_series_counter %></div></div>
             <div class="uk-width-expand uk-margin-small-left uk-text-center"><%= ew.exercise.name %></div>
             <div class="uk-width-auto">
               <ul class="uk-margin-auto uk-flex-right uk-iconnav" style="flex-wrap: nowrap;">

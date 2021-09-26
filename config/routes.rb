@@ -94,8 +94,11 @@ Rails.application.routes.draw do
       scope module: 'trainings' do
         resources :workouts do
           scope module: 'workouts' do
-            resources :exercises, only: [:index, :show]
-            resources :exercise_workouts
+            resources :exercise_workouts do
+              member do
+                get :exercise
+              end
+            end
           end
         end
       end

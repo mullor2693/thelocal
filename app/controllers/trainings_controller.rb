@@ -2,6 +2,7 @@ class TrainingsController < ApplicationController
   add_breadcrumb "Home", :authenticated_root_path
   add_breadcrumb "Entrenamientos", :trainings_path, only: %i[ show edit]
   before_action :set_training, only: %i[ show edit update destroy ]
+  before_action :set_header_text, only: [:index]
 
   # GET /trainings or /trainings.json
   def index
@@ -62,6 +63,13 @@ class TrainingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_training
       @training = Training.find(params[:id])
+    end
+
+    def set_header_text
+      @header_text = "En esta seccion podras controlar tus entrenamientos, 
+                          creando rutinas de ejercicios especificas para tus objetivos. 
+                          También tendras acceso a las rutinas creadas por tu entrenador, 
+                          para que puedas revisarlas siempre que lo necesites."
     end
 
     # Only allow a list of trusted parameters through.

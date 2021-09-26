@@ -17,7 +17,7 @@
     </p>
 
     <% @exercise.examples.each do |example| %>
-      <%= image_tag example.variant(resize: "40x40!") %>
+      <%= format_image_tag(example) %>
     <% end %>
   </div>
 </div>

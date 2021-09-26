@@ -1,6 +1,7 @@
 class Trainings::Workouts::ExerciseWorkoutsController < Trainings::Workouts::ApplicationController
   before_action :set_user_exercise_workouts
-  before_action :set_exercise_workout, only: [:show, :edit, :update, :destroy]
+  before_action :set_exercise_workout, only: [:show, :edit, :update, :destroy, :exercise]
+  before_action :set_exercise, only: [:exercise]
 
   # GET /exercise_workouts
   # GET /exercise_workouts.json
@@ -64,6 +65,9 @@ class Trainings::Workouts::ExerciseWorkoutsController < Trainings::Workouts::App
     end
   end
 
+  def exercise
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_exercise_workouts
@@ -72,7 +76,12 @@ class Trainings::Workouts::ExerciseWorkoutsController < Trainings::Workouts::App
 
     def set_exercise_workout
       @exercise_workout = @exercise_workouts.find_by(id: params[:id])
-      redirect_to workouts_exercise_workouts_path(@workout), alert: 'Exercise workout not found on the workout.' if @exercise_workout.blank?
+      redirect_to training_workout_exercise_workouts(@training, @workout), alert: 'Exercise workout not found on the workout.' if @exercise_workout.blank?
+    end
+
+    def set_exercise
+      @exercise = @exercise_workout.exercise
+      redirect_to training_workout_exercise_workout(@training, @workout, @exercise), alert: 'Exercise workout not found on the workout.' if @exercise.blank?
     end
 
     # Only allow a list of trusted parameters through.

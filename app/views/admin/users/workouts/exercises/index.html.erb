@@ -15,7 +15,7 @@
       <tr>
         <td>
           <% if exercise.examples.attached? %>
-            <%= image_pack_tag exercise.examples.first.variant(resize: "40x40!") %>
+            <%= format_image_tag(exercise.examples.first) %>
           <% end %>
         </td>
         <td><%= exercise.name %></td>

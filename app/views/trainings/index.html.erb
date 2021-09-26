@@ -1,5 +1,7 @@
-<h1 class="uk-heading-divider">Mis Entrenamientos</h1>
-
+<h1 class="uk-heading-divider uk-text-center">Mis Entrenamientos</h1>
+<% if @header_text %>
+<div class="uk-margin"><p class="uk-text-center uk-text-meta"><%= @header_text %></p></div>
+<% end %>
 <ul class="uk-child-width-1-1 uk-text-center uk-margin" uk-grid uk-height-match="target: > li > a > .uk-card">
   <% if @trainings.any? %>
     <% @trainings.each do |training| %>
@@ -17,7 +19,11 @@
       </li>
     <%end%>
   <% else %>
-    <li><p>Aún no hay registros de entrenamientos, añada uno nuevo.</p></li>
+    <li>
+      <div class="uk-card uk-height-1-1 uk-card-secondary uk-card-body">
+        <p class="uk-text-center">Aún no hay registros de entrenamientos.</p>
+      </div>
+    </li>
   <% end %>
 </ul>
 
