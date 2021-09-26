@@ -37,13 +37,13 @@ b,strong{
 :not(pre)>code,:not(pre)>kbd,:not(pre)>samp{
     font-family:'Roboto Mono',monospace;
     font-size:12px;
-    color:#f0506e;
+    color:#f40000;
     white-space:nowrap;
     padding:2px 6px;
     background:#f8f8f8
 }
 em{
-    color:#f0506e
+    color:#f40000
 }
 ins{
     background:#ffd;
@@ -910,14 +910,14 @@ button.uk-icon:not(:disabled){
     line-height:53px
 }
 span.has-danger>input, .uk-form-danger,.uk-form-danger:focus {
-    color:#f0506e;
-    border-color:#f0506e;
+    color:#f40000;
+    border-color:#f40000;
     &::placeholder {
-        color: #f0506e;
+        color: #f40000;
         opacity: 1; 
       }
-    &:-ms-input-placeholder { color: #f0506e; }
-    &::-ms-input-placeholder { color: #f0506e; }
+    &:-ms-input-placeholder { color: #f40000; }
+    &::-ms-input-placeholder { color: #f40000; }
 }
 .uk-form-success,.uk-form-success:focus{
     color:#32d296;
@@ -1192,7 +1192,7 @@ select.uk-form-width-xsmall{
     color:#fff
 }
 .uk-button-danger{
-    background-color:#f0506e;
+    background-color:#f40000;
     color:#fff;
     border:1px solid transparent
 }
@@ -1834,7 +1834,7 @@ select.uk-form-width-xsmall{
 }
 .uk-alert-danger{
     background:#fef4f6;
-    color:#f0506e
+    color:#f40000
 }
 .uk-alert h1,.uk-alert h2,.uk-alert h3,.uk-alert h4,.uk-alert h5,.uk-alert h6{
     color:inherit
@@ -1899,7 +1899,7 @@ select.uk-form-width-xsmall{
     color:#fff
 }
 .uk-label-danger{
-    background-color:#f0506e;
+    background-color:#f40000;
     color:#fff
 }
 .uk-overlay{
@@ -2643,7 +2643,7 @@ select.uk-form-width-xsmall{
     color:#faa05a
 }
 .uk-notification-message-danger{
-    color:#f0506e
+    color:#f40000
 }
 .uk-tooltip{
     display:none;
@@ -4555,7 +4555,7 @@ ul.uk-nav-sub{
     color:#faa05a !important
 }
 .uk-text-danger{
-    color:#f0506e !important
+    color:#f40000 !important
 }
 .uk-text-background{
     background-clip:text;
@@ -6701,7 +6701,7 @@ h2,h3{
     color:#969896
 }
 .hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{
-    color:#f0506e
+    color:#f40000
 }
 .hljs-keyword,.hljs-selector-tag,.hljs-type{
     color:#1f34aa

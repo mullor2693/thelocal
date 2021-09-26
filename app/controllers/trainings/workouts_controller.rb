@@ -26,9 +26,9 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
     @workout.creator = @current_user
     if @workout.save
       UserWorkout.create(user: @current_user, workout: @workout)
-      redirect_to [@training, @workout], notice: 'Workout was successfully created.'
+      redirect_to [@training, @workout], notice: "Workout was successfully created."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +37,7 @@ class Trainings::WorkoutsController < Trainings::ApplicationController
     if @workout.update(workout_params)
       redirect_to [@training, @workout], notice: 'Workout was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

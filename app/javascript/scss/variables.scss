@@ -930,7 +930,7 @@ $alert-success-color: $global-success-background !default;
 $global-warning-background: #faa05a !default;
 $alert-warning-background: lighten(mix(white, $global-warning-background, 45%), 15%) !default;
 $alert-warning-color: $global-warning-background !default;
-$global-danger-background: #f0506e !default;
+$global-danger-background: #f40000 !default;
 $alert-danger-background: lighten(mix(white, $global-danger-background, 40%), 20%) !default;
 $alert-danger-color: $global-danger-background !default;
 $global-gutter: 30px !default;
