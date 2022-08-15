@@ -13,6 +13,8 @@ class Exercise < ApplicationRecord
     validates :name, presence: true
     validates :name, uniqueness: true
 
+    self.per_page = 10
+    
     def self.category_list
         self.all.map(&:category_list).flatten.uniq
     end

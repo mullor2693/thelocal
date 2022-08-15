@@ -7,7 +7,13 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
   def index
     @q = Exercise.ransack(params[:q])
-    @exercises = @q.result(distinct: true).order(:name)
+    @exercises = @q.result(distinct: true)
+      .paginate(page: params[:page], per_page: 15)
+      .order(:name)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /exercises/1

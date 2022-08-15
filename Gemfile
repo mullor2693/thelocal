@@ -88,3 +88,5 @@ gem 'acts-as-taggable-on'
 
 # Nested forms
 gem "cocoon"
+
+gem 'will_paginate'
